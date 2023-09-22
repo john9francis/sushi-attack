@@ -1,4 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://cn5affxsrvpyq"]
+[gd_scene load_steps=3 format=3 uid="uid://cn5affxsrvpyq"]
+
+[ext_resource type="PackedScene" uid="uid://dbbij5u3up0gx" path="res://scripts/enemy.tscn" id="1_7wi6w"]
 
 [sub_resource type="Curve2D" id="Curve2D_joiln"]
 _data = {
@@ -10,3 +12,5 @@ point_count = 13
 
 [node name="EnemyPath" type="Path2D" parent="."]
 curve = SubResource("Curve2D_joiln")
+
+[node name="Enemy" parent="EnemyPath" instance=ExtResource("1_7wi6w")]
