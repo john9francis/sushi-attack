@@ -14,3 +14,5 @@ point_count = 13
 curve = SubResource("Curve2D_joiln")
 
 [node name="Enemy" parent="EnemyPath" instance=ExtResource("1_7wi6w")]
+position = Vector2(171, 3)
+rotation = 1.24755

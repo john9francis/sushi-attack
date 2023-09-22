@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://dbbij5u3up0gx"]
+[gd_scene load_steps=3 format=3 uid="uid://dbbij5u3up0gx"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_i1hxe"]
+[ext_resource type="Texture2D" uid="uid://cnrutnsh2ewnh" path="res://icon.svg" id="1_isxkv"]
+[ext_resource type="Script" path="res://scripts/enemy.gd" id="1_x5ahs"]
 
-[node name="Enemy" type="Area2D"]
+[node name="Enemy" type="PathFollow2D"]
+script = ExtResource("1_x5ahs")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_i1hxe")
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_isxkv")
