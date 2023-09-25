@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cn5affxsrvpyq"]
+[gd_scene load_steps=5 format=3 uid="uid://cn5affxsrvpyq"]
 
 [ext_resource type="PackedScene" uid="uid://dbbij5u3up0gx" path="res://scripts/enemy.tscn" id="1_7wi6w"]
+[ext_resource type="Script" path="res://scripts/level.gd" id="1_m3pcb"]
+[ext_resource type="Script" path="res://scripts/EnemySpawnTimer.gd" id="2_wq042"]
 
 [sub_resource type="Curve2D" id="Curve2D_joiln"]
 _data = {
@@ -9,10 +11,14 @@ _data = {
 point_count = 13
 
 [node name="Level" type="Node2D"]
+script = ExtResource("1_m3pcb")
+enemyScene = ExtResource("1_7wi6w")
 
 [node name="EnemyPath" type="Path2D" parent="."]
 curve = SubResource("Curve2D_joiln")
 
-[node name="Enemy" parent="EnemyPath" instance=ExtResource("1_7wi6w")]
-position = Vector2(171, 3)
-rotation = 1.24755
+[node name="EnemySpawnTimer" type="Timer" parent="."]
+wait_time = 2.0
+script = ExtResource("2_wq042")
+
+[connection signal="timeout" from="EnemySpawnTimer" to="." method="_on_enemy_spawn_timer_timeout"]
