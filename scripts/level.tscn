@@ -26,15 +26,15 @@ curve = SubResource("Curve2D_joiln")
 wait_time = 2.0
 script = ExtResource("2_wq042")
 
-[node name="EnemyDestination" type="Area2D" parent="."]
-position = Vector2(250, 1000)
+[node name="EnemyDestination" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyDestination"]
+position = Vector2(250, 1000)
 shape = SubResource("RectangleShape2D_xqtni")
 
 [node name="Sprite2D" type="Sprite2D" parent="EnemyDestination"]
+position = Vector2(250, 1000)
 scale = Vector2(198.5, 113.5)
 texture = SubResource("CanvasTexture_0obql")
 
 [connection signal="timeout" from="EnemySpawnTimer" to="." method="_on_enemy_spawn_timer_timeout"]
-[connection signal="body_entered" from="EnemyDestination" to="." method="_on_enemy_destination_body_entered"]
