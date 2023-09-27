@@ -5,6 +5,7 @@ extends Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$EnemySpawnTimer.start()
+	$EnemyDestination.show()
 	pass # Replace with function body.
 
 
@@ -16,3 +17,10 @@ func _process(_delta):
 func _on_enemy_spawn_timer_timeout():
 	var enemy = enemyScene.instantiate()
 	$EnemyPath.add_child(enemy)
+
+
+func _on_enemy_destination_body_entered(body):
+	print("Enemy made it to the end!")
+	
+	# delete the mob
+	body.queue_free()
