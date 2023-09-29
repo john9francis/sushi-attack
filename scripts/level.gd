@@ -7,7 +7,7 @@ var singleEnemy = true # For debugging, only spawning one enemy
 func _ready():
 	$EnemySpawnTimer.start()
 	print("Started")
-	pass # Replace with function body.
+
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -21,3 +21,6 @@ func _on_enemy_spawn_timer_timeout():
 		$EnemyPath.add_child(enemy)
 		singleEnemy = false
 
+
+func _on_enemy_destination_area_entered(area):
+	print("Enemy area arrived")
