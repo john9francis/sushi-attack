@@ -1,7 +1,7 @@
 extends Node2D
 
 @export var enemyScene: PackedScene
-var singleEnemy = true # For debugging, only spawning one enemy
+var multipleEnemies = true # For debugging, only spawning one enemy
 
 var points = 0
 
@@ -20,12 +20,12 @@ func _process(_delta):
 
 
 func _on_enemy_spawn_timer_timeout():
-	if (singleEnemy):
+	if (multipleEnemies):
 		var enemy = enemyScene.instantiate()
 		$EnemyPath.add_child(enemy)
 		enemyList.append(enemy)
 		
-		singleEnemy = false
+		#singleEnemy = false
 
 
 func _on_enemy_destination_area_entered(area):
