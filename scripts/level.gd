@@ -32,7 +32,4 @@ func _on_enemy_destination_area_entered(area):
 	# note: 'area' refers to the enemydestination
 	points += 1
 	print(points)
-	
-	# kill the first enemy created
-	enemyList[0].queue_free()
 
