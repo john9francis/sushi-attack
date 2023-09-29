@@ -3,6 +3,10 @@ extends Node2D
 @export var enemyScene: PackedScene
 var singleEnemy = true # For debugging, only spawning one enemy
 
+var points = 0
+
+var enemyList = []
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$EnemySpawnTimer.start()
@@ -19,8 +23,16 @@ func _on_enemy_spawn_timer_timeout():
 	if (singleEnemy):
 		var enemy = enemyScene.instantiate()
 		$EnemyPath.add_child(enemy)
+		enemyList.append(enemy)
+		
 		singleEnemy = false
 
 
 func _on_enemy_destination_area_entered(area):
-	print("Enemy area arrived")
+	# note: 'area' refers to the enemydestination
+	points += 1
+	print(points)
+	
+	# kill the first enemy created
+	enemyList[0].queue_free()
+
