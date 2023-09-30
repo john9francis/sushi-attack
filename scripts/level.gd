@@ -11,6 +11,22 @@ var points = 0
 var enemyList = []
 var pathFollowList = []
 
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	$EnemySpawnTimer.start()
+	print("Started")
+
+	set_up_towers()
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(_delta):
+	# Make the enemies advance
+	pass
+	
+	
 func set_up_towers():
 	# Set up tower platforms
 	var p1 = towerPlatformScene.instantiate()
@@ -30,20 +46,6 @@ func set_up_towers():
 	add_child(p3)
 	add_child(p4)
 	add_child(p5)
-	
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	$EnemySpawnTimer.start()
-	print("Started")
-
-	set_up_towers()
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	# Make the enemies advance
-	pass
 
 
 func _on_enemy_spawn_timer_timeout():
@@ -54,7 +56,6 @@ func _on_enemy_spawn_timer_timeout():
 		
 		$EnemyPath.add_child(pathFollow)
 		pathFollow.add_child(enemy)
-		
 		
 		#multipleEnemies = false
 
