@@ -43,31 +43,39 @@ func _process(_delta):
 	# Make the enemies advance
 	for entry in pathFollowList:
 		var path = entry[0]
-		var speed = entry[1]
+		var enemy = entry[1]
 		
-		path.progress += speed
+		path.progress += enemy.speed
 	pass
 
 
 func _on_enemy_spawn_timer_timeout():
 	if (multipleEnemies):
 		var enemy = enemyScene.instantiate()
-		#$EnemyPath.add_child(enemy)
 		var pathFollow = PathFollow2D.new()
 		pathFollow.add_child(enemy)
 	
 		$EnemyPath.add_child(pathFollow)
 		
-		# Add to the pathFollowList a tuple of the enemy and it's speed
-		var enemySpeed = enemy.speed
-		pathFollowList.append([pathFollow,enemySpeed])
+		# Add to the pathFollowList a tuple of the path and it's enemy
+		pathFollowList.append([pathFollow,enemy])
 		#multipleEnemies = false
 
 
 func _on_enemy_destination_area_entered(area):
-	# note: 'area' refers to the enemydestination
+	# "area" refers to the enemies
 	points += 1
 	print(points)
+	
+	# find the pathfollow and free it
+	for entry in pathFollowList:
+		var path = entry[0]
+		var enemy = entry[1]
+		
+		if enemy == area:
+			print("kill path")
+			path.queue_free()
+			break
 	area.queue_free()
 	
 	

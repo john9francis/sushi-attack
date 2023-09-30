@@ -1,4 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://djnu4nstia70d"]
+[gd_scene load_steps=4 format=3 uid="uid://djnu4nstia70d"]
+
+[ext_resource type="Script" path="res://scripts/ss_tower.gd" id="1_ket2d"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2a3g2"]
 radius = 179.025
@@ -6,6 +8,7 @@ radius = 179.025
 [sub_resource type="CanvasTexture" id="CanvasTexture_6dy65"]
 
 [node name="SSTower" type="Area2D"]
+script = ExtResource("1_ket2d")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_2a3g2")
@@ -15,3 +18,5 @@ modulate = Color(0.00392157, 0.164706, 0.0470588, 0.396078)
 position = Vector2(4.76837e-06, 0)
 scale = Vector2(360, 353)
 texture = SubResource("CanvasTexture_6dy65")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
