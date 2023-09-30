@@ -1,4 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://c8tq0ppoe2tb0"]
+[gd_scene load_steps=5 format=3 uid="uid://c8tq0ppoe2tb0"]
+
+[ext_resource type="Script" path="res://scripts/towerPlatform.gd" id="1_2l6tq"]
+[ext_resource type="Script" path="res://scripts/TowerGUI.gd" id="1_bootn"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2bija"]
 radius = 62.3939
@@ -6,6 +9,7 @@ radius = 62.3939
 [sub_resource type="CanvasTexture" id="CanvasTexture_yabk0"]
 
 [node name="towerPlatform" type="Area2D"]
+script = ExtResource("1_2l6tq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_2bija")
@@ -20,6 +24,7 @@ offset_left = -108.0
 offset_top = -94.0
 offset_right = 111.0
 offset_bottom = 90.0
+script = ExtResource("1_bootn")
 
 [node name="Button" type="Button" parent="TowerGUI"]
 layout_mode = 2
