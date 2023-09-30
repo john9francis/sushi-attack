@@ -15,7 +15,7 @@ func _process(delta):
 
 func _on_area_entered(area):
 	if area.is_in_group("Enemies"):
-		area.reduce_speed(5)
+		area.multiply_speed(.5)
 		
 	pass # Replace with function body.
 
@@ -24,5 +24,5 @@ func _on_area_entered(area):
 
 func _on_area_exited(area):
 	if area.is_in_group("Enemies"):
-		area.add_speed(5)
+		area.multiply_speed(2)
 	pass # Replace with function body.

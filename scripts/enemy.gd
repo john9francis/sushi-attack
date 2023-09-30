@@ -33,11 +33,23 @@ func reduce_speed(s):
 	currentSpeed -= s
 	myPathFollow.set_speed(currentSpeed)
 	pass
+
 	
 func add_speed(s):
 	currentSpeed += s
 	myPathFollow.set_speed(currentSpeed)
 	
+	
+func multiply_speed(s):
+	currentSpeed *= s
+	myPathFollow.set_speed(currentSpeed)
+	
+
+func divide_speed(s):
+	currentSpeed /= s
+	myPathFollow.set_speed(currentSpeed)
+	
+		
 func resume_speed():
 	currentSpeed = speed
 	myPathFollow.set_speed(currentSpeed)
