@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://c8tq0ppoe2tb0"]
+[gd_scene load_steps=7 format=3 uid="uid://c8tq0ppoe2tb0"]
 
 [ext_resource type="Script" path="res://scripts/towerPlatform.gd" id="1_2l6tq"]
 [ext_resource type="PackedScene" uid="uid://bul6um5k465t1" path="res://scripts/cs_tower.tscn" id="2_vk3ja"]
 [ext_resource type="PackedScene" uid="uid://djnu4nstia70d" path="res://scripts/ss_tower.tscn" id="2_yr7cu"]
+[ext_resource type="PackedScene" uid="uid://biyqmibg8ipx5" path="res://scripts/g_tower.tscn" id="4_5qglf"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4g0tv"]
 radius = 114.018
@@ -13,6 +14,7 @@ radius = 114.018
 script = ExtResource("1_2l6tq")
 CSTower = ExtResource("2_vk3ja")
 SSTower = ExtResource("2_yr7cu")
+GTower = ExtResource("4_5qglf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(5, 2)
@@ -66,3 +68,4 @@ text = "Wasabi
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
 [connection signal="pressed" from="TowerGUI/CSButton" to="." method="_on_cs_button_pressed"]
 [connection signal="pressed" from="TowerGUI/SSButton" to="." method="_on_ss_button_pressed"]
+[connection signal="pressed" from="TowerGUI/GButton" to="." method="_on_g_button_pressed"]

@@ -41,3 +41,11 @@ func _on_cs_button_pressed():
 	$TowerGUI.queue_free()
 	var csTower = CSTower.instantiate()
 	add_child(csTower)
+
+
+
+
+func _on_g_button_pressed():
+	$TowerGUI.queue_free()
+	var gTower = GTower.instantiate()
+	add_child(gTower)

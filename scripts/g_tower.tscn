@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://biyqmibg8ipx5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ic12a"]
+radius = 183.044
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_mg38n"]
+
+[node name="g_tower" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ic12a")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 0.117647, 1, 0.431373)
+scale = Vector2(267.625, 252.125)
+texture = SubResource("CanvasTexture_mg38n")
