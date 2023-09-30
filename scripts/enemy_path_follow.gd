@@ -1,21 +1,18 @@
-extends Area2D
+extends PathFollow2D
 
+var speed = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	progress = 0
 	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	progress += speed
 	pass
-
-
-
-
-func _on_area_entered(area):
-	if area.is_in_group("Enemies"):
-		print("Enemy entered soy sauce")
-		area.set_speed(2)
-	pass # Replace with function body.
-
+	
+	
+func set_speed(s):
+	speed = s

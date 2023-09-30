@@ -47,10 +47,14 @@ func _process(_delta):
 
 
 func _on_enemy_spawn_timer_timeout():
+	# spawn enemy
 	if (multipleEnemies):
 		var enemy = enemyScene.instantiate()
-		var pathFollow = $EnemyPath/EnemyPathFollow
+		var pathFollow = enemy.get_path_follow()
+		
+		$EnemyPath.add_child(pathFollow)
 		pathFollow.add_child(enemy)
+		
 		
 		#multipleEnemies = false
 
