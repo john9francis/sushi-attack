@@ -1,4 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://biyqmibg8ipx5"]
+[gd_scene load_steps=5 format=3 uid="uid://biyqmibg8ipx5"]
+
+[ext_resource type="Script" path="res://scripts/g_tower.gd" id="1_w6y11"]
+[ext_resource type="PackedScene" uid="uid://gxkfd3lkutma" path="res://scripts/bullet.tscn" id="2_uk5rj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ic12a"]
 radius = 271.066
@@ -6,6 +9,8 @@ radius = 271.066
 [sub_resource type="CanvasTexture" id="CanvasTexture_mg38n"]
 
 [node name="g_tower" type="Area2D"]
+script = ExtResource("1_w6y11")
+BulletScene = ExtResource("2_uk5rj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_ic12a")

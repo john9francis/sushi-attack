@@ -1,8 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://gxkfd3lkutma"]
+[gd_scene load_steps=3 format=3 uid="uid://gxkfd3lkutma"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_67ccu"]
+radius = 21.587
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_0l5pe"]
 
 [node name="Bullet" type="RigidBody2D"]
+mass = 0.28
+gravity_scale = 0.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_67ccu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(32.25, 28.25)
+texture = SubResource("CanvasTexture_0l5pe")
