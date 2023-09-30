@@ -35,6 +35,8 @@ func _on_mouse_exited():
 
 func _on_ss_button_pressed():
 	# Get rid of the tower gui
-	$TowerGUI.hide()
+	$TowerGUI.queue_free()
+	
+	# Add a tower as a child
 	
 	pass # Replace with function body.

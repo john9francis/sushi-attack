@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://c8tq0ppoe2tb0"]
+[gd_scene load_steps=5 format=3 uid="uid://c8tq0ppoe2tb0"]
 
 [ext_resource type="Script" path="res://scripts/towerPlatform.gd" id="1_2l6tq"]
+[ext_resource type="PackedScene" uid="uid://djnu4nstia70d" path="res://scripts/ss_tower.tscn" id="2_yr7cu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4g0tv"]
 radius = 114.018
@@ -9,6 +10,7 @@ radius = 114.018
 
 [node name="towerPlatform" type="Area2D"]
 script = ExtResource("1_2l6tq")
+SSTower = ExtResource("2_yr7cu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(5, 2)
