@@ -17,9 +17,11 @@ func _ready():
 func _process(delta):
 	if Input.is_action_pressed("Click"):
 		if mouse_in_tower:
-			$TowerGUI.show()
+			if $TowerGUI:
+				$TowerGUI.show()
 		else:
-			$TowerGUI.hide()
+			if $TowerGUI:
+				$TowerGUI.hide()
 	pass
 
 
