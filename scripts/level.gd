@@ -41,8 +41,11 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	# Make the enemies advance
-	for path in pathFollowList:
-		path.progress += 5
+	for entry in pathFollowList:
+		var path = entry[0]
+		var speed = entry[1]
+		
+		path.progress += speed
 	pass
 
 
@@ -55,7 +58,9 @@ func _on_enemy_spawn_timer_timeout():
 	
 		$EnemyPath.add_child(pathFollow)
 		
-		pathFollowList.append(pathFollow)
+		# Add to the pathFollowList a tuple of the enemy and it's speed
+		var enemySpeed = enemy.speed
+		pathFollowList.append([pathFollow,enemySpeed])
 		#multipleEnemies = false
 
 

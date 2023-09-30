@@ -11,6 +11,7 @@ radius = 179.025
 shape = SubResource("CircleShape2D_2a3g2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0.00392157, 0.164706, 0.0470588, 1)
-scale = Vector2(176.5, 157.5)
+modulate = Color(0.00392157, 0.164706, 0.0470588, 0.396078)
+position = Vector2(4.76837e-06, 0)
+scale = Vector2(360, 353)
 texture = SubResource("CanvasTexture_6dy65")
