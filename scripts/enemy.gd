@@ -1,6 +1,7 @@
 extends Area2D
 
-@export var speed = 10
+const speed = 10
+var currentSpeed = 10
 @export var myPathFollowScene: PackedScene
 
 var myPathFollow
@@ -18,19 +19,26 @@ func _process(_delta):
 	
 
 func set_speed(s):
-	myPathFollow.set_speed(s)
+	currentSpeed = s
+	myPathFollow.set_speed(currentSpeed)
 	print("Speed reduced")
 
 func get_path_follow():
 	myPathFollow = myPathFollowScene.instantiate()
-	myPathFollow.set_speed(10)
+	myPathFollow.set_speed(currentSpeed)
 	return myPathFollow
 
 func reduce_speed(s):
 	# reduces speed by subtracting 's'
-	myPathFollow.set_speed(speed - s)
+	currentSpeed -= s
+	myPathFollow.set_speed(currentSpeed)
 	pass
 	
+func add_speed(s):
+	currentSpeed += s
+	myPathFollow.set_speed(currentSpeed)
+	
 func resume_speed():
-	myPathFollow.set_speed(speed)
+	currentSpeed = speed
+	myPathFollow.set_speed(currentSpeed)
 	pass

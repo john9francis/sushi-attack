@@ -24,5 +24,5 @@ func _on_area_entered(area):
 
 func _on_area_exited(area):
 	if area.is_in_group("Enemies"):
-		area.resume_speed()
+		area.add_speed(5)
 	pass # Replace with function body.

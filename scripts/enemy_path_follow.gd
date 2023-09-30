@@ -11,6 +11,9 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	progress += speed
+	
+	if speed == 0:
+		speed = 1
 	pass
 	
 	
