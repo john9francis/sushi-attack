@@ -25,3 +25,12 @@ func get_path_follow():
 	myPathFollow = myPathFollowScene.instantiate()
 	myPathFollow.set_speed(10)
 	return myPathFollow
+
+func reduce_speed(s):
+	# reduces speed by subtracting 's'
+	myPathFollow.set_speed(speed - s)
+	pass
+	
+func resume_speed():
+	myPathFollow.set_speed(speed)
+	pass

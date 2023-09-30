@@ -15,7 +15,13 @@ func _process(delta):
 
 func _on_area_entered(area):
 	if area.is_in_group("Enemies"):
-		print("Enemy entered soy sauce")
-		area.set_speed(2)
+		area.reduce_speed(5)
 	pass # Replace with function body.
 
+
+
+
+func _on_area_exited(area):
+	if area.is_in_group("Enemies"):
+		area.resume_speed()
+	pass # Replace with function body.
