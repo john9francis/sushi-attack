@@ -21,11 +21,13 @@ func _process(delta):
 
 func _on_shoot_timer_timeout():
 	# Get where the enemy currently is
+	var enemyPos = tracker.get_target_pos()
+	var direction = (enemyPos - global_position).normalized()
 	
 	# Create a bullet and shoot it 
 	var bullet = BulletScene.instantiate()
 	bullet.position = position
-	bullet.linear_velocity = Vector2(100,0)
+	bullet.linear_velocity = direction * 800
 	
 	add_child(bullet)
 	
