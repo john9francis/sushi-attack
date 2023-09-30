@@ -15,7 +15,6 @@ func _ready():
 func _process(delta):
 	if areaExists:
 		currentPosition = areaToTrack.global_position
-		print(currentPosition)
 
 
 func set_area(area):
