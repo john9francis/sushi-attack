@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://cn5affxsrvpyq"]
+[gd_scene load_steps=8 format=3 uid="uid://cn5affxsrvpyq"]
 
 [ext_resource type="PackedScene" uid="uid://dbbij5u3up0gx" path="res://scripts/enemy.tscn" id="1_7wi6w"]
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_m3pcb"]
 [ext_resource type="Script" path="res://scripts/EnemySpawnTimer.gd" id="2_wq042"]
+[ext_resource type="PackedScene" uid="uid://c8tq0ppoe2tb0" path="res://scripts/towerPlatform.tscn" id="4_5h04q"]
 
 [sub_resource type="Curve2D" id="Curve2D_joiln"]
 _data = {
@@ -37,6 +38,9 @@ modulate = Color(1, 0, 1, 1)
 position = Vector2(250, 1000)
 scale = Vector2(198.5, 113.5)
 texture = SubResource("CanvasTexture_o4s4o")
+
+[node name="towerPlatform" parent="." instance=ExtResource("4_5h04q")]
+position = Vector2(539, 476)
 
 [connection signal="timeout" from="EnemySpawnTimer" to="." method="_on_enemy_spawn_timer_timeout"]
 [connection signal="area_entered" from="EnemyDestination" to="." method="_on_enemy_destination_area_entered"]

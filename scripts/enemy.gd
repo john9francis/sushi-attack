@@ -16,7 +16,6 @@ func _process(_delta):
 
 
 func _on_area_2d_area_entered(area):
-	# if this is the destination, delete this 
-	#if (area.get_instance_id())
-	print(area.get_instance_id())
-	queue_free()
+	# if this is the enemyDestination, delete this 
+	if (area.get_instance_id() == 24847058072):
+		queue_free()

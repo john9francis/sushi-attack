@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8tq0ppoe2tb0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2bija"]
+radius = 62.3939
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_yabk0"]
+
+[node name="towerPlatform" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_2bija")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, 5.5)
+scale = Vector2(100, 93)
+texture = SubResource("CanvasTexture_yabk0")
