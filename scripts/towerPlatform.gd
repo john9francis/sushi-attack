@@ -32,6 +32,12 @@ func _on_mouse_exited():
 func _on_ss_button_pressed():
 	# Get rid of the tower gui
 	$TowerGUI.queue_free()
-	var ss_tower = SSTower.instantiate()
-	add_child(ss_tower)
-	
+	var ssTower = SSTower.instantiate()
+	add_child(ssTower)
+
+
+
+func _on_cs_button_pressed():
+	$TowerGUI.queue_free()
+	var csTower = CSTower.instantiate()
+	add_child(csTower)
