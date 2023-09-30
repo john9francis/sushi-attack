@@ -1,7 +1,7 @@
 extends Area2D
 
-const speed = 10
-var currentSpeed = 10
+const speed = 5
+var currentSpeed = 5
 @export var myPathFollowScene: PackedScene
 var myPathFollow
 
