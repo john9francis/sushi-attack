@@ -18,12 +18,11 @@ func _ready():
 	$EnemySpawnTimer.start()
 	print("Started")
 
-	#set_up_towers()
+	set_up_towers()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	# Make the enemies advance
 	pass
 	
 	

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://biyqmibg8ipx5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ic12a"]
-radius = 183.044
+radius = 271.066
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_mg38n"]
 
@@ -12,5 +12,7 @@ shape = SubResource("CircleShape2D_ic12a")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(1, 0.117647, 1, 0.431373)
-scale = Vector2(267.625, 252.125)
+scale = Vector2(410.813, 382.063)
 texture = SubResource("CanvasTexture_mg38n")
+
+[node name="ShootTimer" type="Timer" parent="."]
