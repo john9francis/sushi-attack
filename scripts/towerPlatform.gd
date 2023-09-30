@@ -2,6 +2,11 @@ extends Area2D
 
 var mouse_in_tower = false
 
+@export var CSTower : PackedScene
+@export var SSTower : PackedScene
+@export var GTower : PackedScene
+@export var WTower : PackedScene
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$TowerGUI.hide()
@@ -25,4 +30,11 @@ func _on_mouse_entered():
 
 func _on_mouse_exited():
 	mouse_in_tower = false
+	pass # Replace with function body.
+
+
+func _on_ss_button_pressed():
+	# Get rid of the tower gui
+	$TowerGUI.hide()
+	
 	pass # Replace with function body.
