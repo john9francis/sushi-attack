@@ -1,6 +1,7 @@
 extends Node2D
 
 @export var enemyScene: PackedScene
+@export var towerPlatformScene: PackedScene
 var multipleEnemies = true # For debugging, only spawning one enemy
 
 var points = 0
@@ -12,11 +13,31 @@ var pathFollowList = []
 func _ready():
 	$EnemySpawnTimer.start()
 	print("Started")
+	
+	# Set up tower platforms
+	var p1 = towerPlatformScene.instantiate()
+	var p2 = towerPlatformScene.instantiate()
+	var p3 = towerPlatformScene.instantiate()
+	var p4 = towerPlatformScene.instantiate()
+	var p5 = towerPlatformScene.instantiate()
+	
+	p1.position = Vector2(100, 250)
+	p2.position = Vector2(400, 450)
+	p3.position = Vector2(600, 500)
+	p4.position = Vector2(500, 850)
+	p5.position = Vector2(800, 820)
+	
+	add_child(p1)
+	add_child(p2)
+	add_child(p3)
+	add_child(p4)
+	add_child(p5)
 
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
+	# Make the enemies advance
 	for path in pathFollowList:
 		path.progress += 5
 	pass
