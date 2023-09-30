@@ -9,11 +9,7 @@ var points = 0
 var enemyList = []
 var pathFollowList = []
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	$EnemySpawnTimer.start()
-	print("Started")
-	
+func set_up_towers():
 	# Set up tower platforms
 	var p1 = towerPlatformScene.instantiate()
 	var p2 = towerPlatformScene.instantiate()
@@ -32,6 +28,14 @@ func _ready():
 	add_child(p3)
 	add_child(p4)
 	add_child(p5)
+	
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	$EnemySpawnTimer.start()
+	print("Started")
+	
+	set_up_towers()
 
 
 
