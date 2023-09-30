@@ -34,8 +34,7 @@ func set_up_towers():
 func _ready():
 	$EnemySpawnTimer.start()
 	print("Started")
-	
-	set_up_towers()
+
 
 
 

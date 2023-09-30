@@ -14,3 +14,17 @@ shape = SubResource("CircleShape2D_2bija")
 position = Vector2(1, 5.5)
 scale = Vector2(100, 93)
 texture = SubResource("CanvasTexture_yabk0")
+
+[node name="TowerGUI" type="VBoxContainer" parent="."]
+offset_left = -108.0
+offset_top = -94.0
+offset_right = 111.0
+offset_bottom = 90.0
+
+[node name="Button" type="Button" parent="TowerGUI"]
+layout_mode = 2
+text = "Chopsticks"
+
+[node name="Button2" type="Button" parent="TowerGUI"]
+layout_mode = 2
+text = "Soy Sauce"
