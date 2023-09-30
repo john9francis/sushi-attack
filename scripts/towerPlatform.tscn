@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://scripts/TowerGUI.gd" id="1_bootn"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2bija"]
-radius = 62.3939
+radius = 109.018
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_yabk0"]
 
@@ -33,3 +33,6 @@ text = "Chopsticks"
 [node name="Button2" type="Button" parent="TowerGUI"]
 layout_mode = 2
 text = "Soy Sauce"
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
