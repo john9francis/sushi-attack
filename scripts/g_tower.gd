@@ -7,7 +7,6 @@ var tracker
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$ShootTimer.start()
 	tracker = TrackerScene.instantiate()
 	add_child(tracker)
 	pass # Replace with function body.
@@ -21,6 +20,8 @@ func _process(delta):
 
 
 func _on_shoot_timer_timeout():
+	# Get where the enemy currently is
+	
 	# Create a bullet and shoot it 
 	var bullet = BulletScene.instantiate()
 	bullet.position = position
@@ -34,6 +35,7 @@ func _on_shoot_timer_timeout():
 
 func _on_area_entered(area):
 	if area.is_in_group("Enemies"):
+		$ShootTimer.start()	
 		tracker.set_area(area)
 	pass # Replace with function body.
 	
@@ -43,5 +45,6 @@ func _on_area_entered(area):
 
 func _on_area_exited(area):
 	if area.is_in_group("Enemies"):
+		$ShootTimer.stop()
 		tracker.unset_area()
 	pass # Replace with function body.
