@@ -35,7 +35,7 @@ func _ready():
 	$EnemySpawnTimer.start()
 	print("Started")
 
-
+	#set_up_towers()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

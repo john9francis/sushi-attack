@@ -1,7 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://c8tq0ppoe2tb0"]
+[gd_scene load_steps=4 format=3 uid="uid://c8tq0ppoe2tb0"]
 
 [ext_resource type="Script" path="res://scripts/towerPlatform.gd" id="1_2l6tq"]
-[ext_resource type="Script" path="res://scripts/TowerGUI.gd" id="1_bootn"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2bija"]
 radius = 109.018
@@ -19,20 +18,44 @@ position = Vector2(1, 5.5)
 scale = Vector2(100, 93)
 texture = SubResource("CanvasTexture_yabk0")
 
-[node name="TowerGUI" type="VBoxContainer" parent="."]
-offset_left = -108.0
-offset_top = -94.0
-offset_right = 111.0
-offset_bottom = 90.0
-script = ExtResource("1_bootn")
+[node name="TowerGUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [node name="Button" type="Button" parent="TowerGUI"]
-layout_mode = 2
-text = "Chopsticks"
+layout_mode = 0
+offset_left = -104.0
+offset_top = -124.0
+offset_right = -7.0
+offset_bottom = -57.0
+text = "Chop Sticks"
 
 [node name="Button2" type="Button" parent="TowerGUI"]
 layout_mode = 2
+offset_left = 18.0
+offset_top = -81.0
+offset_right = 117.0
+offset_bottom = -5.0
 text = "Soy Sauce"
+
+[node name="Button3" type="Button" parent="TowerGUI"]
+layout_mode = 2
+offset_left = -107.0
+offset_top = -7.0
+offset_right = -9.0
+offset_bottom = 67.0
+text = "Ginger"
+
+[node name="Button4" type="Button" parent="TowerGUI"]
+layout_mode = 2
+offset_left = 23.0
+offset_top = 38.0
+offset_right = 112.0
+offset_bottom = 110.0
+text = "Wasabi
+"
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

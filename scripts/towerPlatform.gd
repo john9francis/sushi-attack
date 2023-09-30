@@ -4,6 +4,7 @@ var mouse_in_tower = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$TowerGUI.hide()
 	pass # Replace with function body.
 
 
