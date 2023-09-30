@@ -38,5 +38,6 @@ func _on_ss_button_pressed():
 	$TowerGUI.queue_free()
 	
 	# Add a tower as a child
+	var ss_tower = SSTower.instantiate()
+	add_child(ss_tower)
 	
-	pass # Replace with function body.
