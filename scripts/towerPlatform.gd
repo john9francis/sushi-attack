@@ -2,10 +2,10 @@ extends Area2D
 
 var mouse_in_tower = false
 
-@export var CSTower : PackedScene
-@export var SSTower : PackedScene
-@export var GTower : PackedScene
-@export var WTower : PackedScene
+@export var CSTowerScene : PackedScene
+@export var SSTowerScene : PackedScene
+@export var GTowerScene : PackedScene
+@export var WTowerScene : PackedScene
 
 func _ready():
 	$TowerGUI.hide()
@@ -32,14 +32,14 @@ func _on_mouse_exited():
 func _on_ss_button_pressed():
 	# Get rid of the tower gui
 	$TowerGUI.queue_free()
-	var ssTower = SSTower.instantiate()
+	var ssTower = SSTowerScene.instantiate()
 	add_child(ssTower)
 
 
 
 func _on_cs_button_pressed():
 	$TowerGUI.queue_free()
-	var csTower = CSTower.instantiate()
+	var csTower = CSTowerScene.instantiate()
 	add_child(csTower)
 
 
@@ -47,5 +47,11 @@ func _on_cs_button_pressed():
 
 func _on_g_button_pressed():
 	$TowerGUI.queue_free()
-	var gTower = GTower.instantiate()
+	var gTower = GTowerScene.instantiate()
 	add_child(gTower)
+
+
+func _on_w_button_pressed():
+	$TowerGUI.queue_free()
+	var wTower = WTowerScene.instantiate()
+	add_child(wTower)
