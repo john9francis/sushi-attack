@@ -32,7 +32,7 @@ func _on_area_exited(area):
 
 
 func _on_shoot_timer_timeout():
-	var enemyGlobalPosition = tracker.get_target_pos()
+	var enemyGlobalPosition = tracker.get_target_future_pos()
 	var enemyLocalPosition = to_local(enemyGlobalPosition)
 	
 	var explosion = ExplosionScene.instantiate()
