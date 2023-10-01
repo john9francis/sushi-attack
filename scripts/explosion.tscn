@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cni2vyt8g032r"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8rhq5"]
+radius = 94.1488
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_55j28"]
+
+[node name="Explosion" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_8rhq5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.517647, 1, 0.0588235, 0.454902)
+scale = Vector2(131.75, 133.25)
+texture = SubResource("CanvasTexture_55j28")
