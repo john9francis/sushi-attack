@@ -3,6 +3,7 @@ extends Node
 var areaToTrack
 var areaExists
 
+var pastPosition
 var currentPosition
 
 # Called when the node enters the scene tree for the first time.
@@ -14,6 +15,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if areaExists:
+		pastPosition = currentPosition
 		currentPosition = areaToTrack.global_position
 
 
@@ -28,3 +30,11 @@ func unset_area():
 	
 func get_target_pos():
 	return currentPosition
+	
+func get_target_future_pos():
+	if !pastPosition:
+		return currentPosition
+
+	var velocity = currentPosition - pastPosition
+	var futurePos = currentPosition + velocity
+	return futurePos
