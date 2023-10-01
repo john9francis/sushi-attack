@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dy24dsqxtdl4w"]
 
-[ext_resource type="Script" path="res://Tracker.gd" id="1_sguu0"]
+[ext_resource type="Script" path="res://scripts/Tracker.gd" id="1_v70um"]
 
 [node name="Tracker" type="Node"]
-script = ExtResource("1_sguu0")
+script = ExtResource("1_v70um")

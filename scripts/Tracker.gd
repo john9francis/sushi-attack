@@ -31,10 +31,10 @@ func unset_area():
 func get_target_pos():
 	return currentPosition
 	
-func get_target_future_pos():
+func get_target_future_pos(stepsAhead = 10):
 	if !pastPosition:
 		return currentPosition
 
 	var velocity = currentPosition - pastPosition
-	var futurePos = currentPosition + velocity
+	var futurePos = currentPosition + velocity * stepsAhead
 	return futurePos
