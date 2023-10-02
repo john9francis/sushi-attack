@@ -37,8 +37,8 @@ func set_up_towers():
 	p1.position = Vector2(100, 250)
 	p2.position = Vector2(400, 450)
 	p3.position = Vector2(600, 500)
-	p4.position = Vector2(500, 850)
-	p5.position = Vector2(800, 820)
+	p4.position = Vector2(450, 850)
+	p5.position = Vector2(810, 820)
 	
 	add_child(p1)
 	add_child(p2)
@@ -60,9 +60,9 @@ func _on_enemy_spawn_timer_timeout():
 
 
 func _on_enemy_destination_area_entered(area):
-	# "area" refers to the enemies
-	points += 1
-	print(points)
-	area.queue_free()
+	if area.is_in_group("Enemies"):
+		points += 1
+		print(points)
+		area.queue_free()
 	
 	
