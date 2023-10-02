@@ -5,8 +5,7 @@ var myPathFollow
 
 const speed = 5
 var currentSpeed = 5
-var health = 5
-var poisoned = false
+var health = 10
 var poison_hits = 0
 
 func _ready():
@@ -47,7 +46,6 @@ func _on_body_entered(body):
 
 func _on_area_entered(area):
 	if area.is_in_group("Explosions"):
-		print("Poisoned!")
 		poison_hits = 5
 		$PoisonTimer.start()
 
@@ -56,7 +54,6 @@ func _on_area_entered(area):
 func _on_poison_timer_timeout():
 	health -= 1
 	poison_hits -= 1
-	print("Poison Hit")
 	
 	if poison_hits <= 0:
 		$PoisonTimer.stop()
