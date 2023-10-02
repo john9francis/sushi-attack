@@ -23,13 +23,18 @@ func set_area(area):
 	areaToTrack = area
 	areaExists = true
 	
+	
 func unset_area():
 	areaToTrack = null
 	areaExists = false
 	
+func has_area():
+	return areaExists
+	
 	
 func get_target_pos():
 	return currentPosition
+	
 	
 func get_target_future_pos(stepsAhead = 10):
 	if !pastPosition:

@@ -56,7 +56,7 @@ func _on_enemy_spawn_timer_timeout():
 		$EnemyPath.add_child(pathFollow)
 		pathFollow.add_child(enemy)
 		
-		multipleEnemies = false
+		#multipleEnemies = false
 
 
 func _on_enemy_destination_area_entered(area):

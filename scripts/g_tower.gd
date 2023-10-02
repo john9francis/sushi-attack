@@ -4,6 +4,7 @@ extends Area2D
 @export var TrackerScene: PackedScene
 
 var tracker
+var enemyList = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -14,8 +15,12 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
-
+	if enemyList.size() > 0:
+		tracker.set_area(enemyList[0])
+		if $ShootTimer.is_stopped():
+			$ShootTimer.start()
+	else:
+		$ShootTimer.stop()
 
 
 
@@ -37,16 +42,12 @@ func _on_shoot_timer_timeout():
 
 func _on_area_entered(area):
 	if area.is_in_group("Enemies"):
-		$ShootTimer.start()	
-		tracker.set_area(area)
-	pass # Replace with function body.
+		enemyList.append(area)
 	
-
 
 
 
 func _on_area_exited(area):
 	if area.is_in_group("Enemies"):
-		$ShootTimer.stop()
-		tracker.unset_area()
-	pass # Replace with function body.
+		if enemyList.has(area):
+			enemyList.erase(area)
