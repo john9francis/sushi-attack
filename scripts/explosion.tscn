@@ -7,7 +7,7 @@ radius = 94.1488
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_55j28"]
 
-[node name="Explosion" type="Area2D"]
+[node name="Explosion" type="Area2D" groups=["Explosions"]]
 script = ExtResource("1_up0uv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

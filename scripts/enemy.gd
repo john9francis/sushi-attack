@@ -6,6 +6,7 @@ var myPathFollow
 const speed = 5
 var currentSpeed = 5
 var health = 5
+var poisoned = false
 
 func _ready():
 	add_to_group("Enemies")
@@ -40,3 +41,10 @@ func _on_body_entered(body):
 	if body.is_in_group("Bullets"):
 		body.queue_free()
 		health -= 1
+
+
+
+
+func _on_area_entered(area):
+	if area.is_in_group("Explosions"):
+		print("Poisoned!")
