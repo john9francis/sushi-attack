@@ -5,8 +5,8 @@ var speed = 1
 func _ready():
 	progress = 0
 	
-	# set offset
-	set_h_offset(10.0)
+	# set random offset from the path
+	v_offset = randi() % 100 - 50
 
 
 func _process(delta):
