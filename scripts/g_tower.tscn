@@ -19,7 +19,7 @@ shape = SubResource("CircleShape2D_ic12a")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(1, 0.117647, 1, 0.431373)
-scale = Vector2(410.813, 382.063)
+scale = Vector2(118.203, 112.016)
 texture = SubResource("CanvasTexture_mg38n")
 
 [node name="ShootTimer" type="Timer" parent="."]
