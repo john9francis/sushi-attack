@@ -27,6 +27,7 @@ enemyPathFollowScene = ExtResource("4_btcdy")
 curve = SubResource("Curve2D_joiln")
 
 [node name="EnemySpawnTimer" type="Timer" parent="."]
+one_shot = true
 script = ExtResource("2_wq042")
 
 [node name="EnemyDestination" type="Area2D" parent="."]
@@ -41,5 +42,6 @@ position = Vector2(250, 1000)
 scale = Vector2(198.5, 113.5)
 texture = SubResource("CanvasTexture_o4s4o")
 
+[connection signal="gameOver" from="." to="." method="_on_game_over"]
 [connection signal="timeout" from="EnemySpawnTimer" to="." method="_on_enemy_spawn_timer_timeout"]
 [connection signal="area_entered" from="EnemyDestination" to="." method="_on_enemy_destination_area_entered"]

@@ -6,23 +6,33 @@ extends Node2D
 
 var multipleEnemies = true # For debugging, only spawning one enemy
 
-var points = 0
+var lives = 5
 
 var enemyList = []
 var pathFollowList = []
 
+signal gameOver
+var gameOverFlag = false
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$EnemySpawnTimer.start()
+	set_up_towers()
+	
+	$EnemySpawnTimer.start(1) # 1 seconds to start!
 	print("Started")
 
-	set_up_towers()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
+	if lives <= 0:
+		if !gameOverFlag:
+			emit_signal("gameOver")
+			gameOverFlag = true
+			
+		# reset lives
+		lives = 5
 	pass
 	
 	
@@ -38,7 +48,7 @@ func set_up_towers():
 	p2.position = Vector2(400, 450)
 	p3.position = Vector2(600, 500)
 	p4.position = Vector2(450, 850)
-	p5.position = Vector2(810, 820)
+	p5.position = Vector2(750, 750)
 	
 	add_child(p1)
 	add_child(p2)
@@ -57,12 +67,20 @@ func _on_enemy_spawn_timer_timeout():
 		pathFollow.add_child(enemy)
 		
 		#multipleEnemies = false
+		
+		# reset the timer with a random value
+		$EnemySpawnTimer.start(randf())
 
 
 func _on_enemy_destination_area_entered(area):
 	if area.is_in_group("Enemies"):
-		points += 1
-		print(points)
+		if !gameOverFlag:
+			print(lives)
+			lives -= 1
 		area.queue_free()
 	
 	
+
+
+func _on_game_over():
+	print("Game Over!")

@@ -3,8 +3,8 @@ extends Area2D
 @export var myPathFollowScene: PackedScene
 var myPathFollow
 
-const speed = 5
-var currentSpeed = 5
+const speed = 2
+var currentSpeed = 2
 var health = 10
 var poison_hits = 0
 
