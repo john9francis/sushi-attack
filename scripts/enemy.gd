@@ -11,6 +11,7 @@ var poison_hits = 0
 func _ready():
 	add_to_group("Enemies")
 	
+	
 
 
 func _process(_delta):
@@ -26,6 +27,7 @@ func set_speed(s):
 func get_path_follow():
 	myPathFollow = myPathFollowScene.instantiate()
 	myPathFollow.set_speed(currentSpeed)
+	
 	return myPathFollow
 
 
