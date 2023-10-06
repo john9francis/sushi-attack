@@ -1,11 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bgtvxbdu2qdf0"]
+[gd_scene load_steps=2 format=3 uid="uid://bgtvxbdu2qdf0"]
 
 [ext_resource type="PackedScene" uid="uid://cn5affxsrvpyq" path="res://scripts/level.tscn" id="1_lvge1"]
-[ext_resource type="PackedScene" uid="uid://cmaesvuc5l4a7" path="res://scripts/hud.tscn" id="2_lyjce"]
 
 [node name="Main" type="Node"]
 
 [node name="Level" parent="." instance=ExtResource("1_lvge1")]
 visibility_layer = 2
-
-[node name="CanvasLayer" parent="." instance=ExtResource("2_lyjce")]

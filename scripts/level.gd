@@ -3,6 +3,9 @@ extends Node2D
 @export var enemyScene: PackedScene
 @export var towerPlatformScene: PackedScene
 @export var enemyPathFollowScene: PackedScene
+@export var hudScene: PackedScene
+
+var hud
 
 var multipleEnemies = true # For debugging, only spawning one enemy
 
@@ -21,6 +24,11 @@ func _ready():
 	
 	$EnemySpawnTimer.start(1) # 1 seconds to start!
 	print("Started")
+	
+	hud = hudScene.instantiate()
+	add_child(hud)
+	hud.update_lives(lives)
+	
 
 
 
@@ -75,12 +83,14 @@ func _on_enemy_spawn_timer_timeout():
 func _on_enemy_destination_area_entered(area):
 	if area.is_in_group("Enemies"):
 		if !gameOverFlag:
-			print(lives)
 			lives -= 1
+			hud.update_lives(lives)
 		area.queue_free()
+	
 	
 	
 
 
 func _on_game_over():
 	print("Game Over!")
+	hud.update_lives("Game Over!")
