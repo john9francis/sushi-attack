@@ -1,12 +1,10 @@
-[gd_scene format=3 uid="uid://cmaesvuc5l4a7"]
+[gd_scene load_steps=2 format=3 uid="uid://cmaesvuc5l4a7"]
 
-[node name="Control" type="Control"]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 996.0
-offset_bottom = 983.0
+[ext_resource type="Script" path="res://scripts/hud.gd" id="1_ci1g7"]
 
-[node name="GUI" type="MarginContainer" parent="."]
-layout_mode = 0
-offset_right = 992.0
-offset_bottom = 997.0
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_ci1g7")
+
+[node name="Lives" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0

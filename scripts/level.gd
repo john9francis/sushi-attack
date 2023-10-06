@@ -68,8 +68,8 @@ func _on_enemy_spawn_timer_timeout():
 		
 		#multipleEnemies = false
 		
-		# reset the timer with a random value
-		$EnemySpawnTimer.start(randf())
+		# reset the timer with a random value from 1 to 2
+		$EnemySpawnTimer.start(randf() + 1)
 
 
 func _on_enemy_destination_area_entered(area):
