@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://c8tq0ppoe2tb0"]
+[gd_scene load_steps=9 format=3 uid="uid://c8tq0ppoe2tb0"]
 
 [ext_resource type="Script" path="res://scripts/towerPlatform.gd" id="1_2l6tq"]
 [ext_resource type="PackedScene" uid="uid://bul6um5k465t1" path="res://scripts/cs_tower.tscn" id="2_vk3ja"]
 [ext_resource type="PackedScene" uid="uid://djnu4nstia70d" path="res://scripts/ss_tower.tscn" id="2_yr7cu"]
 [ext_resource type="PackedScene" uid="uid://biyqmibg8ipx5" path="res://scripts/g_tower.tscn" id="4_5qglf"]
 [ext_resource type="PackedScene" uid="uid://dn63r1k685s4w" path="res://scripts/w_tower.tscn" id="5_oy7xs"]
+[ext_resource type="Script" path="res://scripts/TowerGUI.gd" id="6_jebfo"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4g0tv"]
 radius = 114.018
@@ -32,8 +33,14 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("6_jebfo")
 
-[node name="CSButton" type="Button" parent="TowerGUI"]
+[node name="platformGUI" type="Control" parent="TowerGUI"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CSButton" type="Button" parent="TowerGUI/platformGUI"]
 layout_mode = 0
 offset_left = 6.0
 offset_top = -61.0
@@ -41,7 +48,7 @@ offset_right = 103.0
 offset_bottom = -13.0
 text = "Chop Sticks"
 
-[node name="SSButton" type="Button" parent="TowerGUI"]
+[node name="SSButton" type="Button" parent="TowerGUI/platformGUI"]
 layout_mode = 2
 offset_left = 1.0
 offset_top = 46.0
@@ -49,7 +56,7 @@ offset_right = 96.0
 offset_bottom = 92.0
 text = "Soy Sauce"
 
-[node name="GButton" type="Button" parent="TowerGUI"]
+[node name="GButton" type="Button" parent="TowerGUI/platformGUI"]
 layout_mode = 2
 offset_left = -102.0
 offset_top = -94.0
@@ -57,7 +64,7 @@ offset_right = -5.0
 offset_bottom = -50.0
 text = "Ginger"
 
-[node name="WButton" type="Button" parent="TowerGUI"]
+[node name="WButton" type="Button" parent="TowerGUI/platformGUI"]
 layout_mode = 2
 offset_left = -115.0
 offset_top = 5.0
@@ -66,9 +73,20 @@ offset_bottom = 49.0
 text = "Wasabi
 "
 
+[node name="upgradeGUI" type="Control" parent="TowerGUI"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Button" type="Button" parent="TowerGUI/upgradeGUI"]
+layout_mode = 0
+offset_right = 98.0
+offset_bottom = 41.0
+text = "Test"
+
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
-[connection signal="pressed" from="TowerGUI/CSButton" to="." method="_on_cs_button_pressed"]
-[connection signal="pressed" from="TowerGUI/SSButton" to="." method="_on_ss_button_pressed"]
-[connection signal="pressed" from="TowerGUI/GButton" to="." method="_on_g_button_pressed"]
-[connection signal="pressed" from="TowerGUI/WButton" to="." method="_on_w_button_pressed"]
+[connection signal="pressed" from="TowerGUI/platformGUI/CSButton" to="." method="_on_cs_button_pressed"]
+[connection signal="pressed" from="TowerGUI/platformGUI/SSButton" to="." method="_on_ss_button_pressed"]
+[connection signal="pressed" from="TowerGUI/platformGUI/GButton" to="." method="_on_g_button_pressed"]
+[connection signal="pressed" from="TowerGUI/platformGUI/WButton" to="." method="_on_w_button_pressed"]

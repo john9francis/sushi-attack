@@ -5,4 +5,3 @@
 [node name="Main" type="Node"]
 
 [node name="Level" parent="." instance=ExtResource("1_lvge1")]
-visibility_layer = 2
