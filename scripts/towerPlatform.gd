@@ -7,6 +7,8 @@ var mouse_in_tower = false
 @export var GTowerScene : PackedScene
 @export var WTowerScene : PackedScene
 
+var tower
+
 func _ready():
 	$TowerGUI.hide()
 
@@ -33,16 +35,16 @@ func _on_ss_button_pressed():
 	# Get rid of the tower gui
 	$TowerGUI.hide()
 	$TowerGUI.switch_gui()	
-	var ssTower = SSTowerScene.instantiate()
-	add_child(ssTower)
+	tower = SSTowerScene.instantiate()
+	add_child(tower)
 
 
 
 func _on_cs_button_pressed():
 	$TowerGUI.hide()
 	$TowerGUI.switch_gui()	
-	var csTower = CSTowerScene.instantiate()
-	add_child(csTower)
+	tower = CSTowerScene.instantiate()
+	add_child(tower)
 
 
 
@@ -50,12 +52,18 @@ func _on_cs_button_pressed():
 func _on_g_button_pressed():
 	$TowerGUI.hide()
 	$TowerGUI.switch_gui()
-	var gTower = GTowerScene.instantiate()
-	add_child(gTower)
+	tower = GTowerScene.instantiate()
+	add_child(tower)
 
 
 func _on_w_button_pressed():
 	$TowerGUI.hide()
 	$TowerGUI.switch_gui()	
-	var wTower = WTowerScene.instantiate()
-	add_child(wTower)
+	var tower = WTowerScene.instantiate()
+	add_child(tower)
+
+
+func _on_sell_pressed():
+	# sell the tower
+	print("tower sold")
+	pass # Replace with function body.

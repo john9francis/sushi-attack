@@ -78,11 +78,21 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Button" type="Button" parent="TowerGUI/upgradeGUI"]
+[node name="Upgrade" type="Button" parent="TowerGUI/upgradeGUI"]
 layout_mode = 0
-offset_right = 98.0
-offset_bottom = 41.0
-text = "Test"
+offset_left = -44.0
+offset_top = -93.0
+offset_right = 54.0
+offset_bottom = -52.0
+text = "Upgrade"
+
+[node name="Sell" type="Button" parent="TowerGUI/upgradeGUI"]
+layout_mode = 0
+offset_left = -36.0
+offset_top = 60.0
+offset_right = 38.0
+offset_bottom = 103.0
+text = "Sell"
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
@@ -90,3 +100,4 @@ text = "Test"
 [connection signal="pressed" from="TowerGUI/platformGUI/SSButton" to="." method="_on_ss_button_pressed"]
 [connection signal="pressed" from="TowerGUI/platformGUI/GButton" to="." method="_on_g_button_pressed"]
 [connection signal="pressed" from="TowerGUI/platformGUI/WButton" to="." method="_on_w_button_pressed"]
+[connection signal="pressed" from="TowerGUI/upgradeGUI/Sell" to="." method="_on_sell_pressed"]
