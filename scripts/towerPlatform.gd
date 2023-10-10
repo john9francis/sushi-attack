@@ -31,14 +31,16 @@ func _on_mouse_exited():
 
 func _on_ss_button_pressed():
 	# Get rid of the tower gui
-	$TowerGUI.queue_free()
+	$TowerGUI.hide()
+	$TowerGUI.switch_gui()	
 	var ssTower = SSTowerScene.instantiate()
 	add_child(ssTower)
 
 
 
 func _on_cs_button_pressed():
-	$TowerGUI.queue_free()
+	$TowerGUI.hide()
+	$TowerGUI.switch_gui()	
 	var csTower = CSTowerScene.instantiate()
 	add_child(csTower)
 
@@ -46,12 +48,14 @@ func _on_cs_button_pressed():
 
 
 func _on_g_button_pressed():
-	$TowerGUI.queue_free()
+	$TowerGUI.hide()
+	$TowerGUI.switch_gui()
 	var gTower = GTowerScene.instantiate()
 	add_child(gTower)
 
 
 func _on_w_button_pressed():
-	$TowerGUI.queue_free()
+	$TowerGUI.hide()
+	$TowerGUI.switch_gui()	
 	var wTower = WTowerScene.instantiate()
 	add_child(wTower)

@@ -12,3 +12,7 @@ func _ready():
 func _process(delta):
 	pass
 
+
+func switch_gui():
+	$platformGUI.hide()
+	$upgradeGUI.show()
