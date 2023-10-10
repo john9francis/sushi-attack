@@ -59,11 +59,12 @@ func _on_g_button_pressed():
 func _on_w_button_pressed():
 	$TowerGUI.hide()
 	$TowerGUI.switch_gui()	
-	var tower = WTowerScene.instantiate()
+	tower = WTowerScene.instantiate()
 	add_child(tower)
 
 
 func _on_sell_pressed():
 	# sell the tower
 	print("tower sold")
+	tower.queue_free()
 	pass # Replace with function body.
