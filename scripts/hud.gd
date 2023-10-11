@@ -13,3 +13,7 @@ func _process(delta):
 
 func update_lives(lives):
 	$Control/LivesControl/Lives.text = str(lives)
+
+
+func update_money(money):
+	$Control/MoneyControl/Money.text = str(money)

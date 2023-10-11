@@ -10,6 +10,7 @@ var hud
 var multipleEnemies = true # For debugging, only spawning one enemy
 
 var lives = 5
+var money = 100
 
 var enemyList = []
 var pathFollowList = []
@@ -28,6 +29,7 @@ func _ready():
 	hud = hudScene.instantiate()
 	add_child(hud)
 	hud.update_lives(lives)
+	hud.update_money(money)
 	
 
 
