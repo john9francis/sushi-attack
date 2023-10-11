@@ -39,9 +39,9 @@ func _process(_delta):
 		if !gameOverFlag:
 			emit_signal("gameOver")
 			gameOverFlag = true
-			
-	
-	
+
+
+
 func set_up_towers():
 	# Set up tower platforms
 	var p1 = towerPlatformScene.instantiate()
@@ -67,28 +67,28 @@ func set_up_towers():
 	add_child(p3)
 	add_child(p4)
 	add_child(p5)
-	
-	
+
+
 
 func reset():
 	get_tree().call_group("Enemies", "queue_free")
 	get_tree().call_group("EnemyPathFollows", "set_in_destination")
 	get_tree().call_group("EnemyPathFollows", "queue_free")
-	platformList.clear()
 	gameOverFlag = false
 	hud.update_lives(lives)
 	update_money_guis()
 
-	
-	
-	
+
+
+
 func start_game():
 	# reset everything if needed
 	reset()
 	
 	$EnemySpawnTimer.start(3)
 	print("Started")
-	
+
+
 func stop_game():
 	$EnemySpawnTimer.stop()
 	$StartLabel.text = "Game Over"
@@ -98,7 +98,7 @@ func stop_game():
 	
 	money = 100
 	lives = 5
-	
+
 
 func subtract_money(m):
 	money -= m
@@ -109,7 +109,7 @@ func update_money_guis():
 	hud.update_money(money)
 	for p in platformList:
 		p.update_buttons(money)
-	
+
 
 
 
@@ -136,9 +136,9 @@ func _on_enemy_destination_area_entered(area):
 		area.myPathFollow.in_destination = true
 		area.myPathFollow.queue_free()
 		area.queue_free()
-	
-	
-	
+
+
+
 
 
 func _on_game_over():
