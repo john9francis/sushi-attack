@@ -111,3 +111,9 @@ func _on_enemy_path_child_exiting_tree(node):
 			money += 10
 			hud.update_money(money)
 
+
+
+func _on_start_button_pressed():
+	$StartButton.hide()
+	$StartLabel.hide()
+	start_game()

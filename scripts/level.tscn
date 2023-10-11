@@ -46,20 +46,23 @@ scale = Vector2(198.5, 113.5)
 texture = SubResource("CanvasTexture_o4s4o")
 
 [node name="StartButton" type="Button" parent="."]
-offset_left = 332.0
-offset_top = 34.0
-offset_right = 388.0
-offset_bottom = 65.0
+offset_left = 427.0
+offset_top = 179.0
+offset_right = 483.0
+offset_bottom = 210.0
+scale = Vector2(2, 2)
 text = "Ready"
 
 [node name="StartLabel" type="Label" parent="."]
-offset_left = 336.0
-offset_top = 4.0
-offset_right = 384.0
-offset_bottom = 30.0
-text = "Start label"
+offset_left = 331.0
+offset_top = 108.0
+offset_right = 444.0
+offset_bottom = 134.0
+scale = Vector2(3, 3)
+text = "Press To Begin"
 
 [connection signal="gameOver" from="." to="." method="_on_game_over"]
 [connection signal="child_exiting_tree" from="EnemyPath" to="." method="_on_enemy_path_child_exiting_tree"]
 [connection signal="timeout" from="EnemySpawnTimer" to="." method="_on_enemy_spawn_timer_timeout"]
 [connection signal="area_entered" from="EnemyDestination" to="." method="_on_enemy_destination_area_entered"]
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
