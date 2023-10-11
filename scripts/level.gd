@@ -37,7 +37,6 @@ func start_game():
 	
 
 func subtract_money():
-	print("spend money")
 	money -= 50
 	hud.update_money(money)
 

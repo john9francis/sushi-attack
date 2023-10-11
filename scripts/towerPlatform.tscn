@@ -40,7 +40,7 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="CSButton" type="Button" parent="TowerGUI/platformGUI"]
+[node name="CSButton" type="Button" parent="TowerGUI/platformGUI" groups=["TowerPlatforms"]]
 layout_mode = 0
 offset_left = 6.0
 offset_top = -61.0

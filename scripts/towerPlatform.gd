@@ -76,5 +76,4 @@ func _on_sell_pressed():
 
 func _on_child_entered_tree(node):
 	if node.is_in_group("Towers"):
-		print("Tower added")
 		get_tree().call_group("CurrentLevel", "subtract_money")
