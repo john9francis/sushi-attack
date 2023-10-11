@@ -11,11 +11,3 @@ func _process(delta):
 	pass
 
 
-func _on_child_entered_tree(node):
-	print("Enter: ", node)
-	pass # Replace with function body.
-
-
-func _on_child_exiting_tree(node):
-	print("Exit: ", node)
-	pass # Replace with function body.
