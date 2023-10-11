@@ -11,6 +11,9 @@ var tower
 
 func _ready():
 	$TowerGUI.hide()
+	
+	# FOR NOW... 
+	$TowerGUI/upgradeGUI/Upgrade.disabled = true
 
 
 func _process(delta):
@@ -33,7 +36,13 @@ func _on_mouse_exited():
 	
 func update_buttons(money):
 	if money < 30:
+		$TowerGUI/platformGUI/SSButton.disabled = true
+	if money < 50:
+		$TowerGUI/platformGUI/WButton.disabled = true
 		$TowerGUI/platformGUI/GButton.disabled = true
+	if money < 70:
+		$TowerGUI/platformGUI/CSButton.disabled = true
+		
 
 
 
