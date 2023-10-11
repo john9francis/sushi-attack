@@ -37,19 +37,19 @@ func _on_mouse_exited():
 func update_buttons(money):
 	if money < 30:
 		$TowerGUI/platformGUI/SSButton.disabled = true
-	if money >= 30:
+	else:
 		$TowerGUI/platformGUI/SSButton.disabled = false
 		
 	if money < 50:
 		$TowerGUI/platformGUI/WButton.disabled = true
 		$TowerGUI/platformGUI/GButton.disabled = true
-	if money >= 50:
+	else:
 		$TowerGUI/platformGUI/WButton.disabled = false
 		$TowerGUI/platformGUI/GButton.disabled = false
 		
 	if money < 70:
 		$TowerGUI/platformGUI/CSButton.disabled = true
-	if money >= 70:
+	else:
 		$TowerGUI/platformGUI/CSButton.disabled = false
 		
 		
@@ -101,4 +101,4 @@ func _on_sell_pressed():
 
 func _on_child_entered_tree(node):
 	if node.is_in_group("Towers"):
-		get_tree().call_group("CurrentLevel", "subtract_money")
+		get_tree().call_group("CurrentLevel", "subtract_money", 10)

@@ -99,8 +99,8 @@ func stop_game():
 	lives = 5
 	
 
-func subtract_money():
-	money -= 50
+func subtract_money(m):
+	money -= m
 	update_money_guis()
 
 
@@ -153,7 +153,7 @@ func _on_enemy_path_child_exiting_tree(node):
 		# an enemy died, give you some money!
 		if !node.in_destination:
 			money += 10
-			hud.update_money(money)
+			update_money_guis()
 
 
 
