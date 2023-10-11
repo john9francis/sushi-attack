@@ -18,7 +18,7 @@ var gameOverFlag = false
 var platformList = []
 
 
-var totalEnemies = 100
+var totalEnemies = 10
 var timeDelay = 1.0
 
 
@@ -95,7 +95,10 @@ func start_game():
 
 func stop_game():
 	$EnemySpawnTimer.stop()
-	$StartLabel.text = "Game Over"
+	if gameOverFlag:
+		$StartLabel.text = "Game Over"
+	else:
+		$StartLabel.text = "Success!"
 	$StartLabel.show()
 	$ResetButton.show()
 
@@ -124,8 +127,8 @@ func _on_enemy_spawn_timer_timeout():
 	# reset the timer with a random value from 1 to 2
 	$EnemySpawnTimer.start(randf() + timeDelay)
 	
-	# minus 1 from totalEnemies
 	totalEnemies -= 1
+	timeDelay -= .1
 	if totalEnemies <= 0:
 		emit_signal("success")
 
@@ -171,6 +174,7 @@ func _on_start_button_pressed():
 
 func _on_success():
 	print("Success!")
+	stop_game()
 
 
 func _on_reset_button_pressed():
