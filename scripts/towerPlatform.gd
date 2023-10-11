@@ -29,6 +29,11 @@ func _on_mouse_entered():
 
 func _on_mouse_exited():
 	mouse_in_tower = false
+	
+	
+func update_buttons(money):
+	if money < 30:
+		$TowerGUI/platformGUI/GButton.disabled = true
 
 
 

@@ -14,6 +14,8 @@ var money = 100
 signal gameOver
 var gameOverFlag = false
 
+var platformList = []
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -27,39 +29,6 @@ func _ready():
 	reset()
 	
 	
-func reset():
-	get_tree().call_group("Enemies", "queue_free")
-	get_tree().call_group("EnemyPathFollows", "set_in_destination")
-	get_tree().call_group("EnemyPathFollows", "queue_free")
-	lives = 5
-	money = 100
-	gameOverFlag = false
-	hud.update_lives(lives)
-	hud.update_money(money)
-
-	
-	
-	
-func start_game():
-	# reset everything if needed
-	reset()
-	
-	$EnemySpawnTimer.start(3)
-	print("Started")
-	
-func stop_game():
-	$EnemySpawnTimer.stop()
-	$StartLabel.text = "Game Over"
-	$StartButton.text = "Play Again"
-	$StartLabel.show()
-	$StartButton.show()
-	
-
-func subtract_money():
-	money -= 50
-	hud.update_money(money)
-
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -87,11 +56,59 @@ func set_up_towers():
 	p4.position = Vector2(450, 850)
 	p5.position = Vector2(750, 750)
 	
+	platformList.append(p1)
+	platformList.append(p2)
+	platformList.append(p3)
+	platformList.append(p4)
+	platformList.append(p5)
+	
 	add_child(p1)
 	add_child(p2)
 	add_child(p3)
 	add_child(p4)
 	add_child(p5)
+	
+	
+
+func reset():
+	get_tree().call_group("Enemies", "queue_free")
+	get_tree().call_group("EnemyPathFollows", "set_in_destination")
+	get_tree().call_group("EnemyPathFollows", "queue_free")
+	lives = 5
+	money = 100
+	gameOverFlag = false
+	hud.update_lives(lives)
+	update_money_guis()
+
+	
+	
+	
+func start_game():
+	# reset everything if needed
+	reset()
+	
+	$EnemySpawnTimer.start(3)
+	print("Started")
+	
+func stop_game():
+	$EnemySpawnTimer.stop()
+	$StartLabel.text = "Game Over"
+	$StartButton.text = "Play Again"
+	$StartLabel.show()
+	$StartButton.show()
+	
+
+func subtract_money():
+	money -= 50
+	update_money_guis()
+
+
+func update_money_guis():
+	hud.update_money(money)
+	for p in platformList:
+		p.update_buttons(money)
+	
+
 
 
 func _on_enemy_spawn_timer_timeout():
