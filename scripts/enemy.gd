@@ -7,6 +7,7 @@ const speed = 2
 var currentSpeed = 2
 var health = 10
 var poison_hits = 0
+var in_destination = false
 
 func _ready():
 	add_to_group("Enemies")
@@ -16,6 +17,7 @@ func _ready():
 
 func _process(_delta):
 	if health <= 0:
+		myPathFollow.queue_free()
 		queue_free()
 	
 
@@ -59,3 +61,5 @@ func _on_poison_timer_timeout():
 	
 	if poison_hits <= 0:
 		$PoisonTimer.stop()
+
+
