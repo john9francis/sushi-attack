@@ -22,6 +22,7 @@ var gameOverFlag = false
 func _ready():
 	set_up_towers()
 	
+	add_to_group("CurrentLevel")
 	
 	hud = hudScene.instantiate()
 	add_child(hud)
@@ -33,6 +34,12 @@ func _ready():
 func start_game():
 	$EnemySpawnTimer.start(3)
 	print("Started")
+	
+
+func subtract_money():
+	print("spend money")
+	money -= 50
+	hud.update_money(money)
 
 
 
