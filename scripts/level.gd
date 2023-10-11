@@ -11,9 +11,6 @@ var multipleEnemies = true # For debugging, only spawning one enemy
 var lives = 5
 var money = 100
 
-var enemyList = []
-var pathFollowList = []
-
 signal gameOver
 var gameOverFlag = false
 
@@ -26,14 +23,36 @@ func _ready():
 	
 	hud = hudScene.instantiate()
 	add_child(hud)
+	
+	reset()
+	
+	
+func reset():
+	get_tree().call_group("Enemies", "queue_free")
+	get_tree().call_group("EnemyPathFollows", "set_in_destination")
+	get_tree().call_group("EnemyPathFollows", "queue_free")
+	lives = 5
+	money = 100
+	gameOverFlag = false
 	hud.update_lives(lives)
 	hud.update_money(money)
+
 	
 	
 	
 func start_game():
+	# reset everything if needed
+	reset()
+	
 	$EnemySpawnTimer.start(3)
 	print("Started")
+	
+func stop_game():
+	$EnemySpawnTimer.stop()
+	$StartLabel.text = "Game Over"
+	$StartButton.text = "Play Again"
+	$StartLabel.show()
+	$StartButton.show()
 	
 
 func subtract_money():
@@ -105,7 +124,7 @@ func _on_enemy_destination_area_entered(area):
 
 func _on_game_over():
 	print("Game Over!")
-	hud.update_lives("Game Over!")
+	stop_game()
 
 
 

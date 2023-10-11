@@ -12,7 +12,7 @@ var poison_hits = 0
 func _ready():
 	add_to_group("Enemies")
 	
-	
+
 
 
 func _process(_delta):

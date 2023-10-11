@@ -16,3 +16,7 @@ func _process(delta):
 	
 func set_speed(s):
 	speed = s
+
+
+func set_in_destionation():
+	in_destination = true
