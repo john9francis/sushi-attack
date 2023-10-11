@@ -31,11 +31,7 @@ func _ready():
 	hud = hudScene.instantiate()
 	add_child(hud)
 	
-	lives = 5
-	money = 100
-	gameOverFlag = false
-	hud.update_lives(lives)
-	update_money_guis()
+	reset()
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -73,6 +69,9 @@ func set_up_towers():
 
 
 func reset():
+	$ResetButton.hide()
+	$StartButton.show()
+	$StartLabel.text = "Sushi Attack"
 	get_tree().call_group("Enemies", "queue_free")
 	get_tree().call_group("EnemyPathFollows", "set_in_destination")
 	get_tree().call_group("EnemyPathFollows", "queue_free")
@@ -81,16 +80,14 @@ func reset():
 	gameOverFlag = false
 	hud.update_lives(lives)
 	update_money_guis()
-
-
-func on_game_start():
-	pass
+	
+	lives = 5
+	money = 100
 
 
 
 func start_game():
 	# reset everything if needed
-	reset()
 	
 	$EnemySpawnTimer.start(3)
 	print("Started")
@@ -99,12 +96,8 @@ func start_game():
 func stop_game():
 	$EnemySpawnTimer.stop()
 	$StartLabel.text = "Game Over"
-	$StartButton.text = "Play Again"
 	$StartLabel.show()
-	$StartButton.show()
-	
-	money = 100
-	lives = 5
+	$ResetButton.show()
 
 
 func subtract_money(m):
@@ -171,9 +164,15 @@ func _on_enemy_path_child_exiting_tree(node):
 
 func _on_start_button_pressed():
 	$StartButton.hide()
+	$ResetButton.hide()
 	$StartLabel.hide()
 	start_game()
 
 
 func _on_success():
 	print("Success!")
+
+
+func _on_reset_button_pressed():
+	reset()
+	pass # Replace with function body.
