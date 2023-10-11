@@ -13,6 +13,7 @@ const GTowerCost = 50
 const SSTowerCost= 30
 const CSTowerCost= 70
 
+
 func _ready():
 	$TowerGUI.hide()
 	
@@ -97,11 +98,14 @@ func _on_w_button_pressed():
 
 
 func _on_sell_pressed():
-	$TowerGUI.hide()
-	# sell the tower
-	tower.queue_free()
-	$TowerGUI.go_to_platform_gui()
+	remove_tower()
 	
+	
+func remove_tower():
+	if tower:
+		$TowerGUI.hide()
+		tower.queue_free()
+		$TowerGUI.go_to_platform_gui()
 
 
 

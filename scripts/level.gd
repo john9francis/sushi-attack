@@ -12,9 +12,14 @@ var lives = 5
 var money = 100
 
 signal gameOver
+signal success
 var gameOverFlag = false
 
 var platformList = []
+
+
+var totalEnemies = 100
+var timeDelay = 1.0
 
 
 # Called when the node enters the scene tree for the first time.
@@ -35,10 +40,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	if lives <= 0:
-		if !gameOverFlag:
-			emit_signal("gameOver")
-			gameOverFlag = true
+	pass
 
 
 
@@ -74,10 +76,15 @@ func reset():
 	get_tree().call_group("Enemies", "queue_free")
 	get_tree().call_group("EnemyPathFollows", "set_in_destination")
 	get_tree().call_group("EnemyPathFollows", "queue_free")
+	for p in platformList:
+		p.remove_tower()
 	gameOverFlag = false
 	hud.update_lives(lives)
 	update_money_guis()
 
+
+func on_game_start():
+	pass
 
 
 
@@ -115,17 +122,19 @@ func update_money_guis():
 
 func _on_enemy_spawn_timer_timeout():
 	# spawn enemy
-	if (multipleEnemies):
-		var enemy = enemyScene.instantiate()
-		var pathFollow = enemy.get_path_follow()
+	var enemy = enemyScene.instantiate()
+	var pathFollow = enemy.get_path_follow()
 		
-		$EnemyPath.add_child(pathFollow)
-		pathFollow.add_child(enemy)
+	$EnemyPath.add_child(pathFollow)
+	pathFollow.add_child(enemy)
 		
-		#multipleEnemies = false
-		
-		# reset the timer with a random value from 1 to 2
-		$EnemySpawnTimer.start(randf() + 1)
+	# reset the timer with a random value from 1 to 2
+	$EnemySpawnTimer.start(randf() + timeDelay)
+	
+	# minus 1 from totalEnemies
+	totalEnemies -= 1
+	if totalEnemies <= 0:
+		emit_signal("success")
 
 
 func _on_enemy_destination_area_entered(area):
@@ -133,6 +142,8 @@ func _on_enemy_destination_area_entered(area):
 		if !gameOverFlag:
 			lives -= 1
 			hud.update_lives(lives)
+			if lives <= 0:
+				emit_signal("gameOver")
 		area.myPathFollow.in_destination = true
 		area.myPathFollow.queue_free()
 		area.queue_free()
@@ -162,3 +173,7 @@ func _on_start_button_pressed():
 	$StartButton.hide()
 	$StartLabel.hide()
 	start_game()
+
+
+func _on_success():
+	print("Success!")
