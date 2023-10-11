@@ -22,14 +22,17 @@ var gameOverFlag = false
 func _ready():
 	set_up_towers()
 	
-	$EnemySpawnTimer.start(1) # 1 seconds to start!
-	print("Started")
 	
 	hud = hudScene.instantiate()
 	add_child(hud)
 	hud.update_lives(lives)
 	hud.update_money(money)
 	
+	
+	
+func start_game():
+	$EnemySpawnTimer.start(3)
+	print("Started")
 
 
 

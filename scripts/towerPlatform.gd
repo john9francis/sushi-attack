@@ -67,7 +67,13 @@ func _on_w_button_pressed():
 func _on_sell_pressed():
 	$TowerGUI.hide()
 	# sell the tower
-	print("tower sold")
 	tower.queue_free()
 	$TowerGUI.go_to_platform_gui()
 	
+
+
+
+
+func _on_child_entered_tree(node):
+	if node.is_in_group("Towers"):
+		print("Tower added")

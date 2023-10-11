@@ -94,6 +94,7 @@ offset_right = 38.0
 offset_bottom = 103.0
 text = "Sell"
 
+[connection signal="child_entered_tree" from="." to="." method="_on_child_entered_tree"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
 [connection signal="pressed" from="TowerGUI/platformGUI/CSButton" to="." method="_on_cs_button_pressed"]
