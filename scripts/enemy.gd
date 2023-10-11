@@ -7,7 +7,7 @@ const speed = 2
 var currentSpeed = 2
 var health = 10
 var poison_hits = 0
-var in_destination = false
+#var in_destination = false
 
 func _ready():
 	add_to_group("Enemies")

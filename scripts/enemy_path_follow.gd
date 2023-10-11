@@ -1,6 +1,7 @@
 extends PathFollow2D
 
 var speed = 1
+var in_destination = false
 
 func _ready():
 	progress = 0

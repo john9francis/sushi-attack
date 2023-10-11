@@ -86,7 +86,7 @@ func _on_enemy_destination_area_entered(area):
 		if !gameOverFlag:
 			lives -= 1
 			hud.update_lives(lives)
-		area.in_destination = true
+		area.myPathFollow.in_destination = true
 		area.myPathFollow.queue_free()
 		area.queue_free()
 	
@@ -104,5 +104,6 @@ func _on_game_over():
 func _on_enemy_path_child_exiting_tree(node):
 	if node.is_in_group("EnemyPathFollows"):
 		# an enemy died, give you some money!
-		money += 10
-		hud.update_money(money)
+		if !node.in_destination:
+			money += 10
+			hud.update_money(money)
