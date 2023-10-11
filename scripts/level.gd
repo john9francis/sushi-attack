@@ -107,3 +107,4 @@ func _on_enemy_path_child_exiting_tree(node):
 		if !node.in_destination:
 			money += 10
 			hud.update_money(money)
+

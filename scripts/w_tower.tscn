@@ -9,7 +9,7 @@ radius = 243.002
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_jc4xd"]
 
-[node name="w_tower" type="Area2D"]
+[node name="w_tower" type="Area2D" groups=["Towers"]]
 script = ExtResource("1_3lvt7")
 ExplosionScene = ExtResource("2_van06")
 TrackerScene = ExtResource("3_neo51")
