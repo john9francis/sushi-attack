@@ -26,8 +26,11 @@ func _ready():
 	hud = hudScene.instantiate()
 	add_child(hud)
 	
-	reset()
-	
+	lives = 5
+	money = 100
+	gameOverFlag = false
+	hud.update_lives(lives)
+	update_money_guis()
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -37,9 +40,6 @@ func _process(_delta):
 			emit_signal("gameOver")
 			gameOverFlag = true
 			
-		# reset lives
-		lives = 5
-	pass
 	
 	
 func set_up_towers():
@@ -74,8 +74,6 @@ func reset():
 	get_tree().call_group("Enemies", "queue_free")
 	get_tree().call_group("EnemyPathFollows", "set_in_destination")
 	get_tree().call_group("EnemyPathFollows", "queue_free")
-	lives = 5
-	money = 100
 	gameOverFlag = false
 	hud.update_lives(lives)
 	update_money_guis()
@@ -96,6 +94,9 @@ func stop_game():
 	$StartButton.text = "Play Again"
 	$StartLabel.show()
 	$StartButton.show()
+	
+	money = 100
+	lives = 5
 	
 
 func subtract_money():
@@ -141,6 +142,7 @@ func _on_enemy_destination_area_entered(area):
 
 func _on_game_over():
 	print("Game Over!")
+	gameOverFlag = true
 	stop_game()
 
 
