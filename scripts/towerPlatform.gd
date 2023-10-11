@@ -8,6 +8,10 @@ var mouse_in_tower = false
 @export var WTowerScene : PackedScene
 
 var tower
+const WTowerCost = 50
+const GTowerCost = 50
+const SSTowerCost= 30
+const CSTowerCost= 70
 
 func _ready():
 	$TowerGUI.hide()
@@ -35,19 +39,22 @@ func _on_mouse_exited():
 	
 	
 func update_buttons(money):
-	if money < 30:
+	if money < SSTowerCost:
 		$TowerGUI/platformGUI/SSButton.disabled = true
 	else:
 		$TowerGUI/platformGUI/SSButton.disabled = false
 		
-	if money < 50:
+	if money < WTowerCost:
 		$TowerGUI/platformGUI/WButton.disabled = true
-		$TowerGUI/platformGUI/GButton.disabled = true
 	else:
 		$TowerGUI/platformGUI/WButton.disabled = false
+		
+	if money < GTowerCost:
+		$TowerGUI/platformGUI/GButton.disabled = true
+	else:
 		$TowerGUI/platformGUI/GButton.disabled = false
 		
-	if money < 70:
+	if money < CSTowerCost:
 		$TowerGUI/platformGUI/CSButton.disabled = true
 	else:
 		$TowerGUI/platformGUI/CSButton.disabled = false
@@ -100,5 +107,15 @@ func _on_sell_pressed():
 
 
 func _on_child_entered_tree(node):
+	var cost = 0
+	if node.is_in_group("WTowers"):
+		cost = WTowerCost
+	if node.is_in_group("GTowers"):
+		cost = GTowerCost
+	if node.is_in_group("CSTowers"):
+		cost = CSTowerCost
+	if node.is_in_group("SSTowers"):
+		cost = SSTowerCost
+		
 	if node.is_in_group("Towers"):
-		get_tree().call_group("CurrentLevel", "subtract_money", 10)
+		get_tree().call_group("CurrentLevel", "subtract_money", cost)	

@@ -74,6 +74,7 @@ func reset():
 	get_tree().call_group("Enemies", "queue_free")
 	get_tree().call_group("EnemyPathFollows", "set_in_destination")
 	get_tree().call_group("EnemyPathFollows", "queue_free")
+	platformList.clear()
 	gameOverFlag = false
 	hud.update_lives(lives)
 	update_money_guis()

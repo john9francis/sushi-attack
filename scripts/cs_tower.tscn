@@ -7,7 +7,7 @@ radius = 180.069
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_sle01"]
 
-[node name="cs_tower" type="Area2D" groups=["Towers"]]
+[node name="cs_tower" type="Area2D" groups=["CSTowers", "Towers"]]
 script = ExtResource("1_jvirs")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
