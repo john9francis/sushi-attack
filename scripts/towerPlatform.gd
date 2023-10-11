@@ -34,7 +34,7 @@ func _on_mouse_exited():
 func _on_ss_button_pressed():
 	# Get rid of the tower gui
 	$TowerGUI.hide()
-	$TowerGUI.switch_gui()	
+	$TowerGUI.go_to_upgrade_gui()
 	tower = SSTowerScene.instantiate()
 	add_child(tower)
 
@@ -42,7 +42,7 @@ func _on_ss_button_pressed():
 
 func _on_cs_button_pressed():
 	$TowerGUI.hide()
-	$TowerGUI.switch_gui()	
+	$TowerGUI.go_to_upgrade_gui()
 	tower = CSTowerScene.instantiate()
 	add_child(tower)
 
@@ -51,20 +51,22 @@ func _on_cs_button_pressed():
 
 func _on_g_button_pressed():
 	$TowerGUI.hide()
-	$TowerGUI.switch_gui()
+	$TowerGUI.go_to_upgrade_gui()
 	tower = GTowerScene.instantiate()
 	add_child(tower)
 
 
 func _on_w_button_pressed():
 	$TowerGUI.hide()
-	$TowerGUI.switch_gui()	
+	$TowerGUI.go_to_upgrade_gui()
 	tower = WTowerScene.instantiate()
 	add_child(tower)
 
 
 func _on_sell_pressed():
+	$TowerGUI.hide()
 	# sell the tower
 	print("tower sold")
 	tower.queue_free()
-	pass # Replace with function body.
+	$TowerGUI.go_to_platform_gui()
+	
