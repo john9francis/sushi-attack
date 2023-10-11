@@ -12,4 +12,4 @@ func _process(delta):
 
 
 func update_lives(lives):
-	$Lives.text = str(lives)
+	$Control/LivesControl/Lives.text = str(lives)

@@ -31,6 +31,8 @@ func _on_mouse_exited():
 	mouse_in_tower = false
 
 
+
+
 func _on_ss_button_pressed():
 	# Get rid of the tower gui
 	$TowerGUI.hide()
@@ -39,14 +41,11 @@ func _on_ss_button_pressed():
 	add_child(tower)
 
 
-
 func _on_cs_button_pressed():
 	$TowerGUI.hide()
 	$TowerGUI.go_to_upgrade_gui()
 	tower = CSTowerScene.instantiate()
 	add_child(tower)
-
-
 
 
 func _on_g_button_pressed():
@@ -61,6 +60,8 @@ func _on_w_button_pressed():
 	$TowerGUI.go_to_upgrade_gui()
 	tower = WTowerScene.instantiate()
 	add_child(tower)
+	
+
 
 
 func _on_sell_pressed():
