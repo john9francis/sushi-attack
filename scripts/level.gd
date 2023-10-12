@@ -74,6 +74,7 @@ func set_up_towers():
 func reset():
 	$StartButton.show()
 	$ResetButton.hide()
+	$ProgressBar.hide()
 	$StartLabel.text = "Sushi Attack"
 	
 	get_tree().call_group("Enemies", "queue_free")
@@ -88,7 +89,7 @@ func reset():
 	lives = 5
 	money = 100
 	
-	totalEnemies = 5
+	totalEnemies = 50
 	timeDelay = 1.0
 	
 	hud.update_lives(lives)
@@ -98,6 +99,7 @@ func reset():
 
 func start_game():
 	gameStoppedFlag = false
+	$ProgressBar.show()
 	$EnemySpawnTimer.start(3)
 	print("Started")
 
