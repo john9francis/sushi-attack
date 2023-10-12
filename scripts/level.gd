@@ -14,11 +14,12 @@ var money = 100
 signal gameOver
 signal success
 var gameOverFlag = false
+var gameStoppedFlag = true
 
 var platformList = []
 
 
-var totalEnemies = 10
+var totalEnemies = 5
 var timeDelay = 1.0
 
 
@@ -37,6 +38,8 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	pass
+	
+
 
 
 
@@ -69,31 +72,38 @@ func set_up_towers():
 
 
 func reset():
-	$ResetButton.hide()
 	$StartButton.show()
+	$ResetButton.hide()
 	$StartLabel.text = "Sushi Attack"
+	
 	get_tree().call_group("Enemies", "queue_free")
 	get_tree().call_group("EnemyPathFollows", "set_in_destination")
 	get_tree().call_group("EnemyPathFollows", "queue_free")
+	
 	for p in platformList:
 		p.remove_tower()
+		
 	gameOverFlag = false
-	hud.update_lives(lives)
-	update_money_guis()
 	
 	lives = 5
 	money = 100
+	
+	totalEnemies = 5
+	timeDelay = 1.0
+	
+	hud.update_lives(lives)
+	update_money_guis()
 
 
 
 func start_game():
-	# reset everything if needed
-	
+	gameStoppedFlag = false
 	$EnemySpawnTimer.start(3)
 	print("Started")
 
 
 func stop_game():
+	gameStoppedFlag = true
 	$EnemySpawnTimer.stop()
 	if gameOverFlag:
 		$StartLabel.text = "Game Over"
@@ -125,12 +135,12 @@ func _on_enemy_spawn_timer_timeout():
 	pathFollow.add_child(enemy)
 		
 	# reset the timer with a random value from 1 to 2
-	$EnemySpawnTimer.start(randf() + timeDelay)
+	if totalEnemies > 0:
+		$EnemySpawnTimer.start(randf() + timeDelay)
 	
 	totalEnemies -= 1
-	timeDelay -= .1
-	if totalEnemies <= 0:
-		emit_signal("success")
+	timeDelay -= .01
+	
 
 
 func _on_enemy_destination_area_entered(area):
@@ -162,6 +172,11 @@ func _on_enemy_path_child_exiting_tree(node):
 		if !node.in_destination:
 			money += 10
 			update_money_guis()
+			
+		# You win if you kill the last enemy
+		if totalEnemies <= 0 and !get_tree().has_group("Enemies") and !gameOverFlag:
+			emit_signal("success")
+	
 
 
 

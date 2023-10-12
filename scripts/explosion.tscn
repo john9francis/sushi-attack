@@ -19,6 +19,7 @@ scale = Vector2(131.75, 133.25)
 texture = SubResource("CanvasTexture_55j28")
 
 [node name="DespawnTimer" type="Timer" parent="."]
+wait_time = 0.2
 one_shot = true
 
 [connection signal="timeout" from="DespawnTimer" to="." method="_on_despawn_timer_timeout"]

@@ -102,7 +102,7 @@ func _on_sell_pressed():
 	
 	
 func remove_tower():
-	if tower:
+	if tower != null:
 		$TowerGUI.hide()
 		tower.queue_free()
 		$TowerGUI.go_to_platform_gui()
