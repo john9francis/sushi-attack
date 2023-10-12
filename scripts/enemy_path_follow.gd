@@ -1,6 +1,7 @@
 extends PathFollow2D
 
 var speed = 1
+var value = 10
 var in_destination = false
 
 func _ready():
@@ -16,6 +17,9 @@ func _process(delta):
 	
 func set_speed(s):
 	speed = s
+	
+func set_value(v):
+	value = v
 
 
 func set_in_destionation():

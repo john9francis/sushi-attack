@@ -8,6 +8,7 @@ var currentSpeed = 2
 var health = 10
 var poison_hits = 0
 #var in_destination = false
+#var value = 10
 
 func _ready():
 	add_to_group("Enemies")
@@ -20,6 +21,7 @@ func _process(_delta):
 		myPathFollow.queue_free()
 		queue_free()
 	
+
 
 func set_speed(s):
 	currentSpeed = s

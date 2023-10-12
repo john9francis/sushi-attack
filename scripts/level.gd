@@ -77,9 +77,10 @@ func reset():
 	$ProgressBar.hide()
 	$StartLabel.text = "Sushi Attack"
 	
-	get_tree().call_group("Enemies", "queue_free")
+	get_tree().call_group("EnemyPathFollows", "set_value", 0)
 	get_tree().call_group("EnemyPathFollows", "set_in_destination")
 	get_tree().call_group("EnemyPathFollows", "queue_free")
+	get_tree().call_group("Enemies", "queue_free")
 	
 	for p in platformList:
 		p.remove_tower()
@@ -176,7 +177,7 @@ func _on_enemy_path_child_exiting_tree(node):
 	if node.is_in_group("EnemyPathFollows"):
 		# an enemy died, give you some money!
 		if !node.in_destination:
-			money += 10
+			money += node.value
 			update_money_guis()
 			
 		# You win if you kill the last enemy
