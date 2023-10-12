@@ -18,7 +18,7 @@ var gameStoppedFlag = true
 
 var platformList = []
 
-const totalEnemies = 10
+const totalEnemies = 50
 var currentEnemies = totalEnemies
 var timeDelay = 1.0
 
@@ -140,7 +140,7 @@ func _on_enemy_spawn_timer_timeout():
 	timeDelay -= .01
 		
 	# reset the timer with a random value from 1 to 2
-	if currentEnemies >= 0:
+	if currentEnemies > 0:
 		$EnemySpawnTimer.start(randf() + timeDelay)
 		
 	# update the progress bar
