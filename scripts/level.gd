@@ -18,8 +18,8 @@ var gameStoppedFlag = true
 
 var platformList = []
 
-
-var totalEnemies = 5
+const totalEnemies = 10
+var currentEnemies = totalEnemies
 var timeDelay = 1.0
 
 
@@ -89,7 +89,7 @@ func reset():
 	lives = 5
 	money = 100
 	
-	totalEnemies = 50
+	currentEnemies = totalEnemies
 	timeDelay = 1.0
 	
 	hud.update_lives(lives)
@@ -135,13 +135,17 @@ func _on_enemy_spawn_timer_timeout():
 		
 	$EnemyPath.add_child(pathFollow)
 	pathFollow.add_child(enemy)
+	
+	currentEnemies -= 1
+	timeDelay -= .01
 		
 	# reset the timer with a random value from 1 to 2
-	if totalEnemies > 0:
+	if currentEnemies >= 0:
 		$EnemySpawnTimer.start(randf() + timeDelay)
+		
+	# update the progress bar
+	$ProgressBar.progress(float(totalEnemies), float(totalEnemies - currentEnemies))
 	
-	totalEnemies -= 1
-	timeDelay -= .01
 	
 
 
@@ -176,7 +180,7 @@ func _on_enemy_path_child_exiting_tree(node):
 			update_money_guis()
 			
 		# You win if you kill the last enemy
-		if totalEnemies <= 0 and !get_tree().has_group("Enemies") and !gameOverFlag:
+		if currentEnemies <= 0 and !get_tree().has_group("Enemies") and !gameOverFlag:
 			emit_signal("success")
 	
 
