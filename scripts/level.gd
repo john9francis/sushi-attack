@@ -8,8 +8,8 @@ var hud
 
 var multipleEnemies = true # For debugging, only spawning one enemy
 
-var lives = 5
-var money = 100
+var lives
+var money
 
 signal gameOver
 signal success
@@ -20,7 +20,7 @@ var platformList = []
 
 const totalEnemies = 50
 var currentEnemies = totalEnemies
-var timeDelay = 1.0
+var timeDelay
 
 
 # Called when the node enters the scene tree for the first time.
@@ -50,24 +50,44 @@ func set_up_towers():
 	var p3 = towerPlatformScene.instantiate()
 	var p4 = towerPlatformScene.instantiate()
 	var p5 = towerPlatformScene.instantiate()
+	var p6 = towerPlatformScene.instantiate()
+	var p7 = towerPlatformScene.instantiate()
+	var p8 = towerPlatformScene.instantiate()
+	var p9 = towerPlatformScene.instantiate()
+	var p10 = towerPlatformScene.instantiate()
 	
 	p1.position = Vector2(100, 250)
 	p2.position = Vector2(400, 450)
 	p3.position = Vector2(600, 500)
 	p4.position = Vector2(450, 850)
 	p5.position = Vector2(750, 750)
+	p6.position = Vector2(700, 250)
+	p7.position = Vector2(850, 350)
+	p8.position = Vector2(300, 620)
+	p9.position = Vector2(150, 720)
+	p10.position = Vector2(900, 550)
 	
 	platformList.append(p1)
 	platformList.append(p2)
 	platformList.append(p3)
 	platformList.append(p4)
 	platformList.append(p5)
+	platformList.append(p6)
+	platformList.append(p7)
+	platformList.append(p8)
+	platformList.append(p9)
+	platformList.append(p10)
 	
 	add_child(p1)
 	add_child(p2)
 	add_child(p3)
 	add_child(p4)
 	add_child(p5)
+	add_child(p6)
+	add_child(p7)
+	add_child(p8)
+	add_child(p9)
+	add_child(p10)
 
 
 
@@ -88,10 +108,10 @@ func reset():
 	gameOverFlag = false
 	
 	lives = 5
-	money = 100
+	money = 150
 	
 	currentEnemies = totalEnemies
-	timeDelay = 1.0
+	timeDelay = 1.5
 	
 	hud.update_lives(lives)
 	update_money_guis()
@@ -138,7 +158,7 @@ func _on_enemy_spawn_timer_timeout():
 	pathFollow.add_child(enemy)
 	
 	currentEnemies -= 1
-	timeDelay -= .01
+	timeDelay -= .015
 		
 	# reset the timer with a random value from 1 to 2
 	if currentEnemies > 0:

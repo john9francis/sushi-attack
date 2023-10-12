@@ -15,7 +15,7 @@ shape = SubResource("CircleShape2D_2a3g2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0.00392157, 0.164706, 0.0470588, 0.396078)
-scale = Vector2(136, 127.5)
+scale = Vector2(350.75, 349.875)
 texture = SubResource("CanvasTexture_6dy65")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
