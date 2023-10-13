@@ -19,6 +19,7 @@ scale = Vector2(0.5, 0.523438)
 texture = ExtResource("2_wy6gg")
 
 [node name="PoisonTimer" type="Timer" parent="."]
+wait_time = 0.5
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
