@@ -149,6 +149,9 @@ func update_money_guis():
 
 func pause():
 	print("Paused")
+	# pause the towers
+	
+	# pause the enemies
 
 
 
