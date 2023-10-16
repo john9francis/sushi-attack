@@ -6,3 +6,11 @@
 [node name="Main" type="Node"]
 script = ExtResource("1_t84td")
 levelScene = ExtResource("1_lvge1")
+
+[node name="GameWorld" type="Node2D" parent="."]
+
+[node name="GUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
