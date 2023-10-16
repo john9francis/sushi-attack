@@ -17,3 +17,6 @@ func go_to_level():
 	level = levelScene.instantiate()
 	add_child(level)
 	pass
+
+func delete_level():
+	level.queue_free()

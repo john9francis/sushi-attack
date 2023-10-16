@@ -35,5 +35,20 @@ offset_right = 214.0
 offset_bottom = 228.0
 text = "Level one"
 
+[node name="HUD" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ToMainMenu" type="Button" parent="HUD"]
+layout_mode = 0
+offset_left = 303.0
+offset_top = 28.0
+offset_right = 361.0
+offset_bottom = 78.0
+text = "To Main Menu"
+
 [connection signal="pressed" from="GUI/MainMenu/PlayGame" to="GUI" method="_on_play_game_pressed"]
 [connection signal="pressed" from="GUI/LevelSelect/L1" to="." method="_on_l_1_pressed"]
+[connection signal="pressed" from="HUD/ToMainMenu" to="." method="_on_to_main_menu_pressed"]

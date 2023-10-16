@@ -3,8 +3,7 @@ extends Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$GUI.show()
-
+	$HUD.hide()
 	pass # Replace with function body.
 
 
@@ -14,7 +13,15 @@ func _process(delta):
 
 
 func _on_l_1_pressed():
-	$GUI.hide()
 	$GUI/LevelSelect.hide()
 	$GameWorld.go_to_level()
+	$HUD.show()
+	pass # Replace with function body.
+
+
+func _on_to_main_menu_pressed():
+	$GameWorld.delete_level()
+	$GUI/MainMenu.show()
+	$HUD.hide()
+	
 	pass # Replace with function body.
