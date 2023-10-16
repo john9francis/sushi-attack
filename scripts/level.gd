@@ -145,6 +145,10 @@ func update_money_guis():
 	hud.update_money(money)
 	for p in platformList:
 		p.update_buttons(money)
+		
+
+func pause():
+	print("Paused")
 
 
 

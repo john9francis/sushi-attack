@@ -20,3 +20,8 @@ func go_to_level():
 
 func delete_level():
 	level.queue_free()
+
+
+func _on_pause_pressed():
+	level.pause()
+	pass # Replace with function body.
