@@ -1,14 +1,10 @@
-extends Node
-
-@export var levelScene : PackedScene
-var level
+extends Control
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$GUI.show()
-	#level = levelScene.instantiate()
-	#add_child(level)
+	$MainMenu.show()
+	$LevelSelect.hide()
 	pass # Replace with function body.
 
 
