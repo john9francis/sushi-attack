@@ -1,10 +1,10 @@
-extends Control
+extends Node2D
 
+@export var levelScene : PackedScene
+var level
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$MainMenu.show()
-	$LevelSelect.hide()
 	pass # Replace with function body.
 
 
@@ -13,7 +13,7 @@ func _process(delta):
 	pass
 
 
-func _on_play_game_pressed():
-	$MainMenu.hide()
-	$LevelSelect.show()
-	pass # Replace with function body.
+func go_to_level():
+	level = levelScene.instantiate()
+	add_child(level)
+	pass

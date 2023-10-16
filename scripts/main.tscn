@@ -1,14 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://bgtvxbdu2qdf0"]
+[gd_scene load_steps=5 format=3 uid="uid://bgtvxbdu2qdf0"]
 
 [ext_resource type="PackedScene" uid="uid://cn5affxsrvpyq" path="res://scripts/level.tscn" id="1_lvge1"]
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_t84td"]
 [ext_resource type="Script" path="res://scripts/GUI.gd" id="3_ejdf7"]
+[ext_resource type="Script" path="res://scripts/GameWorld.gd" id="3_oi7dd"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_t84td")
-levelScene = ExtResource("1_lvge1")
 
 [node name="GameWorld" type="Node2D" parent="."]
+script = ExtResource("3_oi7dd")
+levelScene = ExtResource("1_lvge1")
 
 [node name="GUI" type="Control" parent="."]
 layout_mode = 3
@@ -26,9 +28,12 @@ text = "Play Game"
 
 [node name="LevelSelect" type="CanvasLayer" parent="GUI"]
 
-[node name="Button" type="Button" parent="GUI/LevelSelect"]
+[node name="L1" type="Button" parent="GUI/LevelSelect"]
 offset_left = 123.0
 offset_top = 142.0
 offset_right = 214.0
 offset_bottom = 228.0
 text = "Level one"
+
+[connection signal="pressed" from="GUI/MainMenu/PlayGame" to="GUI" method="_on_play_game_pressed"]
+[connection signal="pressed" from="GUI/LevelSelect/L1" to="." method="_on_l_1_pressed"]
