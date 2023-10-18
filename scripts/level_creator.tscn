@@ -4,3 +4,5 @@
 
 [node name="LevelCreator" type="Node"]
 script = ExtResource("1_cp6mv")
+
+[connection signal="levelLoaded" from="." to="." method="_on_level_loaded"]

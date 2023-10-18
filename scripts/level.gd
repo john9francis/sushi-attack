@@ -3,6 +3,7 @@ extends Node2D
 @export var enemyScene: PackedScene
 @export var towerPlatformScene: PackedScene
 @export var hudScene: PackedScene
+@export var levelCreatorScene: PackedScene
 
 var hud
 
@@ -22,6 +23,9 @@ const totalEnemies = 50
 var currentEnemies = totalEnemies
 var timeDelay
 
+var levelCreator
+
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -33,6 +37,10 @@ func _ready():
 	add_child(hud)
 	
 	reset()
+	
+	levelCreator = levelCreatorScene.instantiate()
+	levelCreator.set_level_path("L1.txt")
+	#add_child(levelCreator)
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
