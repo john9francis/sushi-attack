@@ -23,13 +23,11 @@ const totalEnemies = 50
 var currentEnemies = totalEnemies
 var timeDelay
 
-var levelCreator
-
-
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	set_up_towers()
+	set_up_level()
 	
 	add_to_group("CurrentLevel")
 	
@@ -37,16 +35,19 @@ func _ready():
 	add_child(hud)
 	
 	reset()
-	
-	levelCreator = levelCreatorScene.instantiate()
-	levelCreator.set_level_path("L1.txt")
-	#add_child(levelCreator)
-	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	pass
 	
+	
+func set_up_level():
+	# Starts up a levelCreator, get's all the info, then deletes it.
+	var levelCreator = levelCreatorScene.instantiate()
+	levelCreator.set_level_path("L1.txt")
+	
+	levelCreator.queue_free()
+	pass
 
 
 

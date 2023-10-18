@@ -50,5 +50,14 @@ func get_enemy_path():
 
 func _on_level_loaded():
 	var fileContent = load_level(levelPath)
-	print(fileContent)
+	#print(fileContent)
+	set_all_lists(fileContent)
 	pass # Replace with function body.
+
+
+func set_all_lists(fileContent):
+	# reads the file and puts all the things into their lists
+	var lines = fileContent.split("\n")
+	for line in lines:
+		print(line)
+	pass
