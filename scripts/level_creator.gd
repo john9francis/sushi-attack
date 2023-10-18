@@ -67,7 +67,16 @@ func set_all_lists(fileContent):
 		# Get rid of whitespace
 		line = line.strip_edges()
 		
+		if pathLines:
+			print("Path point vector: ")
+			print(line)
+		
 		if line == "path":
 			print(line)
+			pathLines = true
+			enemyLines = false
+			towerPlatformLines = false
+			
+		
 
 	pass
