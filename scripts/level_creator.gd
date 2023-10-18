@@ -58,6 +58,16 @@ func _on_level_loaded():
 func set_all_lists(fileContent):
 	# reads the file and puts all the things into their lists
 	var lines = fileContent.split("\n")
+	
+	var pathLines = false
+	var enemyLines = false
+	var towerPlatformLines = false
+	
 	for line in lines:
-		print(line)
+		# Get rid of whitespace
+		line = line.strip_edges()
+		
+		if line == "path":
+			print(line)
+
 	pass

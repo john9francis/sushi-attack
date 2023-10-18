@@ -4,6 +4,8 @@ extends Node
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$HUD.hide()
+	# For testing purposes: let's skip the main menu
+	_on_l_1_pressed()
 	pass # Replace with function body.
 
 
