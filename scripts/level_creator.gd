@@ -40,6 +40,7 @@ func get_tower_platform_list():
 	
 
 func get_path_points_list():
+	return path_points_list
 	pass
 	
 	
@@ -68,8 +69,13 @@ func set_all_lists(fileContent):
 		line = line.strip_edges()
 		
 		if pathLines:
+			var vectorStrings = line.split(",")
+			var x = int(vectorStrings[0])
+			var y = int(vectorStrings[1])
+			var pathPointVector = Vector2(x,y)
 			print("Path point vector: ")
-			print(line)
+			print(pathPointVector)
+			path_points_list.append(pathPointVector)
 		
 		if line == "path":
 			print(line)

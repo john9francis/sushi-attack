@@ -46,6 +46,15 @@ func set_up_level():
 	var levelCreator = levelCreatorScene.instantiate()
 	levelCreator.set_level_path("L1.txt")
 	
+	var pathPoints = levelCreator.get_path_points_list()
+	var path = Path2D.new()
+	var curve = Curve2D.new()
+	for point in pathPoints:
+		curve.add_point(point)
+	
+	path.set_curve(curve)
+	add_child(path)
+	
 	levelCreator.queue_free()
 	pass
 
