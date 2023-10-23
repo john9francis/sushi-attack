@@ -35,6 +35,13 @@ offset_right = 214.0
 offset_bottom = 228.0
 text = "Level one"
 
+[node name="L2" type="Button" parent="GUI/LevelSelect"]
+offset_left = 225.0
+offset_top = 143.0
+offset_right = 320.0
+offset_bottom = 228.0
+text = "Level two"
+
 [node name="HUD" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
@@ -59,5 +66,6 @@ text = "Pause"
 
 [connection signal="pressed" from="GUI/MainMenu/PlayGame" to="GUI" method="_on_play_game_pressed"]
 [connection signal="pressed" from="GUI/LevelSelect/L1" to="." method="_on_l_1_pressed"]
+[connection signal="pressed" from="GUI/LevelSelect/L2" to="." method="_on_l_2_pressed"]
 [connection signal="pressed" from="HUD/ToMainMenu" to="." method="_on_to_main_menu_pressed"]
 [connection signal="pressed" from="HUD/Pause" to="GameWorld" method="_on_pause_pressed"]

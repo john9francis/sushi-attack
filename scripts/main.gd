@@ -31,3 +31,8 @@ func _on_to_main_menu_pressed():
 	$HUD.hide()
 	
 	pass # Replace with function body.
+
+
+func _on_l_2_pressed():
+	go_to_level("L2")
+	pass # Replace with function body.
