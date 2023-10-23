@@ -15,10 +15,14 @@ func _process(delta):
 
 
 func _on_l_1_pressed():
-	$GUI/LevelSelect.hide()
-	$GameWorld.go_to_level()
-	$HUD.show()
+	go_to_level("L1")
 	pass # Replace with function body.
+	
+func go_to_level(levelName):
+	$GUI/LevelSelect.hide()
+	$GameWorld.go_to_level(levelName)
+	$HUD.show()
+	pass
 
 
 func _on_to_main_menu_pressed():

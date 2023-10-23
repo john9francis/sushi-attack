@@ -27,7 +27,7 @@ var timeDelay
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	set_up_towers()
-	set_up_level()
+	#set_up_level("L1")
 	
 	add_to_group("CurrentLevel")
 	
@@ -41,10 +41,10 @@ func _process(_delta):
 	pass
 	
 	
-func set_up_level():
+func set_up_level(fileName):
 	# Starts up a levelCreator, get's all the info, then deletes it.
 	var levelCreator = levelCreatorScene.instantiate()
-	levelCreator.set_level_path("L1.txt")
+	levelCreator.set_level_path(fileName)
 	
 	var pathPoints = levelCreator.get_path_points_list()
 	#var path = Path2D.new()

@@ -20,7 +20,7 @@ func _process(delta):
 	
 	
 func set_level_path(levelName):
-	levelPath = "res://levels/" + levelName
+	levelPath = "res://levels/" + levelName + ".txt"
 	levelLoaded.emit()
 	pass
 
@@ -51,7 +51,6 @@ func get_enemy_path():
 
 func _on_level_loaded():
 	var fileContent = load_level(levelPath)
-	#print(fileContent)
 	set_all_lists(fileContent)
 	pass # Replace with function body.
 
@@ -73,12 +72,9 @@ func set_all_lists(fileContent):
 			var x = int(vectorStrings[0])
 			var y = int(vectorStrings[1])
 			var pathPointVector = Vector2(x,y)
-			print("Path point vector: ")
-			print(pathPointVector)
 			path_points_list.append(pathPointVector)
 		
 		if line == "path":
-			print(line)
 			pathLines = true
 			enemyLines = false
 			towerPlatformLines = false
