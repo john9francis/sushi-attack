@@ -19,7 +19,6 @@ func _ready():
 func _process(_delta):
 	if health <= 0:
 		myPathFollow.queue_free()
-		queue_free()
 	
 
 
