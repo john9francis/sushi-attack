@@ -11,14 +11,17 @@ var readyToKill
 
 var handSpeed
 
+var handAtRest
+
 func _ready():
 	# debug
 	$debugTimer.start()
 	
-	handSpeed = 50
+	handSpeed = 100
 	
 	readyToKill = true
 	enemyTracked = false
+	handAtRest = true
 	tracker = TrackerScene.instantiate()
 	add_child(tracker)
 	
@@ -30,18 +33,19 @@ func _process(delta):
 	if enemyList.size() > 0:
 		tracker.set_area(enemyList[0])
 		enemyToKillPos = tracker.get_target_future_pos(20)
-		if $HandTimer.is_stopped():
-			$HandTimer.start()
-	elif !$HandTimer.is_stopped():
-		$HandTimer.stop()
+		
 		
 	var direction = (global_position - $CS_Hand.global_position).normalized()
+		
+		
+	if (global_position - $CS_Hand.global_position).length() >= Vector2(handSpeed/50,handSpeed/50).length():
+		move_hand(direction)
+	else:
+		move_hand(Vector2())
+		
 	if readyToKill and enemyToKillPos != null:
 		direction = (enemyToKillPos - $CS_Hand.global_position).normalized()
-		
-	
-	move_hand(direction)
-		
+		move_hand(direction)
 		
 		
 	# Make the hand follow the tracker
