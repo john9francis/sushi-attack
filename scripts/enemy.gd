@@ -40,6 +40,8 @@ func multiply_speed(s):
 	
 	
 
+func get_enemy_texture():
+	return $Sprite2D.get_texture()
 
 func _on_body_entered(body):
 	if body.is_in_group("Bullets"):

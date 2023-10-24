@@ -83,15 +83,6 @@ func _on_debug_timer_timeout():
 	pass # Replace with function body.
 
 
-func _on_hand_timer_timeout():
-	#var direction = (Vector2() - $CS_Hand.global_position).normalized()
-	#if readyToKill:
-	#	direction = (enemyToKillPos - $CS_Hand.global_position).normalized()
-	#	
-	#move_hand(direction)
-	pass # Replace with function body.
-
-
 
 func move_hand(direction):
 	$CS_Hand.linear_velocity = direction * handSpeed
@@ -103,5 +94,11 @@ func _on_hand_area_area_entered(area):
 		area.queue_free()
 		readyToKill = false
 		$KillMobTimer.start()
+		
+		# Set the hand texture to the enemy's texture
+		var enemyTexture = area.get_enemy_texture()
+		var textureSize = enemyTexture.get_size()
+		$CS_Hand/Sprite2D.set_texture(enemyTexture)
+		$CS_Hand/Sprite2D.scale = textureSize * .003
 		pass
 	pass # Replace with function body.
