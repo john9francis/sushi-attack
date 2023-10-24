@@ -25,7 +25,7 @@ func _ready():
 func _process(delta):
 	if enemyList.size() > 0:
 		tracker.set_area(enemyList[0])
-		enemyToKillPos = tracker.get_target_future_pos()
+		enemyToKillPos = tracker.get_target_future_pos(20)
 		if $HandTimer.is_stopped():
 			$HandTimer.start()
 	elif !$HandTimer.is_stopped():
