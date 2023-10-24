@@ -34,15 +34,14 @@ one_shot = true
 points = PackedVector2Array(-1, 0, -13, -81)
 
 [node name="CS_Hand" type="RigidBody2D" parent="."]
+position = Vector2(-20, -100)
 gravity_scale = 0.0
 script = ExtResource("3_b4575")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CS_Hand"]
-position = Vector2(-10, -100)
 shape = SubResource("CircleShape2D_t66ib")
 
 [node name="Sprite2D" type="Sprite2D" parent="CS_Hand"]
-position = Vector2(-10, -100)
 scale = Vector2(38.5, 34.5)
 texture = SubResource("CanvasTexture_gs2a5")
 

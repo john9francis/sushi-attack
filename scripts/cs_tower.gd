@@ -17,6 +17,9 @@ func _ready():
 	enemyTracked = false
 	tracker = TrackerScene.instantiate()
 	add_child(tracker)
+	
+	$CS_Connector.set_point_position(0, Vector2())
+	$CS_Connector.set_point_position(1, $CS_Hand.position)
 
 
 func _process(delta):
@@ -27,7 +30,11 @@ func _process(delta):
 			$HandTimer.start()
 	elif !$HandTimer.is_stopped():
 		$HandTimer.stop()
+		
+		
 	# Make the hand follow the tracker
+	$CS_Connector.set_point_position(1, $CS_Hand.position)
+	
 	
 
 
@@ -62,7 +69,7 @@ func _on_debug_timer_timeout():
 
 func _on_hand_timer_timeout():
 	
-	var direction = (enemyToKillPos - global_position).normalized()
+	var direction = (enemyToKillPos - $CS_Hand.global_position).normalized()
 	
 	# Make the hand go toward the target
 	$CS_Hand.linear_velocity = direction * 50
