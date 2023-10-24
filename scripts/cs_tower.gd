@@ -13,11 +13,16 @@ var handSpeed
 
 var handAtRest
 
+var blankTexture
+
 func _ready():
 	# debug
 	$debugTimer.start()
 	
 	handSpeed = 100
+	
+	blankTexture = $CS_Hand/Sprite2D.get_texture()
+	$CS_Hand/Sprite2D.set_texture(blankTexture)
 	
 	readyToKill = true
 	enemyTracked = false
@@ -56,6 +61,7 @@ func _process(delta):
 
 func _on_kill_mob_timer_timeout():
 	readyToKill = true
+	$CS_Hand/Sprite2D.set_texture(blankTexture)
 
 
 
@@ -99,6 +105,6 @@ func _on_hand_area_area_entered(area):
 		var enemyTexture = area.get_enemy_texture()
 		var textureSize = enemyTexture.get_size()
 		$CS_Hand/Sprite2D.set_texture(enemyTexture)
-		$CS_Hand/Sprite2D.scale = textureSize * .003
+		$CS_Hand/Sprite2D.scale = textureSize * .004
 		pass
 	pass # Replace with function body.
