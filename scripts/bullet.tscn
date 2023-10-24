@@ -6,7 +6,7 @@
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_0l5pe"]
 
-[node name="Bullet" type="RigidBody2D" groups=["Bullets"]]
+[node name="Bullet" type="RigidBody2D"]
 mass = 0.28
 gravity_scale = 0.0
 script = ExtResource("1_1vfib")

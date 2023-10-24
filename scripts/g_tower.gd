@@ -32,6 +32,7 @@ func _on_shoot_timer_timeout():
 	
 	# Create a bullet and shoot it 
 	var bullet = BulletScene.instantiate()
+	bullet.add_to_group("Bullets")
 	bullet.position = position
 	bullet.linear_velocity = direction * 800
 	

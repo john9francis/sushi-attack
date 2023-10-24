@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dn63r1k685s4w"]
+[gd_scene load_steps=7 format=3 uid="uid://dn63r1k685s4w"]
 
 [ext_resource type="Script" path="res://scripts/w_tower.gd" id="1_3lvt7"]
 [ext_resource type="PackedScene" uid="uid://cni2vyt8g032r" path="res://scripts/explosion.tscn" id="2_van06"]
+[ext_resource type="PackedScene" uid="uid://gxkfd3lkutma" path="res://scripts/bullet.tscn" id="2_wceyy"]
 [ext_resource type="PackedScene" uid="uid://dy24dsqxtdl4w" path="res://scripts/tracker.tscn" id="3_neo51"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ocx2a"]
@@ -11,6 +12,7 @@ radius = 243.002
 
 [node name="w_tower" type="Area2D" groups=["Towers", "WTowers"]]
 script = ExtResource("1_3lvt7")
+BulletScene = ExtResource("2_wceyy")
 ExplosionScene = ExtResource("2_van06")
 TrackerScene = ExtResource("3_neo51")
 

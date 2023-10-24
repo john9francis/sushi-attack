@@ -43,7 +43,23 @@ func _on_shoot_timer_timeout():
 	var enemyGlobalPosition = tracker.get_target_future_pos()
 	var enemyLocalPosition = to_local(enemyGlobalPosition)
 	
+	# Shoot a bullet in an arc
+	var bullet = BulletScene.instantiate()
+	bullet.remove_from_group("Bullets") # so it doesn't damage enemy
+	bullet.gravity_scale = 2
+	bullet.position = position	
+	
+	# Direct the bullet a bit above the enemy
+	var enemyDirection = (enemyGlobalPosition - global_position).normalized()
+	var up = Vector2(0,-1)
+	var bulletDirection = (enemyDirection + up).normalized()
+	bullet.linear_velocity = bulletDirection * 500
+	
+	
+	
+	add_child(bullet)
+	
 	var explosion = ExplosionScene.instantiate()
 	explosion.position = enemyLocalPosition
 	
-	add_child(explosion)
+	#add_child(explosion)
