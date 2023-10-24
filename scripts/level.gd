@@ -176,11 +176,6 @@ func pause():
 
 func _on_enemy_spawn_timer_timeout():
 	# spawn enemy
-	
-	if !multipleEnemies:
-		return
-	
-	multipleEnemies = false
 	var enemy = enemyScene.instantiate()
 	var pathFollow = enemy.get_path_follow()
 		

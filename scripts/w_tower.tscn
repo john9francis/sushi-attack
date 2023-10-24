@@ -26,6 +26,7 @@ scale = Vector2(96.4237, 94.2558)
 texture = SubResource("CanvasTexture_jc4xd")
 
 [node name="ShootTimer" type="Timer" parent="."]
+wait_time = 1.2
 
 [node name="ExplodeTimerManager" type="Node" parent="."]
 script = ExtResource("5_ipm0x")
