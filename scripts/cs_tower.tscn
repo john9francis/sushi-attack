@@ -1,8 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://bul6um5k465t1"]
+[gd_scene load_steps=8 format=3 uid="uid://bul6um5k465t1"]
 
 [ext_resource type="Script" path="res://scripts/cs_tower.gd" id="1_jvirs"]
 [ext_resource type="PackedScene" uid="uid://dy24dsqxtdl4w" path="res://scripts/tracker.tscn" id="2_tb1pc"]
-[ext_resource type="Script" path="res://scripts/CS_Hand.gd" id="3_b4575"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ewmki"]
 radius = 180.069
@@ -34,12 +33,11 @@ wait_time = 6.5
 one_shot = true
 
 [node name="CS_Connector" type="Line2D" parent="."]
-points = PackedVector2Array(-1, 0, -13, -81)
+points = PackedVector2Array(-1, 0, -1, -53)
 
 [node name="CS_Hand" type="RigidBody2D" parent="."]
-position = Vector2(-20, -100)
+position = Vector2(0, -50)
 gravity_scale = 0.0
-script = ExtResource("3_b4575")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CS_Hand"]
 shape = SubResource("CircleShape2D_t66ib")
