@@ -9,9 +9,13 @@ var enemyToKillPos
 
 var readyToKill
 
+var handSpeed
+
 func _ready():
 	# debug
 	$debugTimer.start()
+	
+	handSpeed = 50
 	
 	readyToKill = true
 	enemyTracked = false
@@ -30,6 +34,14 @@ func _process(delta):
 			$HandTimer.start()
 	elif !$HandTimer.is_stopped():
 		$HandTimer.stop()
+		
+	var direction = (global_position - $CS_Hand.global_position).normalized()
+	if readyToKill and enemyToKillPos != null:
+		direction = (enemyToKillPos - $CS_Hand.global_position).normalized()
+		
+	
+	move_hand(direction)
+		
 		
 		
 	# Make the hand follow the tracker
@@ -68,10 +80,24 @@ func _on_debug_timer_timeout():
 
 
 func _on_hand_timer_timeout():
-	
-	var direction = (enemyToKillPos - $CS_Hand.global_position).normalized()
-	
-	# Make the hand go toward the target
-	$CS_Hand.linear_velocity = direction * 50
-	
+	#var direction = (Vector2() - $CS_Hand.global_position).normalized()
+	#if readyToKill:
+	#	direction = (enemyToKillPos - $CS_Hand.global_position).normalized()
+	#	
+	#move_hand(direction)
+	pass # Replace with function body.
+
+
+
+func move_hand(direction):
+	$CS_Hand.linear_velocity = direction * handSpeed
+	pass
+
+func _on_hand_area_area_entered(area):
+	if area.is_in_group("Enemies"):
+		print("enemy caught")
+		area.queue_free()
+		readyToKill = false
+		$KillMobTimer.start()
+		pass
 	pass # Replace with function body.

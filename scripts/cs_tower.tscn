@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bul6um5k465t1"]
+[gd_scene load_steps=9 format=3 uid="uid://bul6um5k465t1"]
 
 [ext_resource type="Script" path="res://scripts/cs_tower.gd" id="1_jvirs"]
 [ext_resource type="PackedScene" uid="uid://dy24dsqxtdl4w" path="res://scripts/tracker.tscn" id="2_tb1pc"]
@@ -10,9 +10,12 @@ radius = 180.069
 [sub_resource type="CanvasTexture" id="CanvasTexture_sle01"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_t66ib"]
-radius = 34.1321
+radius = 21.095
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_gs2a5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xk58y"]
+radius = 19.0263
 
 [node name="cs_tower" type="Area2D" groups=["CSTowers", "Towers"]]
 script = ExtResource("1_jvirs")
@@ -45,6 +48,11 @@ shape = SubResource("CircleShape2D_t66ib")
 scale = Vector2(38.5, 34.5)
 texture = SubResource("CanvasTexture_gs2a5")
 
+[node name="HandArea" type="Area2D" parent="CS_Hand"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CS_Hand/HandArea"]
+shape = SubResource("CircleShape2D_xk58y")
+
 [node name="debugTimer" type="Timer" parent="."]
 
 [node name="HandTimer" type="Timer" parent="."]
@@ -53,5 +61,6 @@ wait_time = 0.5
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_area_exited"]
 [connection signal="timeout" from="KillMobTimer" to="." method="_on_kill_mob_timer_timeout"]
+[connection signal="area_entered" from="CS_Hand/HandArea" to="." method="_on_hand_area_area_entered"]
 [connection signal="timeout" from="debugTimer" to="." method="_on_debug_timer_timeout"]
 [connection signal="timeout" from="HandTimer" to="." method="_on_hand_timer_timeout"]
