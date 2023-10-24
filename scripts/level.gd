@@ -138,6 +138,7 @@ func reset():
 func start_game():
 	gameStoppedFlag = false
 	$ProgressBar.show()
+	
 	$EnemySpawnTimer.start(3)
 	print("Started")
 
@@ -175,6 +176,11 @@ func pause():
 
 func _on_enemy_spawn_timer_timeout():
 	# spawn enemy
+	
+	if !multipleEnemies:
+		return
+	
+	multipleEnemies = false
 	var enemy = enemyScene.instantiate()
 	var pathFollow = enemy.get_path_follow()
 		

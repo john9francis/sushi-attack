@@ -44,7 +44,7 @@ func _on_area_exited(area):
 
 
 func _on_shoot_timer_timeout():
-	var enemyGlobalPosition = tracker.get_target_future_pos()
+	var enemyGlobalPosition = tracker.get_target_future_pos(50)
 	var enemyLocalPosition = to_local(enemyGlobalPosition)
 	
 	# Shoot a bullet in an arc
