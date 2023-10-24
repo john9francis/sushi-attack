@@ -38,6 +38,8 @@ func _process(delta):
 	if enemyList.size() > 0:
 		tracker.set_area(enemyList[0])
 		enemyToKillPos = tracker.get_target_future_pos(20)
+	else:
+		enemyToKillPos = null
 		
 		
 	var direction = (global_position - $CS_Hand.global_position).normalized()
@@ -95,7 +97,7 @@ func move_hand(direction):
 	pass
 
 func _on_hand_area_area_entered(area):
-	if area.is_in_group("Enemies"):
+	if area.is_in_group("Enemies") and readyToKill:
 		print("enemy caught")
 		area.myPathFollow.queue_free()
 		readyToKill = false
