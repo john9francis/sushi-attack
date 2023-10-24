@@ -4,6 +4,8 @@ extends Area2D
 @export var ExplosionScene: PackedScene
 @export var TrackerScene: PackedScene
 
+var secondsToImpact
+var bulletList = []
 
 var tracker
 var enemyList = []
@@ -12,6 +14,8 @@ var enemyList = []
 func _ready():
 	tracker = TrackerScene.instantiate()
 	add_child(tracker)
+	
+	secondsToImpact = 1
 	pass # Replace with function body.
 
 
@@ -46,20 +50,32 @@ func _on_shoot_timer_timeout():
 	# Shoot a bullet in an arc
 	var bullet = BulletScene.instantiate()
 	bullet.remove_from_group("Bullets") # so it doesn't damage enemy
-	bullet.gravity_scale = 2
-	bullet.position = position	
+	bullet.gravity_scale = 1
+	bullet.position = position
 	
-	# Direct the bullet a bit above the enemy
-	var enemyDirection = (enemyGlobalPosition - global_position).normalized()
-	var up = Vector2(0,-1)
-	var bulletDirection = (enemyDirection + up).normalized()
-	bullet.linear_velocity = bulletDirection * 500
+	# Direct the bullet in an arc toward the enemy
+	var vx = enemyLocalPosition.x / secondsToImpact
+	var vy = - 0.5 * 980 * bullet.gravity_scale + enemyLocalPosition.y
+	bullet.linear_velocity = Vector2(vx, vy)
 	
+	bullet.set_destination(enemyGlobalPosition)
 	
-	
+	bulletList.append(bullet)
 	add_child(bullet)
-	
+	$ExplodeTimerManager.start_explosion_timer(secondsToImpact)
+
+
+
+func _on_explode_timer_manager_explosion_timer_timeout():
+	print("Explosion")
 	var explosion = ExplosionScene.instantiate()
-	explosion.position = enemyLocalPosition
+	print(bulletList[0])
 	
-	#add_child(explosion)
+	var bullet = bulletList[0]
+	var bpos = bullet.position
+	
+	explosion.position = bpos
+	add_child(explosion)
+	
+	bulletList[0].queue_free()
+	bulletList.erase(bulletList[0])

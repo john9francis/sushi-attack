@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://dn63r1k685s4w"]
+[gd_scene load_steps=8 format=3 uid="uid://dn63r1k685s4w"]
 
 [ext_resource type="Script" path="res://scripts/w_tower.gd" id="1_3lvt7"]
 [ext_resource type="PackedScene" uid="uid://cni2vyt8g032r" path="res://scripts/explosion.tscn" id="2_van06"]
 [ext_resource type="PackedScene" uid="uid://gxkfd3lkutma" path="res://scripts/bullet.tscn" id="2_wceyy"]
 [ext_resource type="PackedScene" uid="uid://dy24dsqxtdl4w" path="res://scripts/tracker.tscn" id="3_neo51"]
+[ext_resource type="Script" path="res://scripts/ExplodeTimerManager.gd" id="5_ipm0x"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ocx2a"]
 radius = 243.002
@@ -26,6 +27,10 @@ texture = SubResource("CanvasTexture_jc4xd")
 
 [node name="ShootTimer" type="Timer" parent="."]
 
+[node name="ExplodeTimerManager" type="Node" parent="."]
+script = ExtResource("5_ipm0x")
+
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_area_exited"]
 [connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]
+[connection signal="explosion_timer_timeout" from="ExplodeTimerManager" to="." method="_on_explode_timer_manager_explosion_timer_timeout"]
