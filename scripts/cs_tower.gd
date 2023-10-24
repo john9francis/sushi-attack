@@ -5,6 +5,7 @@ extends Area2D
 var tracker
 var enemyTracked
 var enemyList = []
+var enemyToKillPos
 
 var readyToKill
 
@@ -21,7 +22,13 @@ func _ready():
 func _process(delta):
 	if enemyList.size() > 0:
 		tracker.set_area(enemyList[0])
-
+		enemyToKillPos = tracker.get_target_future_pos()
+		if $HandTimer.is_stopped():
+			$HandTimer.start()
+	elif !$HandTimer.is_stopped():
+		$HandTimer.stop()
+	# Make the hand follow the tracker
+	
 
 
 func _on_kill_mob_timer_timeout():
@@ -49,5 +56,15 @@ func _on_area_exited(area):
 
 
 func _on_debug_timer_timeout():
-	print(enemyList)
+	#print(enemyList)
+	pass # Replace with function body.
+
+
+func _on_hand_timer_timeout():
+	
+	var direction = (enemyToKillPos - global_position).normalized()
+	
+	# Make the hand go toward the target
+	$CS_Hand.linear_velocity = direction * 50
+	
 	pass # Replace with function body.
