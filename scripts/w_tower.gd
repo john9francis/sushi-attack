@@ -1,7 +1,9 @@
 extends Area2D
 
+@export var BulletScene: PackedScene
 @export var ExplosionScene: PackedScene
 @export var TrackerScene: PackedScene
+
 
 var tracker
 var enemyList = []
