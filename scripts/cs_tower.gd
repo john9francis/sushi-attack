@@ -97,7 +97,7 @@ func move_hand(direction):
 func _on_hand_area_area_entered(area):
 	if area.is_in_group("Enemies"):
 		print("enemy caught")
-		area.queue_free()
+		area.myPathFollow.queue_free()
 		readyToKill = false
 		$KillMobTimer.start()
 		
