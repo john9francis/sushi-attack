@@ -24,6 +24,8 @@ func delete_level():
 
 
 func _on_pause_pressed():
+	#for child in get_children():
+	#	child.set_process(false)
 	level.pause()
 	pass # Replace with function body.
 
@@ -31,5 +33,7 @@ func _on_pause_pressed():
 
 
 func _on_resume_pressed():
+	#for child in get_children():
+	#	child.set_process(true)
 	level.resume()
 	pass # Replace with function body.
