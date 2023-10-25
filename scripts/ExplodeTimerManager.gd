@@ -21,11 +21,9 @@ func start_explosion_timer(seconds):
 	
 	add_child(timer)
 	timer.start(seconds)
-	print("Timer started")
 	pass
 
 
 func _on_explosion_timer_timeout():
-	print("explosion signal")
 	emit_signal("explosion_timer_timeout")
 	pass

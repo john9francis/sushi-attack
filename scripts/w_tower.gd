@@ -67,9 +67,7 @@ func _on_shoot_timer_timeout():
 
 
 func _on_explode_timer_manager_explosion_timer_timeout():
-	print("Explosion")
 	var explosion = ExplosionScene.instantiate()
-	print(bulletList[0])
 	
 	var bullet = bulletList[0]
 	var bpos = bullet.position
