@@ -18,6 +18,9 @@ func _process(delta):
 func set_speed(s):
 	speed = s
 	
+func get_speed():
+	return speed
+	
 func set_value(v):
 	value = v
 

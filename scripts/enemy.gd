@@ -7,6 +7,8 @@ const speed = 2
 var currentSpeed = 2
 var health = 10
 var poison_hits = 0
+
+var temporarySpeed = 0
 #var in_destination = false
 #var value = 10
 
@@ -42,6 +44,14 @@ func multiply_speed(s):
 
 func get_enemy_texture():
 	return $Sprite2D.get_texture()
+	
+func pause():
+	temporarySpeed = myPathFollow.get_speed()
+	set_speed(0)
+	
+func resume():
+	set_speed(temporarySpeed)
+	
 
 func _on_body_entered(body):
 	if body.is_in_group("Bullets"):
