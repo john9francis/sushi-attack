@@ -44,7 +44,7 @@ func _on_area_exited(area):
 
 
 func _on_shoot_timer_timeout():
-	var enemyGlobalPosition = tracker.get_target_future_pos(50)
+	var enemyGlobalPosition = tracker.get_target_future_pos(70)
 	var enemyLocalPosition = to_local(enemyGlobalPosition)
 	
 	# Shoot a bullet in an arc
@@ -54,8 +54,14 @@ func _on_shoot_timer_timeout():
 	bullet.position = position
 	
 	# Direct the bullet in an arc toward the enemy
+	
+	# NOTE: I need to multiply by delta in here somewhere...
+	# because it only works for 1 second to impact
+	# I may not be able to use "secondsToImpact" and rather do a "speed"
+	# I could make v = speed, and then calculate vx and vy
+	
 	var vx = enemyLocalPosition.x / secondsToImpact
-	var vy = - 0.5 * 980 * bullet.gravity_scale + enemyLocalPosition.y
+	var vy = - 0.5 * 980 * bullet.gravity_scale / (secondsToImpact*secondsToImpact) + enemyLocalPosition.y / secondsToImpact
 	bullet.linear_velocity = Vector2(vx, vy)
 	
 	bullet.set_destination(enemyGlobalPosition)
