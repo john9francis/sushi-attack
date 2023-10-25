@@ -167,7 +167,9 @@ func update_money_guis():
 
 func pause():
 	print("Paused")
-	get_tree().paused = true
+	# NOTE: To pause and resume, I need an event bus!
+	
+	#get_tree().paused = true
 	# pause the towers
 	#get_tree().call_group("Towers", "pause")
 	
@@ -179,7 +181,7 @@ func pause():
 
 func resume():
 	print("Resumed")
-	get_tree().paused = false
+	#get_tree().paused = false
 
 
 
