@@ -168,9 +168,14 @@ func update_money_guis():
 func pause():
 	print("Paused")
 	# pause the towers
+	get_tree().call_group("Towers", "pause")
 	
 	# pause the enemies
-
+	get_tree().call_group("Enemies", "pause")
+	
+	# pause the bullets
+	get_tree().call_group("Bullets", "set_freeze_enabled", true)
+	
 
 
 
