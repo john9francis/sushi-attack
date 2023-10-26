@@ -30,8 +30,11 @@ func _ready():
 	tracker = TrackerScene.instantiate()
 	add_child(tracker)
 	
+	# Set the CS Connector lines (aka chopsticks)
 	$CS_Connector.set_point_position(0, Vector2())
 	$CS_Connector.set_point_position(1, $CS_Hand.position)
+	$CS_Connector2.set_point_position(0, Vector2())
+	$CS_Connector2.set_point_position(1, $CS_Hand.position)
 
 
 func _process(delta):
@@ -55,8 +58,11 @@ func _process(delta):
 		move_hand(direction)
 		
 		
-	# Make the hand follow the tracker
-	$CS_Connector.set_point_position(1, $CS_Hand.position)
+	# Make the chopsticks follow the tracker
+	var cs1pos = $CS_Hand.position - 15*Vector2(-direction.x, direction.y)
+	var cs2pos = $CS_Hand.position - 15*Vector2(direction.x, -direction.y)
+	$CS_Connector.set_point_position(1, cs1pos)
+	$CS_Connector2.set_point_position(1, cs2pos)
 	
 	
 

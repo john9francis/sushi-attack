@@ -34,6 +34,11 @@ one_shot = true
 
 [node name="CS_Connector" type="Line2D" parent="."]
 points = PackedVector2Array(-1, 0, -1, -53)
+width = 5.0
+
+[node name="CS_Connector2" type="Line2D" parent="."]
+points = PackedVector2Array(-1, 0, -1, -53)
+width = 5.0
 
 [node name="CS_Hand" type="RigidBody2D" parent="."]
 position = Vector2(0, -50)
