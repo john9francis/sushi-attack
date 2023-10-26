@@ -70,6 +70,7 @@ func _process(delta):
 func _on_kill_mob_timer_timeout():
 	readyToKill = true
 	$CS_Hand/Sprite2D.set_texture(blankTexture)
+	$CS_Hand.rotation = 0
 
 
 

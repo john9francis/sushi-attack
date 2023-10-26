@@ -19,7 +19,7 @@ func _ready():
 	var collisionShape = $CollisionShape2D.get_shape()
 	var collisionWidth = collisionShape.get_radius() * 2
 	var spriteTexture = $Sprite2D.get_texture()
-	var spriteScale = Vector2(
+	var spriteScale = 1.1 * Vector2(
 		collisionWidth / spriteTexture.get_width(), 
 		collisionWidth / spriteTexture.get_height())
 	
