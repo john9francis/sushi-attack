@@ -17,7 +17,7 @@ func _ready():
 	
 	# Set the sprite size to match the colissionbox size
 	var collisionShape = $CollisionShape2D.get_shape()
-	var collisionWidth = collisionShape.get_radius()
+	var collisionWidth = collisionShape.get_radius() * 2
 	var spriteTexture = $Sprite2D.get_texture()
 	var spriteScale = Vector2(
 		collisionWidth / spriteTexture.get_width(), 

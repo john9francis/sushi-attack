@@ -9,7 +9,7 @@ radius = 180.069
 [sub_resource type="CanvasTexture" id="CanvasTexture_sle01"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_t66ib"]
-radius = 21.095
+radius = 49.0408
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_gs2a5"]
 

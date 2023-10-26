@@ -7,6 +7,9 @@ var in_destination = false
 func _ready():
 	progress = 0
 	
+	rotates = false
+	rotation = 0
+	
 	# set random offset from the path
 	v_offset = randi() % 100 - 50
 

@@ -103,9 +103,15 @@ func _on_hand_area_area_entered(area):
 		$KillMobTimer.start()
 		
 		# Set the hand texture to the enemy's texture
+		var collisionShape = $CS_Hand/CollisionShape2D.get_shape()
+		var collisionWidth = collisionShape.get_radius() * 2
 		var enemyTexture = area.get_enemy_texture()
-		var textureSize = enemyTexture.get_size()
+		
+		var spriteScale = Vector2(
+			collisionWidth / enemyTexture.get_width(), 
+			collisionWidth / enemyTexture.get_height())
+	
 		$CS_Hand/Sprite2D.set_texture(enemyTexture)
-		$CS_Hand/Sprite2D.scale = .004
-		pass
+		$CS_Hand/Sprite2D.set_scale(spriteScale)
+		
 	pass # Replace with function body.
