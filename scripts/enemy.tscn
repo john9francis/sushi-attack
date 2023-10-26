@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://dbbij5u3up0gx"]
+[gd_scene load_steps=5 format=3 uid="uid://dbbij5u3up0gx"]
 
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_51noo"]
 [ext_resource type="PackedScene" uid="uid://yii2qodjd8c5" path="res://scripts/enemy_path_follow.tscn" id="2_miidg"]
-[ext_resource type="Texture2D" uid="uid://ci87bwfgdaswp" path="res://Assets/maki0.png" id="3_yimay"]
 [ext_resource type="SpriteFrames" uid="uid://c7x7xab80kavb" path="res://Assets/maki-walk1/maki_walk1.tres" id="4_tacv0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tg4ib"]
@@ -14,10 +13,6 @@ myPathFollowScene = ExtResource("2_miidg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_tg4ib")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.096375, 0.0945)
-texture = ExtResource("3_yimay")
 
 [node name="PoisonTimer" type="Timer" parent="."]
 wait_time = 0.5
