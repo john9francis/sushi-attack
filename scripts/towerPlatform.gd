@@ -8,7 +8,7 @@ var mouse_in_tower = false
 @export var WTowerScene : PackedScene
 
 var tower
-const WTowerCost = 50
+const WTowerCost = 60
 const GTowerCost = 50
 const SSTowerCost= 30
 const CSTowerCost= 70
