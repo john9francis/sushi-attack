@@ -23,11 +23,10 @@ func _ready():
 		collisionWidth / spriteTexture.get_width(), 
 		collisionWidth / spriteTexture.get_height())
 	
-	$Sprite2D.set_scale(spriteScale)
 	$Sprite2D.hide()
 	$AnimatedSprite2D.set_scale(spriteScale)
 	
-	$AnimatedSprite2D.play("maki_walk1")
+	$AnimatedSprite2D.play("maki_right_down")
 
 
 
