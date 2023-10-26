@@ -15,6 +15,15 @@ var temporarySpeed = 0
 func _ready():
 	add_to_group("Enemies")
 	
+	# Set the sprite size to match the colissionbox size
+	var collisionShape = $CollisionShape2D.get_shape()
+	var collisionWidth = collisionShape.get_radius()
+	var spriteTexture = $Sprite2D.get_texture()
+	var spriteScale = Vector2(
+		collisionWidth / spriteTexture.get_width(), 
+		collisionWidth / spriteTexture.get_height())
+	
+	$Sprite2D.set_scale(spriteScale)
 
 
 

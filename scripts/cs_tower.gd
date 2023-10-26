@@ -106,6 +106,6 @@ func _on_hand_area_area_entered(area):
 		var enemyTexture = area.get_enemy_texture()
 		var textureSize = enemyTexture.get_size()
 		$CS_Hand/Sprite2D.set_texture(enemyTexture)
-		$CS_Hand/Sprite2D.scale = textureSize * .004
+		$CS_Hand/Sprite2D.scale = .004
 		pass
 	pass # Replace with function body.
