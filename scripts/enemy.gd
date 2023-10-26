@@ -18,7 +18,7 @@ func _ready():
 	# Set the sprite size to match the colissionbox size
 	var collisionShape = $CollisionShape2D.get_shape()
 	var collisionWidth = collisionShape.get_radius() * 2
-	var spriteTexture = $Sprite2D.get_texture()
+	var spriteTexture = $AnimatedSprite2D.sprite_frames.get_frame_texture("maki_right_down",0)
 	var spriteScale = 1.1 * Vector2(
 		collisionWidth / spriteTexture.get_width(), 
 		collisionWidth / spriteTexture.get_height())
@@ -55,7 +55,7 @@ func multiply_speed(s):
 	
 
 func get_enemy_texture():
-	return $Sprite2D.get_texture()
+	return $AnimatedSprite2D.sprite_frames.get_frame_texture("maki_right_down",0)
 	
 func pause():
 	temporarySpeed = myPathFollow.get_speed()
