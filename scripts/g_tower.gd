@@ -22,6 +22,15 @@ func _process(_delta):
 			$ShootTimer.start()
 	else:
 		$ShootTimer.stop()
+		
+
+func set_upgrade_level(level):
+	match level:
+		1: print("Level one!")
+		2: print("Level two!")
+		3: print("Level three!")
+		4: print("Max level!")
+	pass
 
 
 
