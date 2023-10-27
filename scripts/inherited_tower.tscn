@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://cglgvd6opaqgl"]
+
+[ext_resource type="PackedScene" uid="uid://pchi1wp8vysg" path="res://scripts/tower.tscn" id="1_d81xx"]
+[ext_resource type="Script" path="res://scripts/inherited_tower.gd" id="2_wmxyv"]
+
+[node name="InheritedTower" instance=ExtResource("1_d81xx")]
+script = ExtResource("2_wmxyv")
