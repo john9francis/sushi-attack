@@ -131,3 +131,9 @@ func _on_hand_area_area_entered(area):
 		$CS_Hand/Sprite2D.set_scale(spriteScale)
 		
 	pass # Replace with function body.
+
+
+func _on_upgrade_upgrade():
+	print("CS upgraded!")
+	handSpeed = handSpeed * 1.5
+	pass # Replace with function body.

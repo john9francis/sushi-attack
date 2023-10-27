@@ -18,7 +18,7 @@ func _ready():
 	$TowerGUI.hide()
 	
 	# FOR NOW... 
-	$TowerGUI/upgradeGUI/Upgrade.disabled = true
+	#$TowerGUI/upgradeGUI/Upgrade.disabled = true
 
 
 func _process(delta):
@@ -123,3 +123,9 @@ func _on_child_entered_tree(node):
 		
 	if node.is_in_group("Towers"):
 		get_tree().call_group("CurrentLevel", "subtract_money", cost)	
+
+
+func _on_upgrade_pressed():
+	$TowerGUI/upgradeGUI.hide()
+	get_tree().call_group("Upgrades", "_upgrade")
+	pass # Replace with function body.
