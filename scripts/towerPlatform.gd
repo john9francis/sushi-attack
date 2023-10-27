@@ -126,6 +126,6 @@ func _on_child_entered_tree(node):
 
 
 func _on_upgrade_pressed():
-	$TowerGUI/upgradeGUI.hide()
+	$TowerGUI.hide()
 	get_tree().call_group("Upgrades", "_upgrade")
 	pass # Replace with function body.
