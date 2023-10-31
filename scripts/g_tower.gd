@@ -7,8 +7,16 @@ var tracker
 var enemyTracked
 var enemyList = []
 
+var shootSeconds
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	shootSeconds = .7
+	
+	# set the shootTimer wait time
+	$ShootTimer.wait_time = shootSeconds
+	
 	enemyTracked = false
 	tracker = TrackerScene.instantiate()
 	add_child(tracker)
@@ -24,12 +32,9 @@ func _process(_delta):
 		$ShootTimer.stop()
 		
 
-func set_upgrade_level(level):
-	match level:
-		1: print("Level one!")
-		2: print("Level two!")
-		3: print("Level three!")
-		4: print("Max level!")
+func upgrade():
+	shootSeconds *= .5
+	$ShootTimer.wait_time = shootSeconds
 	pass
 
 
