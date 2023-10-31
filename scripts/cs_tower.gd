@@ -66,14 +66,12 @@ func _process(delta):
 	$CS_Connector2.set_point_position(1, cs2pos)
 	
 
-
-func set_upgrade_level(level):
-	match level:
-		1: print("Level one!")
-		2: print("Level two!")
-		3: print("Level three!")
-		4: print("Max level!")
+	
+func upgrade():
+	handSpeed *= 1.5
+	print("CS Tower Upgraded")
 	pass
+	
 
 
 func _on_kill_mob_timer_timeout():
@@ -133,7 +131,3 @@ func _on_hand_area_area_entered(area):
 	pass # Replace with function body.
 
 
-func _on_upgrade_upgrade():
-	print("CS upgraded!")
-	handSpeed = handSpeed * 1.5
-	pass # Replace with function body.

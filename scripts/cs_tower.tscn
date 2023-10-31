@@ -1,8 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://bul6um5k465t1"]
+[gd_scene load_steps=8 format=3 uid="uid://bul6um5k465t1"]
 
 [ext_resource type="Script" path="res://scripts/cs_tower.gd" id="1_jvirs"]
 [ext_resource type="PackedScene" uid="uid://dy24dsqxtdl4w" path="res://scripts/tracker.tscn" id="2_tb1pc"]
-[ext_resource type="PackedScene" uid="uid://wovv7bbx6t1j" path="res://scripts/upgrade.tscn" id="3_1c3ai"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ewmki"]
 radius = 180.069
@@ -61,11 +60,8 @@ shape = SubResource("CircleShape2D_xk58y")
 [node name="HandTimer" type="Timer" parent="."]
 wait_time = 0.5
 
-[node name="Upgrade" parent="." instance=ExtResource("3_1c3ai")]
-
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_area_exited"]
 [connection signal="timeout" from="KillMobTimer" to="." method="_on_kill_mob_timer_timeout"]
 [connection signal="area_entered" from="CS_Hand/HandArea" to="." method="_on_hand_area_area_entered"]
 [connection signal="timeout" from="debugTimer" to="." method="_on_debug_timer_timeout"]
-[connection signal="upgrade" from="Upgrade" to="." method="_on_upgrade_upgrade"]
