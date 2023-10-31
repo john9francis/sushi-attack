@@ -16,7 +16,7 @@ func upgrade():
 	slownessFactor *= slownessFactor
 	$CollisionShape2D.apply_scale(Vector2(1.1,1.1))
 	
-	# Make sure we update all the enemies
+	# Make sure we update all the enemies' speeds
 	for enemy in enemyList:
 		enemy.restore_speed()
 		enemy.multiply_speed(slownessFactor)

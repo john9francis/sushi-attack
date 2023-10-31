@@ -36,8 +36,9 @@ func _process(delta):
 
 
 func upgrade():
-	shootTime *= .7
+	shootTime *= .85
 	$ShootTimer.wait_time = shootTime
+	$CollisionShape2D.apply_scale(Vector2(1.1,1.1))
 	pass
 
 
