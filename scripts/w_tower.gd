@@ -10,10 +10,15 @@ var bulletList = []
 var tracker
 var enemyList = []
 
+var shootTime
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	tracker = TrackerScene.instantiate()
 	add_child(tracker)
+	
+	shootTime = 1.2
+	$ShootTimer.wait_time = shootTime
 	
 	secondsToImpact = 1
 	pass # Replace with function body.
@@ -24,20 +29,16 @@ func _process(delta):
 	if enemyList.size() > 0:
 		tracker.set_area(enemyList[0])
 		if $ShootTimer.is_stopped():
-			$ShootTimer.start()
+			$ShootTimer.start(shootTime)
 	else:
 		$ShootTimer.stop()
 	pass
 
 
-func set_upgrade_level(level):
-	match level:
-		1: print("Level one!")
-		2: print("Level two!")
-		3: print("Level three!")
-		4: print("Max level!")
+func upgrade():
+	shootTime *= .7
+	$ShootTimer.wait_time = shootTime
 	pass
-
 
 
 func _on_area_entered(area):
