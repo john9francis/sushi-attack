@@ -52,6 +52,10 @@ func multiply_speed(s):
 	myPathFollow.set_speed(currentSpeed)
 	
 	
+func restore_speed():
+	currentSpeed = speed
+	myPathFollow.set_speed(currentSpeed)
+	
 
 func get_enemy_texture():
 	return $AnimatedSprite2D.sprite_frames.get_frame_texture("maki_right_down",0)

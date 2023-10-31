@@ -1,9 +1,10 @@
 extends Area2D
 
 var slownessFactor
+var enemyList = []
 
 func _ready():
-	slownessFactor = .6
+	slownessFactor = .65
 	pass # Replace with function body.
 
 
@@ -25,4 +26,4 @@ func _on_area_entered(area):
 
 func _on_area_exited(area):
 	if area.is_in_group("Enemies"):
-		area.multiply_speed(1/slownessFactor)
+		area.restore_speed()
