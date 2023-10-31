@@ -18,6 +18,9 @@ var blankTexture
 
 
 func _ready():
+	# disable handArea RB collisions, it's only for setting linear velocity
+	$CS_Hand/CollisionShape2D.disabled = true
+	
 	handSpeed = 100
 	killMobTime = 5
 	
