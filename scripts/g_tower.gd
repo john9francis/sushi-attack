@@ -35,7 +35,7 @@ func _process(_delta):
 		
 
 func upgrade():
-	shootSeconds *= .5
+	shootSeconds *= .65
 	$ShootTimer.wait_time = shootSeconds
 	pass
 

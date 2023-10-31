@@ -107,6 +107,10 @@ func remove_tower():
 		$TowerGUI.hide()
 		tower.queue_free()
 		$TowerGUI.go_to_platform_gui()
+		
+		# reset upgrades so the button isn't disabled
+		nOfUpgrades = 0
+		$TowerGUI/upgradeGUI/Upgrade.disabled = false
 
 
 
