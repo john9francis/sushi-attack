@@ -13,8 +13,8 @@ func _process(delta):
 
 
 func upgrade():
-	slownessFactor *= slownessFactor
-	$CollisionShape2D.apply_scale(Vector2(1.1,1.1))
+	slownessFactor *= .8
+	$CollisionShape2D.apply_scale(Vector2(1.2,1.2))
 	
 	# Make sure we update all the enemies' speeds
 	for enemy in enemyList:

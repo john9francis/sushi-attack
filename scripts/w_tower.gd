@@ -61,6 +61,7 @@ func _on_shoot_timer_timeout():
 	var bullet = BulletScene.instantiate()
 	bullet.remove_from_group("Bullets") # so it doesn't damage enemy
 	bullet.gravity_scale = 1
+	bullet.disable_collision() # make sure it doesn't collide with other bullets
 	bullet.position = position
 	
 	# Direct the bullet in an arc toward the enemy

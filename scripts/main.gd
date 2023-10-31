@@ -5,7 +5,7 @@ extends Node
 func _ready():
 	$HUD.hide()
 	# For testing purposes: let's skip the main menu
-	_on_l_1_pressed()
+	#_on_l_1_pressed()
 	pass # Replace with function body.
 
 

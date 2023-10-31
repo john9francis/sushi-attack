@@ -8,11 +8,13 @@ var enemyTracked
 var enemyList = []
 
 var shootSeconds
+var bulletSpeed
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	shootSeconds = .7
+	bulletSpeed = 500
 	
 	# set the shootTimer wait time
 	$ShootTimer.wait_time = shootSeconds
@@ -48,7 +50,7 @@ func _on_shoot_timer_timeout():
 	var bullet = BulletScene.instantiate()
 	bullet.add_to_group("Bullets")
 	bullet.position = position
-	bullet.linear_velocity = direction * 800
+	bullet.linear_velocity = direction * bulletSpeed
 	
 	add_child(bullet)
 	

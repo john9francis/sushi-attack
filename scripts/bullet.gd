@@ -18,3 +18,6 @@ func set_destination(vector):
 	# Sets the destination, prints when the bullet hits there
 	destination = vector
 	pass
+
+func disable_collision():
+	$CollisionShape2D.disabled = true
