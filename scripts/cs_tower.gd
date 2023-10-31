@@ -10,7 +10,6 @@ var enemyToKillPos
 var readyToKill
 
 var killMobTime
-
 var handSpeed
 
 var handAtRest
@@ -70,7 +69,7 @@ func _process(delta):
 func upgrade():
 	handSpeed *= 1.5
 	killMobTime *= .75
-	print("CS Tower Upgraded")
+	$cs_range.apply_scale(Vector2(1.25,1.25))
 	pass
 	
 

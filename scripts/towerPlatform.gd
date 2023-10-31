@@ -127,9 +127,10 @@ func _on_child_entered_tree(node):
 
 func _on_upgrade_pressed():
 	$TowerGUI.hide()
-	get_tree().call_group("Upgrades", "_upgrade")
 	for child in get_children():
+		print(child)
 		if child.is_in_group("Towers"):
 			child.upgrade()
 			pass
+	print()
 	pass # Replace with function body.

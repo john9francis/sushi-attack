@@ -20,7 +20,7 @@ radius = 19.0263
 script = ExtResource("1_jvirs")
 TrackerScene = ExtResource("2_tb1pc")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="cs_range" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_ewmki")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
