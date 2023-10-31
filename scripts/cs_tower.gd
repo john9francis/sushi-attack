@@ -9,6 +9,8 @@ var enemyToKillPos
 
 var readyToKill
 
+var killMobTime
+
 var handSpeed
 
 var handAtRest
@@ -17,10 +19,8 @@ var blankTexture
 
 
 func _ready():
-	# debug
-	$debugTimer.start()
-	
 	handSpeed = 100
+	killMobTime = 5
 	
 	blankTexture = $CS_Hand/Sprite2D.get_texture()
 	$CS_Hand/Sprite2D.set_texture(blankTexture)
@@ -69,6 +69,7 @@ func _process(delta):
 	
 func upgrade():
 	handSpeed *= 1.5
+	killMobTime *= .75
 	print("CS Tower Upgraded")
 	pass
 	
@@ -100,10 +101,6 @@ func _on_area_exited(area):
 
 
 
-func _on_debug_timer_timeout():
-	#print(enemyList)
-	pass # Replace with function body.
-
 
 
 func move_hand(direction):
@@ -114,7 +111,7 @@ func _on_hand_area_area_entered(area):
 	if area.is_in_group("Enemies") and readyToKill:
 		area.myPathFollow.queue_free()
 		readyToKill = false
-		$KillMobTimer.start()
+		$KillMobTimer.start(killMobTime)
 		
 		# Set the hand texture to the enemy's texture
 		var collisionShape = $CS_Hand/CollisionShape2D.get_shape()
