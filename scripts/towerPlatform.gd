@@ -13,12 +13,13 @@ const GTowerCost = 50
 const SSTowerCost= 30
 const CSTowerCost= 70
 
+var nOfUpgrades
 
 func _ready():
 	$TowerGUI.hide()
 	
-	# FOR NOW... 
-	#$TowerGUI/upgradeGUI/Upgrade.disabled = true
+	nOfUpgrades = 0
+	
 
 
 func _process(delta):
@@ -127,10 +128,13 @@ func _on_child_entered_tree(node):
 
 func _on_upgrade_pressed():
 	$TowerGUI.hide()
+	
 	for child in get_children():
-		print(child)
 		if child.is_in_group("Towers"):
+			
 			child.upgrade()
-			pass
-	print()
-	pass # Replace with function body.
+			nOfUpgrades += 1
+			
+	# disable upgrades if it's at max level
+	if nOfUpgrades == 2:
+		$TowerGUI/upgradeGUI/Upgrade.disabled = true
