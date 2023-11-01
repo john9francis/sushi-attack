@@ -50,33 +50,42 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="ToMainMenu" type="Button" parent="HUD"]
-layout_mode = 0
-offset_left = 303.0
-offset_top = 28.0
-offset_right = 361.0
-offset_bottom = 78.0
-text = "To Main Menu"
-
 [node name="Pause" type="Button" parent="HUD"]
 layout_mode = 0
-offset_left = 303.0
-offset_top = 82.0
-offset_right = 423.0
-offset_bottom = 131.0
+offset_left = 431.0
+offset_top = 15.0
+offset_right = 551.0
+offset_bottom = 64.0
 text = "Pause"
 
-[node name="Resume" type="Button" parent="HUD"]
-layout_mode = 0
-offset_left = 303.0
-offset_top = 86.0
-offset_right = 423.0
-offset_bottom = 129.0
-text = "Resume"
+[node name="PauseMenu" type="PopupPanel" parent="HUD"]
+title = "Pause Menu"
+position = Vector2i(250, 250)
+size = Vector2i(500, 500)
+visible = true
+
+[node name="HFlowContainer" type="VFlowContainer" parent="HUD/PauseMenu"]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 496.0
+offset_bottom = 496.0
+
+[node name="Title" type="Label" parent="HUD/PauseMenu/HFlowContainer"]
+layout_mode = 2
+text = "Pause Menu"
+
+[node name="Resume" type="Button" parent="HUD/PauseMenu/HFlowContainer"]
+layout_mode = 2
+text = "Resume
+"
+
+[node name="ToMainMenu" type="Button" parent="HUD/PauseMenu/HFlowContainer"]
+layout_mode = 2
+text = "To Main Menu"
 
 [connection signal="pressed" from="GUI/MainMenu/PlayGame" to="GUI" method="_on_play_game_pressed"]
 [connection signal="pressed" from="GUI/LevelSelect/L1" to="." method="_on_l_1_pressed"]
 [connection signal="pressed" from="GUI/LevelSelect/L2" to="." method="_on_l_2_pressed"]
-[connection signal="pressed" from="HUD/ToMainMenu" to="." method="_on_to_main_menu_pressed"]
 [connection signal="pressed" from="HUD/Pause" to="." method="_on_pause_pressed"]
-[connection signal="pressed" from="HUD/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="HUD/PauseMenu/HFlowContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="HUD/PauseMenu/HFlowContainer/ToMainMenu" to="." method="_on_to_main_menu_pressed"]

@@ -4,7 +4,7 @@ extends Node
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$HUD.hide()
-	$HUD/Resume.hide()
+	$HUD/PauseMenu.hide()
 	# For testing purposes: let's skip the main menu
 	#_on_l_1_pressed()
 	pass # Replace with function body.
@@ -44,14 +44,14 @@ func _on_l_2_pressed():
 
 func _on_pause_pressed():
 	$HUD/Pause.hide()
-	$HUD/Resume.show()
+	$HUD/PauseMenu.show()
 	get_tree().paused = true
 	pass # Replace with function body.
 
 
 
 func _on_resume_pressed():
-	$HUD/Resume.hide()
+	$HUD/PauseMenu.hide()
 	$HUD/Pause.show()
 	get_tree().paused = false
 	pass # Replace with function body.
