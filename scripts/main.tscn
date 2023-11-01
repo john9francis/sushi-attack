@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bgtvxbdu2qdf0"]
+[gd_scene load_steps=5 format=3 uid="uid://bgtvxbdu2qdf0"]
 
 [ext_resource type="PackedScene" uid="uid://cn5affxsrvpyq" path="res://scripts/level.tscn" id="1_lvge1"]
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_t84td"]
 [ext_resource type="Script" path="res://scripts/GUI.gd" id="3_ejdf7"]
 [ext_resource type="Script" path="res://scripts/GameWorld.gd" id="3_oi7dd"]
-[ext_resource type="Script" path="res://scripts/MainHud.gd" id="5_5knhi"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_t84td")
@@ -50,7 +49,6 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("5_5knhi")
 
 [node name="ToMainMenu" type="Button" parent="HUD"]
 layout_mode = 0
@@ -80,7 +78,5 @@ text = "Resume"
 [connection signal="pressed" from="GUI/LevelSelect/L1" to="." method="_on_l_1_pressed"]
 [connection signal="pressed" from="GUI/LevelSelect/L2" to="." method="_on_l_2_pressed"]
 [connection signal="pressed" from="HUD/ToMainMenu" to="." method="_on_to_main_menu_pressed"]
-[connection signal="pressed" from="HUD/Pause" to="GameWorld" method="_on_pause_pressed"]
-[connection signal="pressed" from="HUD/Pause" to="HUD" method="_on_pause_pressed"]
-[connection signal="pressed" from="HUD/Resume" to="GameWorld" method="_on_resume_pressed"]
-[connection signal="pressed" from="HUD/Resume" to="HUD" method="_on_resume_pressed"]
+[connection signal="pressed" from="HUD/Pause" to="." method="_on_pause_pressed"]
+[connection signal="pressed" from="HUD/Resume" to="." method="_on_resume_pressed"]

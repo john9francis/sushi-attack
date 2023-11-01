@@ -25,20 +25,3 @@ func go_to_level(levelName):
 func delete_level():
 	level.queue_free()
 
-
-func _on_pause_pressed():
-	#for child in get_children():
-	#	child.set_process(false)
-	#level.pause()
-	get_tree().paused = true
-	pass # Replace with function body.
-
-
-
-
-func _on_resume_pressed():
-	#for child in get_children():
-	#	child.set_process(true)
-	#level.resume()
-	get_tree().paused = false
-	pass # Replace with function body.
