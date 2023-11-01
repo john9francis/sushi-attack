@@ -21,7 +21,7 @@ var platformList = []
 
 const totalEnemies = 50
 var currentEnemies = totalEnemies
-var timeDelay
+var enemySpawnTimeDelay
 
 
 # Called when the node enters the scene tree for the first time.
@@ -128,7 +128,7 @@ func reset():
 	money = 150
 	
 	currentEnemies = totalEnemies
-	timeDelay = 1.5
+	enemySpawnTimeDelay = 2
 	
 	hud.update_lives(lives)
 	update_money_guis()
@@ -168,16 +168,7 @@ func update_money_guis():
 func pause():
 	print("Paused")
 	# NOTE: To pause and resume, I need an event bus!
-	
-	#get_tree().paused = true
-	# pause the towers
-	#get_tree().call_group("Towers", "pause")
-	
-	# pause the enemies
-	#get_tree().call_group("Enemies", "pause")
-	
-	# pause the bullets
-	#get_tree().call_group("Bullets", "set_freeze_enabled", true)
+
 
 func resume():
 	print("Resumed")
@@ -194,11 +185,11 @@ func _on_enemy_spawn_timer_timeout():
 	pathFollow.add_child(enemy)
 	
 	currentEnemies -= 1
-	timeDelay -= .015
+	enemySpawnTimeDelay -= .018
 		
 	# reset the timer with a random value from 1 to 2
 	if currentEnemies > 0:
-		$EnemySpawnTimer.start(randf() + timeDelay)
+		$EnemySpawnTimer.start(randf() + enemySpawnTimeDelay)
 		
 	# update the progress bar
 	$ProgressBar.progress(float(totalEnemies), float(totalEnemies - currentEnemies))

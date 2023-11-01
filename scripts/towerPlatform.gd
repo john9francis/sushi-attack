@@ -12,6 +12,7 @@ const WTowerCost = 60
 const GTowerCost = 50
 const SSTowerCost= 30
 const CSTowerCost= 70
+const upgradeCost= 100
 
 var nOfUpgrades
 
@@ -60,6 +61,11 @@ func update_buttons(money):
 		$TowerGUI/platformGUI/CSButton.disabled = true
 	else:
 		$TowerGUI/platformGUI/CSButton.disabled = false
+		
+	if money < upgradeCost:
+		$TowerGUI/upgradeGUI/Upgrade.disabled = true
+	else:
+		$TowerGUI/upgradeGUI/Upgrade.disabled = false
 		
 		
 		
@@ -139,6 +145,10 @@ func _on_upgrade_pressed():
 			child.upgrade()
 			nOfUpgrades += 1
 			
+			# minus the money
+			get_tree().call_group("CurrentLevel", "subtract_money", upgradeCost)
+			
 	# disable upgrades if it's at max level
 	if nOfUpgrades == 2:
 		$TowerGUI/upgradeGUI/Upgrade.disabled = true
+		$TowerGUI/upgradeGUI/Upgrade.text = "Maxed"
