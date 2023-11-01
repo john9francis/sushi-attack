@@ -17,6 +17,9 @@ func go_to_level(levelName):
 	level = levelScene.instantiate()
 	#level.set_up_level(levelName)
 	add_child(level)
+	
+	# make sure it's unpaused
+	get_tree().paused = false
 	pass
 
 func delete_level():
@@ -26,7 +29,8 @@ func delete_level():
 func _on_pause_pressed():
 	#for child in get_children():
 	#	child.set_process(false)
-	level.pause()
+	#level.pause()
+	get_tree().paused = true
 	pass # Replace with function body.
 
 
@@ -35,5 +39,6 @@ func _on_pause_pressed():
 func _on_resume_pressed():
 	#for child in get_children():
 	#	child.set_process(true)
-	level.resume()
+	#level.resume()
+	get_tree().paused = false
 	pass # Replace with function body.

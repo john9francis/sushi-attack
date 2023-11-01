@@ -14,6 +14,7 @@ script = ExtResource("3_oi7dd")
 levelScene = ExtResource("1_lvge1")
 
 [node name="GUI" type="Control" parent="."]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -44,6 +45,7 @@ offset_bottom = 228.0
 text = "Level two"
 
 [node name="HUD" type="Control" parent="."]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
