@@ -83,6 +83,10 @@ text = "Resume
 layout_mode = 2
 text = "To Main Menu"
 
+[node name="GameOverPopup" type="PopupPanel" parent="HUD"]
+
+[node name="SuccessPopup" type="PopupPanel" parent="HUD"]
+
 [connection signal="pressed" from="GUI/MainMenu/PlayGame" to="GUI" method="_on_play_game_pressed"]
 [connection signal="pressed" from="GUI/LevelSelect/L1" to="." method="_on_l_1_pressed"]
 [connection signal="pressed" from="GUI/LevelSelect/L2" to="." method="_on_l_2_pressed"]
