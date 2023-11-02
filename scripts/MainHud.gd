@@ -3,7 +3,7 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$Resume.hide()
+	hide_everything()
 	pass # Replace with function body.
 
 
@@ -11,3 +11,12 @@ func _ready():
 func _process(delta):
 	pass
 
+
+func game_over():
+	$GameOverPopup.show()
+
+
+func hide_everything():
+	$PauseMenu.hide()
+	$GameOverPopup.hide()
+	$SuccessPopup.hide()

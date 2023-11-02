@@ -148,6 +148,9 @@ func stop_game():
 	$EnemySpawnTimer.stop()
 	if gameOverFlag:
 		$StartLabel.text = "Game Over"
+		
+		# tell the main hud to show the game over screen
+		get_tree().call_group("MainHud", "game_over")
 	else:
 		$StartLabel.text = "Success!"
 	$StartLabel.show()
@@ -248,4 +251,9 @@ func _on_success():
 
 func _on_reset_button_pressed():
 	reset()
+	pass # Replace with function body.
+
+
+func _on_tree_exiting():
+	remove_from_group("CurrentLevel")
 	pass # Replace with function body.

@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bgtvxbdu2qdf0"]
+[gd_scene load_steps=6 format=3 uid="uid://bgtvxbdu2qdf0"]
 
 [ext_resource type="PackedScene" uid="uid://cn5affxsrvpyq" path="res://scripts/level.tscn" id="1_lvge1"]
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_t84td"]
 [ext_resource type="Script" path="res://scripts/GUI.gd" id="3_ejdf7"]
 [ext_resource type="Script" path="res://scripts/GameWorld.gd" id="3_oi7dd"]
+[ext_resource type="Script" path="res://scripts/MainHUD.gd" id="5_mwkcc"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_t84td")
@@ -43,12 +44,13 @@ offset_right = 320.0
 offset_bottom = 228.0
 text = "Level two"
 
-[node name="HUD" type="Control" parent="."]
+[node name="HUD" type="Control" parent="." groups=["MainHud"]]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("5_mwkcc")
 
 [node name="Pause" type="Button" parent="HUD"]
 layout_mode = 0
@@ -64,32 +66,56 @@ position = Vector2i(250, 250)
 size = Vector2i(500, 500)
 visible = true
 
-[node name="HFlowContainer" type="VFlowContainer" parent="HUD/PauseMenu"]
+[node name="VFlowContainer" type="VFlowContainer" parent="HUD/PauseMenu"]
 offset_left = 4.0
 offset_top = 4.0
 offset_right = 496.0
 offset_bottom = 496.0
 
-[node name="Title" type="Label" parent="HUD/PauseMenu/HFlowContainer"]
+[node name="Title" type="Label" parent="HUD/PauseMenu/VFlowContainer"]
 layout_mode = 2
 text = "Pause Menu"
 
-[node name="Resume" type="Button" parent="HUD/PauseMenu/HFlowContainer"]
+[node name="Resume" type="Button" parent="HUD/PauseMenu/VFlowContainer"]
 layout_mode = 2
 text = "Resume
 "
 
-[node name="ToMainMenu" type="Button" parent="HUD/PauseMenu/HFlowContainer"]
+[node name="ToMainMenu" type="Button" parent="HUD/PauseMenu/VFlowContainer"]
 layout_mode = 2
 text = "To Main Menu"
 
 [node name="GameOverPopup" type="PopupPanel" parent="HUD"]
+position = Vector2i(250, 250)
+size = Vector2i(500, 500)
+visible = true
+
+[node name="VFlowContainer" type="VFlowContainer" parent="HUD/GameOverPopup"]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 496.0
+offset_bottom = 496.0
+
+[node name="Label" type="Label" parent="HUD/GameOverPopup/VFlowContainer"]
+layout_mode = 2
+text = "Game Over!"
+
+[node name="Reset" type="Button" parent="HUD/GameOverPopup/VFlowContainer"]
+layout_mode = 2
+text = "Reset"
+
+[node name="ToMainMenu" type="Button" parent="HUD/GameOverPopup/VFlowContainer"]
+layout_mode = 2
+text = "To Main Menu"
 
 [node name="SuccessPopup" type="PopupPanel" parent="HUD"]
+visible = true
 
 [connection signal="pressed" from="GUI/MainMenu/PlayGame" to="GUI" method="_on_play_game_pressed"]
 [connection signal="pressed" from="GUI/LevelSelect/L1" to="." method="_on_l_1_pressed"]
 [connection signal="pressed" from="GUI/LevelSelect/L2" to="." method="_on_l_2_pressed"]
 [connection signal="pressed" from="HUD/Pause" to="." method="_on_pause_pressed"]
-[connection signal="pressed" from="HUD/PauseMenu/HFlowContainer/Resume" to="." method="_on_resume_pressed"]
-[connection signal="pressed" from="HUD/PauseMenu/HFlowContainer/ToMainMenu" to="." method="_on_to_main_menu_pressed"]
+[connection signal="pressed" from="HUD/PauseMenu/VFlowContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="HUD/PauseMenu/VFlowContainer/ToMainMenu" to="." method="_on_to_main_menu_pressed"]
+[connection signal="pressed" from="HUD/GameOverPopup/VFlowContainer/Reset" to="." method="_on_reset_pressed"]
+[connection signal="pressed" from="HUD/GameOverPopup/VFlowContainer/ToMainMenu" to="." method="_on_to_main_menu_pressed"]

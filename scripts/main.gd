@@ -4,7 +4,6 @@ extends Node
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$HUD.hide()
-	$HUD/PauseMenu.hide()
 	# For testing purposes: let's skip the main menu
 	#_on_l_1_pressed()
 	pass # Replace with function body.
@@ -29,6 +28,7 @@ func go_to_level(levelName):
 func _on_to_main_menu_pressed():
 	$GameWorld.delete_level()
 	$GUI/MainMenu.show()
+	$HUD.hide_everything()
 	$HUD.hide()
 	
 	# Make sure it's unpaused
@@ -54,4 +54,10 @@ func _on_resume_pressed():
 	$HUD/PauseMenu.hide()
 	$HUD/Pause.show()
 	get_tree().paused = false
+	pass # Replace with function body.
+
+
+func _on_reset_pressed():
+	$HUD/GameOverPopup.hide()
+	get_tree().call_group("CurrentLevel", "reset")
 	pass # Replace with function body.
