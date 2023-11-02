@@ -14,6 +14,9 @@ func _process(delta):
 
 func game_over():
 	$GameOverPopup.show()
+	
+func success():
+	$SuccessPopup.show()
 
 
 func hide_everything():

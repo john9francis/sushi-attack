@@ -64,7 +64,6 @@ text = "Pause"
 title = "Pause Menu"
 position = Vector2i(250, 250)
 size = Vector2i(500, 500)
-visible = true
 
 [node name="VFlowContainer" type="VFlowContainer" parent="HUD/PauseMenu"]
 offset_left = 4.0
@@ -88,13 +87,13 @@ text = "To Main Menu"
 [node name="GameOverPopup" type="PopupPanel" parent="HUD"]
 position = Vector2i(250, 250)
 size = Vector2i(500, 500)
-visible = true
 
 [node name="VFlowContainer" type="VFlowContainer" parent="HUD/GameOverPopup"]
 offset_left = 4.0
 offset_top = 4.0
 offset_right = 496.0
 offset_bottom = 496.0
+alignment = 1
 
 [node name="Label" type="Label" parent="HUD/GameOverPopup/VFlowContainer"]
 layout_mode = 2
@@ -109,7 +108,33 @@ layout_mode = 2
 text = "To Main Menu"
 
 [node name="SuccessPopup" type="PopupPanel" parent="HUD"]
+initial_position = 1
+size = Vector2i(250, 250)
 visible = true
+
+[node name="VFlowContainer" type="VFlowContainer" parent="HUD/SuccessPopup"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 246.0
+offset_bottom = 246.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="HUD/SuccessPopup/VFlowContainer"]
+layout_mode = 2
+text = "Success!"
+
+[node name="PlayAgain" type="Button" parent="HUD/SuccessPopup/VFlowContainer"]
+layout_mode = 2
+text = "Play Again"
+
+[node name="ToMainMenu" type="Button" parent="HUD/SuccessPopup/VFlowContainer"]
+layout_mode = 2
+text = "To Main Menu"
 
 [connection signal="pressed" from="GUI/MainMenu/PlayGame" to="GUI" method="_on_play_game_pressed"]
 [connection signal="pressed" from="GUI/LevelSelect/L1" to="." method="_on_l_1_pressed"]
@@ -119,3 +144,5 @@ visible = true
 [connection signal="pressed" from="HUD/PauseMenu/VFlowContainer/ToMainMenu" to="." method="_on_to_main_menu_pressed"]
 [connection signal="pressed" from="HUD/GameOverPopup/VFlowContainer/Reset" to="." method="_on_reset_pressed"]
 [connection signal="pressed" from="HUD/GameOverPopup/VFlowContainer/ToMainMenu" to="." method="_on_to_main_menu_pressed"]
+[connection signal="pressed" from="HUD/SuccessPopup/VFlowContainer/PlayAgain" to="." method="_on_play_again_pressed"]
+[connection signal="pressed" from="HUD/SuccessPopup/VFlowContainer/ToMainMenu" to="." method="_on_to_main_menu_pressed"]

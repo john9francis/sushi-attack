@@ -61,3 +61,9 @@ func _on_reset_pressed():
 	$HUD/GameOverPopup.hide()
 	get_tree().call_group("CurrentLevel", "reset")
 	pass # Replace with function body.
+
+
+func _on_play_again_pressed():
+	$HUD/SuccessPopup.hide()
+	get_tree().call_group("CurrentLevel", "reset")
+	pass # Replace with function body.

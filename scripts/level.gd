@@ -19,7 +19,7 @@ var gameStoppedFlag = true
 
 var platformList = []
 
-const totalEnemies = 50
+const totalEnemies = 1
 var currentEnemies = totalEnemies
 var enemySpawnTimeDelay
 
@@ -147,14 +147,11 @@ func stop_game():
 	gameStoppedFlag = true
 	$EnemySpawnTimer.stop()
 	if gameOverFlag:
-		$StartLabel.text = "Game Over"
-		
 		# tell the main hud to show the game over screen
 		get_tree().call_group("MainHud", "game_over")
 	else:
-		$StartLabel.text = "Success!"
-	$StartLabel.show()
-	$ResetButton.show()
+		# tell main hud to show the success screen
+		get_tree().call_group("MainHud", "success")
 
 
 func subtract_money(m):
