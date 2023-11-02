@@ -146,12 +146,7 @@ func start_game():
 func stop_game():
 	gameStoppedFlag = true
 	$EnemySpawnTimer.stop()
-	if gameOverFlag:
-		# tell the main hud to show the game over screen
-		get_tree().call_group("MainHud", "game_over")
-	else:
-		# tell main hud to show the success screen
-		get_tree().call_group("MainHud", "success")
+	
 
 
 func subtract_money(m):
@@ -215,6 +210,7 @@ func _on_enemy_destination_area_entered(area):
 func _on_game_over():
 	print("Game Over!")
 	gameOverFlag = true
+	get_tree().call_group("MainHud", "game_over")
 	stop_game()
 
 
@@ -238,11 +234,14 @@ func _on_start_button_pressed():
 	$StartButton.hide()
 	$ResetButton.hide()
 	$StartLabel.hide()
+	$ProgressBar.value = 0
 	start_game()
 
 
 func _on_success():
 	print("Success!")
+	# tell main hud to show the success screen
+	get_tree().call_group("MainHud", "success")
 	stop_game()
 
 

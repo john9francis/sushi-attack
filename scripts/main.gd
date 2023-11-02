@@ -58,7 +58,12 @@ func _on_resume_pressed():
 
 
 func _on_reset_pressed():
-	$HUD/GameOverPopup.hide()
+	$HUD.hide_everything()
+	
+	# Make sure we're unpaused
+	_on_resume_pressed()
+	
+	get_tree().call_group("CurrentLevel", "stop_game")
 	get_tree().call_group("CurrentLevel", "reset")
 	pass # Replace with function body.
 

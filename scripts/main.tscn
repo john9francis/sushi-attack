@@ -84,6 +84,10 @@ text = "Resume
 layout_mode = 2
 text = "To Main Menu"
 
+[node name="Reset" type="Button" parent="HUD/PauseMenu/VFlowContainer"]
+layout_mode = 2
+text = "Reset"
+
 [node name="GameOverPopup" type="PopupPanel" parent="HUD"]
 position = Vector2i(250, 250)
 size = Vector2i(500, 500)
@@ -142,6 +146,7 @@ text = "To Main Menu"
 [connection signal="pressed" from="HUD/Pause" to="." method="_on_pause_pressed"]
 [connection signal="pressed" from="HUD/PauseMenu/VFlowContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="HUD/PauseMenu/VFlowContainer/ToMainMenu" to="." method="_on_to_main_menu_pressed"]
+[connection signal="pressed" from="HUD/PauseMenu/VFlowContainer/Reset" to="." method="_on_reset_pressed"]
 [connection signal="pressed" from="HUD/GameOverPopup/VFlowContainer/Reset" to="." method="_on_reset_pressed"]
 [connection signal="pressed" from="HUD/GameOverPopup/VFlowContainer/ToMainMenu" to="." method="_on_to_main_menu_pressed"]
 [connection signal="pressed" from="HUD/SuccessPopup/VFlowContainer/PlayAgain" to="." method="_on_play_again_pressed"]
