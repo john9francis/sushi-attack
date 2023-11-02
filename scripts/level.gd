@@ -19,7 +19,7 @@ var gameStoppedFlag = true
 
 var platformList = []
 
-const totalEnemies = 1
+const totalEnemies = 20
 var currentEnemies = totalEnemies
 var enemySpawnTimeDelay
 
