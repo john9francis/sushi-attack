@@ -21,3 +21,8 @@ func go_to_upgrade_gui():
 func go_to_platform_gui():
 	$upgradeGUI.hide()
 	$platformGUI.show()
+
+
+func _on_gui_input(event):
+	accept_event()
+	pass # Replace with function body.

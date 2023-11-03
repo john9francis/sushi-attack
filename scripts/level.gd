@@ -175,6 +175,7 @@ func _on_enemy_spawn_timer_timeout():
 	# spawn enemy
 	var enemy = enemyScene.instantiate()
 	var pathFollow = enemy.get_path_follow()
+	enemy.set_enemy(10,100)
 		
 	$EnemyPath.add_child(pathFollow)
 	pathFollow.add_child(enemy)

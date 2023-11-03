@@ -3,36 +3,61 @@ extends Area2D
 @export var myPathFollowScene: PackedScene
 var myPathFollow
 
-const speed = 2
-var currentSpeed = 2
-var health = 10
+@onready var enemyAnim = $EnemyAnimation
+
+var speed = 1
+var currentSpeed = speed
+var health = 1
 var poison_hits = 0
 
 var temporarySpeed = 0
-#var in_destination = false
-#var value = 10
+
+var spriteFrames
+
+var enemySetFlag
+
 
 func _ready():
 	add_to_group("Enemies")
+	enemySetFlag = false
+	
+	myPathFollow.set_speed(currentSpeed)
 	
 	# Set the sprite size to match the colissionbox size
 	var collisionShape = $CollisionShape2D.get_shape()
 	var collisionWidth = collisionShape.get_radius() * 2
-	var spriteTexture = $AnimatedSprite2D.sprite_frames.get_frame_texture("maki_right_down",0)
+	var spriteTexture = $EnemyAnimation.sprite_frames.get_frame_texture("maki_right_down",0)
 	var spriteScale = 1.1 * Vector2(
 		collisionWidth / spriteTexture.get_width(), 
 		collisionWidth / spriteTexture.get_height())
 	
-	$AnimatedSprite2D.set_scale(spriteScale)
+	$EnemyAnimation.set_scale(spriteScale)
 	
-	$AnimatedSprite2D.play("maki_right_down")
+	$EnemyAnimation.play("maki_right_down")
 
 
 
 func _process(_delta):
 	if health <= 0:
 		myPathFollow.queue_free()
+		
+		
+func set_enemy(_speed=2, _health=10):
+	# Almost a constructor for the enemies
+	# Things to set:
+	# 1. texture
+	# 2. speed
+	# 3. health
+	# 4. special stuff (I'll figure that out later)
+	# note: I have to set the names of the animations the same...
+	# I need "right down", "left up" and everything in between
 	
+	speed = _speed
+	currentSpeed = speed	
+	myPathFollow.set_speed(currentSpeed)
+	health = _health
+	
+	enemySetFlag = true
 
 
 func set_speed(s):
@@ -58,7 +83,7 @@ func restore_speed():
 	
 
 func get_enemy_texture():
-	return $AnimatedSprite2D.sprite_frames.get_frame_texture("maki_right_down",0)
+	return $EnemyAnimation.sprite_frames.get_frame_texture("maki_right_down",0)
 	
 func pause():
 	temporarySpeed = myPathFollow.get_speed()

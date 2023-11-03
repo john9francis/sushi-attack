@@ -15,7 +15,10 @@ func _ready():
 
 
 func _process(delta):
-	progress += speed
+	if speed != null:
+		progress += speed
+	else:
+		print("Enemy did not set speed right")
 	
 	
 func set_speed(s):

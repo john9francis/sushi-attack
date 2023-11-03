@@ -102,6 +102,7 @@ offset_bottom = 40.0
 [connection signal="child_entered_tree" from="." to="." method="_on_child_entered_tree"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="gui_input" from="TowerGUI" to="TowerGUI" method="_on_gui_input"]
 [connection signal="pressed" from="TowerGUI/platformGUI/CSButton" to="." method="_on_cs_button_pressed"]
 [connection signal="pressed" from="TowerGUI/platformGUI/SSButton" to="." method="_on_ss_button_pressed"]
 [connection signal="pressed" from="TowerGUI/platformGUI/GButton" to="." method="_on_g_button_pressed"]
