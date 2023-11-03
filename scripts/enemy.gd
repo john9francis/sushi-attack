@@ -59,6 +59,10 @@ func set_enemy(_speed=2, _health=10):
 	
 	enemySetFlag = true
 	
+func set_path_follow(pathFollow):
+	myPathFollow = pathFollow
+	pass
+	
 func get_enemy():
 	# Returns a list with the enemy as first arg and the pathfollow as second arg
 	

@@ -2,11 +2,32 @@ extends Node2D
 
 # This node will create an enemy and it's pathFollow. 
 
-# Called when the node enters the scene tree for the first time.
+@export var enemyScene: PackedScene
+@export var pathFollowScene: PackedScene
+
+var enemy
+var pathFollow
+
 func _ready():
 	pass # Replace with function body.
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+
+
+func set_enemy(_speed, _health):
+	enemy = enemyScene.instantiate()
+	pathFollow = pathFollowScene.instantiate()
+	
+	enemy.set_path_follow(pathFollow)
+	enemy.set_speed(_speed)
+	enemy.set_health(_health)
+	pass
+
+
+func get_enemy():
+	if enemy != null:
+		return [enemy, pathFollow]
+	else:
+		print("enemy_builder Error: enemy not set correctly")
