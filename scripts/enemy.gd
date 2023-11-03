@@ -22,17 +22,21 @@ func _ready():
 	
 	set_speed(currentSpeed)
 	
+	# set the spriteFrames
+	var frames = preload("res://anims/test1.tres")
+	enemyAnim.set_sprite_frames(frames)
+	
 	# Set the sprite size to match the colissionbox size
 	var collisionShape = $CollisionShape2D.get_shape()
 	var collisionWidth = collisionShape.get_radius() * 2
-	var spriteTexture = $EnemyAnimation.sprite_frames.get_frame_texture("maki_right_down",0)
+	var spriteTexture = enemyAnim.sprite_frames.get_frame_texture("right-down",0)
 	var spriteScale = 1.1 * Vector2(
 		collisionWidth / spriteTexture.get_width(), 
 		collisionWidth / spriteTexture.get_height())
 	
-	$EnemyAnimation.set_scale(spriteScale)
+	enemyAnim.set_scale(spriteScale)
 	
-	$EnemyAnimation.play("maki_right_down")
+	enemyAnim.play("right-down")
 
 
 
