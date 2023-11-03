@@ -1,6 +1,6 @@
 extends Node2D
 
-# This node will create an enemy and it's pathFollow. 
+# This node will create one single enemy and it's pathFollow. 
 
 @export var enemyScene: PackedScene
 @export var pathFollowScene: PackedScene
@@ -17,6 +17,10 @@ func _process(delta):
 
 
 func set_enemy(_speed, _health):
+	if enemy != null:
+		print("Error, an enemy has already been set")
+		return
+	
 	enemy = enemyScene.instantiate()
 	pathFollow = pathFollowScene.instantiate()
 	
