@@ -18,10 +18,9 @@ var enemySetFlag
 
 
 func _ready():
-	#add_to_group("Enemies")
 	enemySetFlag = false
 	
-	myPathFollow.set_speed(currentSpeed)
+	set_speed(currentSpeed)
 	
 	# Set the sprite size to match the colissionbox size
 	var collisionShape = $CollisionShape2D.get_shape()
