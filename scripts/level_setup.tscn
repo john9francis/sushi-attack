@@ -1,3 +1,25 @@
-[gd_scene format=3 uid="uid://bx28qxjyu1vhn"]
+[gd_scene load_steps=6 format=3 uid="uid://bx28qxjyu1vhn"]
+
+[ext_resource type="Script" path="res://scripts/LevelSetup.gd" id="1_1is5s"]
+[ext_resource type="PackedScene" uid="uid://c8tq0ppoe2tb0" path="res://scripts/towerPlatform.tscn" id="2_40nmn"]
+[ext_resource type="Script" path="res://scripts/L1.gd" id="2_rj65x"]
+[ext_resource type="PackedScene" uid="uid://dbbij5u3up0gx" path="res://scripts/enemy.tscn" id="3_4im5p"]
+
+[sub_resource type="Curve2D" id="Curve2D_mfpga"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 335, 2, 0, 0, 0, 0, 330, 76, 0, 0, 0, 0, 355, 114, 0, 0, 0, 0, 387, 155, 0, 0, 0, 0, 434, 197, 0, 0, 0, 0, 526, 211, 0, 0, 0, 0, 683, 238, 0, 0, 0, 0, 782, 242, 0, 0, 0, 0, 824, 206, 0, 0, 0, 0, 804, 139, 0, 0, 0, 0, 750, 117, 0, 0, 0, 0, 663, 128, 0, 0, 0, 0, 636, 171, 0, 0, 0, 0, 598, 339, 0, 0, 0, 0, 577, 431, 0, 0, 0, 0, 555, 554, 0, 0, 0, 0, 591, 640, 0, 0, 0, 0, 640, 763, 0, 0, 0, 0, 593, 873, 0, 0, 0, 0, 584, 1001)
+}
+point_count = 20
 
 [node name="LevelSetup" type="Node2D"]
+script = ExtResource("1_1is5s")
+
+[node name="L1" type="Node2D" parent="."]
+script = ExtResource("2_rj65x")
+enemyScene = ExtResource("3_4im5p")
+
+[node name="towerPlatform" parent="L1" instance=ExtResource("2_40nmn")]
+position = Vector2(166, 364)
+
+[node name="Path2D" type="Path2D" parent="L1"]
+curve = SubResource("Curve2D_mfpga")
