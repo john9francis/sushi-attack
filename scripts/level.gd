@@ -116,8 +116,7 @@ func reset():
 	
 	get_tree().call_group("EnemyPathFollows", "set_value", 0)
 	get_tree().call_group("EnemyPathFollows", "set_in_destination")
-	get_tree().call_group("EnemyPathFollows", "queue_free")
-	get_tree().call_group("Enemies", "queue_free")
+	get_tree().call_group("Enemies", "kill")
 	
 	for p in platformList:
 		p.remove_tower()
@@ -175,7 +174,6 @@ func _on_enemy_spawn_timer_timeout():
 	# spawn enemy
 	var enemy = enemyScene.instantiate()
 	var pathFollow = enemy.get_path_follow()
-	enemy.set_enemy(10,100)
 		
 	$EnemyPath.add_child(pathFollow)
 	pathFollow.add_child(enemy)
@@ -201,8 +199,7 @@ func _on_enemy_destination_area_entered(area):
 			if lives <= 0:
 				emit_signal("gameOver")
 		area.myPathFollow.in_destination = true
-		area.myPathFollow.queue_free()
-		area.queue_free()
+		area.kill()
 
 
 

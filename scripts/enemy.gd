@@ -41,6 +41,12 @@ func _process(_delta):
 	if health <= 0:
 		myPathFollow.queue_free()
 		
+
+func kill():
+	# kill the enemy
+	myPathFollow.queue_free()
+	queue_free()
+		
 		
 func set_enemy(_speed=2, _health=10):
 	# Almost a constructor for the enemies
