@@ -18,7 +18,7 @@ var enemySetFlag
 
 
 func _ready():
-	add_to_group("Enemies")
+	#add_to_group("Enemies")
 	enemySetFlag = false
 	
 	myPathFollow.set_speed(currentSpeed)

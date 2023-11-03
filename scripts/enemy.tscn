@@ -19,7 +19,7 @@ shape = SubResource("CircleShape2D_tg4ib")
 [node name="PoisonTimer" type="Timer" parent="."]
 wait_time = 0.5
 
-[node name="EnemyAnimation" type="AnimatedSprite2D" parent="."]
+[node name="EnemyAnimation" type="AnimatedSprite2D" parent="." groups=["Enemies"]]
 scale = Vector2(0.1, 0.1)
 sprite_frames = ExtResource("4_tacv0")
 animation = &"maki_right_down"
