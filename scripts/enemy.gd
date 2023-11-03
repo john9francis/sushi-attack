@@ -14,30 +14,19 @@ var temporarySpeed = 0
 
 var spriteFrames
 
-var enemySetFlag
+var enemySetFlag = false
 
 
 func _ready():
-	enemySetFlag = false
 	
 	set_speed(currentSpeed)
 	
 	# set the spriteFrames
 	var frames = preload("res://anims/test1.tres")
-	enemyAnim.set_sprite_frames(frames)
+	set_anim(frames)
 	
-	# Set the sprite size to match the colissionbox size
-	var collisionShape = $CollisionShape2D.get_shape()
-	var collisionWidth = collisionShape.get_radius() * 2
-	var spriteTexture = enemyAnim.sprite_frames.get_frame_texture("right-down",0)
-	var spriteScale = 1.1 * Vector2(
-		collisionWidth / spriteTexture.get_width(), 
-		collisionWidth / spriteTexture.get_height())
-	
-	enemyAnim.set_scale(spriteScale)
-	
+	set_sprite_size()
 	enemyAnim.play("right-down")
-
 
 
 func _process(_delta):
@@ -49,6 +38,26 @@ func kill():
 	# kill the enemy
 	myPathFollow.queue_free()
 	queue_free()
+	
+func set_anim(preloadedFrames):
+	enemyAnim.set_sprite_frames(preloadedFrames)
+	pass
+	
+	
+func set_sprite_size():
+	if enemyAnim == null:
+		print("enemy error, spriteFrames not set when trying to set sprite size")
+		return
+	else:
+		# Set the sprite size to match the colissionbox size
+		var collisionShape = $CollisionShape2D.get_shape()
+		var collisionWidth = collisionShape.get_radius() * 2
+		var spriteTexture = enemyAnim.sprite_frames.get_frame_texture("right-down",0)
+		var spriteScale = 1.1 * Vector2(
+			collisionWidth / spriteTexture.get_width(), 
+			collisionWidth / spriteTexture.get_height())
+	
+		enemyAnim.set_scale(spriteScale)
 		
 		
 func set_enemy(_speed=2, _health=10):
