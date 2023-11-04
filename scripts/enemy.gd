@@ -109,7 +109,7 @@ func _on_body_entered(body):
 
 func _on_area_entered(area):
 	if area.is_in_group("Explosions"):
-		poison_hits = 5
+		poison_hits = 3
 		$PoisonTimer.start()
 
 
