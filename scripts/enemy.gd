@@ -70,28 +70,9 @@ func set_sprite_size():
 	
 		enemyAnim.set_scale(spriteScale)
 		
-		
-func set_enemy(_speed=2, _health=10):
-	# Almost a constructor for the enemies
-	# Things to set:
-	# 1. texture
-	# 2. speed
-	# 3. health
-	# 4. special stuff (I'll figure that out later)
-	# note: I have to set the names of the animations the same...
-	# I need "right down", "left up" and everything in between
-	
-	speed = _speed
-	currentSpeed = speed	
-	myPathFollow.set_speed(currentSpeed)
-	health = _health
-	
-	enemySetFlag = true
 	
 func set_path_follow(pathFollow):
 	myPathFollow = pathFollow
-	pass
-	
 
 
 func set_speed(s):
@@ -100,9 +81,6 @@ func set_speed(s):
 
 
 func get_path_follow():
-	#myPathFollow = myPathFollowScene.instantiate()
-	#myPathFollow.set_speed(currentSpeed)
-	
 	return myPathFollow
 
 
@@ -120,12 +98,6 @@ func get_enemy_texture():
 	return enemyAnim.sprite_frames.get_frame_texture("right-down",0)
 	
 	
-func pause():
-	temporarySpeed = myPathFollow.get_speed()
-	set_speed(0)
-	
-func resume():
-	set_speed(temporarySpeed)
 	
 
 func _on_body_entered(body):
@@ -135,12 +107,10 @@ func _on_body_entered(body):
 
 
 
-
 func _on_area_entered(area):
 	if area.is_in_group("Explosions"):
 		poison_hits = 5
 		$PoisonTimer.start()
-
 
 
 func _on_poison_timer_timeout():
@@ -149,7 +119,6 @@ func _on_poison_timer_timeout():
 	
 	if poison_hits <= 0:
 		$PoisonTimer.stop()
-
 
 
 
