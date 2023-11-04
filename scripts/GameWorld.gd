@@ -15,6 +15,7 @@ func _process(delta):
 
 func go_to_level(levelName):
 	level = levelScene.instantiate()
+	level.setup_level(levelName)
 	#level.set_up_level(levelName)
 	add_child(level)
 	

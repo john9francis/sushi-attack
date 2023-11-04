@@ -16,7 +16,8 @@ func _process(delta):
 
 func _on_l_1_pressed():
 	go_to_level("L1")
-	pass # Replace with function body.
+	
+	
 	
 func go_to_level(levelName):
 	$GUI/LevelSelect.hide()
