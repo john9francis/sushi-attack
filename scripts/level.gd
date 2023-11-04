@@ -44,6 +44,24 @@ func _ready():
 		
 	# setup the curve2d
 	$EnemyPath.curve = levelSetup.get_path_curve()
+	
+	# make sure the destination is at the end of the curve
+	var last_point_idx = $EnemyPath.curve.get_point_count() - 1
+	var last_point_position = $EnemyPath.curve.get_point_position(last_point_idx)
+
+	$EnemyDestination.position = last_point_position
+
+	# keep enemyDestination on screen
+	if $EnemyDestination.position.y > get_viewport_rect().size.y:
+		$EnemyDestination.position.y = get_viewport_rect().size.y
+	if $EnemyDestination.position.y < 0:
+		$EnemyDestination.position.y = 0
+	if $EnemyDestination.position.x > get_viewport_rect().size.x:
+		$EnemyDestination.position.x = get_viewport_rect().size.x
+	if $EnemyDestination.position.x < 0:
+		$EnemyDestination.position.x = 0
+
+
 
 	
 	

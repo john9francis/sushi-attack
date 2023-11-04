@@ -7,7 +7,7 @@
 
 [sub_resource type="Curve2D" id="Curve2D_mfpga"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 335, 2, 0, 0, 0, 0, 330, 76, 0, 0, 0, 0, 355, 114, 0, 0, 0, 0, 387, 155, 0, 0, 0, 0, 434, 197, 0, 0, 0, 0, 493, 283, 0, 0, 0, 0, 669, 378, 0, 0, 0, 0, 823, 372, 0, 0, 0, 0, 914, 277, 0, 0, 0, 0, 914, 170, 0, 0, 0, 0, 814, 82, 0, 0, 0, 0, 747, 75, 0, 0, 0, 0, 658, 99, 0, 0, 0, 0, 577, 142, 0, 0, 0, 0, 557, 301, 0, 0, 0, 0, 577, 431, 0, 0, 0, 0, 555, 554, 0, 0, 0, 0, 591, 640, 0, 0, 0, 0, 640, 763, 0, 0, 0, 0, 593, 873, 0, 0, 0, 0, 584, 1001)
+"points": PackedVector2Array(0, 0, 0, 0, 335, 2, 0, 0, 0, 0, 330, 76, 0, 0, 0, 0, 355, 114, 0, 0, 0, 0, 387, 155, 0, 0, 0, 0, 434, 197, 0, 0, 0, 0, 493, 283, 0, 0, 0, 0, 685, 324, 0, 0, 0, 0, 769, 336, 0, 0, 0, 0, 815, 285, 0, 0, 0, 0, 828, 199, 0, 0, 0, 0, 779, 142, 0, 0, 0, 0, 728, 118, 0, 0, 0, 0, 669, 137, 0, 0, 0, 0, 638, 216, 0, 0, 0, 0, 611, 329, 0, 0, 0, 0, 577, 431, 0, 0, 0, 0, 555, 554, 0, 0, 0, 0, 591, 640, 0, 0, 0, 0, 640, 763, 0, 0, 0, 0, 593, 873, 0, 0, 0, 0, 584, 1001)
 }
 point_count = 21
 
@@ -22,19 +22,19 @@ enemyScene = ExtResource("3_4im5p")
 curve = SubResource("Curve2D_mfpga")
 
 [node name="towerPlatform" parent="L1" instance=ExtResource("2_40nmn")]
-position = Vector2(741, 224)
+position = Vector2(730, 230)
 
 [node name="towerPlatform2" parent="L1" instance=ExtResource("2_40nmn")]
-position = Vector2(202, 166)
+position = Vector2(275, 160)
 
 [node name="towerPlatform3" parent="L1" instance=ExtResource("2_40nmn")]
-position = Vector2(387, 412)
+position = Vector2(468, 390)
 
 [node name="towerPlatform4" parent="L1" instance=ExtResource("2_40nmn")]
-position = Vector2(724, 538)
+position = Vector2(654, 528)
 
 [node name="towerPlatform5" parent="L1" instance=ExtResource("2_40nmn")]
-position = Vector2(440, 718)
+position = Vector2(529, 742)
 
 [node name="towerPlatform6" parent="L1" instance=ExtResource("2_40nmn")]
-position = Vector2(775, 837)
+position = Vector2(726, 874)

@@ -41,12 +41,10 @@ script = ExtResource("2_wq042")
 [node name="EnemyDestination" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyDestination"]
-position = Vector2(250, 1000)
 shape = SubResource("RectangleShape2D_xqtni")
 
 [node name="Sprite2D" type="Sprite2D" parent="EnemyDestination"]
 modulate = Color(1, 0, 1, 1)
-position = Vector2(250, 1000)
 scale = Vector2(198.5, 113.5)
 texture = SubResource("CanvasTexture_o4s4o")
 
