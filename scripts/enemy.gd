@@ -4,6 +4,7 @@ extends Area2D
 var myPathFollow
 
 @onready var enemyAnim = $EnemyAnimation
+@onready var enemyHitbox = $CollisionShape2D
 
 var speed = 1
 var currentSpeed = speed
@@ -25,13 +26,13 @@ func _ready():
 	var frames = preload("res://anims/test1.tres")
 	set_anim(frames)
 	
-	set_sprite_size()
+	set_sprite_size(100)
 	enemyAnim.play("right-down")
 
 
 func _process(_delta):
 	if health <= 0:
-		myPathFollow.queue_free()
+		kill()
 		
 
 func kill():
@@ -44,19 +45,24 @@ func set_anim(preloadedFrames):
 	pass
 	
 	
-func set_sprite_size():
+func set_sprite_size(colissionRadius=enemyHitbox.shape.get_radius()):
 	if enemyAnim == null:
 		print("enemy error, spriteFrames not set when trying to set sprite size")
 		return
 	else:
+		# first, set the hitbox size:
+		colissionRadius = float(colissionRadius)
+		enemyHitbox.shape.set_radius(colissionRadius)
+		
 		# Set the sprite size to match the colissionbox size
-		var collisionShape = $CollisionShape2D.get_shape()
-		var collisionWidth = collisionShape.get_radius() * 2
+		var collisionWidth = colissionRadius * 2
 		var spriteTexture = enemyAnim.sprite_frames.get_frame_texture("right-down",0)
 		var spriteScale = 1.1 * Vector2(
 			collisionWidth / spriteTexture.get_width(), 
 			collisionWidth / spriteTexture.get_height())
 	
+		print(collisionWidth)
+		print(spriteScale)
 		enemyAnim.set_scale(spriteScale)
 		
 		
