@@ -3,7 +3,6 @@ extends Node2D
 @export var enemyScene: PackedScene
 @export var towerPlatformScene: PackedScene
 @export var hudScene: PackedScene
-@export var levelCreatorScene: PackedScene
 
 @export var enemyBuilderScene: PackedScene
 var enemyBuilder
@@ -43,23 +42,6 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	pass
-	
-	
-func set_up_level(fileName):
-	# Starts up a levelCreator, get's all the info, then deletes it.
-	var levelCreator = levelCreatorScene.instantiate()
-	levelCreator.set_level_path(fileName)
-	
-	var pathPoints = levelCreator.get_path_points_list()
-	#var path = Path2D.new()
-	var curve = Curve2D.new()
-	for point in pathPoints:
-		curve.add_point(point)
-	
-	$EnemyPath.set_curve(curve)
-	
-	levelCreator.queue_free()
 	pass
 
 
