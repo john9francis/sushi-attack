@@ -5,6 +5,9 @@ extends Node2D
 @export var hudScene: PackedScene
 @export var levelCreatorScene: PackedScene
 
+@export var enemyBuilderScene: PackedScene
+var enemyBuilder
+
 var hud
 
 var multipleEnemies = true # For debugging, only spawning one enemy
@@ -33,6 +36,8 @@ func _ready():
 	
 	hud = hudScene.instantiate()
 	add_child(hud)
+	
+	enemyBuilder = enemyBuilderScene.instantiate()
 	
 	reset()
 
@@ -172,7 +177,12 @@ func resume():
 
 func _on_enemy_spawn_timer_timeout():
 	# spawn enemy
-	var enemy = enemyScene.instantiate()
+	
+	var preloadedSpriteFrames = preload("res://anims/test2.tres")
+	var speed = 5
+	var health = 2
+	
+	var enemy = enemyBuilder.create_enemy(preloadedSpriteFrames, speed, health, 75)
 	var pathFollow = enemy.get_path_follow()
 		
 	$EnemyPath.add_child(pathFollow)
