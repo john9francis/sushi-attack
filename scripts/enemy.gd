@@ -26,7 +26,7 @@ func _ready():
 	var frames = preload("res://anims/test1.tres")
 	set_anim(frames)
 	
-	set_sprite_size(100)
+	set_sprite_size(10)
 	enemyAnim.play("right-down")
 
 
@@ -116,7 +116,8 @@ func restore_speed():
 	
 
 func get_enemy_texture():
-	return $EnemyAnimation.sprite_frames.get_frame_texture("maki_right_down",0)
+	return enemyAnim.sprite_frames.get_frame_texture("right-down",0)
+	
 	
 func pause():
 	temporarySpeed = myPathFollow.get_speed()
