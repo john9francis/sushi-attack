@@ -81,53 +81,6 @@ func _process(_delta):
 
 
 
-func set_up_towers():
-	# Set up tower platforms
-	var p1 = towerPlatformScene.instantiate()
-	var p2 = towerPlatformScene.instantiate()
-	var p3 = towerPlatformScene.instantiate()
-	var p4 = towerPlatformScene.instantiate()
-	var p5 = towerPlatformScene.instantiate()
-	var p6 = towerPlatformScene.instantiate()
-	var p7 = towerPlatformScene.instantiate()
-	var p8 = towerPlatformScene.instantiate()
-	var p9 = towerPlatformScene.instantiate()
-	var p10 = towerPlatformScene.instantiate()
-	
-	p1.position = Vector2(100, 250)
-	p2.position = Vector2(400, 450)
-	p3.position = Vector2(600, 500)
-	p4.position = Vector2(450, 850)
-	p5.position = Vector2(750, 750)
-	p6.position = Vector2(700, 250)
-	p7.position = Vector2(850, 350)
-	p8.position = Vector2(300, 620)
-	p9.position = Vector2(150, 720)
-	p10.position = Vector2(900, 550)
-	
-	platformList.append(p1)
-	platformList.append(p2)
-	platformList.append(p3)
-	platformList.append(p4)
-	platformList.append(p5)
-	platformList.append(p6)
-	platformList.append(p7)
-	platformList.append(p8)
-	platformList.append(p9)
-	platformList.append(p10)
-	
-	add_child(p1)
-	add_child(p2)
-	add_child(p3)
-	add_child(p4)
-	add_child(p5)
-	add_child(p6)
-	add_child(p7)
-	add_child(p8)
-	add_child(p9)
-	add_child(p10)
-
-
 
 func reset():
 	$StartButton.show()
@@ -196,9 +149,10 @@ func _on_enemy_spawn_timer_timeout():
 	
 	var preloadedSpriteFrames = preload("res://anims/test2.tres")
 	var speed = 2
-	var health = 1
+	var health = 10
+	var size = 40
 	
-	var enemy = enemyBuilder.create_enemy(preloadedSpriteFrames, speed, health, 30)
+	var enemy = enemyBuilder.create_enemy(preloadedSpriteFrames, speed, health, size)
 	var pathFollow = enemy.get_path_follow()
 		
 	$EnemyPath.add_child(pathFollow)
