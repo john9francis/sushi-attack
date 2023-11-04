@@ -41,6 +41,7 @@ func _ready():
 		real_platform.set_position(setup_platform.get_position())
 		
 		add_child(real_platform)
+		platformList.append(real_platform)
 		
 	# setup the curve2d
 	$EnemyPath.curve = levelSetup.get_path_curve()
