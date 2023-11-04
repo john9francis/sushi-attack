@@ -12,7 +12,7 @@ radius = 114.018
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_yabk0"]
 
-[node name="towerPlatform" type="Area2D"]
+[node name="towerPlatform" type="Area2D" groups=["TowerPlatforms"]]
 script = ExtResource("1_2l6tq")
 CSTowerScene = ExtResource("2_vk3ja")
 SSTowerScene = ExtResource("2_yr7cu")

@@ -3,6 +3,7 @@ extends Node2D
 @export var enemyScene: PackedScene
 @export var towerPlatformScene: PackedScene
 @export var hudScene: PackedScene
+@export var levelSetupScene: PackedScene
 
 @export var enemyBuilderScene: PackedScene
 var enemyBuilder
@@ -28,8 +29,23 @@ var enemySpawnTimeDelay
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	set_up_towers()
+	#set_up_towers()
 	#set_up_level("L1")
+	var levelSetup = levelSetupScene.instantiate()
+	levelSetup.request_level("L1")
+	
+	var setup_platforms = levelSetup.get_tower_platforms()
+	for setup_platform in setup_platforms:
+		
+		var real_platform = towerPlatformScene.instantiate()
+		real_platform.set_position(setup_platform.get_position())
+		
+		add_child(real_platform)
+		
+	# setup the curve2d
+	$EnemyPath.curve = levelSetup.get_path_curve()
+
+	
 	
 	add_to_group("CurrentLevel")
 	
