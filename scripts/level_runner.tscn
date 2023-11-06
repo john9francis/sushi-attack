@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://dw1eyo22nqm4o"]
 
-[ext_resource type="Script" path="res://scripts/level.gd" id="1_xijah"]
+[ext_resource type="Script" path="res://scripts/level_runner.gd" id="1_0c2hq"]
 [ext_resource type="PackedScene" uid="uid://dbbij5u3up0gx" path="res://scripts/enemy.tscn" id="2_iiij6"]
 [ext_resource type="PackedScene" uid="uid://c8tq0ppoe2tb0" path="res://scripts/towerPlatform.tscn" id="3_qdug7"]
 [ext_resource type="PackedScene" uid="uid://cmaesvuc5l4a7" path="res://scripts/hud.tscn" id="4_7sajc"]
@@ -23,7 +23,7 @@ size = Vector2(164, 85)
 
 [node name="level_runner" type="Node2D"]
 visibility_layer = 2
-script = ExtResource("1_xijah")
+script = ExtResource("1_0c2hq")
 enemyScene = ExtResource("2_iiij6")
 towerPlatformScene = ExtResource("3_qdug7")
 hudScene = ExtResource("4_7sajc")
