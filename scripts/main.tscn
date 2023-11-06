@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://bgtvxbdu2qdf0"]
 
-[ext_resource type="PackedScene" uid="uid://cn5affxsrvpyq" path="res://scripts/level.tscn" id="1_lvge1"]
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_t84td"]
 [ext_resource type="Script" path="res://scripts/GUI.gd" id="3_ejdf7"]
+[ext_resource type="PackedScene" uid="uid://dw1eyo22nqm4o" path="res://scripts/level_runner.tscn" id="3_erfmk"]
 [ext_resource type="Script" path="res://scripts/GameWorld.gd" id="3_oi7dd"]
 [ext_resource type="Script" path="res://scripts/MainHUD.gd" id="5_mwkcc"]
 
@@ -11,7 +11,7 @@ script = ExtResource("1_t84td")
 
 [node name="GameWorld" type="Node2D" parent="."]
 script = ExtResource("3_oi7dd")
-levelScene = ExtResource("1_lvge1")
+levelRunnerScene = ExtResource("3_erfmk")
 
 [node name="GUI" type="Control" parent="."]
 process_mode = 3
@@ -124,8 +124,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 4.0
 offset_top = 4.0
-offset_right = 246.0
-offset_bottom = 246.0
+offset_right = -4.0
+offset_bottom = -4.0
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1

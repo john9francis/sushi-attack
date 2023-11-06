@@ -1,14 +1,14 @@
-[gd_scene load_steps=13 format=3 uid="uid://cn5affxsrvpyq"]
+[gd_scene load_steps=13 format=3 uid="uid://dw1eyo22nqm4o"]
 
-[ext_resource type="PackedScene" uid="uid://dbbij5u3up0gx" path="res://scripts/enemy.tscn" id="1_7wi6w"]
-[ext_resource type="Script" path="res://scripts/level.gd" id="1_m3pcb"]
-[ext_resource type="Script" path="res://scripts/EnemySpawnTimer.gd" id="2_wq042"]
-[ext_resource type="PackedScene" uid="uid://c8tq0ppoe2tb0" path="res://scripts/towerPlatform.tscn" id="4_5h04q"]
-[ext_resource type="PackedScene" uid="uid://bx28qxjyu1vhn" path="res://scripts/level_setup.tscn" id="5_b85hk"]
-[ext_resource type="Script" path="res://scripts/EnemyPath.gd" id="5_r7iwg"]
-[ext_resource type="PackedScene" uid="uid://cmaesvuc5l4a7" path="res://scripts/hud.tscn" id="5_vrvnd"]
-[ext_resource type="PackedScene" uid="uid://b8p6r7fsli1iy" path="res://scripts/enemy_builder.tscn" id="6_h7jui"]
-[ext_resource type="Script" path="res://scripts/ProgressBar.gd" id="7_xpvcd"]
+[ext_resource type="Script" path="res://scripts/level.gd" id="1_xijah"]
+[ext_resource type="PackedScene" uid="uid://dbbij5u3up0gx" path="res://scripts/enemy.tscn" id="2_iiij6"]
+[ext_resource type="PackedScene" uid="uid://c8tq0ppoe2tb0" path="res://scripts/towerPlatform.tscn" id="3_qdug7"]
+[ext_resource type="PackedScene" uid="uid://cmaesvuc5l4a7" path="res://scripts/hud.tscn" id="4_7sajc"]
+[ext_resource type="PackedScene" uid="uid://bx28qxjyu1vhn" path="res://scripts/level_setup.tscn" id="5_31mm1"]
+[ext_resource type="PackedScene" uid="uid://b8p6r7fsli1iy" path="res://scripts/enemy_builder.tscn" id="6_rc30r"]
+[ext_resource type="Script" path="res://scripts/EnemyPath.gd" id="7_tx62m"]
+[ext_resource type="Script" path="res://scripts/EnemySpawnTimer.gd" id="8_rur5k"]
+[ext_resource type="Script" path="res://scripts/ProgressBar.gd" id="9_axsi4"]
 
 [sub_resource type="Curve2D" id="Curve2D_joiln"]
 _data = {
@@ -23,20 +23,20 @@ size = Vector2(164, 85)
 
 [node name="level_runner" type="Node2D"]
 visibility_layer = 2
-script = ExtResource("1_m3pcb")
-enemyScene = ExtResource("1_7wi6w")
-towerPlatformScene = ExtResource("4_5h04q")
-hudScene = ExtResource("5_vrvnd")
-levelSetupScene = ExtResource("5_b85hk")
-enemyBuilderScene = ExtResource("6_h7jui")
+script = ExtResource("1_xijah")
+enemyScene = ExtResource("2_iiij6")
+towerPlatformScene = ExtResource("3_qdug7")
+hudScene = ExtResource("4_7sajc")
+levelSetupScene = ExtResource("5_31mm1")
+enemyBuilderScene = ExtResource("6_rc30r")
 
 [node name="EnemyPath" type="Path2D" parent="."]
 curve = SubResource("Curve2D_joiln")
-script = ExtResource("5_r7iwg")
+script = ExtResource("7_tx62m")
 
 [node name="EnemySpawnTimer" type="Timer" parent="."]
 one_shot = true
-script = ExtResource("2_wq042")
+script = ExtResource("8_rur5k")
 
 [node name="EnemyDestination" type="Area2D" parent="."]
 
@@ -77,7 +77,7 @@ offset_left = 478.0
 offset_top = 56.0
 offset_right = 755.0
 offset_bottom = 116.0
-script = ExtResource("7_xpvcd")
+script = ExtResource("9_axsi4")
 
 [connection signal="gameOver" from="." to="." method="_on_game_over"]
 [connection signal="setupLevel" from="." to="." method="_on_setup_level"]

@@ -1,7 +1,7 @@
 extends Node2D
 
-@export var levelScene : PackedScene
-var level
+@export var levelRunnerScene : PackedScene
+var levelRunner
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -14,15 +14,15 @@ func _process(delta):
 
 
 func go_to_level(levelName):
-	level = levelScene.instantiate()
-	level.setup_level(levelName)
+	levelRunner = levelRunnerScene.instantiate()
+	levelRunner.setup_level(levelName)
 	#level.set_up_level(levelName)
-	add_child(level)
+	add_child(levelRunner)
 	
 	# make sure it's unpaused
 	get_tree().paused = false
 	pass
 
 func delete_level():
-	level.queue_free()
+	levelRunner.queue_free()
 
