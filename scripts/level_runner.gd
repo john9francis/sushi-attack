@@ -166,7 +166,7 @@ func _on_enemy_spawn_timer_timeout():
 	
 	var preloadedSpriteFrames = preload("res://anims/test2.tres")
 	var speed = 2
-	var health = 10
+	var health = 1
 	var size = 40
 	
 	var enemy = enemyBuilder.create_enemy(preloadedSpriteFrames, speed, health, size)
