@@ -8,7 +8,7 @@ func _ready():
 	#_on_l_1_pressed()
 	
 	# disable button till it's ready
-	$GUI/LevelSelect/L2.disabled = true
+	#$GUI/LevelSelect/L2.disabled = true
 	
 	pass # Replace with function body.
 

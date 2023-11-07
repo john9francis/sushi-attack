@@ -26,6 +26,8 @@ func request_level(_levelName):
 func get_path_curve():
 	if levelName == "L1":
 		return $L1/Path2D.curve
+	elif levelName == "L2":
+		return $L2/Path2D.curve
 	else: 
 		print("level_setup error, path doesn't exist")
 	pass
@@ -35,11 +37,20 @@ func get_path_curve():
 func get_tower_platforms():
 	var towerList = []
 	
+	var levelObject
 	if levelName == "L1":
-		for c in $L1.get_children():
-			if c.is_in_group("TowerPlatforms"):
-				towerList.append(c)
-				#print(c, " added to level_setup")
+		levelObject = $L1
+	elif levelName == "L2":
+		levelObject = $L2
+	else:
+		print("level_setup error, no level to get towers from")
+		return 
+		
+	
+	for c in levelObject.get_children():
+		if c.is_in_group("TowerPlatforms"):
+			towerList.append(c)
+			#print(c, " added to level_setup")
 		
 	return towerList
 	

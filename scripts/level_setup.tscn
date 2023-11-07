@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bx28qxjyu1vhn"]
+[gd_scene load_steps=7 format=3 uid="uid://bx28qxjyu1vhn"]
 
 [ext_resource type="Script" path="res://scripts/LevelSetup.gd" id="1_1is5s"]
 [ext_resource type="PackedScene" uid="uid://c8tq0ppoe2tb0" path="res://scripts/towerPlatform.tscn" id="2_40nmn"]
@@ -11,10 +11,17 @@ _data = {
 }
 point_count = 21
 
+[sub_resource type="Curve2D" id="Curve2D_5iktm"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -4, 156, 0, 0, 0, 0, 257, 147, 0, 0, 0, 0, 560, 139, 0, 0, 0, 0, 765, 156, 0, 0, 0, 0, 825, 234, 0, 0, 0, 0, 814, 316, 0, 0, 0, 0, 736, 366, 0, 0, 0, 0, 579, 385, 0, 0, 0, 0, 290, 397, 0, 0, 0, 0, 182, 458, 0, 0, 0, 0, 160, 536, 0, 0, 0, 0, 244, 609, 0, 0, 0, 0, 380, 609, 0, 0, 0, 0, 607, 612, 0, 0, 0, 0, 728, 675, 0, 0, 0, 0, 744, 728, 0, 0, 0, 0, 749, 794, 0, 0, 0, 0, 626, 832, 0, 0, 0, 0, 452, 848, 0, 0, 0, 0, 436, 901, 0, 0, 0, 0, 431, 986)
+}
+point_count = 21
+
 [node name="LevelSetup" type="Node2D"]
 script = ExtResource("1_1is5s")
 
 [node name="L1" type="Node2D" parent="."]
+visible = false
 script = ExtResource("2_rj65x")
 enemyScene = ExtResource("3_4im5p")
 
@@ -38,3 +45,31 @@ position = Vector2(529, 742)
 
 [node name="towerPlatform6" parent="L1" instance=ExtResource("2_40nmn")]
 position = Vector2(726, 874)
+
+[node name="L2" type="Node2D" parent="."]
+script = ExtResource("2_rj65x")
+enemyScene = ExtResource("3_4im5p")
+
+[node name="Path2D" type="Path2D" parent="L2"]
+curve = SubResource("Curve2D_5iktm")
+
+[node name="towerPlatform" parent="L2" instance=ExtResource("2_40nmn")]
+position = Vector2(725, 249)
+
+[node name="towerPlatform2" parent="L2" instance=ExtResource("2_40nmn")]
+position = Vector2(223, 244)
+
+[node name="towerPlatform3" parent="L2" instance=ExtResource("2_40nmn")]
+position = Vector2(463, 307)
+
+[node name="towerPlatform4" parent="L2" instance=ExtResource("2_40nmn")]
+position = Vector2(597, 523)
+
+[node name="towerPlatform5" parent="L2" instance=ExtResource("2_40nmn")]
+position = Vector2(643, 737)
+
+[node name="towerPlatform6" parent="L2" instance=ExtResource("2_40nmn")]
+position = Vector2(240, 691)
+
+[node name="towerPlatform7" parent="L2" instance=ExtResource("2_40nmn")]
+position = Vector2(289, 493)
