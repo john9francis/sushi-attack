@@ -33,13 +33,20 @@ var enemySpawnTimeDelay
 var enemyDestinationPosition
 
 var waves = []
-
+var currentWave
+var totalWaves
 
 
 func setup_level(levelName):
+	# instantiate the level setup and get the correct level
 	levelSetup = levelSetupScene.instantiate()
 	levelSetup.request_level(levelName)
+	
+	# set up the waves
 	waves = levelSetup.get_wave_list()
+	currentWave = 0
+	totalWaves = waves.size()
+	
 	print(waves)
 	emit_signal("setupLevel")
 	
