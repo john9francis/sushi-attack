@@ -164,12 +164,13 @@ func resume():
 func _on_enemy_spawn_timer_timeout():
 	# spawn enemy
 	
-	var preloadedSpriteFrames = preload("res://anims/test2.tres")
-	var speed = 2
-	var health = 10
-	var size = 40
+	#var preloadedSpriteFrames = preload("res://anims/test2.tres")
+	#var speed = 2
+	#var health = 10
+	#var size = 40
 	
-	var enemy = enemyBuilder.create_enemy(preloadedSpriteFrames, speed, health, size)
+	#var enemy = enemyBuilder.create_enemy(preloadedSpriteFrames, speed, health, size)
+	var enemy = enemyBuilder.get_premade_enemy("test2")
 	var pathFollow = enemy.get_path_follow()
 		
 	$EnemyPath.add_child(pathFollow)

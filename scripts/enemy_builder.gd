@@ -15,6 +15,29 @@ var pathFollow
 signal enemyAnimSet
 var animSet = false
 
+
+# Premade enemies:
+const base = {
+	"spriteFrames": null,
+	"speed": null,
+	"health": null,
+	"colissionRadius": null
+}
+const test1 = {
+	"spriteFrames": preload("res://anims/test1.tres"),
+	"speed": 5,
+	"health": 3,
+	"colissionRadius": 50
+}
+const test2 = {
+	"spriteFrames": preload("res://anims/test2.tres"),
+	"speed": 1,
+	"health": 12,
+	"colissionRadius": 70
+}
+
+
+
 func _ready():
 	pass # Replace with function body.
 
@@ -22,6 +45,30 @@ func _ready():
 func _process(delta):
 	pass
 
+func get_premade_enemy(enemyName):
+	
+	var premadeEnemy
+	
+	# first, set which premade enemy
+	if enemyName == "test1":
+		premadeEnemy = test1
+	elif enemyName == "test2":
+		premadeEnemy = test2
+	else:
+		premadeEnemy = null
+		print("enemy_builder error, premade enemy does not exist")
+		return
+	
+	# return the enemy created from the premade template
+	var enemy = create_enemy(
+		premadeEnemy["spriteFrames"],
+		premadeEnemy["speed"],
+		premadeEnemy["health"],
+		premadeEnemy["colissionRadius"]
+	)
+	
+	return enemy
+	pass
 
 func set_enemy(_preloadedSpriteFrames, _speed, _health, _colissionRadius=null):
 	if enemy != null:
@@ -67,3 +114,5 @@ func get_enemy():
 		return enemy
 	else:
 		print("enemy_builder Error: enemy not set correctly")
+
+
