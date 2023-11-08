@@ -79,6 +79,7 @@ func set_path_follow(pathFollow):
 
 
 func set_speed(s):
+	speed = s
 	currentSpeed = s
 	myPathFollow.set_speed(currentSpeed)
 
