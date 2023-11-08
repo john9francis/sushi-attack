@@ -56,6 +56,9 @@ func set_colission_radius(value):
 	$CollisionShape2D.shape.set_radius(value)
 	pass
 
+func set_value(val):
+	myPathFollow.set_value(val)
+
 func set_sprite_size():
 	if enemyAnim == null:
 		print("enemy error, spriteFrames not set when trying to set sprite size")
