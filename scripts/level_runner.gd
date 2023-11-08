@@ -216,7 +216,7 @@ func _on_enemy_path_child_exiting_tree(node):
 	if node.is_in_group("EnemyPathFollows"):
 		# an enemy died, give you some money!
 		if !node.in_destination:
-			money += node.value
+			money += node.get_reward()
 			update_money_guis()
 			
 		# You win if you kill the last enemy

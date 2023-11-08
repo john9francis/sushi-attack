@@ -19,21 +19,21 @@ const base = {
 	"spriteFrames": null,
 	"speed": null,
 	"health": null,
-	"value": null,
+	"reward": null,
 	"colissionRadius": null
 }
 const test1 = {
 	"spriteFrames": preload("res://anims/test1.tres"),
 	"speed": 5,
 	"health": 3,
-	"value": 10,
+	"reward": 10,
 	"colissionRadius": 50
 }
 const test2 = {
 	"spriteFrames": preload("res://anims/test2.tres"),
 	"speed": 1,
 	"health": 12,
-	"value": 20,
+	"reward": 20,
 	"colissionRadius": 70
 }
 
@@ -65,21 +65,21 @@ func get_premade_enemy(enemyName):
 		premadeEnemy["spriteFrames"],
 		premadeEnemy["speed"],
 		premadeEnemy["health"],
-		premadeEnemy["value"],
+		premadeEnemy["reward"],
 		premadeEnemy["colissionRadius"]
 	)
 	
 	return enemy
 
 
-func create_enemy(_preloadedSpriteFrames, _speed, _health, _value=10, _colissionRadius=0):
+func create_enemy(_preloadedSpriteFrames, _speed, _health, _reward=10, _colissionRadius=0):
 	var new_enemy = enemyScene.instantiate()
 	var new_pathFollow = pathFollowScene.instantiate()
 	
 	new_enemy.set_path_follow(new_pathFollow)
 	new_enemy.set_speed(_speed)
 	new_enemy.set_health(_health)
-	new_enemy.set_value(_value)
+	new_enemy.set_reward(_reward)
 	
 	new_enemy.set_anim(_preloadedSpriteFrames)
 	

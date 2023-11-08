@@ -56,8 +56,8 @@ func set_colission_radius(value):
 	$CollisionShape2D.shape.set_radius(value)
 	pass
 
-func set_value(val):
-	myPathFollow.set_value(val)
+func set_reward(r):
+	myPathFollow.set_reward(r)
 
 func set_sprite_size():
 	if enemyAnim == null:

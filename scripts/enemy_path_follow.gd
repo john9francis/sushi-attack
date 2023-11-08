@@ -1,7 +1,7 @@
 extends PathFollow2D
 
 var speed = 1
-var value = 10
+var reward = 10
 var in_destination = false
 
 func _ready():
@@ -27,8 +27,11 @@ func set_speed(s):
 func get_speed():
 	return speed
 	
-func set_value(v):
-	value = v
+func set_reward(r):
+	reward = r
+	
+func get_reward():
+	return reward
 
 
 func set_in_destionation():
