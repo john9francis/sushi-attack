@@ -133,7 +133,10 @@ func _on_child_entered_tree(node):
 		cost = SSTowerCost
 		
 	if node.is_in_group("Towers"):
-		get_tree().call_group("CurrentLevel", "subtract_money", cost)	
+		get_tree().call_group("CurrentLevel", "subtract_money", cost)
+		
+		# Make sure we have the right upgrade gui text
+		$TowerGUI/upgradeGUI/Upgrade.text = "Upgrade"
 
 
 func _on_upgrade_pressed():
@@ -152,3 +155,5 @@ func _on_upgrade_pressed():
 	if nOfUpgrades == 2:
 		$TowerGUI/upgradeGUI/Upgrade.disabled = true
 		$TowerGUI/upgradeGUI/Upgrade.text = "Maxed"
+		
+		
