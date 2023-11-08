@@ -79,6 +79,11 @@ func upgrade():
 
 func _on_kill_mob_timer_timeout():
 	readyToKill = true
+	
+	#reactivate handArea colissions
+	$CS_Hand/HandArea/CollisionShape2D.disabled = false
+	
+	#reset cs hand
 	$CS_Hand/Sprite2D.set_texture(blankTexture)
 	$CS_Hand.rotation = 0
 
@@ -87,13 +92,6 @@ func _on_kill_mob_timer_timeout():
 func _on_area_entered(area):
 	if area.is_in_group("Enemies"):
 		enemyList.append(area)
-		
-	#if readyToKill:
-	#	if area.is_in_group("Enemies"):
-	#		area.myPathFollow.queue_free()
-	#		readyToKill = false
-	#		$KillMobTimer.start()
-
 
 
 
@@ -111,6 +109,7 @@ func move_hand(direction):
 
 func _on_hand_area_area_entered(area):
 	if area.is_in_group("Enemies") and readyToKill:
+		
 		area.myPathFollow.queue_free()
 		readyToKill = false
 		$KillMobTimer.start(killMobTime)
@@ -126,6 +125,9 @@ func _on_hand_area_area_entered(area):
 	
 		$CS_Hand/Sprite2D.set_texture(enemyTexture)
 		$CS_Hand/Sprite2D.set_scale(spriteScale)
+		
+		# disable area to prevent bugs
+		$CS_Hand/HandArea/CollisionShape2D.call_deferred("set_disabled", true)
 		
 	pass # Replace with function body.
 
