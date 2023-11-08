@@ -33,6 +33,7 @@ var enemySpawnTimeDelay
 var enemyDestinationPosition
 
 var waves = []
+var sequentialWaves = []
 var currentWave
 var totalWaves
 
@@ -47,9 +48,35 @@ func setup_level(levelName):
 	currentWave = 0
 	totalWaves = waves.size()
 	
-	print(waves)
+	sequentialWaves = setup_sequential_waves(waves)
+	
+	print(sequentialWaves)
 	emit_signal("setupLevel")
 	
+func setup_sequential_waves(non_sequential_waves):
+	# for reference:
+	#"enemyName": "test1",
+	#"amount": 10,
+	#"timer": 1
+	
+	var sequential_waves = []
+	
+	for wave in non_sequential_waves:
+		var s_wave = []
+		
+		for waveObj in wave:
+			var enemyName = waveObj["enemyName"]
+			var enemyAmount = waveObj["amount"]
+			var enemyTimer = waveObj["timer"]
+			for i in range(enemyAmount):
+				s_wave.append(enemyName)
+				s_wave.append(enemyTimer)
+		
+		sequential_waves.append(s_wave)
+				
+	return sequential_waves
+
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
