@@ -26,7 +26,7 @@ var gameStoppedFlag = true
 
 var platformList = []
 
-const totalEnemies = 20
+var totalEnemies
 var currentEnemies = totalEnemies
 var enemySpawnTimeDelay
 
@@ -50,7 +50,12 @@ func setup_level(levelName):
 	
 	sequentialWaves = setup_sequential_waves(waves)
 	
-	print(sequentialWaves)
+	totalEnemies = 0
+	for wave in sequentialWaves:
+		totalEnemies += wave.size()/2
+	
+	
+	print(totalEnemies)
 	emit_signal("setupLevel")
 	
 func setup_sequential_waves(non_sequential_waves):
@@ -187,22 +192,29 @@ func update_money_guis():
 
 
 func _on_enemy_spawn_timer_timeout():
+	# spawn enemy and set timer based on the sequential waves
+	var wave = sequentialWaves[currentWave]
+	
+	var enemyName = wave[0]
+	wave.remove_at(0)
+	var delayTime = wave[0]
+	wave.remove_at(0)
+	
+	sequentialWaves[currentWave] = wave
+	
 	# spawn enemy
-	var enemy = enemyBuilder.get_premade_enemy("test2")
+	var enemy = enemyBuilder.get_premade_enemy(enemyName)
 	var pathFollow = enemy.get_path_follow()
 		
 	$EnemyPath.add_child(pathFollow)
 	pathFollow.add_child(enemy)
-	
-	currentEnemies -= 1
-	enemySpawnTimeDelay -= .018
 		
 	# reset the timer with a random value from 1 to 2
-	if currentEnemies > 0:
-		$EnemySpawnTimer.start(randf() + enemySpawnTimeDelay)
+	if wave.size() > 0:
+		$EnemySpawnTimer.start(randf() + delayTime)
 		
 	# update the progress bar
-	$ProgressBar.progress(float(totalEnemies), float(totalEnemies - currentEnemies))
+	$ProgressBar.progress(float(totalEnemies), float(totalEnemies - wave.size()/2))
 	
 	
 
