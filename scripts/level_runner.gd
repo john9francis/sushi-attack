@@ -32,12 +32,15 @@ var enemySpawnTimeDelay
 
 var enemyDestinationPosition
 
+var waves = []
 
 
 
 func setup_level(levelName):
 	levelSetup = levelSetupScene.instantiate()
 	levelSetup.request_level(levelName)
+	waves = levelSetup.get_wave_list()
+	print(waves)
 	emit_signal("setupLevel")
 	
 
@@ -94,8 +97,6 @@ func _on_setup_level():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	pass
-
-
 
 
 

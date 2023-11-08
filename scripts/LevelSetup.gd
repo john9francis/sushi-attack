@@ -56,5 +56,9 @@ func get_tower_platforms():
 	
 	
 	
-func get_enemy_list():
+func get_wave_list():
+	if levelName == "L1":
+		return $L1.get_wave_list()
+	if levelName == "L2":
+		return $L2.get_wave_list()
 	pass
