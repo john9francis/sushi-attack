@@ -48,25 +48,20 @@ func setup_level(levelName):
 	currentWave = 0
 	totalWaves = waves.size()
 	
-	sequentialWaves = setup_sequential_waves(waves)
-	
-	totalEnemies = 0
-	for wave in sequentialWaves:
-		totalEnemies += wave.size()/2
-	
+	setup_sequential_waves()
 	
 	print(totalEnemies)
 	emit_signal("setupLevel")
 	
-func setup_sequential_waves(non_sequential_waves):
+func setup_sequential_waves():
 	# for reference:
 	#"enemyName": "test1",
 	#"amount": 10,
 	#"timer": 1
 	
-	var sequential_waves = []
+	sequentialWaves.clear()
 	
-	for wave in non_sequential_waves:
+	for wave in waves:
 		var s_wave = []
 		
 		for waveObj in wave:
@@ -77,10 +72,13 @@ func setup_sequential_waves(non_sequential_waves):
 				s_wave.append(enemyName)
 				s_wave.append(enemyTimer)
 		
-		sequential_waves.append(s_wave)
+		sequentialWaves.append(s_wave)
+		
+		
+	totalEnemies = 0
+	for wave in sequentialWaves:
+		totalEnemies += wave.size()/2
 				
-	return sequential_waves
-
 
 
 # Called when the node enters the scene tree for the first time.
@@ -154,6 +152,9 @@ func reset():
 		
 	gameOverFlag = false
 	
+	setup_sequential_waves()
+	currentWave = 0
+	
 	lives = 5
 	money = 150
 	
@@ -212,6 +213,12 @@ func _on_enemy_spawn_timer_timeout():
 	# reset the timer with a random value from 1 to 2
 	if wave.size() > 0:
 		$EnemySpawnTimer.start(randf() + delayTime)
+	elif currentWave + 1 == waves.size():
+		currentEnemies = 0
+		return
+	else:
+		currentWave += 1
+		$EnemySpawnTimer.start(5)
 		
 	# update the progress bar
 	$ProgressBar.progress(float(totalEnemies), float(totalEnemies - wave.size()/2))
