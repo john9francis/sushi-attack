@@ -25,6 +25,11 @@ const wave2 = [
 		"timer": 1
 	},
 	{
+		"enemyName": "test3",
+		"amount": 10,
+		"timer": .5
+	},
+	{
 		"enemyName": "test1",
 		"amount": 30,
 		"timer": .5	

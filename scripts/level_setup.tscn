@@ -5,15 +5,15 @@
 [ext_resource type="Script" path="res://scripts/L1.gd" id="2_rj65x"]
 [ext_resource type="Script" path="res://scripts/L2.gd" id="4_oejuc"]
 
-[sub_resource type="Curve2D" id="Curve2D_mfpga"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 335, 2, 0, 0, 0, 0, 330, 76, 0, 0, 0, 0, 355, 114, 0, 0, 0, 0, 387, 155, 0, 0, 0, 0, 434, 197, 0, 0, 0, 0, 493, 283, 0, 0, 0, 0, 685, 324, 0, 0, 0, 0, 769, 336, 0, 0, 0, 0, 815, 285, 0, 0, 0, 0, 828, 199, 0, 0, 0, 0, 779, 142, 0, 0, 0, 0, 728, 118, 0, 0, 0, 0, 669, 137, 0, 0, 0, 0, 638, 216, 0, 0, 0, 0, 611, 329, 0, 0, 0, 0, 577, 431, 0, 0, 0, 0, 555, 554, 0, 0, 0, 0, 591, 640, 0, 0, 0, 0, 640, 763, 0, 0, 0, 0, 593, 873, 0, 0, 0, 0, 584, 1001)
-}
-point_count = 21
-
 [sub_resource type="Curve2D" id="Curve2D_5iktm"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, -4, 156, 0, 0, 0, 0, 257, 147, 0, 0, 0, 0, 560, 139, 0, 0, 0, 0, 765, 156, 0, 0, 0, 0, 825, 234, 0, 0, 0, 0, 814, 316, 0, 0, 0, 0, 736, 366, 0, 0, 0, 0, 579, 385, 0, 0, 0, 0, 290, 397, 0, 0, 0, 0, 182, 458, 0, 0, 0, 0, 160, 536, 0, 0, 0, 0, 244, 609, 0, 0, 0, 0, 380, 609, 0, 0, 0, 0, 607, 612, 0, 0, 0, 0, 728, 675, 0, 0, 0, 0, 744, 728, 0, 0, 0, 0, 749, 794, 0, 0, 0, 0, 626, 832, 0, 0, 0, 0, 452, 848, 0, 0, 0, 0, 436, 901, 0, 0, 0, 0, 431, 986)
+}
+point_count = 21
+
+[sub_resource type="Curve2D" id="Curve2D_mfpga"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 335, 2, 0, 0, 0, 0, 330, 76, 0, 0, 0, 0, 355, 114, 0, 0, 0, 0, 387, 155, 0, 0, 0, 0, 434, 197, 0, 0, 0, 0, 493, 283, 0, 0, 0, 0, 685, 324, 0, 0, 0, 0, 769, 336, 0, 0, 0, 0, 815, 285, 0, 0, 0, 0, 828, 199, 0, 0, 0, 0, 779, 142, 0, 0, 0, 0, 728, 118, 0, 0, 0, 0, 669, 137, 0, 0, 0, 0, 638, 216, 0, 0, 0, 0, 611, 329, 0, 0, 0, 0, 577, 431, 0, 0, 0, 0, 555, 554, 0, 0, 0, 0, 591, 640, 0, 0, 0, 0, 640, 763, 0, 0, 0, 0, 593, 873, 0, 0, 0, 0, 584, 1001)
 }
 point_count = 21
 
@@ -21,53 +21,53 @@ point_count = 21
 script = ExtResource("1_1is5s")
 
 [node name="L1" type="Node2D" parent="."]
+script = ExtResource("4_oejuc")
+
+[node name="Path2D" type="Path2D" parent="L1"]
+curve = SubResource("Curve2D_5iktm")
+
+[node name="towerPlatform" parent="L1" instance=ExtResource("2_40nmn")]
+position = Vector2(725, 249)
+
+[node name="towerPlatform2" parent="L1" instance=ExtResource("2_40nmn")]
+position = Vector2(223, 244)
+
+[node name="towerPlatform3" parent="L1" instance=ExtResource("2_40nmn")]
+position = Vector2(463, 307)
+
+[node name="towerPlatform4" parent="L1" instance=ExtResource("2_40nmn")]
+position = Vector2(597, 523)
+
+[node name="towerPlatform5" parent="L1" instance=ExtResource("2_40nmn")]
+position = Vector2(643, 737)
+
+[node name="towerPlatform6" parent="L1" instance=ExtResource("2_40nmn")]
+position = Vector2(240, 691)
+
+[node name="towerPlatform7" parent="L1" instance=ExtResource("2_40nmn")]
+position = Vector2(289, 493)
+
+[node name="L2" type="Node2D" parent="."]
 visible = false
 script = ExtResource("2_rj65x")
 
-[node name="Path2D" type="Path2D" parent="L1"]
+[node name="Path2D" type="Path2D" parent="L2"]
 curve = SubResource("Curve2D_mfpga")
 
-[node name="towerPlatform" parent="L1" instance=ExtResource("2_40nmn")]
+[node name="towerPlatform" parent="L2" instance=ExtResource("2_40nmn")]
 position = Vector2(730, 230)
 
-[node name="towerPlatform2" parent="L1" instance=ExtResource("2_40nmn")]
+[node name="towerPlatform2" parent="L2" instance=ExtResource("2_40nmn")]
 position = Vector2(275, 160)
 
-[node name="towerPlatform3" parent="L1" instance=ExtResource("2_40nmn")]
+[node name="towerPlatform3" parent="L2" instance=ExtResource("2_40nmn")]
 position = Vector2(468, 390)
 
-[node name="towerPlatform4" parent="L1" instance=ExtResource("2_40nmn")]
+[node name="towerPlatform4" parent="L2" instance=ExtResource("2_40nmn")]
 position = Vector2(654, 528)
 
-[node name="towerPlatform5" parent="L1" instance=ExtResource("2_40nmn")]
+[node name="towerPlatform5" parent="L2" instance=ExtResource("2_40nmn")]
 position = Vector2(529, 742)
 
-[node name="towerPlatform6" parent="L1" instance=ExtResource("2_40nmn")]
-position = Vector2(726, 874)
-
-[node name="L2" type="Node2D" parent="."]
-script = ExtResource("4_oejuc")
-
-[node name="Path2D" type="Path2D" parent="L2"]
-curve = SubResource("Curve2D_5iktm")
-
-[node name="towerPlatform" parent="L2" instance=ExtResource("2_40nmn")]
-position = Vector2(725, 249)
-
-[node name="towerPlatform2" parent="L2" instance=ExtResource("2_40nmn")]
-position = Vector2(223, 244)
-
-[node name="towerPlatform3" parent="L2" instance=ExtResource("2_40nmn")]
-position = Vector2(463, 307)
-
-[node name="towerPlatform4" parent="L2" instance=ExtResource("2_40nmn")]
-position = Vector2(597, 523)
-
-[node name="towerPlatform5" parent="L2" instance=ExtResource("2_40nmn")]
-position = Vector2(643, 737)
-
 [node name="towerPlatform6" parent="L2" instance=ExtResource("2_40nmn")]
-position = Vector2(240, 691)
-
-[node name="towerPlatform7" parent="L2" instance=ExtResource("2_40nmn")]
-position = Vector2(289, 493)
+position = Vector2(726, 874)
