@@ -74,6 +74,5 @@ func _on_reset_pressed():
 
 
 func _on_play_again_pressed():
-	$HUD/SuccessPopup.hide()
-	get_tree().call_group("CurrentLevel", "reset")
+	_on_reset_pressed()
 	pass # Replace with function body.
