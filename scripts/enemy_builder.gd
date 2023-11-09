@@ -26,13 +26,13 @@ const test1 = {
 	"spriteFrames": preload("res://anims/test1.tres"),
 	"speed": 5,
 	"health": 3,
-	"reward": 10,
+	"reward": 15,
 	"colissionRadius": 30
 }
 const test2 = {
 	"spriteFrames": preload("res://anims/test2.tres"),
 	"speed": 1,
-	"health": 12,
+	"health": 20,
 	"reward": 20,
 	"colissionRadius": 50
 }
