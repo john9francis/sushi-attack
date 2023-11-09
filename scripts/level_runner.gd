@@ -48,6 +48,9 @@ func setup_level(levelName):
 	currentWave = 0
 	totalWaves = waves.size()
 	
+	# set up the progress bar wave text
+	$ProgressBar/Label.text = "Wave: %i / %i" %[currentWave+1, totalWaves+1]
+	
 	setup_sequential_waves()
 	
 	print(totalEnemies)
@@ -143,7 +146,7 @@ func reset():
 	$ProgressBar.hide()
 	$StartLabel.text = "Sushi Attack"
 	
-	get_tree().call_group("EnemyPathFollows", "set_value", 0)
+	get_tree().call_group("EnemyPathFollows", "set_reward", 0)
 	get_tree().call_group("EnemyPathFollows", "set_in_destination")
 	get_tree().call_group("Enemies", "kill")
 	
@@ -155,11 +158,11 @@ func reset():
 	setup_sequential_waves()
 	currentWave = 0
 	
-	lives = 5
-	money = 150
-	
 	currentEnemies = totalEnemies
 	enemySpawnTimeDelay = 2
+	
+	lives = 5
+	money = 150
 	
 	hud.update_lives(lives)
 	update_money_guis()
@@ -169,6 +172,7 @@ func reset():
 func start_game():
 	gameStoppedFlag = false
 	$ProgressBar.show()
+	$ProgressBar/Label.show()
 	
 	$EnemySpawnTimer.start(3)
 	print("Started")
@@ -193,6 +197,9 @@ func update_money_guis():
 
 
 func _on_enemy_spawn_timer_timeout():
+	# update the progress bar wave text
+	$ProgressBar/Label.text = "Wave: %i / %i" %[currentWave+1, totalWaves+1]
+	
 	# spawn enemy and set timer based on the sequential waves
 	var wave = sequentialWaves[currentWave]
 	
@@ -218,7 +225,8 @@ func _on_enemy_spawn_timer_timeout():
 		return
 	else:
 		currentWave += 1
-		$EnemySpawnTimer.start(5)
+		$EnemySpawnTimer.start(10)
+		
 		
 	# update the progress bar
 	$ProgressBar.progress(float(totalEnemies), float(totalEnemies - wave.size()/2))
@@ -279,6 +287,7 @@ func _on_success():
 
 
 func _on_reset_button_pressed():
+	stop_game()
 	reset()
 	pass # Replace with function body.
 

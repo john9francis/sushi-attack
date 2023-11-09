@@ -77,7 +77,16 @@ offset_left = 478.0
 offset_top = 56.0
 offset_right = 755.0
 offset_bottom = 116.0
+show_percentage = false
 script = ExtResource("9_axsi4")
+
+[node name="Label" type="Label" parent="ProgressBar"]
+layout_mode = 0
+offset_left = 91.0
+offset_top = 18.0
+offset_right = 142.0
+offset_bottom = 44.0
+text = "Wave: "
 
 [connection signal="gameOver" from="." to="." method="_on_game_over"]
 [connection signal="setupLevel" from="." to="." method="_on_setup_level"]
