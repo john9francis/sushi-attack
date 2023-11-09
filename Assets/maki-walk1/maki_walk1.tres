@@ -17,29 +17,6 @@
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_aaf50")
-}, {
-"duration": 1.0,
-"texture": ExtResource("2_lssp0")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_suq4s")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_0rrm0")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_8v0j1")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_6n8hc")
-}],
-"loop": true,
-"name": &"maki_right_down",
-"speed": 10.0
-}, {
-"frames": [{
-"duration": 1.0,
 "texture": ExtResource("1_a7ad4")
 }, {
 "duration": 1.0,
@@ -59,5 +36,28 @@ animations = [{
 }],
 "loop": true,
 "name": &"maki_walk1",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_aaf50")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_lssp0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_suq4s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_0rrm0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_8v0j1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_6n8hc")
+}],
+"loop": true,
+"name": &"right-down",
 "speed": 10.0
 }]

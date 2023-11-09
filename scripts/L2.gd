@@ -9,25 +9,30 @@ const base_wave_entry = {
 # Setting up our enemy waves
 const wave1 = [
 	{
-		"enemyName": "test1",
-		"amount": 1,
+		"enemyName": "test3",
+		"amount": 10,
 		"timer": 1
 	},
 	{
 		"enemyName": "test2",
-		"amount": 1,
+		"amount": 5,
 		"timer": 1
 	}]
 const wave2 = [
 	{
-		"enemyName": "test2",
-		"amount": 2,
+		"enemyName": "test1",
+		"amount": 10,
 		"timer": 1
 	},
 	{
-		"enemyName": "test1",
-		"amount": 2,
-		"timer": .5	
+		"enemyName": "test2",
+		"amount": 10,
+		"timer": .5
+	},
+	{
+		"enemyName": "test3",
+		"amount": 10,
+		"timer": .5
 	}
 ]
 

@@ -15,6 +15,7 @@ const CSTowerCost= 70
 const upgradeCost= 100
 
 var nOfUpgrades
+var towerMaxed = false
 
 func _ready():
 	$TowerGUI.hide()
@@ -42,6 +43,9 @@ func _on_mouse_exited():
 	
 	
 func update_buttons(money):
+	if towerMaxed:
+		return
+	
 	if money < SSTowerCost:
 		$TowerGUI/platformGUI/SSButton.disabled = true
 	else:
@@ -110,6 +114,8 @@ func _on_sell_pressed():
 	
 func remove_tower():
 	if tower != null:
+		towerMaxed = false
+		
 		$TowerGUI.hide()
 		tower.queue_free()
 		$TowerGUI.go_to_platform_gui()
@@ -117,6 +123,7 @@ func remove_tower():
 		# reset upgrades so the button isn't disabled
 		nOfUpgrades = 0
 		$TowerGUI/upgradeGUI/Upgrade.disabled = false
+		
 
 
 
@@ -152,8 +159,8 @@ func _on_upgrade_pressed():
 			get_tree().call_group("CurrentLevel", "subtract_money", upgradeCost)
 			
 	# disable upgrades if it's at max level
-	if nOfUpgrades == 2:
+	if nOfUpgrades >= 2:
 		$TowerGUI/upgradeGUI/Upgrade.disabled = true
 		$TowerGUI/upgradeGUI/Upgrade.text = "Maxed"
-		
+		towerMaxed = true
 		

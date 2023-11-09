@@ -27,14 +27,21 @@ const test1 = {
 	"speed": 5,
 	"health": 3,
 	"reward": 10,
-	"colissionRadius": 50
+	"colissionRadius": 30
 }
 const test2 = {
 	"spriteFrames": preload("res://anims/test2.tres"),
 	"speed": 1,
 	"health": 12,
 	"reward": 20,
-	"colissionRadius": 70
+	"colissionRadius": 50
+}
+const test3 = {
+	"spriteFrames": preload("res://Assets/maki-walk1/maki_walk1.tres"),
+	"speed": 2,
+	"health": 8,
+	"reward": 10,
+	"colissionRadius": 40
 }
 
 
@@ -55,6 +62,8 @@ func get_premade_enemy(enemyName):
 		premadeEnemy = test1
 	elif enemyName == "test2":
 		premadeEnemy = test2
+	elif enemyName == "test3":
+		premadeEnemy = test3
 	else:
 		premadeEnemy = null
 		print("enemy_builder error, premade enemy does not exist")
