@@ -14,3 +14,4 @@ func _process(delta):
 func progress(totalValue, partialValue):
 	var p = partialValue/totalValue
 	value = p * 100
+	

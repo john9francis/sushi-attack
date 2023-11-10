@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dw1eyo22nqm4o"]
+[gd_scene load_steps=11 format=3 uid="uid://dw1eyo22nqm4o"]
 
 [ext_resource type="Script" path="res://scripts/level_runner.gd" id="1_0c2hq"]
 [ext_resource type="PackedScene" uid="uid://dbbij5u3up0gx" path="res://scripts/enemy.tscn" id="2_iiij6"]
@@ -6,8 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://cmaesvuc5l4a7" path="res://scripts/hud.tscn" id="4_7sajc"]
 [ext_resource type="PackedScene" uid="uid://bx28qxjyu1vhn" path="res://scripts/level_setup.tscn" id="5_31mm1"]
 [ext_resource type="PackedScene" uid="uid://b8p6r7fsli1iy" path="res://scripts/enemy_builder.tscn" id="6_rc30r"]
-[ext_resource type="Script" path="res://scripts/EnemyPath.gd" id="7_tx62m"]
-[ext_resource type="Script" path="res://scripts/EnemySpawnTimer.gd" id="8_rur5k"]
 [ext_resource type="Script" path="res://scripts/ProgressBar.gd" id="9_axsi4"]
 
 [sub_resource type="Curve2D" id="Curve2D_joiln"]
@@ -32,11 +30,9 @@ enemyBuilderScene = ExtResource("6_rc30r")
 
 [node name="EnemyPath" type="Path2D" parent="."]
 curve = SubResource("Curve2D_joiln")
-script = ExtResource("7_tx62m")
 
 [node name="EnemySpawnTimer" type="Timer" parent="."]
 one_shot = true
-script = ExtResource("8_rur5k")
 
 [node name="EnemyDestination" type="Area2D" parent="."]
 

@@ -35,7 +35,11 @@ var enemyDestinationPosition
 var waves = []
 var sequentialWaves = []
 var currentWave
-var totalWaves
+var totalWaves = 0
+
+var totEnemiesThisWave
+
+var enemiesDefeated = 0
 
 
 func setup_level(levelName):
@@ -49,11 +53,10 @@ func setup_level(levelName):
 	totalWaves = waves.size()
 	
 	# set up the progress bar wave text
-	$ProgressBar/Label.text = "Wave: %i / %i" %[currentWave+1, totalWaves+1]
+	$ProgressBar/Label.text = "Wave:"
 	
 	setup_sequential_waves()
 	
-	print(totalEnemies)
 	emit_signal("setupLevel")
 	
 func setup_sequential_waves():
@@ -81,6 +84,9 @@ func setup_sequential_waves():
 	totalEnemies = 0
 	for wave in sequentialWaves:
 		totalEnemies += wave.size()/2
+		
+	totEnemiesThisWave = sequentialWaves[currentWave].size() / 2
+	
 				
 
 
@@ -136,6 +142,7 @@ func _on_setup_level():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
+	$ProgressBar.value = float(enemiesDefeated)/float(totalEnemies) * 100
 	pass
 
 
@@ -198,7 +205,9 @@ func update_money_guis():
 
 func _on_enemy_spawn_timer_timeout():
 	# update the progress bar wave text
-	$ProgressBar/Label.text = "Wave: %i / %i" %[currentWave+1, totalWaves+1]
+	$ProgressBar/Label.text = "Wave: {currentWave}/{totalWaves}".format([
+		["currentWave", currentWave + 1],
+		["totalWaves", totalWaves]])
 	
 	# spawn enemy and set timer based on the sequential waves
 	var wave = sequentialWaves[currentWave]
@@ -226,11 +235,7 @@ func _on_enemy_spawn_timer_timeout():
 	else:
 		currentWave += 1
 		$EnemySpawnTimer.start(10)
-		
-		
-	# update the progress bar
-	$ProgressBar.progress(float(totalEnemies), float(totalEnemies - wave.size()/2))
-	
+		totEnemiesThisWave = sequentialWaves[currentWave].size() / 2
 	
 
 
@@ -259,6 +264,9 @@ func _on_game_over():
 
 func _on_enemy_path_child_exiting_tree(node):
 	if node.is_in_group("EnemyPathFollows"):
+		
+		enemiesDefeated += 1
+		
 		# an enemy died, give you some money!
 		if !node.in_destination:
 			money += node.get_reward()
