@@ -11,12 +11,12 @@ const wave1 = [
 	{
 		"enemyName": "test1",
 		"amount": 10,
-		"timer": 1
+		"timer": 2
 	},
 	{
 		"enemyName": "test2",
 		"amount": 5,
-		"timer": 1
+		"timer": 2
 	}]
 const wave2 = [
 	{
