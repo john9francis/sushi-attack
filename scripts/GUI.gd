@@ -5,6 +5,7 @@ extends Control
 func _ready():
 	$MainMenu.show()
 	$LevelSelect.hide()
+	$MainMenu/AnimatedSprite2D.play("right-down")
 	pass # Replace with function body.
 
 
