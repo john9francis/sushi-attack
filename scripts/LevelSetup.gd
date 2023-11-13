@@ -1,7 +1,7 @@
 extends Node2D
 
 var levelName
-var levelOptions = ["L1", "L2", "L3"]
+var levelOptions = ["L1", "L2", "L3", "TestLevel"]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -28,6 +28,8 @@ func get_path_curve():
 		return $L1/Path2D.curve
 	elif levelName == "L2":
 		return $L2/Path2D.curve
+	elif levelName == "TestLevel":
+		return $TestLevel/Path2D.curve
 	else: 
 		print("level_setup error, path doesn't exist")
 	pass
@@ -42,6 +44,8 @@ func get_tower_platforms():
 		levelObject = $L1
 	elif levelName == "L2":
 		levelObject = $L2
+	elif levelName == "TestLevel":
+		levelObject = $TestLevel
 	else:
 		print("level_setup error, no level to get towers from")
 		return 
@@ -61,4 +65,6 @@ func get_wave_list():
 		return $L1.get_wave_list()
 	if levelName == "L2":
 		return $L2.get_wave_list()
+	if levelName == "TestLevel":
+		return $TestLevel.get_wave_list()
 	pass

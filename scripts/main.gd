@@ -76,3 +76,8 @@ func _on_reset_pressed():
 func _on_play_again_pressed():
 	_on_reset_pressed()
 	pass # Replace with function body.
+
+
+func _on_test_level_pressed():
+	go_to_level("TestLevel")
+	pass # Replace with function body.

@@ -23,6 +23,7 @@ offset_bottom = 40.0
 script = ExtResource("3_ejdf7")
 
 [node name="MainMenu" type="CanvasLayer" parent="GUI"]
+visible = false
 
 [node name="PlayGame" type="Button" parent="GUI/MainMenu"]
 offset_left = 456.0
@@ -46,7 +47,6 @@ sprite_frames = ExtResource("5_awvln")
 animation = &"right-down"
 
 [node name="LevelSelect" type="CanvasLayer" parent="GUI"]
-visible = false
 
 [node name="L1" type="Button" parent="GUI/LevelSelect"]
 offset_left = 123.0
@@ -61,6 +61,13 @@ offset_top = 143.0
 offset_right = 320.0
 offset_bottom = 228.0
 text = "Level two"
+
+[node name="TestLevel" type="Button" parent="GUI/LevelSelect"]
+offset_left = 355.0
+offset_top = 152.0
+offset_right = 523.0
+offset_bottom = 239.0
+text = "Test Level"
 
 [node name="HUD" type="Control" parent="." groups=["MainHud"]]
 process_mode = 3
@@ -161,6 +168,7 @@ text = "To Main Menu"
 [connection signal="pressed" from="GUI/MainMenu/PlayGame" to="GUI" method="_on_play_game_pressed"]
 [connection signal="pressed" from="GUI/LevelSelect/L1" to="." method="_on_l_1_pressed"]
 [connection signal="pressed" from="GUI/LevelSelect/L2" to="." method="_on_l_2_pressed"]
+[connection signal="pressed" from="GUI/LevelSelect/TestLevel" to="." method="_on_test_level_pressed"]
 [connection signal="pressed" from="HUD/Pause" to="." method="_on_pause_pressed"]
 [connection signal="pressed" from="HUD/PauseMenu/VFlowContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="HUD/PauseMenu/VFlowContainer/ToMainMenu" to="." method="_on_to_main_menu_pressed"]

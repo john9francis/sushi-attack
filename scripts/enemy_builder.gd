@@ -44,6 +44,14 @@ const test3 = {
 	"colissionRadius": 40
 }
 
+const bob = {
+	"spriteFrames": preload("res://anims/test_enemy.tres"),
+	"speed": 1,
+	"health": 1,
+	"reward": 5,
+	"colissionRadius": 50
+}
+
 
 
 func _ready():
@@ -64,6 +72,8 @@ func get_premade_enemy(enemyName):
 		premadeEnemy = test2
 	elif enemyName == "test3":
 		premadeEnemy = test3
+	elif enemyName == "bob":
+		premadeEnemy = bob
 	else:
 		premadeEnemy = null
 		print("enemy_builder error, premade enemy does not exist")
