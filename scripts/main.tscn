@@ -1,6 +1,31 @@
-[gd_scene load_steps=2 format=3 uid="uid://bgtvxbdu2qdf0"]
+[gd_scene load_steps=3 format=3 uid="uid://bgtvxbdu2qdf0"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_t84td"]
+[ext_resource type="PackedScene" uid="uid://b8p6r7fsli1iy" path="res://scripts/enemy_builder.tscn" id="4_712hn"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_t84td")
+
+[node name="Gui" type="CanvasLayer" parent="."]
+
+[node name="PlayGame" type="Button" parent="Gui"]
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Play Game"
+
+[node name="Hud" type="CanvasLayer" parent="."]
+
+[node name="Pause" type="Button" parent="Hud"]
+offset_left = 100.0
+offset_right = 155.0
+offset_bottom = 31.0
+text = "Pause
+"
+
+[node name="LevelDirector" type="Node2D" parent="."]
+
+[node name="EnemyBuilder" parent="LevelDirector" instance=ExtResource("4_712hn")]
+
+[node name="LevelRunner" type="Node2D" parent="LevelDirector"]
+
+[node name="LevelSetup" type="Node2D" parent="LevelDirector"]
