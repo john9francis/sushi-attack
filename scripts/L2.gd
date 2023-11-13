@@ -50,3 +50,5 @@ func _process(delta):
 
 func get_wave_list():
 	return wave_list
+	
+
