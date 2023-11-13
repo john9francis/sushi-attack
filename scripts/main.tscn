@@ -10,6 +10,8 @@
 [node name="Main" type="Node"]
 script = ExtResource("1_t84td")
 
+[node name="LevelDirector" type="Node" parent="."]
+
 [node name="GameWorld" type="Node2D" parent="."]
 script = ExtResource("3_oi7dd")
 levelRunnerScene = ExtResource("3_erfmk")
