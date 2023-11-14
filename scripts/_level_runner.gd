@@ -4,7 +4,7 @@ extends Node2D
 
 var enemyPaths = []
 var towerPlatforms = []
-var sequentialEnemies = []
+var sequentialWaves = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -49,6 +49,35 @@ func set_premade_level(premadeLevelName):
 	
 	# Set up the sequential enemy list
 	var wave_list = levelSetup.get_wave_list()
-	for w in wave_list:
+	sequentialWaves = setup_sequential_waves(wave_list)
+	
+	for w in sequentialWaves:
 		print(w)
 	pass
+
+
+
+func setup_sequential_waves(nonSequentialWaves):
+	# Sets up the waves in the form: enemy, timer, enemy, timer
+	
+	# for reference:
+	#"enemyName": "test1",
+	#"amount": 10,
+	#"timer": 1
+	
+	var _sequential_waves = []
+	
+	for wave in nonSequentialWaves:
+		var s_wave = []
+		
+		for waveObj in wave:
+			var enemyName = waveObj["enemyName"]
+			var enemyAmount = waveObj["amount"]
+			var enemyTimer = waveObj["timer"]
+			for i in range(enemyAmount):
+				s_wave.append(enemyName)
+				s_wave.append(enemyTimer)
+		
+		_sequential_waves.append(s_wave)
+		
+	return _sequential_waves
