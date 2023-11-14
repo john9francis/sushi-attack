@@ -9,12 +9,13 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 
 
 
 func _on_level_director_in_level():
-	$Gui.hide()
 	$Hud.show()
+	$Gui/LevelSelect.hide()
 	pass # Replace with function body.
+

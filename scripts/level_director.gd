@@ -1,7 +1,7 @@
 extends Node2D
 
 @onready var levelRunner = $LevelRunner
-@onready var levelSetup = $LevelSetup
+@onready var levelSetup = $LevelRunner/LevelSetup
 
 signal in_level
 
@@ -19,6 +19,7 @@ func go_to_level(levelName):
 	emit_signal("in_level")
 
 
-func _on_l_1_pressed():
+
+func _on_l_1_button_up():
 	go_to_level("Level1")
 	pass # Replace with function body.

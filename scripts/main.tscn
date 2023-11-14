@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://bgtvxbdu2qdf0"]
+[gd_scene load_steps=12 format=3 uid="uid://bgtvxbdu2qdf0"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_t84td"]
+[ext_resource type="Script" path="res://scripts/main_gui.gd" id="2_0041v"]
 [ext_resource type="Script" path="res://scripts/level_director.gd" id="2_trou7"]
 [ext_resource type="Script" path="res://scripts/_level_runner.gd" id="3_w8geg"]
 [ext_resource type="PackedScene" uid="uid://b8p6r7fsli1iy" path="res://scripts/enemy_builder.tscn" id="4_712hn"]
@@ -25,18 +26,30 @@ point_count = 5
 script = ExtResource("1_t84td")
 
 [node name="Gui" type="CanvasLayer" parent="."]
+script = ExtResource("2_0041v")
 
-[node name="PlayGame" type="Button" parent="Gui"]
+[node name="MainMenu" type="CanvasLayer" parent="Gui"]
+
+[node name="LevelSelectButton" type="Button" parent="Gui/MainMenu"]
 offset_right = 8.0
 offset_bottom = 8.0
-text = "Play Game"
+text = "Level Select"
 
-[node name="L1" type="Button" parent="Gui"]
+[node name="LevelSelect" type="CanvasLayer" parent="Gui"]
+
+[node name="L1" type="Button" parent="Gui/LevelSelect"]
 offset_left = 200.0
 offset_top = 200.0
 offset_right = 262.0
 offset_bottom = 231.0
 text = "Level 1"
+
+[node name="ToMainMenu" type="Button" parent="Gui/LevelSelect"]
+offset_left = 200.0
+offset_top = 500.0
+offset_right = 357.0
+offset_bottom = 531.0
+text = "Back to Main Menu"
 
 [node name="Hud" type="CanvasLayer" parent="."]
 
@@ -80,5 +93,7 @@ position = Vector2(211, 829)
 [node name="WaveList" parent="LevelDirector/LevelRunner/LevelSetup/Level1" instance=ExtResource("7_aicbi")]
 script = ExtResource("8_5euaa")
 
-[connection signal="pressed" from="Gui/L1" to="LevelDirector" method="_on_l_1_pressed"]
+[connection signal="pressed" from="Gui/MainMenu/LevelSelectButton" to="Gui" method="_on_level_select_button_pressed"]
+[connection signal="button_up" from="Gui/LevelSelect/L1" to="LevelDirector" method="_on_l_1_button_up"]
+[connection signal="pressed" from="Gui/LevelSelect/ToMainMenu" to="Gui" method="_on_to_main_menu_pressed"]
 [connection signal="in_level" from="LevelDirector" to="." method="_on_level_director_in_level"]
