@@ -40,3 +40,13 @@ func get_tower_platform_list():
 			towerPlatformList.append(c)
 			
 	return towerPlatformList
+	
+
+func get_wave_list():
+	var wave_list
+	
+	for c in level.get_children():
+		if c.is_in_group("WaveLists"):
+			wave_list = c.get_wave_list()
+			
+	return wave_list

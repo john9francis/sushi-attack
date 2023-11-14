@@ -48,5 +48,7 @@ func set_premade_level(premadeLevelName):
 		
 	
 	# Set up the sequential enemy list
-	
+	var wave_list = levelSetup.get_wave_list()
+	for w in wave_list:
+		print(w)
 	pass
