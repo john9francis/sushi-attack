@@ -81,3 +81,4 @@ position = Vector2(211, 829)
 script = ExtResource("8_5euaa")
 
 [connection signal="pressed" from="Gui/L1" to="LevelDirector" method="_on_l_1_pressed"]
+[connection signal="in_level" from="LevelDirector" to="." method="_on_level_director_in_level"]

@@ -3,6 +3,8 @@ extends Node2D
 @onready var levelRunner = $LevelRunner
 @onready var levelSetup = $LevelSetup
 
+signal in_level
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -14,6 +16,7 @@ func _process(delta):
 
 func go_to_level(levelName):
 	$LevelRunner.set_premade_level(levelName)
+	emit_signal("in_level")
 
 
 func _on_l_1_pressed():
