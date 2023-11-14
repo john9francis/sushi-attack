@@ -12,8 +12,13 @@ func _process(delta):
 
 
 func get_enemy_paths():
-	return [$Path1, $Path2]
-	pass
+	var pathList = []
+	
+	for c in get_children():
+		if c.is_class("Path2D"):
+			pathList.append(c)
+			
+	return pathList
 
 
 func get_tower_platform_list():
