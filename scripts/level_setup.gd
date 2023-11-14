@@ -40,4 +40,3 @@ func get_tower_platform_list():
 			towerPlatformList.append(c)
 			
 	return towerPlatformList
-	#return [$towerPlatform, $towerPlatform2, $towerPlatform3]
