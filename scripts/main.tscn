@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bgtvxbdu2qdf0"]
+[gd_scene load_steps=13 format=3 uid="uid://bgtvxbdu2qdf0"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_t84td"]
 [ext_resource type="Script" path="res://scripts/main_gui.gd" id="2_0041v"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://scripts/_level_runner.gd" id="3_w8geg"]
 [ext_resource type="PackedScene" uid="uid://b8p6r7fsli1iy" path="res://scripts/enemy_builder.tscn" id="4_712hn"]
 [ext_resource type="Script" path="res://scripts/level_setup.gd" id="5_5hr1g"]
+[ext_resource type="PackedScene" uid="uid://cct1u3jmg1o3j" path="res://scripts/enemy_destination.tscn" id="7_8j4pn"]
 [ext_resource type="PackedScene" uid="uid://bjmnpu7wnltbn" path="res://scripts/wave_list.tscn" id="7_aicbi"]
 [ext_resource type="PackedScene" uid="uid://c8tq0ppoe2tb0" path="res://scripts/towerPlatform.tscn" id="7_nk2cg"]
 [ext_resource type="Script" path="res://scripts/wave_list_level1.gd" id="8_5euaa"]
@@ -68,6 +69,7 @@ script = ExtResource("2_trou7")
 [node name="LevelRunner" type="Node2D" parent="LevelDirector"]
 script = ExtResource("3_w8geg")
 towerPlatformScene = ExtResource("7_nk2cg")
+enemyDestinationScene = ExtResource("7_8j4pn")
 
 [node name="LevelSetup" type="Node2D" parent="LevelDirector/LevelRunner"]
 visible = false

@@ -1,6 +1,7 @@
 extends Node2D
 
 @export var towerPlatformScene : PackedScene
+@export var enemyDestinationScene : PackedScene
 
 var enemyPaths = []
 var towerPlatforms = []
@@ -33,6 +34,18 @@ func set_premade_level(premadeLevelName):
 		
 		enemyPaths.append(p)
 		add_child(p)
+		
+		# add some enemy destinations to the end of the paths
+		var pathCurve = path.get_curve()
+		var last_point_idx = pathCurve.get_point_count() - 1
+		var last_point_position = pathCurve.get_point_position(last_point_idx)
+		print(last_point_position)
+		
+		var enemyDestination = enemyDestinationScene.instantiate()
+		enemyDestination.position = last_point_position
+		add_child(enemyDestination)
+
+	
 		
 	# Set up the tower platforms
 	var premadeTowerPlatforms = levelSetup.get_tower_platform_list()
