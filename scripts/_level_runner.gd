@@ -1,6 +1,9 @@
 extends Node2D
 
+@export var towerPlatformScene : PackedScene
+
 var enemyPaths = []
+var towerPlatforms = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -24,4 +27,15 @@ func set_premade_level(premadeLevel):
 		
 		enemyPaths.append(p)
 		add_child(p)
+		
+	# Set up the tower platforms
+	var premadeTowerPlatforms = premadeLevel.get_tower_platform_list()
+	
+	for platform in premadeTowerPlatforms:
+		var tp = towerPlatformScene.instantiate()
+		
+		tp.position = platform.position
+		
+		towerPlatforms.append(tp)
+		add_child(tp)
 	pass

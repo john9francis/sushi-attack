@@ -14,3 +14,7 @@ func _process(delta):
 func get_enemy_paths():
 	return [$Path1, $Path2]
 	pass
+
+
+func get_tower_platform_list():
+	return [$towerPlatform, $towerPlatform2, $towerPlatform3]
