@@ -55,26 +55,26 @@ script = ExtResource("2_trou7")
 script = ExtResource("3_w8geg")
 towerPlatformScene = ExtResource("7_nk2cg")
 
-[node name="LevelSetup" type="Node2D" parent="LevelDirector"]
+[node name="LevelSetup" type="Node2D" parent="LevelDirector/LevelRunner"]
 visible = false
 script = ExtResource("5_5hr1g")
 
-[node name="Level1" type="Node2D" parent="LevelDirector/LevelSetup"]
+[node name="Level1" type="Node2D" parent="LevelDirector/LevelRunner/LevelSetup"]
 script = ExtResource("4_3mknl")
 
-[node name="Path1" type="Path2D" parent="LevelDirector/LevelSetup/Level1"]
+[node name="Path1" type="Path2D" parent="LevelDirector/LevelRunner/LevelSetup/Level1"]
 curve = SubResource("Curve2D_qtjyu")
 
-[node name="Path2" type="Path2D" parent="LevelDirector/LevelSetup/Level1"]
+[node name="Path2" type="Path2D" parent="LevelDirector/LevelRunner/LevelSetup/Level1"]
 curve = SubResource("Curve2D_ntpkh")
 
-[node name="towerPlatform" parent="LevelDirector/LevelSetup/Level1" instance=ExtResource("7_nk2cg")]
+[node name="towerPlatform" parent="LevelDirector/LevelRunner/LevelSetup/Level1" instance=ExtResource("7_nk2cg")]
 position = Vector2(559, 475)
 
-[node name="towerPlatform2" parent="LevelDirector/LevelSetup/Level1" instance=ExtResource("7_nk2cg")]
+[node name="towerPlatform2" parent="LevelDirector/LevelRunner/LevelSetup/Level1" instance=ExtResource("7_nk2cg")]
 position = Vector2(778, 701)
 
-[node name="towerPlatform3" parent="LevelDirector/LevelSetup/Level1" instance=ExtResource("7_nk2cg")]
+[node name="towerPlatform3" parent="LevelDirector/LevelRunner/LevelSetup/Level1" instance=ExtResource("7_nk2cg")]
 position = Vector2(211, 829)
 
 [connection signal="pressed" from="Gui/L1" to="LevelDirector" method="_on_l_1_pressed"]

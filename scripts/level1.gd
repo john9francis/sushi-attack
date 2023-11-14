@@ -10,23 +10,3 @@ func _ready():
 func _process(delta):
 	pass
 
-
-func get_enemy_paths():
-	var pathList = []
-	
-	for c in get_children():
-		if c.is_class("Path2D"):
-			pathList.append(c)
-			
-	return pathList
-
-
-func get_tower_platform_list():
-	var towerPlatformList = []
-	
-	for c in get_children():
-		if c.is_in_group("TowerPlatforms"):
-			towerPlatformList.append(c)
-			
-	return towerPlatformList
-	#return [$towerPlatform, $towerPlatform2, $towerPlatform3]

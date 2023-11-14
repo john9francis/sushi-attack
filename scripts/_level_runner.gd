@@ -4,6 +4,7 @@ extends Node2D
 
 var enemyPaths = []
 var towerPlatforms = []
+var sequentialEnemies = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -15,10 +16,15 @@ func _process(delta):
 	pass
 
 
-func set_premade_level(premadeLevel):
+func set_premade_level(premadeLevelName):
+	
+	var levelSetup = $LevelSetup
+	
+	# set the level in our levelSetup
+	levelSetup.set_level(premadeLevelName)
 	
 	# Set up the paths
-	var premadeEnemyPaths = premadeLevel.get_enemy_paths()
+	var premadeEnemyPaths = levelSetup.get_enemy_paths()
 	
 	for path in premadeEnemyPaths:
 		var p = Path2D.new()
@@ -29,7 +35,7 @@ func set_premade_level(premadeLevel):
 		add_child(p)
 		
 	# Set up the tower platforms
-	var premadeTowerPlatforms = premadeLevel.get_tower_platform_list()
+	var premadeTowerPlatforms = levelSetup.get_tower_platform_list()
 	
 	for platform in premadeTowerPlatforms:
 		var tp = towerPlatformScene.instantiate()
@@ -38,4 +44,9 @@ func set_premade_level(premadeLevel):
 		
 		towerPlatforms.append(tp)
 		add_child(tp)
+		
+		
+	
+	# Set up the sequential enemy list
+	
 	pass

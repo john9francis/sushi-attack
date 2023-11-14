@@ -13,9 +13,7 @@ func _process(delta):
 	pass
 
 func go_to_level(levelName):
-	var premadeLevel = levelSetup.get_premade_level(levelName)
-	levelRunner.set_premade_level(premadeLevel)
-	
+	$LevelRunner.set_premade_level(levelName)
 
 
 func _on_l_1_pressed():
