@@ -22,4 +22,11 @@ func get_enemy_paths():
 
 
 func get_tower_platform_list():
-	return [$towerPlatform, $towerPlatform2, $towerPlatform3]
+	var towerPlatformList = []
+	
+	for c in get_children():
+		if c.is_in_group("TowerPlatforms"):
+			towerPlatformList.append(c)
+			
+	return towerPlatformList
+	#return [$towerPlatform, $towerPlatform2, $towerPlatform3]
