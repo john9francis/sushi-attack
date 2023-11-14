@@ -13,6 +13,8 @@ func _process(delta):
 
 
 func set_premade_level(premadeLevel):
+	
+	# Set up the paths
 	var premadeEnemyPaths = premadeLevel.get_enemy_paths()
 	
 	for path in premadeEnemyPaths:
