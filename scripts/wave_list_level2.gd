@@ -9,7 +9,7 @@ const base_wave_entry = {
 const wave1 = [
 	{
 		"enemyName": "test1",
-		"amount": 10,
+		"amount": 2,
 		"timer": 1
 	},
 	{

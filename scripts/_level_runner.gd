@@ -6,6 +6,7 @@ extends Node2D
 @onready var enemySpawnTimer = $EnemySpawnTimer
 @onready var levelSetup = $LevelSetup
 @onready var enemyBuilder = $EnemyBuilder
+@onready var waveTimer = $WaveTimer
 
 var enemyPaths = []
 var towerPlatforms = []
@@ -100,7 +101,7 @@ func setup_sequential_waves(nonSequentialWaves):
 func start_game():
 	print("Game started")
 	currentWave = 0
-	enemySpawnTimer.start(5)
+	enemySpawnTimer.start(1)
 	
 
 
@@ -130,11 +131,21 @@ func _on_enemy_spawn_timer_timeout():
 	pathFollow.add_child(enemy)
 		
 	# reset the timer with a random value from 1 to 2
+	
+	
 	if wave.size() > 0:
 		enemySpawnTimer.start(randf() + delayTime)
 	elif currentWave + 1 == sequentialWaves.size():
 		return
 	else:
 		currentWave += 1
-		enemySpawnTimer.start(10)
+		waveTimer.start(10)
+		print("Wave timer started")
+		
+		
+
+
+func _on_wave_timer_timeout():
+	print("Next wave started!")
+	enemySpawnTimer.start(1)
 	pass # Replace with function body.
