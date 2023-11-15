@@ -24,3 +24,7 @@ func _on_to_main_menu_pressed():
 	pass # Replace with function body.
 
 
+func show_main_menu():
+	mainMenu.show()
+	levelSelect.hide()
+	pass

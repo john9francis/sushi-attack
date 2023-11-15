@@ -34,3 +34,8 @@ func _on_resume_pressed():
 		readyButton.show()
 		
 	get_tree().paused = false
+	
+func reset():
+	pauseButton.show()
+	readyButton.show()
+	pauseMenu.hide()

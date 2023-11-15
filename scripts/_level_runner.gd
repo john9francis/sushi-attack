@@ -11,15 +11,14 @@ extends Node2D
 var enemyPaths = []
 var towerPlatforms = []
 var sequentialWaves = []
+var enemyDestinations = []
 
 var currentWave;
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
 
@@ -48,6 +47,7 @@ func set_premade_level(premadeLevelName):
 		var enemyDestination = enemyDestinationScene.instantiate()
 		enemyDestination.position = last_point_position
 		add_child(enemyDestination)
+		enemyDestinations.append(enemyDestination)
 
 	
 		
@@ -165,3 +165,24 @@ func _on_wave_timer_timeout():
 	print("Next wave started!")
 	enemySpawnTimer.start(1)
 	pass # Replace with function body.
+	
+	
+func clear_level():
+	# Basically delete any added nodes
+	for i in enemyPaths:
+		i.queue_free()
+	for i in towerPlatforms:
+		i.queue_free()
+	for i in enemyDestinations:
+		i.queue_free()
+	for c in get_children():
+		if c is Timer:
+			c.stop()
+		
+	enemyPaths = []
+	towerPlatforms = []
+	sequentialWaves = []
+	enemyDestinations = []
+
+	currentWave = 0;
+	pass

@@ -60,3 +60,4 @@ func get_wave_list():
 			wave_list = c.get_wave_list()
 			
 	return wave_list
+

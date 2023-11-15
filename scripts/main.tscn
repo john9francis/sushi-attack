@@ -177,6 +177,7 @@ script = ExtResource("12_yir08")
 [connection signal="pressed" from="Gui/LevelSelect/ToMainMenu" to="Gui" method="_on_to_main_menu_pressed"]
 [connection signal="pressed" from="Hud/Pause" to="Hud" method="_on_pause_pressed"]
 [connection signal="pressed" from="Hud/Ready" to="LevelDirector" method="_on_ready_pressed"]
+[connection signal="pressed" from="Hud/PauseMenu/ToMainMenu" to="." method="_on_to_main_menu_pressed"]
 [connection signal="pressed" from="Hud/PauseMenu/Resume" to="Hud" method="_on_resume_pressed"]
 [connection signal="hide_ready" from="LevelDirector" to="Hud" method="_on_level_director_hide_ready"]
 [connection signal="in_level" from="LevelDirector" to="." method="_on_level_director_in_level"]
