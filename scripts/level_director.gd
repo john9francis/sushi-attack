@@ -15,11 +15,16 @@ func _process(delta):
 	pass
 
 func go_to_level(levelName):
-	$LevelRunner.set_premade_level(levelName)
+	levelRunner.set_premade_level(levelName)
 	emit_signal("in_level")
 
 
 
 func _on_l_1_button_up():
 	go_to_level("Level1")
+	pass # Replace with function body.
+
+
+func _on_ready_pressed():
+	print("Ready pressed")
 	pass # Replace with function body.

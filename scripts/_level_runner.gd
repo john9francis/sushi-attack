@@ -39,7 +39,6 @@ func set_premade_level(premadeLevelName):
 		var pathCurve = path.get_curve()
 		var last_point_idx = pathCurve.get_point_count() - 1
 		var last_point_position = pathCurve.get_point_position(last_point_idx)
-		print(last_point_position)
 		
 		var enemyDestination = enemyDestinationScene.instantiate()
 		enemyDestination.position = last_point_position
@@ -64,8 +63,6 @@ func set_premade_level(premadeLevelName):
 	var wave_list = levelSetup.get_wave_list()
 	sequentialWaves = setup_sequential_waves(wave_list)
 	
-	for w in sequentialWaves:
-		print(w)
 	pass
 
 
