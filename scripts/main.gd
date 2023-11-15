@@ -21,6 +21,9 @@ func _process(_delta):
 func _on_level_director_in_level():
 	$Hud.show()
 	$Gui/LevelSelect.hide()
+	
+	# make sure we are resumed
+	get_tree().paused = false
 	pass # Replace with function body.
 
 

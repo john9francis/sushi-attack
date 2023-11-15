@@ -99,11 +99,10 @@ func setup_sequential_waves(nonSequentialWaves):
 	
 	
 func start_game():
+	
 	print("Game started")
 	currentWave = 0
 	enemySpawnTimer.start(1)
-	for i in sequentialWaves:
-		print(i)
 	
 
 
@@ -169,7 +168,7 @@ func _on_wave_timer_timeout():
 	pass # Replace with function body.
 	
 	
-func clear_level():
+func clear_level():	
 	# Basically delete any added nodes
 	for i in enemyPaths:
 		i.queue_free()
