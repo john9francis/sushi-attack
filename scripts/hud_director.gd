@@ -2,17 +2,35 @@ extends CanvasLayer
 
 @onready var pauseButton = $Pause
 @onready var readyButton = $Ready
+@onready var pauseMenu = $PauseMenu
 
-# Called when the node enters the scene tree for the first time.
+var showReadyButton = true
+
 func _ready():
-	pass # Replace with function body.
+	pauseMenu.hide()
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
 
 
 func _on_level_director_hide_ready():
 	readyButton.hide()
-	pass # Replace with function body.
+	showReadyButton = false
+
+
+func _on_pause_pressed():
+	pauseButton.hide()
+	pauseMenu.show()
+	readyButton.hide()
+	
+	get_tree().paused = true
+
+
+func _on_resume_pressed():
+	pauseMenu.hide()
+	pauseButton.show()
+	if showReadyButton:
+		readyButton.show()
+		
+	get_tree().paused = false
