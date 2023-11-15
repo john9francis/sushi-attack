@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://bgtvxbdu2qdf0"]
+[gd_scene load_steps=14 format=3 uid="uid://bgtvxbdu2qdf0"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_t84td"]
 [ext_resource type="Script" path="res://scripts/main_gui.gd" id="2_0041v"]
 [ext_resource type="Script" path="res://scripts/level_director.gd" id="2_trou7"]
+[ext_resource type="Script" path="res://scripts/hud_director.gd" id="3_fwk1s"]
 [ext_resource type="Script" path="res://scripts/_level_runner.gd" id="3_w8geg"]
 [ext_resource type="PackedScene" uid="uid://b8p6r7fsli1iy" path="res://scripts/enemy_builder.tscn" id="4_712hn"]
 [ext_resource type="Script" path="res://scripts/level_setup.gd" id="5_5hr1g"]
@@ -53,6 +54,7 @@ offset_bottom = 531.0
 text = "Back to Main Menu"
 
 [node name="Hud" type="CanvasLayer" parent="."]
+script = ExtResource("3_fwk1s")
 
 [node name="Pause" type="Button" parent="Hud"]
 offset_left = 100.0
@@ -106,4 +108,5 @@ script = ExtResource("8_5euaa")
 [connection signal="button_up" from="Gui/LevelSelect/L1" to="LevelDirector" method="_on_l_1_button_up"]
 [connection signal="pressed" from="Gui/LevelSelect/ToMainMenu" to="Gui" method="_on_to_main_menu_pressed"]
 [connection signal="pressed" from="Hud/Ready" to="LevelDirector" method="_on_ready_pressed"]
+[connection signal="hide_ready" from="LevelDirector" to="Hud" method="_on_level_director_hide_ready"]
 [connection signal="in_level" from="LevelDirector" to="." method="_on_level_director_in_level"]

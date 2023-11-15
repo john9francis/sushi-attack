@@ -91,3 +91,7 @@ func setup_sequential_waves(nonSequentialWaves):
 		_sequential_waves.append(s_wave)
 		
 	return _sequential_waves
+	
+	
+func start_game():
+	print("Game started")
