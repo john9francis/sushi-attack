@@ -20,6 +20,8 @@ func get_premade_level(levelName):
 func set_level(levelName):
 	if levelName == "Level1":
 		level = $Level1
+	elif levelName == "Level2":
+		level = $Level2
 
 
 func get_enemy_paths():

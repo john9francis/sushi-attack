@@ -32,3 +32,8 @@ func _on_ready_pressed():
 	levelRunner.start_game()
 	emit_signal("hide_ready")
 	pass # Replace with function body.
+
+
+func _on_l_2_pressed():
+	go_to_level("Level2")
+	pass # Replace with function body.

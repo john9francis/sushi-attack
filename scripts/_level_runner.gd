@@ -3,6 +3,9 @@ extends Node2D
 @export var towerPlatformScene : PackedScene
 @export var enemyDestinationScene : PackedScene
 
+@onready var enemySpawnTimer = $EnemySpawnTimer
+@onready var levelSetup = $LevelSetup
+
 var enemyPaths = []
 var towerPlatforms = []
 var sequentialWaves = []
@@ -18,8 +21,6 @@ func _process(delta):
 
 
 func set_premade_level(premadeLevelName):
-	
-	var levelSetup = $LevelSetup
 	
 	# set the level in our levelSetup
 	levelSetup.set_level(premadeLevelName)
@@ -95,3 +96,4 @@ func setup_sequential_waves(nonSequentialWaves):
 	
 func start_game():
 	print("Game started")
+	

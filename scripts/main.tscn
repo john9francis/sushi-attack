@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bgtvxbdu2qdf0"]
+[gd_scene load_steps=16 format=3 uid="uid://bgtvxbdu2qdf0"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_t84td"]
 [ext_resource type="Script" path="res://scripts/main_gui.gd" id="2_0041v"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bjmnpu7wnltbn" path="res://scripts/wave_list.tscn" id="7_aicbi"]
 [ext_resource type="PackedScene" uid="uid://c8tq0ppoe2tb0" path="res://scripts/towerPlatform.tscn" id="7_nk2cg"]
 [ext_resource type="Script" path="res://scripts/wave_list_level1.gd" id="8_5euaa"]
+[ext_resource type="Script" path="res://scripts/wave_list_level2.gd" id="12_yir08"]
 
 [sub_resource type="Curve2D" id="Curve2D_qtjyu"]
 _data = {
@@ -23,6 +24,12 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 581, 10, 0, 0, 0, 0, 544, 241, 0, 0, 0, 0, 748, 490, 0, 0, 0, 0, 604, 667, 0, 0, 0, 0, 755, 996)
 }
 point_count = 5
+
+[sub_resource type="Curve2D" id="Curve2D_c1oe3"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 371, 11, 0, 0, 0, 0, 372, 151, 0, 0, 0, 0, 607, 174, 0, 0, 0, 0, 617, 312, 0, 0, 0, 0, 369, 365, 0, 0, 0, 0, 384, 505, 0, 0, 0, 0, 644, 538)
+}
+point_count = 7
 
 [node name="Main" type="Node"]
 script = ExtResource("1_t84td")
@@ -45,6 +52,13 @@ offset_top = 200.0
 offset_right = 262.0
 offset_bottom = 231.0
 text = "Level 1"
+
+[node name="L2" type="Button" parent="Gui/LevelSelect"]
+offset_left = 201.0
+offset_top = 242.0
+offset_right = 263.0
+offset_bottom = 273.0
+text = "Level 2"
 
 [node name="ToMainMenu" type="Button" parent="Gui/LevelSelect"]
 offset_left = 200.0
@@ -80,11 +94,14 @@ script = ExtResource("3_w8geg")
 towerPlatformScene = ExtResource("7_nk2cg")
 enemyDestinationScene = ExtResource("7_8j4pn")
 
+[node name="EnemySpawnTimer" type="Timer" parent="LevelDirector/LevelRunner"]
+
 [node name="LevelSetup" type="Node2D" parent="LevelDirector/LevelRunner"]
 visible = false
 script = ExtResource("5_5hr1g")
 
 [node name="Level1" type="Node2D" parent="LevelDirector/LevelRunner/LevelSetup"]
+visible = false
 
 [node name="Path1" type="Path2D" parent="LevelDirector/LevelRunner/LevelSetup/Level1"]
 curve = SubResource("Curve2D_qtjyu")
@@ -104,8 +121,24 @@ position = Vector2(211, 829)
 [node name="WaveList" parent="LevelDirector/LevelRunner/LevelSetup/Level1" instance=ExtResource("7_aicbi")]
 script = ExtResource("8_5euaa")
 
+[node name="Level2" type="Node2D" parent="LevelDirector/LevelRunner/LevelSetup"]
+visible = false
+
+[node name="Path1" type="Path2D" parent="LevelDirector/LevelRunner/LevelSetup/Level2"]
+curve = SubResource("Curve2D_c1oe3")
+
+[node name="towerPlatform" parent="LevelDirector/LevelRunner/LevelSetup/Level2" instance=ExtResource("7_nk2cg")]
+position = Vector2(475, 248)
+
+[node name="towerPlatform2" parent="LevelDirector/LevelRunner/LevelSetup/Level2" instance=ExtResource("7_nk2cg")]
+position = Vector2(487, 431)
+
+[node name="WaveList" parent="LevelDirector/LevelRunner/LevelSetup/Level2" instance=ExtResource("7_aicbi")]
+script = ExtResource("12_yir08")
+
 [connection signal="pressed" from="Gui/MainMenu/LevelSelectButton" to="Gui" method="_on_level_select_button_pressed"]
 [connection signal="button_up" from="Gui/LevelSelect/L1" to="LevelDirector" method="_on_l_1_button_up"]
+[connection signal="pressed" from="Gui/LevelSelect/L2" to="LevelDirector" method="_on_l_2_pressed"]
 [connection signal="pressed" from="Gui/LevelSelect/ToMainMenu" to="Gui" method="_on_to_main_menu_pressed"]
 [connection signal="pressed" from="Hud/Ready" to="LevelDirector" method="_on_ready_pressed"]
 [connection signal="hide_ready" from="LevelDirector" to="Hud" method="_on_level_director_hide_ready"]
