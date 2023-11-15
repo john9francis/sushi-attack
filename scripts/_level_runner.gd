@@ -102,6 +102,8 @@ func start_game():
 	print("Game started")
 	currentWave = 0
 	enemySpawnTimer.start(1)
+	for i in sequentialWaves:
+		print(i)
 	
 
 
