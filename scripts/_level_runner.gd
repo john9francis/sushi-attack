@@ -130,17 +130,33 @@ func _on_enemy_spawn_timer_timeout():
 	enemyPath.add_child(pathFollow)
 	pathFollow.add_child(enemy)
 		
-	# reset the timer with a random value from 1 to 2
-	
-	
-	if wave.size() > 0:
-		enemySpawnTimer.start(randf() + delayTime)
-	elif currentWave + 1 == sequentialWaves.size():
-		return
-	else:
+	# End the wave if we're out of enemies
+	if wave.size() == 0:
+		print("Wave ended")
+		
 		currentWave += 1
-		waveTimer.start(10)
-		print("Wave timer started")
+
+		# if this was the last wave, end here
+		if currentWave == sequentialWaves.size():
+			print("Game over")
+			return
+		# Otherwise, start the next wave:
+		else:
+			waveTimer.start(10)
+			
+	# If there's more enemies, start the enemyTimer again
+	else:
+		enemySpawnTimer.start(randf() + delayTime)
+		
+	
+#	if wave.size() > 0:
+#		enemySpawnTimer.start(randf() + delayTime)
+#	elif currentWave + 1 == sequentialWaves.size():
+#		return
+#	else:
+#		currentWave += 1
+#		waveTimer.start(10)
+#		print("Wave timer started")
 		
 		
 
