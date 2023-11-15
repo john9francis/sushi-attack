@@ -5,10 +5,13 @@ extends Node2D
 
 @onready var enemySpawnTimer = $EnemySpawnTimer
 @onready var levelSetup = $LevelSetup
+@onready var enemyBuilder = $EnemyBuilder
 
 var enemyPaths = []
 var towerPlatforms = []
 var sequentialWaves = []
+
+var currentWave;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -96,4 +99,42 @@ func setup_sequential_waves(nonSequentialWaves):
 	
 func start_game():
 	print("Game started")
+	currentWave = 0
+	enemySpawnTimer.start(5)
 	
+
+
+func _on_enemy_spawn_timer_timeout():
+	# spawn enemy and set timer based on the sequential waves
+	
+	# Step 1: get the wave, the enemy, and the timer
+	var wave = sequentialWaves[currentWave]
+	
+	var enemyName = wave[0]
+	wave.remove_at(0)
+	var delayTime = wave[0]
+	wave.remove_at(0)
+	
+	sequentialWaves[currentWave] = wave
+	
+	# spawn enemy
+	var enemy = enemyBuilder.get_premade_enemy(enemyName)
+	var pathFollow = enemy.get_path_follow()
+	
+	# add the enemy to a random path
+	var random_index = randi() % enemyPaths.size()
+	var enemyPath = enemyPaths[random_index]
+		
+		
+	enemyPath.add_child(pathFollow)
+	pathFollow.add_child(enemy)
+		
+	# reset the timer with a random value from 1 to 2
+	if wave.size() > 0:
+		enemySpawnTimer.start(randf() + delayTime)
+	elif currentWave + 1 == sequentialWaves.size():
+		return
+	else:
+		currentWave += 1
+		enemySpawnTimer.start(10)
+	pass # Replace with function body.
