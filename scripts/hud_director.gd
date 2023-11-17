@@ -36,6 +36,12 @@ func _on_resume_pressed():
 	get_tree().paused = false
 	
 
+func reset():
+	pauseButton.show()
+	readyButton.show()
+	pauseMenu.hide()
+	
+
 
 func _on_reset_pressed():
 	get_tree().call_group("LevelRunner", "reset")
