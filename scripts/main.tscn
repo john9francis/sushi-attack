@@ -115,6 +115,14 @@ offset_right = 432.0
 offset_bottom = 482.5
 text = "Resume"
 
+[node name="Reset" type="Button" parent="Hud/PauseMenu"]
+layout_mode = 0
+offset_left = 466.0
+offset_top = 453.5
+offset_right = 517.0
+offset_bottom = 484.5
+text = "Reset"
+
 [node name="LevelDirector" type="Node2D" parent="."]
 script = ExtResource("2_trou7")
 
@@ -191,6 +199,7 @@ script = ExtResource("12_yir08")
 [connection signal="pressed" from="Hud/Ready" to="LevelDirector" method="_on_ready_pressed"]
 [connection signal="pressed" from="Hud/PauseMenu/ToMainMenu" to="." method="_on_to_main_menu_pressed"]
 [connection signal="pressed" from="Hud/PauseMenu/Resume" to="Hud" method="_on_resume_pressed"]
+[connection signal="pressed" from="Hud/PauseMenu/Reset" to="Hud" method="_on_reset_pressed"]
 [connection signal="hide_ready" from="LevelDirector" to="Hud" method="_on_level_director_hide_ready"]
 [connection signal="in_level" from="LevelDirector" to="." method="_on_level_director_in_level"]
 [connection signal="timeout" from="LevelDirector/LevelRunner/EnemySpawnTimer" to="LevelDirector/LevelRunner" method="_on_enemy_spawn_timer_timeout"]

@@ -10,6 +10,7 @@ extends Node2D
 
 var enemyPaths = []
 var towerPlatforms = []
+var waveList = []
 var sequentialWaves = []
 var enemyDestinations = []
 
@@ -89,8 +90,8 @@ func set_premade_level(premadeLevelName):
 		
 	
 	# Set up the sequential enemy list
-	var wave_list = levelSetup.get_wave_list()
-	sequentialWaves = setup_sequential_waves(wave_list)
+	waveList = levelSetup.get_wave_list()
+	sequentialWaves = setup_sequential_waves(waveList)
 	
 	pass
 
@@ -206,6 +207,7 @@ func clear_level():
 		
 	enemyPaths = []
 	towerPlatforms = []
+	waveList = []
 	sequentialWaves = []
 	enemyDestinations = []
 	
@@ -214,3 +216,18 @@ func clear_level():
 
 	currentWave = 0;
 	pass
+
+func reset():
+	print("Resetting")
+	for c in get_children():
+		if c is Timer:
+			c.stop()
+	
+	get_tree().call_group("TowerPlatforms", "remove_tower")
+	get_tree().call_group("Enemies", "kill")
+	
+	money = 150
+	lives = 5
+	currentWave = 0
+	
+	sequentialWaves = setup_sequential_waves(waveList)
