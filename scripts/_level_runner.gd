@@ -14,14 +14,25 @@ var sequentialWaves = []
 var enemyDestinations = []
 
 var currentWave;
+
+@onready var moneyLabel = $MoneyLabel
+@onready var livesLabel = $LivesLabel
+
 var money = 150
 var lives = 5
 
 func _ready():
+	update_labels()
 	pass # Replace with function body.
 
 
 func _process(delta):
+	pass
+	
+
+func update_labels():
+	moneyLabel.text = "Money: {m}".format({"m": str(money)})
+	livesLabel.text = "Lives: {l}".format({"l": str(lives)})
 	pass
 
 
