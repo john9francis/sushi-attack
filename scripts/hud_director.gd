@@ -39,6 +39,7 @@ func _on_resume_pressed():
 
 func _on_reset_pressed():
 	get_tree().call_group("LevelRunner", "reset")
+	showReadyButton = true
 	
 	_on_resume_pressed()
 	pass # Replace with function body.

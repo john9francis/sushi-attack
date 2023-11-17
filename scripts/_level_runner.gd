@@ -22,6 +22,8 @@ var currentWave;
 var money = 150
 var lives = 5
 
+var gameOverFlag = false;
+
 func _ready():
 	update_labels()
 	pass # Replace with function body.
@@ -29,6 +31,7 @@ func _ready():
 
 func _process(delta):
 	update_labels()
+	
 	pass
 	
 
@@ -175,14 +178,6 @@ func _on_enemy_spawn_timer_timeout():
 		enemySpawnTimer.start(randf() + delayTime)
 		
 	
-#	if wave.size() > 0:
-#		enemySpawnTimer.start(randf() + delayTime)
-#	elif currentWave + 1 == sequentialWaves.size():
-#		return
-#	else:
-#		currentWave += 1
-#		waveTimer.start(10)
-#		print("Wave timer started")
 		
 		
 
@@ -215,6 +210,8 @@ func clear_level():
 	lives = 5
 
 	currentWave = 0;
+	
+	gameOverFlag = false
 	pass
 
 
@@ -233,6 +230,22 @@ func reset():
 	
 	sequentialWaves = setup_sequential_waves(waveList)
 	
+	gameOverFlag = false
+	
 
 func lose_life():
-	lives -= 1
+	if lives > 0:
+		lives -= 1
+	
+	if lives <= 0 and !gameOverFlag:
+		game_over()
+
+
+func game_over():
+	print("Game Over")
+	
+	gameOverFlag = true
+	
+	for c in get_children():
+		if c is Timer:
+			c.stop()
