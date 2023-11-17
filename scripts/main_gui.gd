@@ -2,10 +2,15 @@ extends CanvasLayer
 
 @onready var mainMenu = $MainMenu
 @onready var levelSelect = $LevelSelect
+@onready var levelButtonContainer = $LevelSelect/LevelButtonContainer
 
 func _ready():
 	mainMenu.show()
 	levelSelect.hide()
+	for i in range(10):
+		var b = Button.new()
+		b.text = str(i)
+		levelButtonContainer.add_child(b)
 
 
 func _process(delta):
