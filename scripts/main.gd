@@ -36,3 +36,12 @@ func _on_to_main_menu_pressed():
 	gui.show_main_menu()
 	levelDirector.clear_level()
 	pass # Replace with function body.
+
+
+
+
+
+func _on_level_runner_success_signal():
+	hud.show_success_menu()
+	# Put other logic here, like updating the levelSelect gui and stuff
+	pass # Replace with function body.

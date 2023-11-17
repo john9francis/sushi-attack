@@ -28,6 +28,11 @@ var gameOverFlag = false
 var successFlag = false
 var lastEnemySpawnedFlag = false
 
+signal game_over_signal
+signal success_signal
+
+
+
 func _ready():
 	update_labels()
 	pass # Replace with function body.
@@ -251,11 +256,16 @@ func game_over():
 	for c in get_children():
 		if c is Timer:
 			c.stop()
+	
+	emit_signal("game_over_signal")
 			
 func success():
 	print("Success")
 	
 	successFlag = true
+	
+	emit_signal("success_signal")
+	
 
 # Functions called by enemy scene
 func enemy_joining():
