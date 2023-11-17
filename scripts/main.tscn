@@ -13,21 +13,21 @@
 [ext_resource type="Script" path="res://scripts/wave_list_level1.gd" id="8_5euaa"]
 [ext_resource type="Script" path="res://scripts/wave_list_level2.gd" id="12_yir08"]
 
-[sub_resource type="Curve2D" id="Curve2D_qtjyu"]
+[sub_resource type="Curve2D" id="Curve2D_so0ni"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 283, -1, 0, 0, 0, 0, 366, 188, 0, 0, 0, 0, 351, 411, 0, 0, 0, 0, 279, 573, 0, 0, 0, 0, 321, 769, 0, 0, 0, 0, 423, 1007)
+"points": PackedVector2Array(0, 0, 0, 0, 253, 3, 0, 0, 0, 0, 249, 156, 0, 0, 0, 0, 249, 192, 0, 0, 0, 0, 262, 226, 0, 0, 0, 0, 289, 258, 0, 0, 0, 0, 328, 279, 0, 0, 0, 0, 691, 279, 0, 0, 0, 0, 743, 299, 0, 0, 0, 0, 784, 340, 0, 0, 0, 0, 809, 402, 0, 0, 0, 0, 807, 479, 0, 0, 0, 0, 795, 523, 0, 0, 0, 0, 756, 571, 0, 0, 0, 0, 699, 603, 0, 0, 0, 0, 321, 628, 0, 0, 0, 0, 249, 657, 0, 0, 0, 0, 233, 719, 0, 0, 0, 0, 228, 808, 0, 0, 0, 0, 226, 990)
 }
-point_count = 6
+point_count = 19
 
-[sub_resource type="Curve2D" id="Curve2D_ntpkh"]
+[sub_resource type="Curve2D" id="Curve2D_k80wd"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 581, 10, 0, 0, 0, 0, 544, 241, 0, 0, 0, 0, 748, 490, 0, 0, 0, 0, 604, 667, 0, 0, 0, 0, 755, 996)
+"points": PackedVector2Array(0, 0, 0, 0, -2, 509, 0, 0, 0, 0, 258, 505, 0, 0, 0, 0, 307, 482, 0, 0, 0, 0, 328, 427, 0, 0, 0, 0, 365, 356, 0, 0, 0, 0, 426, 338, 0, 0, 0, 0, 511, 324, 0, 0, 0, 0, 576, 340, 0, 0, 0, 0, 633, 368, 0, 0, 0, 0, 681, 425, 0, 0, 0, 0, 722, 480, 0, 0, 0, 0, 772, 495, 0, 0, 0, 0, 836, 496, 0, 0, 0, 0, 912, 498, 0, 0, 0, 0, 1001, 496)
 }
-point_count = 5
+point_count = 15
 
-[sub_resource type="Curve2D" id="Curve2D_c1oe3"]
+[sub_resource type="Curve2D" id="Curve2D_4etby"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 371, 11, 0, 0, 0, 0, 372, 151, 0, 0, 0, 0, 607, 174, 0, 0, 0, 0, 617, 312, 0, 0, 0, 0, 369, 365, 0, 0, 0, 0, 384, 505, 0, 0, 0, 0, 644, 538)
+"points": PackedVector2Array(0, 0, 0, 0, 0, 586, 0, 0, 0, 0, 121, 591, 0, 0, 0, 0, 248, 600, 0, 0, 0, 0, 358, 659, 0, 0, 0, 0, 433, 725, 0, 0, 0, 0, 531, 815, 0, 0, 0, 0, 661, 988)
 }
 point_count = 7
 
@@ -55,11 +55,12 @@ offset_bottom = 231.0
 text = "Level 1"
 
 [node name="L2" type="Button" parent="Gui/LevelSelect"]
-offset_left = 201.0
-offset_top = 242.0
-offset_right = 263.0
-offset_bottom = 273.0
-text = "Level 2"
+offset_left = 198.0
+offset_top = 243.0
+offset_right = 256.0
+offset_bottom = 274.0
+text = "Level 2
+"
 
 [node name="ToMainMenu" type="Button" parent="Gui/LevelSelect"]
 offset_left = 200.0
@@ -174,6 +175,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Label" type="Label" parent="Hud/SuccessMenu"]
+layout_mode = 0
 offset_left = 274.0
 offset_top = 100.5
 offset_right = 366.0
@@ -231,20 +233,26 @@ script = ExtResource("5_5hr1g")
 [node name="Level1" type="Node2D" parent="LevelDirector/LevelRunner/LevelSetup"]
 visible = false
 
-[node name="Path1" type="Path2D" parent="LevelDirector/LevelRunner/LevelSetup/Level1"]
-curve = SubResource("Curve2D_qtjyu")
-
-[node name="Path2" type="Path2D" parent="LevelDirector/LevelRunner/LevelSetup/Level1"]
-curve = SubResource("Curve2D_ntpkh")
-
-[node name="towerPlatform" parent="LevelDirector/LevelRunner/LevelSetup/Level1" instance=ExtResource("7_nk2cg")]
-position = Vector2(559, 475)
+[node name="Path2D" type="Path2D" parent="LevelDirector/LevelRunner/LevelSetup/Level1"]
+curve = SubResource("Curve2D_so0ni")
 
 [node name="towerPlatform2" parent="LevelDirector/LevelRunner/LevelSetup/Level1" instance=ExtResource("7_nk2cg")]
-position = Vector2(778, 701)
+position = Vector2(682, 435)
 
 [node name="towerPlatform3" parent="LevelDirector/LevelRunner/LevelSetup/Level1" instance=ExtResource("7_nk2cg")]
-position = Vector2(211, 829)
+position = Vector2(428, 150)
+
+[node name="towerPlatform4" parent="LevelDirector/LevelRunner/LevelSetup/Level1" instance=ExtResource("7_nk2cg")]
+position = Vector2(238, 382)
+
+[node name="towerPlatform5" parent="LevelDirector/LevelRunner/LevelSetup/Level1" instance=ExtResource("7_nk2cg")]
+position = Vector2(450, 480)
+
+[node name="towerPlatform6" parent="LevelDirector/LevelRunner/LevelSetup/Level1" instance=ExtResource("7_nk2cg")]
+position = Vector2(374, 755)
+
+[node name="towerPlatform7" parent="LevelDirector/LevelRunner/LevelSetup/Level1" instance=ExtResource("7_nk2cg")]
+position = Vector2(709, 735)
 
 [node name="WaveList" parent="LevelDirector/LevelRunner/LevelSetup/Level1" instance=ExtResource("7_aicbi")]
 script = ExtResource("8_5euaa")
@@ -252,14 +260,32 @@ script = ExtResource("8_5euaa")
 [node name="Level2" type="Node2D" parent="LevelDirector/LevelRunner/LevelSetup"]
 visible = false
 
-[node name="Path1" type="Path2D" parent="LevelDirector/LevelRunner/LevelSetup/Level2"]
-curve = SubResource("Curve2D_c1oe3")
+[node name="Path2D" type="Path2D" parent="LevelDirector/LevelRunner/LevelSetup/Level2"]
+curve = SubResource("Curve2D_k80wd")
 
-[node name="towerPlatform" parent="LevelDirector/LevelRunner/LevelSetup/Level2" instance=ExtResource("7_nk2cg")]
-position = Vector2(475, 248)
+[node name="Path2D2" type="Path2D" parent="LevelDirector/LevelRunner/LevelSetup/Level2"]
+curve = SubResource("Curve2D_4etby")
 
 [node name="towerPlatform2" parent="LevelDirector/LevelRunner/LevelSetup/Level2" instance=ExtResource("7_nk2cg")]
-position = Vector2(487, 431)
+position = Vector2(504, 455)
+
+[node name="towerPlatform3" parent="LevelDirector/LevelRunner/LevelSetup/Level2" instance=ExtResource("7_nk2cg")]
+position = Vector2(124, 703)
+
+[node name="towerPlatform4" parent="LevelDirector/LevelRunner/LevelSetup/Level2" instance=ExtResource("7_nk2cg")]
+position = Vector2(335, 811)
+
+[node name="towerPlatform5" parent="LevelDirector/LevelRunner/LevelSetup/Level2" instance=ExtResource("7_nk2cg")]
+position = Vector2(201, 366)
+
+[node name="towerPlatform6" parent="LevelDirector/LevelRunner/LevelSetup/Level2" instance=ExtResource("7_nk2cg")]
+position = Vector2(791, 352)
+
+[node name="towerPlatform7" parent="LevelDirector/LevelRunner/LevelSetup/Level2" instance=ExtResource("7_nk2cg")]
+position = Vector2(816, 619)
+
+[node name="towerPlatform8" parent="LevelDirector/LevelRunner/LevelSetup/Level2" instance=ExtResource("7_nk2cg")]
+position = Vector2(582, 687)
 
 [node name="WaveList" parent="LevelDirector/LevelRunner/LevelSetup/Level2" instance=ExtResource("7_aicbi")]
 script = ExtResource("12_yir08")

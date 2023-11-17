@@ -36,11 +36,12 @@ func _on_ready_pressed():
 	pass # Replace with function body.
 
 
-func _on_l_2_pressed():
-	go_to_level("Level2")
-	pass # Replace with function body.
-
 
 func clear_level():
 	levelRunner.clear_level()
 	levelRunner.hide()
+
+
+func _on_l_2_pressed():
+	go_to_level("Level2")
+	pass # Replace with function body.
