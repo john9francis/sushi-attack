@@ -7,10 +7,6 @@ extends CanvasLayer
 func _ready():
 	mainMenu.show()
 	levelSelect.hide()
-	for i in range(10):
-		var b = Button.new()
-		b.text = str(i)
-		levelButtonContainer.add_child(b)
 
 
 func _process(delta):
@@ -33,3 +29,14 @@ func show_main_menu():
 	mainMenu.show()
 	levelSelect.hide()
 	pass
+	
+
+func populate_level_buttons(levelList):
+	for levelName in levelList:
+		var levelButton = Button.new()
+		levelButton.text = levelName
+		
+		# link up the button to go to that scene
+		
+		levelButtonContainer.add_child(levelButton)
+		
