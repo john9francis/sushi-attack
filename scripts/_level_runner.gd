@@ -167,7 +167,7 @@ func _on_enemy_spawn_timer_timeout():
 
 		# if this was the last wave, end here
 		if currentWave == sequentialWaves.size():
-			print("Game over")
+			print("Last enemy spawned")
 			return
 		# Otherwise, start the next wave:
 		else:
