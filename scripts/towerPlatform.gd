@@ -109,6 +109,21 @@ func _on_w_button_pressed():
 
 
 func _on_sell_pressed():
+	var originalCost = 0
+	
+	for child in get_children():
+		if child.is_in_group("WTowers"):
+			originalCost = WTowerCost
+		if child.is_in_group("CSTowers"):
+			originalCost = CSTowerCost
+		if child.is_in_group("SSTowers"):
+			originalCost = SSTowerCost
+		if child.is_in_group("GTowers"):
+			originalCost = GTowerCost
+	
+	var refund = originalCost - 20
+			
+	get_tree().call_group("LevelRunner", "add_money", refund)
 	remove_tower()
 	
 	
