@@ -12,7 +12,7 @@ const WTowerCost = 60
 const GTowerCost = 50
 const SSTowerCost= 30
 const CSTowerCost= 70
-const upgradeCost= 100
+const upgradeCost= 50
 
 var nOfUpgrades
 var towerMaxed = false
@@ -140,7 +140,7 @@ func _on_child_entered_tree(node):
 		cost = SSTowerCost
 		
 	if node.is_in_group("Towers"):
-		get_tree().call_group("CurrentLevel", "subtract_money", cost)
+		get_tree().call_group("LevelRunner", "subtract_money", cost)
 		
 		# Make sure we have the right upgrade gui text
 		$TowerGUI/upgradeGUI/Upgrade.text = "Upgrade"
@@ -156,7 +156,7 @@ func _on_upgrade_pressed():
 			nOfUpgrades += 1
 			
 			# minus the money
-			get_tree().call_group("CurrentLevel", "subtract_money", upgradeCost)
+			get_tree().call_group("LevelRunner", "subtract_money", upgradeCost)
 			
 	# disable upgrades if it's at max level
 	if nOfUpgrades >= 2:

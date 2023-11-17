@@ -118,7 +118,7 @@ text = "Resume"
 [node name="LevelDirector" type="Node2D" parent="."]
 script = ExtResource("2_trou7")
 
-[node name="LevelRunner" type="Node2D" parent="LevelDirector"]
+[node name="LevelRunner" type="Node2D" parent="LevelDirector" groups=["LevelRunner"]]
 script = ExtResource("3_w8geg")
 towerPlatformScene = ExtResource("7_nk2cg")
 enemyDestinationScene = ExtResource("7_8j4pn")

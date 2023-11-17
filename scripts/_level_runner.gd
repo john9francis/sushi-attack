@@ -27,14 +27,25 @@ func _ready():
 
 
 func _process(delta):
+	update_labels()
 	pass
 	
 
 func update_labels():
 	moneyLabel.text = "Money: {m}".format({"m": str(money)})
 	livesLabel.text = "Lives: {l}".format({"l": str(lives)})
+	
+	for c in get_children():
+		if c.is_in_group("TowerPlatforms"):
+			c.update_buttons(money)
 	pass
+	
 
+func subtract_money(cost):
+	money -= cost
+
+func add_money(amount):
+	money += amount
 
 func set_premade_level(premadeLevelName):
 	
@@ -197,6 +208,9 @@ func clear_level():
 	towerPlatforms = []
 	sequentialWaves = []
 	enemyDestinations = []
+	
+	money = 150
+	lives = 5
 
 	currentWave = 0;
 	pass
