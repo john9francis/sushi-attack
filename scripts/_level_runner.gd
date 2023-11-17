@@ -14,6 +14,8 @@ var waveList = []
 var sequentialWaves = []
 var enemyDestinations = []
 
+var enemiesOnScreen = 0
+
 var currentWave;
 
 @onready var moneyLabel = $MoneyLabel
@@ -22,7 +24,9 @@ var currentWave;
 var money = 150
 var lives = 5
 
-var gameOverFlag = false;
+var gameOverFlag = false
+var successFlag = false
+var lastEnemySpawnedFlag = false
 
 func _ready():
 	update_labels()
@@ -31,7 +35,8 @@ func _ready():
 
 func _process(delta):
 	update_labels()
-	
+	if lastEnemySpawnedFlag and enemiesOnScreen == 0 and !gameOverFlag and !successFlag:
+		success()
 	pass
 	
 
@@ -167,7 +172,7 @@ func _on_enemy_spawn_timer_timeout():
 
 		# if this was the last wave, end here
 		if currentWave == sequentialWaves.size():
-			print("Last enemy spawned")
+			lastEnemySpawnedFlag = true;
 			return
 		# Otherwise, start the next wave:
 		else:
@@ -189,6 +194,9 @@ func _on_wave_timer_timeout():
 	
 	
 func clear_level():	
+	
+	reset()
+	
 	# Basically delete any added nodes
 	for i in enemyPaths:
 		i.queue_free()
@@ -196,9 +204,6 @@ func clear_level():
 		i.queue_free()
 	for i in enemyDestinations:
 		i.queue_free()
-	for c in get_children():
-		if c is Timer:
-			c.stop()
 		
 	enemyPaths = []
 	towerPlatforms = []
@@ -206,12 +211,6 @@ func clear_level():
 	sequentialWaves = []
 	enemyDestinations = []
 	
-	money = 150
-	lives = 5
-
-	currentWave = 0;
-	
-	gameOverFlag = false
 	pass
 
 
@@ -232,6 +231,8 @@ func reset():
 	sequentialWaves = setup_sequential_waves(waveList)
 	
 	gameOverFlag = false
+	successFlag = false
+	lastEnemySpawnedFlag = false
 	
 
 func lose_life():
@@ -250,3 +251,17 @@ func game_over():
 	for c in get_children():
 		if c is Timer:
 			c.stop()
+			
+func success():
+	print("Success")
+	
+	successFlag = true
+
+# Functions called by enemy scene
+func enemy_joining():
+	enemiesOnScreen += 1
+	pass
+	
+func enemy_leaving():
+	enemiesOnScreen -= 1
+	pass

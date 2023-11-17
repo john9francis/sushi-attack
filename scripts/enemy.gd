@@ -137,4 +137,10 @@ func _on_resize_enemy_sprite():
 
 func _on_tree_exiting():
 	get_tree().call_group("LevelRunner", "add_money", reward)
+	get_tree().call_group("LevelRunner", "enemy_leaving")
+	pass # Replace with function body.
+
+
+func _on_tree_entered():
+	get_tree().call_group("LevelRunner", "enemy_joining")
 	pass # Replace with function body.
