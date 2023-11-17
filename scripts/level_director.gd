@@ -9,6 +9,7 @@ signal in_level
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	levelRunner.hide()
 	pass # Replace with function body.
 
 
@@ -19,6 +20,7 @@ func _process(delta):
 func go_to_level(levelName):
 	levelRunner.set_premade_level(levelName)
 	emit_signal("in_level")
+	levelRunner.show()
 
 
 
@@ -41,3 +43,4 @@ func _on_l_2_pressed():
 
 func clear_level():
 	levelRunner.clear_level()
+	levelRunner.hide()

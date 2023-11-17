@@ -14,6 +14,8 @@ var sequentialWaves = []
 var enemyDestinations = []
 
 var currentWave;
+var money = 150
+var lives = 5
 
 func _ready():
 	pass # Replace with function body.

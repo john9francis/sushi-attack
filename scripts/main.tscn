@@ -123,6 +123,18 @@ script = ExtResource("3_w8geg")
 towerPlatformScene = ExtResource("7_nk2cg")
 enemyDestinationScene = ExtResource("7_8j4pn")
 
+[node name="MoneyLabel" type="Label" parent="LevelDirector/LevelRunner"]
+offset_left = 800.0
+offset_right = 862.0
+offset_bottom = 26.0
+text = "Money: "
+
+[node name="LivesLabel" type="Label" parent="LevelDirector/LevelRunner"]
+offset_left = 700.0
+offset_right = 748.0
+offset_bottom = 26.0
+text = "Lives: "
+
 [node name="EnemySpawnTimer" type="Timer" parent="LevelDirector/LevelRunner"]
 one_shot = true
 
