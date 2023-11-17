@@ -217,6 +217,7 @@ func clear_level():
 	currentWave = 0;
 	pass
 
+
 func reset():
 	print("Resetting")
 	for c in get_children():
@@ -231,3 +232,7 @@ func reset():
 	currentWave = 0
 	
 	sequentialWaves = setup_sequential_waves(waveList)
+	
+
+func lose_life():
+	lives -= 1
