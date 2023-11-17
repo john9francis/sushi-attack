@@ -222,6 +222,7 @@ func reset():
 			c.stop()
 	
 	get_tree().call_group("TowerPlatforms", "remove_tower")
+	get_tree().call_group("Enemies", "set_reward", 0)
 	get_tree().call_group("Enemies", "kill")
 	
 	money = 150
