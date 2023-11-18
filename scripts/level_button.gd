@@ -16,3 +16,8 @@ func _process(delta):
 func set_button_name(n):
 	buttonName = n
 	text = buttonName
+
+
+
+func _on_button_up():
+	get_tree().call_group("LevelDirector", "go_to_level", buttonName)
