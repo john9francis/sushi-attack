@@ -4,12 +4,16 @@ extends CanvasLayer
 @onready var levelSelect = $LevelSelect
 @onready var levelButtonContainer = $LevelSelect/LevelButtonContainer
 
+signal levelButtonPressed(levelName)
+
 func _ready():
 	mainMenu.show()
 	levelSelect.hide()
 
 
 func _process(delta):
+	if Input.is_action_just_released("Click"):
+		print("click")
 	pass
 
 
@@ -37,12 +41,19 @@ func populate_level_buttons(levelList):
 		levelButton.text = levelName
 		
 		# link up the button to go to that scene
-		levelButton.connect("pressed", self._on_level_button_pressed)
+		#levelButton.connect("pressed", _on_level_button_pressed)
+		#levelButton.pressed.connect(self._on_level_button_pressed)
 		
 		levelButtonContainer.add_child(levelButton)
 		
 		
 		
 func _on_level_button_pressed():
+	
 	var levelName = "test"
-	print(levelName)
+	
+	# This don't work:
+	#print("Button pressed:", get_node("Button").text)
+	
+	#print(levelName)
+
