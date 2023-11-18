@@ -1,8 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://bgtvxbdu2qdf0"]
+[gd_scene load_steps=17 format=3 uid="uid://bgtvxbdu2qdf0"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_t84td"]
 [ext_resource type="Script" path="res://scripts/main_gui.gd" id="2_0041v"]
 [ext_resource type="Script" path="res://scripts/level_director.gd" id="2_trou7"]
+[ext_resource type="PackedScene" uid="uid://efjisgfp6886" path="res://scripts/level_button.tscn" id="3_0qb3o"]
 [ext_resource type="Script" path="res://scripts/hud_director.gd" id="3_fwk1s"]
 [ext_resource type="Script" path="res://scripts/_level_runner.gd" id="3_w8geg"]
 [ext_resource type="PackedScene" uid="uid://b8p6r7fsli1iy" path="res://scripts/enemy_builder.tscn" id="4_712hn"]
@@ -37,6 +38,7 @@ script = ExtResource("1_t84td")
 [node name="Gui" type="CanvasLayer" parent="." groups=["MainGui"]]
 process_mode = 3
 script = ExtResource("2_0041v")
+levelButtonScene = ExtResource("3_0qb3o")
 
 [node name="MainMenu" type="CanvasLayer" parent="Gui"]
 

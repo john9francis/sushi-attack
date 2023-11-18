@@ -4,6 +4,8 @@ extends CanvasLayer
 @onready var levelSelect = $LevelSelect
 @onready var levelButtonContainer = $LevelSelect/LevelButtonContainer
 
+@export var levelButtonScene : PackedScene
+
 signal levelButtonPressed(levelName)
 
 var inLevelSelectFlag = false
@@ -42,8 +44,8 @@ func show_main_menu():
 
 func populate_level_buttons(levelList):
 	for levelName in levelList:
-		var levelButton = Button.new()
-		levelButton.text = levelName
+		var levelButton = levelButtonScene.instantiate()
+		levelButton.set_button_name(levelName)
 
 		levelButtonContainer.add_child(levelButton)
 		
