@@ -1,16 +1,17 @@
 extends Node2D
 
 var level
-var levelList;
+var levelList = []
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	levelList = [$Level1.name, $Level2.name, $Level3.name]
+	
+	# Add all levels to the levelList
+	for child in get_children():
+		levelList.append(child.name)
+		
 	send_levels_to_level_menu()
-	pass # Replace with function body.
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
 	
