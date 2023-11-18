@@ -1,0 +1,111 @@
+[gd_scene load_steps=9 format=3 uid="uid://82eao7qodegu"]
+
+[ext_resource type="Script" path="res://scripts/towerPlatform.gd" id="1_x714t"]
+[ext_resource type="PackedScene" uid="uid://bul6um5k465t1" path="res://scripts/cs_tower.tscn" id="2_l5001"]
+[ext_resource type="PackedScene" uid="uid://djnu4nstia70d" path="res://scripts/ss_tower.tscn" id="3_friba"]
+[ext_resource type="PackedScene" uid="uid://biyqmibg8ipx5" path="res://scripts/g_tower.tscn" id="4_4divu"]
+[ext_resource type="PackedScene" uid="uid://dn63r1k685s4w" path="res://scripts/w_tower.tscn" id="5_c4yr2"]
+[ext_resource type="Script" path="res://scripts/TowerGUI.gd" id="6_mqmgq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4g0tv"]
+radius = 114.018
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_yabk0"]
+
+[node name="towerPlatform" type="Area2D" groups=["TowerPlatforms"]]
+script = ExtResource("1_x714t")
+CSTowerScene = ExtResource("2_l5001")
+SSTowerScene = ExtResource("3_friba")
+GTowerScene = ExtResource("4_4divu")
+WTowerScene = ExtResource("5_c4yr2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(5, 2)
+shape = SubResource("CircleShape2D_4g0tv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, 5.5)
+scale = Vector2(100, 93)
+texture = SubResource("CanvasTexture_yabk0")
+
+[node name="TowerGUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("6_mqmgq")
+
+[node name="platformGUI" type="Control" parent="TowerGUI"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CSButton" type="Button" parent="TowerGUI/platformGUI" groups=["Platforms"]]
+layout_mode = 0
+offset_left = 6.0
+offset_top = -61.0
+offset_right = 103.0
+offset_bottom = -13.0
+text = "Chop Sticks"
+
+[node name="SSButton" type="Button" parent="TowerGUI/platformGUI"]
+layout_mode = 2
+offset_left = 1.0
+offset_top = 46.0
+offset_right = 96.0
+offset_bottom = 92.0
+text = "Soy Sauce"
+
+[node name="GButton" type="Button" parent="TowerGUI/platformGUI"]
+layout_mode = 2
+offset_left = -102.0
+offset_top = -94.0
+offset_right = -5.0
+offset_bottom = -50.0
+text = "Ginger"
+
+[node name="WButton" type="Button" parent="TowerGUI/platformGUI"]
+layout_mode = 2
+offset_left = -115.0
+offset_top = 5.0
+offset_right = -20.0
+offset_bottom = 49.0
+text = "Wasabi
+"
+
+[node name="upgradeGUI" type="Control" parent="TowerGUI"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Upgrade" type="Button" parent="TowerGUI/upgradeGUI"]
+layout_mode = 0
+offset_left = -44.0
+offset_top = -93.0
+offset_right = 54.0
+offset_bottom = -52.0
+text = "Upgrade"
+
+[node name="Sell" type="Button" parent="TowerGUI/upgradeGUI"]
+layout_mode = 0
+offset_left = -36.0
+offset_top = 60.0
+offset_right = 38.0
+offset_bottom = 103.0
+text = "Sell"
+
+[node name="InfoGui" type="Control" parent="TowerGUI"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[connection signal="child_entered_tree" from="." to="." method="_on_child_entered_tree"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="gui_input" from="TowerGUI" to="TowerGUI" method="_on_gui_input"]
+[connection signal="pressed" from="TowerGUI/platformGUI/CSButton" to="." method="_on_cs_button_pressed"]
+[connection signal="pressed" from="TowerGUI/platformGUI/SSButton" to="." method="_on_ss_button_pressed"]
+[connection signal="pressed" from="TowerGUI/platformGUI/GButton" to="." method="_on_g_button_pressed"]
+[connection signal="pressed" from="TowerGUI/platformGUI/WButton" to="." method="_on_w_button_pressed"]
+[connection signal="pressed" from="TowerGUI/upgradeGUI/Upgrade" to="." method="_on_upgrade_pressed"]
+[connection signal="pressed" from="TowerGUI/upgradeGUI/Sell" to="." method="_on_sell_pressed"]
