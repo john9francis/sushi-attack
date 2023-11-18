@@ -5,7 +5,7 @@ var levelList;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	levelList = [$Level1.name, $Level2.name]
+	levelList = [$Level1.name, $Level2.name, $Level3.name]
 	send_levels_to_level_menu()
 	pass # Replace with function body.
 

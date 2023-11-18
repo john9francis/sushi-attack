@@ -17,16 +17,13 @@ func _ready():
 func _process(delta):
 	pass
 
+
+# This is what all the buttons call: 
 func go_to_level(levelName):
 	levelRunner.set_premade_level(levelName)
 	emit_signal("in_level")
 	levelRunner.show()
 
-
-
-func _on_l_1_button_up():
-	go_to_level("Level1")
-	pass # Replace with function body.
 
 
 func _on_ready_pressed():
@@ -41,7 +38,3 @@ func clear_level():
 	levelRunner.clear_level()
 	levelRunner.hide()
 
-
-func _on_l_2_pressed():
-	go_to_level("Level2")
-	pass # Replace with function body.
