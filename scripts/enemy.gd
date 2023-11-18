@@ -11,6 +11,7 @@ var speed = 1
 var currentSpeed = speed
 var health = 1
 var poison_hits = 0
+var reward = 0
 
 var temporarySpeed = 0
 
@@ -57,7 +58,10 @@ func set_colission_radius(value):
 	pass
 
 func set_reward(r):
-	myPathFollow.set_reward(r)
+	#myPathFollow.set_reward(r)
+	reward = r
+
+
 
 func set_sprite_size():
 	if enemyAnim == null:
@@ -128,4 +132,15 @@ func _on_poison_timer_timeout():
 
 func _on_resize_enemy_sprite():
 	set_sprite_size()
+	pass # Replace with function body.
+
+
+func _on_tree_exiting():
+	get_tree().call_group("LevelRunner", "add_money", reward)
+	get_tree().call_group("LevelRunner", "enemy_leaving")
+	pass # Replace with function body.
+
+
+func _on_tree_entered():
+	get_tree().call_group("LevelRunner", "enemy_joining")
 	pass # Replace with function body.

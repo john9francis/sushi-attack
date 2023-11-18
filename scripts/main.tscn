@@ -1,179 +1,333 @@
-[gd_scene load_steps=7 format=3 uid="uid://bgtvxbdu2qdf0"]
+[gd_scene load_steps=19 format=3 uid="uid://bgtvxbdu2qdf0"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_t84td"]
-[ext_resource type="Script" path="res://scripts/GUI.gd" id="3_ejdf7"]
-[ext_resource type="PackedScene" uid="uid://dw1eyo22nqm4o" path="res://scripts/level_runner.tscn" id="3_erfmk"]
-[ext_resource type="Script" path="res://scripts/GameWorld.gd" id="3_oi7dd"]
-[ext_resource type="SpriteFrames" uid="uid://c7x7xab80kavb" path="res://Assets/maki-walk1/maki_walk1.tres" id="5_awvln"]
-[ext_resource type="Script" path="res://scripts/MainHUD.gd" id="5_mwkcc"]
+[ext_resource type="Script" path="res://scripts/main_gui.gd" id="2_0041v"]
+[ext_resource type="Script" path="res://scripts/level_director.gd" id="2_trou7"]
+[ext_resource type="PackedScene" uid="uid://efjisgfp6886" path="res://scripts/level_button.tscn" id="3_0qb3o"]
+[ext_resource type="Script" path="res://scripts/hud_director.gd" id="3_fwk1s"]
+[ext_resource type="Script" path="res://scripts/_level_runner.gd" id="3_w8geg"]
+[ext_resource type="PackedScene" uid="uid://b8p6r7fsli1iy" path="res://scripts/enemy_builder.tscn" id="4_712hn"]
+[ext_resource type="Script" path="res://scripts/level_setup.gd" id="5_5hr1g"]
+[ext_resource type="PackedScene" uid="uid://cct1u3jmg1o3j" path="res://scripts/enemy_destination.tscn" id="7_8j4pn"]
+[ext_resource type="PackedScene" uid="uid://bjmnpu7wnltbn" path="res://scripts/wave_list.tscn" id="7_aicbi"]
+[ext_resource type="PackedScene" uid="uid://c8tq0ppoe2tb0" path="res://scripts/towerPlatform.tscn" id="7_nk2cg"]
+[ext_resource type="Script" path="res://scripts/wave_list_level1.gd" id="8_5euaa"]
+[ext_resource type="Script" path="res://scripts/wave_list_level2.gd" id="12_yir08"]
+[ext_resource type="Script" path="res://scripts/wave_list_level3.gd" id="14_6khh5"]
+
+[sub_resource type="Curve2D" id="Curve2D_so0ni"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 253, 3, 0, 0, 0, 0, 249, 156, 0, 0, 0, 0, 249, 192, 0, 0, 0, 0, 262, 226, 0, 0, 0, 0, 289, 258, 0, 0, 0, 0, 328, 279, 0, 0, 0, 0, 691, 279, 0, 0, 0, 0, 743, 299, 0, 0, 0, 0, 784, 340, 0, 0, 0, 0, 809, 402, 0, 0, 0, 0, 807, 479, 0, 0, 0, 0, 795, 523, 0, 0, 0, 0, 756, 571, 0, 0, 0, 0, 699, 603, 0, 0, 0, 0, 321, 628, 0, 0, 0, 0, 249, 657, 0, 0, 0, 0, 233, 719, 0, 0, 0, 0, 228, 808, 0, 0, 0, 0, 226, 990)
+}
+point_count = 19
+
+[sub_resource type="Curve2D" id="Curve2D_k80wd"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -2, 509, 0, 0, 0, 0, 258, 505, 0, 0, 0, 0, 307, 482, 0, 0, 0, 0, 328, 427, 0, 0, 0, 0, 365, 356, 0, 0, 0, 0, 426, 338, 0, 0, 0, 0, 511, 324, 0, 0, 0, 0, 576, 340, 0, 0, 0, 0, 633, 368, 0, 0, 0, 0, 681, 425, 0, 0, 0, 0, 722, 480, 0, 0, 0, 0, 772, 495, 0, 0, 0, 0, 836, 496, 0, 0, 0, 0, 912, 498, 0, 0, 0, 0, 1001, 496)
+}
+point_count = 15
+
+[sub_resource type="Curve2D" id="Curve2D_4etby"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 586, 0, 0, 0, 0, 121, 591, 0, 0, 0, 0, 248, 600, 0, 0, 0, 0, 358, 659, 0, 0, 0, 0, 433, 725, 0, 0, 0, 0, 531, 815, 0, 0, 0, 0, 661, 988)
+}
+point_count = 7
+
+[sub_resource type="Curve2D" id="Curve2D_qr2fm"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 12, 482, 0, 0, 0, 0, 356, 75, 0, 0, 0, 0, 507, 563, 0, 0, 0, 0, 866, 334)
+}
+point_count = 4
 
 [node name="Main" type="Node"]
 script = ExtResource("1_t84td")
 
-[node name="GameWorld" type="Node2D" parent="."]
-script = ExtResource("3_oi7dd")
-levelRunnerScene = ExtResource("3_erfmk")
-
-[node name="GUI" type="Control" parent="."]
+[node name="Gui" type="CanvasLayer" parent="." groups=["MainGui"]]
 process_mode = 3
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-script = ExtResource("3_ejdf7")
+script = ExtResource("2_0041v")
+levelButtonScene = ExtResource("3_0qb3o")
 
-[node name="MainMenu" type="CanvasLayer" parent="GUI"]
-visible = false
+[node name="MainMenu" type="CanvasLayer" parent="Gui"]
 
-[node name="PlayGame" type="Button" parent="GUI/MainMenu"]
-offset_left = 456.0
-offset_top = 737.0
-offset_right = 601.0
-offset_bottom = 865.0
-text = "Play Game"
+[node name="LevelSelectButton" type="Button" parent="Gui/MainMenu"]
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Level Select"
 
-[node name="GameTitle" type="Label" parent="GUI/MainMenu"]
-offset_left = 219.0
-offset_top = 119.0
-offset_right = 840.0
-offset_bottom = 259.0
-theme_override_font_sizes/font_size = 100
-text = "Sushi Attack!"
+[node name="LevelSelect" type="CanvasLayer" parent="Gui"]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="GUI/MainMenu"]
-position = Vector2(525, 504)
-scale = Vector2(0.496, 0.468)
-sprite_frames = ExtResource("5_awvln")
-animation = &"right-down"
+[node name="ToMainMenu" type="Button" parent="Gui/LevelSelect"]
+offset_left = 200.0
+offset_top = 500.0
+offset_right = 357.0
+offset_bottom = 531.0
+text = "Back to Main Menu"
 
-[node name="LevelSelect" type="CanvasLayer" parent="GUI"]
-
-[node name="L1" type="Button" parent="GUI/LevelSelect"]
-offset_left = 123.0
-offset_top = 142.0
-offset_right = 214.0
-offset_bottom = 228.0
-text = "Level one"
-
-[node name="L2" type="Button" parent="GUI/LevelSelect"]
-offset_left = 225.0
-offset_top = 143.0
-offset_right = 320.0
-offset_bottom = 228.0
-text = "Level two"
-
-[node name="TestLevel" type="Button" parent="GUI/LevelSelect"]
-offset_left = 355.0
-offset_top = 152.0
-offset_right = 523.0
-offset_bottom = 239.0
-text = "Test Level"
-
-[node name="HUD" type="Control" parent="." groups=["MainHud"]]
-process_mode = 3
-visible = false
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-script = ExtResource("5_mwkcc")
-
-[node name="Pause" type="Button" parent="HUD"]
-layout_mode = 0
-offset_left = 431.0
-offset_top = 15.0
-offset_right = 551.0
-offset_bottom = 64.0
-text = "Pause"
-
-[node name="PauseMenu" type="PopupPanel" parent="HUD"]
-title = "Pause Menu"
-position = Vector2i(250, 250)
-size = Vector2i(500, 500)
-
-[node name="VFlowContainer" type="VFlowContainer" parent="HUD/PauseMenu"]
-offset_left = 4.0
-offset_top = 4.0
-offset_right = 496.0
-offset_bottom = 496.0
-
-[node name="Title" type="Label" parent="HUD/PauseMenu/VFlowContainer"]
-layout_mode = 2
-text = "Pause Menu"
-
-[node name="Resume" type="Button" parent="HUD/PauseMenu/VFlowContainer"]
-layout_mode = 2
-text = "Resume
-"
-
-[node name="ToMainMenu" type="Button" parent="HUD/PauseMenu/VFlowContainer"]
-layout_mode = 2
-text = "To Main Menu"
-
-[node name="Reset" type="Button" parent="HUD/PauseMenu/VFlowContainer"]
-layout_mode = 2
-text = "Reset"
-
-[node name="GameOverPopup" type="PopupPanel" parent="HUD"]
-position = Vector2i(250, 250)
-size = Vector2i(500, 500)
-
-[node name="VFlowContainer" type="VFlowContainer" parent="HUD/GameOverPopup"]
-offset_left = 4.0
-offset_top = 4.0
-offset_right = 496.0
-offset_bottom = 496.0
-alignment = 1
-
-[node name="Label" type="Label" parent="HUD/GameOverPopup/VFlowContainer"]
-layout_mode = 2
-text = "Game Over!"
-
-[node name="Reset" type="Button" parent="HUD/GameOverPopup/VFlowContainer"]
-layout_mode = 2
-text = "Reset"
-
-[node name="ToMainMenu" type="Button" parent="HUD/GameOverPopup/VFlowContainer"]
-layout_mode = 2
-text = "To Main Menu"
-
-[node name="SuccessPopup" type="PopupPanel" parent="HUD"]
-initial_position = 1
-size = Vector2i(250, 250)
-
-[node name="VFlowContainer" type="VFlowContainer" parent="HUD/SuccessPopup"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 4.0
-offset_top = 4.0
-offset_right = 246.0
-offset_bottom = 246.0
+[node name="LevelButtonContainer" type="GridContainer" parent="Gui/LevelSelect"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -31.0
+offset_top = -33.0
+offset_right = 31.0
+offset_bottom = 33.0
 grow_horizontal = 2
 grow_vertical = 2
-alignment = 1
+columns = 7
 
-[node name="Label" type="Label" parent="HUD/SuccessPopup/VFlowContainer"]
-layout_mode = 2
+[node name="Hud" type="CanvasLayer" parent="."]
+process_mode = 3
+script = ExtResource("3_fwk1s")
+
+[node name="Pause" type="Button" parent="Hud"]
+offset_left = 100.0
+offset_right = 155.0
+offset_bottom = 31.0
+text = "Pause
+"
+
+[node name="Ready" type="Button" parent="Hud"]
+offset_left = 184.0
+offset_top = 1.0
+offset_right = 240.0
+offset_bottom = 32.0
+text = "Ready"
+
+[node name="PauseMenu" type="Panel" parent="Hud"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -315.0
+offset_top = -294.5
+offset_right = 315.0
+offset_bottom = 294.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ToMainMenu" type="Button" parent="Hud/PauseMenu"]
+layout_mode = 0
+offset_left = 81.0
+offset_top = 448.5
+offset_right = 238.0
+offset_bottom = 479.5
+text = "Back to Main Menu"
+
+[node name="Resume" type="Button" parent="Hud/PauseMenu"]
+layout_mode = 0
+offset_left = 362.0
+offset_top = 451.5
+offset_right = 432.0
+offset_bottom = 482.5
+text = "Resume"
+
+[node name="Reset" type="Button" parent="Hud/PauseMenu"]
+layout_mode = 0
+offset_left = 466.0
+offset_top = 453.5
+offset_right = 517.0
+offset_bottom = 484.5
+text = "Reset"
+
+[node name="GameOverMenu" type="Panel" parent="Hud"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -315.0
+offset_top = -294.5
+offset_right = 315.0
+offset_bottom = 294.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Hud/GameOverMenu"]
+layout_mode = 0
+offset_left = 274.0
+offset_top = 100.5
+offset_right = 366.0
+offset_bottom = 126.5
+text = "Game Over!"
+
+[node name="ToMainMenu" type="Button" parent="Hud/GameOverMenu"]
+layout_mode = 0
+offset_left = 81.0
+offset_top = 448.5
+offset_right = 238.0
+offset_bottom = 479.5
+text = "Back to Main Menu"
+
+[node name="Reset" type="Button" parent="Hud/GameOverMenu"]
+layout_mode = 0
+offset_left = 466.0
+offset_top = 453.5
+offset_right = 517.0
+offset_bottom = 484.5
+text = "Reset"
+
+[node name="SuccessMenu" type="Panel" parent="Hud"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -315.0
+offset_top = -294.5
+offset_right = 315.0
+offset_bottom = 294.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Hud/SuccessMenu"]
+layout_mode = 0
+offset_left = 274.0
+offset_top = 100.5
+offset_right = 366.0
+offset_bottom = 126.5
 text = "Success!"
 
-[node name="PlayAgain" type="Button" parent="HUD/SuccessPopup/VFlowContainer"]
-layout_mode = 2
-text = "Play Again"
+[node name="ToMainMenu" type="Button" parent="Hud/SuccessMenu"]
+layout_mode = 0
+offset_left = 81.0
+offset_top = 448.5
+offset_right = 238.0
+offset_bottom = 479.5
+text = "Back to Main Menu"
 
-[node name="ToMainMenu" type="Button" parent="HUD/SuccessPopup/VFlowContainer"]
-layout_mode = 2
-text = "To Main Menu"
+[node name="Reset" type="Button" parent="Hud/SuccessMenu"]
+layout_mode = 0
+offset_left = 466.0
+offset_top = 453.5
+offset_right = 517.0
+offset_bottom = 484.5
+text = "Reset"
 
-[connection signal="pressed" from="GUI/MainMenu/PlayGame" to="GUI" method="_on_play_game_pressed"]
-[connection signal="pressed" from="GUI/LevelSelect/L1" to="." method="_on_l_1_pressed"]
-[connection signal="pressed" from="GUI/LevelSelect/L2" to="." method="_on_l_2_pressed"]
-[connection signal="pressed" from="GUI/LevelSelect/TestLevel" to="." method="_on_test_level_pressed"]
-[connection signal="pressed" from="HUD/Pause" to="." method="_on_pause_pressed"]
-[connection signal="pressed" from="HUD/PauseMenu/VFlowContainer/Resume" to="." method="_on_resume_pressed"]
-[connection signal="pressed" from="HUD/PauseMenu/VFlowContainer/ToMainMenu" to="." method="_on_to_main_menu_pressed"]
-[connection signal="pressed" from="HUD/PauseMenu/VFlowContainer/Reset" to="." method="_on_reset_pressed"]
-[connection signal="pressed" from="HUD/GameOverPopup/VFlowContainer/Reset" to="." method="_on_reset_pressed"]
-[connection signal="pressed" from="HUD/GameOverPopup/VFlowContainer/ToMainMenu" to="." method="_on_to_main_menu_pressed"]
-[connection signal="pressed" from="HUD/SuccessPopup/VFlowContainer/PlayAgain" to="." method="_on_play_again_pressed"]
-[connection signal="pressed" from="HUD/SuccessPopup/VFlowContainer/ToMainMenu" to="." method="_on_to_main_menu_pressed"]
+[node name="LevelDirector" type="Node2D" parent="." groups=["LevelDirector"]]
+script = ExtResource("2_trou7")
+
+[node name="LevelRunner" type="Node2D" parent="LevelDirector" groups=["LevelRunner"]]
+script = ExtResource("3_w8geg")
+towerPlatformScene = ExtResource("7_nk2cg")
+enemyDestinationScene = ExtResource("7_8j4pn")
+
+[node name="MoneyLabel" type="Label" parent="LevelDirector/LevelRunner"]
+offset_left = 800.0
+offset_right = 862.0
+offset_bottom = 26.0
+text = "Money: "
+
+[node name="LivesLabel" type="Label" parent="LevelDirector/LevelRunner"]
+offset_left = 700.0
+offset_right = 748.0
+offset_bottom = 26.0
+text = "Lives: "
+
+[node name="EnemySpawnTimer" type="Timer" parent="LevelDirector/LevelRunner"]
+one_shot = true
+
+[node name="WaveTimer" type="Timer" parent="LevelDirector/LevelRunner"]
+one_shot = true
+
+[node name="EnemyBuilder" parent="LevelDirector/LevelRunner" instance=ExtResource("4_712hn")]
+visible = false
+
+[node name="LevelSetup" type="Node2D" parent="LevelDirector/LevelRunner"]
+visible = false
+script = ExtResource("5_5hr1g")
+
+[node name="Level 1" type="Node2D" parent="LevelDirector/LevelRunner/LevelSetup"]
+visible = false
+
+[node name="Path2D" type="Path2D" parent="LevelDirector/LevelRunner/LevelSetup/Level 1"]
+curve = SubResource("Curve2D_so0ni")
+
+[node name="towerPlatform2" parent="LevelDirector/LevelRunner/LevelSetup/Level 1" instance=ExtResource("7_nk2cg")]
+position = Vector2(682, 435)
+
+[node name="towerPlatform3" parent="LevelDirector/LevelRunner/LevelSetup/Level 1" instance=ExtResource("7_nk2cg")]
+position = Vector2(428, 150)
+
+[node name="towerPlatform4" parent="LevelDirector/LevelRunner/LevelSetup/Level 1" instance=ExtResource("7_nk2cg")]
+position = Vector2(238, 382)
+
+[node name="towerPlatform5" parent="LevelDirector/LevelRunner/LevelSetup/Level 1" instance=ExtResource("7_nk2cg")]
+position = Vector2(450, 480)
+
+[node name="towerPlatform6" parent="LevelDirector/LevelRunner/LevelSetup/Level 1" instance=ExtResource("7_nk2cg")]
+position = Vector2(374, 755)
+
+[node name="towerPlatform7" parent="LevelDirector/LevelRunner/LevelSetup/Level 1" instance=ExtResource("7_nk2cg")]
+position = Vector2(709, 735)
+
+[node name="WaveList" parent="LevelDirector/LevelRunner/LevelSetup/Level 1" instance=ExtResource("7_aicbi")]
+script = ExtResource("8_5euaa")
+
+[node name="Level 2" type="Node2D" parent="LevelDirector/LevelRunner/LevelSetup"]
+visible = false
+
+[node name="Path2D" type="Path2D" parent="LevelDirector/LevelRunner/LevelSetup/Level 2"]
+curve = SubResource("Curve2D_k80wd")
+
+[node name="Path2D2" type="Path2D" parent="LevelDirector/LevelRunner/LevelSetup/Level 2"]
+curve = SubResource("Curve2D_4etby")
+
+[node name="towerPlatform2" parent="LevelDirector/LevelRunner/LevelSetup/Level 2" instance=ExtResource("7_nk2cg")]
+position = Vector2(504, 455)
+
+[node name="towerPlatform3" parent="LevelDirector/LevelRunner/LevelSetup/Level 2" instance=ExtResource("7_nk2cg")]
+position = Vector2(124, 703)
+
+[node name="towerPlatform4" parent="LevelDirector/LevelRunner/LevelSetup/Level 2" instance=ExtResource("7_nk2cg")]
+position = Vector2(335, 811)
+
+[node name="towerPlatform5" parent="LevelDirector/LevelRunner/LevelSetup/Level 2" instance=ExtResource("7_nk2cg")]
+position = Vector2(201, 366)
+
+[node name="towerPlatform6" parent="LevelDirector/LevelRunner/LevelSetup/Level 2" instance=ExtResource("7_nk2cg")]
+position = Vector2(791, 352)
+
+[node name="towerPlatform7" parent="LevelDirector/LevelRunner/LevelSetup/Level 2" instance=ExtResource("7_nk2cg")]
+position = Vector2(816, 619)
+
+[node name="towerPlatform8" parent="LevelDirector/LevelRunner/LevelSetup/Level 2" instance=ExtResource("7_nk2cg")]
+position = Vector2(582, 687)
+
+[node name="WaveList" parent="LevelDirector/LevelRunner/LevelSetup/Level 2" instance=ExtResource("7_aicbi")]
+script = ExtResource("12_yir08")
+
+[node name="Level 3" type="Node2D" parent="LevelDirector/LevelRunner/LevelSetup"]
+visible = false
+
+[node name="Path2D" type="Path2D" parent="LevelDirector/LevelRunner/LevelSetup/Level 3"]
+curve = SubResource("Curve2D_qr2fm")
+
+[node name="towerPlatform2" parent="LevelDirector/LevelRunner/LevelSetup/Level 3" instance=ExtResource("7_nk2cg")]
+position = Vector2(275, 398)
+
+[node name="towerPlatform3" parent="LevelDirector/LevelRunner/LevelSetup/Level 3" instance=ExtResource("7_nk2cg")]
+position = Vector2(621, 271)
+
+[node name="WaveList" parent="LevelDirector/LevelRunner/LevelSetup/Level 3" instance=ExtResource("7_aicbi")]
+script = ExtResource("14_6khh5")
+
+[connection signal="pressed" from="Gui/MainMenu/LevelSelectButton" to="Gui" method="_on_level_select_button_pressed"]
+[connection signal="pressed" from="Gui/LevelSelect/ToMainMenu" to="Gui" method="_on_to_main_menu_pressed"]
+[connection signal="pressed" from="Hud/Pause" to="Hud" method="_on_pause_pressed"]
+[connection signal="pressed" from="Hud/Ready" to="LevelDirector" method="_on_ready_pressed"]
+[connection signal="pressed" from="Hud/PauseMenu/ToMainMenu" to="." method="_on_to_main_menu_pressed"]
+[connection signal="pressed" from="Hud/PauseMenu/Resume" to="Hud" method="_on_resume_pressed"]
+[connection signal="pressed" from="Hud/PauseMenu/Reset" to="Hud" method="_on_reset_pressed"]
+[connection signal="pressed" from="Hud/GameOverMenu/ToMainMenu" to="." method="_on_to_main_menu_pressed"]
+[connection signal="pressed" from="Hud/GameOverMenu/Reset" to="Hud" method="_on_reset_pressed"]
+[connection signal="pressed" from="Hud/SuccessMenu/ToMainMenu" to="." method="_on_to_main_menu_pressed"]
+[connection signal="pressed" from="Hud/SuccessMenu/Reset" to="Hud" method="_on_reset_pressed"]
+[connection signal="hide_ready" from="LevelDirector" to="Hud" method="_on_level_director_hide_ready"]
+[connection signal="in_level" from="LevelDirector" to="." method="_on_level_director_in_level"]
+[connection signal="game_over_signal" from="LevelDirector/LevelRunner" to="Hud" method="_on_level_runner_game_over_signal"]
+[connection signal="success_signal" from="LevelDirector/LevelRunner" to="." method="_on_level_runner_success_signal"]
+[connection signal="timeout" from="LevelDirector/LevelRunner/EnemySpawnTimer" to="LevelDirector/LevelRunner" method="_on_enemy_spawn_timer_timeout"]
+[connection signal="timeout" from="LevelDirector/LevelRunner/WaveTimer" to="LevelDirector/LevelRunner" method="_on_wave_timer_timeout"]
