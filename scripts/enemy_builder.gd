@@ -33,14 +33,14 @@ const test2 = {
 	"spriteFrames": preload("res://anims/test2.tres"),
 	"speed": 1,
 	"health": 20,
-	"reward": 20,
+	"reward": 30,
 	"colissionRadius": 50
 }
 const test3 = {
 	"spriteFrames": preload("res://anims/maki_walk1.tres"),
 	"speed": 2,
 	"health": 8,
-	"reward": 10,
+	"reward": 20,
 	"colissionRadius": 40
 }
 

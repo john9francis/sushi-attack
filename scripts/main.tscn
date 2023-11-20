@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bgtvxbdu2qdf0"]
+[gd_scene load_steps=22 format=3 uid="uid://bgtvxbdu2qdf0"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_t84td"]
 [ext_resource type="Script" path="res://scripts/main_gui.gd" id="2_0041v"]
@@ -7,7 +7,9 @@
 [ext_resource type="Script" path="res://scripts/hud_director.gd" id="3_fwk1s"]
 [ext_resource type="Script" path="res://scripts/_level_runner.gd" id="3_w8geg"]
 [ext_resource type="PackedScene" uid="uid://b8p6r7fsli1iy" path="res://scripts/enemy_builder.tscn" id="4_712hn"]
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="4_dl0f3"]
 [ext_resource type="Script" path="res://scripts/level_setup.gd" id="5_5hr1g"]
+[ext_resource type="SpriteFrames" path="res://anims/maki_walk1.tres" id="5_whvx1"]
 [ext_resource type="PackedScene" uid="uid://cct1u3jmg1o3j" path="res://scripts/enemy_destination.tscn" id="7_8j4pn"]
 [ext_resource type="PackedScene" uid="uid://82eao7qodegu" path="res://scripts/tower_platform.tscn" id="7_ai1w8"]
 [ext_resource type="PackedScene" uid="uid://bjmnpu7wnltbn" path="res://scripts/wave_list.tscn" id="7_aicbi"]
@@ -49,10 +51,38 @@ script = ExtResource("2_0041v")
 levelButtonScene = ExtResource("3_0qb3o")
 
 [node name="MainMenu" type="CanvasLayer" parent="Gui"]
+script = ExtResource("4_dl0f3")
+
+[node name="Title" type="Label" parent="Gui/MainMenu"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -306.0
+offset_top = 124.0
+offset_right = 315.0
+offset_bottom = 264.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 100
+text = "Sushi Attack!"
+
+[node name="MenuAnim" type="AnimatedSprite2D" parent="Gui/MainMenu"]
+position = Vector2(496, 552)
+scale = Vector2(0.522, 0.49)
+sprite_frames = ExtResource("5_whvx1")
+animation = &"maki_walk1"
 
 [node name="LevelSelectButton" type="Button" parent="Gui/MainMenu"]
-offset_right = 8.0
-offset_bottom = 8.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.0
+offset_top = 306.0
+offset_right = 51.0
+offset_bottom = 337.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "Level Select"
 
 [node name="LevelSelect" type="CanvasLayer" parent="Gui"]
