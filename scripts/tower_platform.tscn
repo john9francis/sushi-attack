@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://82eao7qodegu"]
 
-[ext_resource type="Script" path="res://scripts/towerPlatform.gd" id="1_x714t"]
+[ext_resource type="Script" path="res://scripts/tower_platform.gd" id="1_8yudi"]
 [ext_resource type="PackedScene" uid="uid://bul6um5k465t1" path="res://scripts/cs_tower.tscn" id="2_l5001"]
 [ext_resource type="PackedScene" uid="uid://djnu4nstia70d" path="res://scripts/ss_tower.tscn" id="3_friba"]
 [ext_resource type="PackedScene" uid="uid://biyqmibg8ipx5" path="res://scripts/g_tower.tscn" id="4_4divu"]
@@ -13,7 +13,7 @@ radius = 114.018
 [sub_resource type="CanvasTexture" id="CanvasTexture_yabk0"]
 
 [node name="towerPlatform" type="Area2D" groups=["TowerPlatforms"]]
-script = ExtResource("1_x714t")
+script = ExtResource("1_8yudi")
 CSTowerScene = ExtResource("2_l5001")
 SSTowerScene = ExtResource("3_friba")
 GTowerScene = ExtResource("4_4divu")

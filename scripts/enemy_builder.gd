@@ -37,7 +37,7 @@ const test2 = {
 	"colissionRadius": 50
 }
 const test3 = {
-	"spriteFrames": preload("res://Assets/maki-walk1/maki_walk1.tres"),
+	"spriteFrames": preload("res://anims/maki_walk1.tres"),
 	"speed": 2,
 	"health": 8,
 	"reward": 10,
