@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://b8p6r7fsli1iy" path="res://scripts/enemy_builder.tscn" id="4_712hn"]
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="4_dl0f3"]
 [ext_resource type="Script" path="res://scripts/level_setup.gd" id="5_5hr1g"]
-[ext_resource type="SpriteFrames" path="res://anims/maki_walk1.tres" id="5_whvx1"]
+[ext_resource type="SpriteFrames" uid="uid://c7x7xab80kavb" path="res://anims/maki_walk1.tres" id="5_whvx1"]
 [ext_resource type="PackedScene" uid="uid://cct1u3jmg1o3j" path="res://scripts/enemy_destination.tscn" id="7_8j4pn"]
 [ext_resource type="PackedScene" uid="uid://82eao7qodegu" path="res://scripts/tower_platform.tscn" id="7_ai1w8"]
 [ext_resource type="PackedScene" uid="uid://bjmnpu7wnltbn" path="res://scripts/wave_list.tscn" id="7_aicbi"]
