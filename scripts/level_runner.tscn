@@ -1,9 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://difxsr735tqsd"]
+[gd_scene load_steps=11 format=3 uid="uid://dw1eyo22nqm4o"]
 
 [ext_resource type="Script" path="res://scripts/level_runner.gd" id="1_0c2hq"]
 [ext_resource type="PackedScene" uid="uid://dbbij5u3up0gx" path="res://scripts/enemy.tscn" id="2_iiij6"]
 [ext_resource type="PackedScene" uid="uid://c8tq0ppoe2tb0" path="res://scripts/towerPlatform.tscn" id="3_qdug7"]
-[ext_resource type="PackedScene" path="res://scripts/hud.tscn" id="4_7sajc"]
+[ext_resource type="PackedScene" uid="uid://cmaesvuc5l4a7" path="res://scripts/hud.tscn" id="4_7sajc"]
 [ext_resource type="PackedScene" uid="uid://bx28qxjyu1vhn" path="res://scripts/level_setup.tscn" id="5_31mm1"]
 [ext_resource type="PackedScene" uid="uid://b8p6r7fsli1iy" path="res://scripts/enemy_builder.tscn" id="6_rc30r"]
 [ext_resource type="Script" path="res://scripts/ProgressBar.gd" id="9_axsi4"]

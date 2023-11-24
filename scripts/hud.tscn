@@ -1,0 +1,57 @@
+[gd_scene load_steps=2 format=3 uid="uid://cmaesvuc5l4a7"]
+
+[ext_resource type="Script" path="res://scripts/hud.gd" id="1_ci1g7"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_ci1g7")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="LivesControl" type="Control" parent="Control"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="LivesLabel" type="Label" parent="Control/LivesControl"]
+layout_mode = 0
+offset_left = 574.0
+offset_right = 614.0
+offset_bottom = 26.0
+scale = Vector2(2, 2)
+text = "Lives:"
+
+[node name="Lives" type="Label" parent="Control/LivesControl"]
+layout_mode = 0
+offset_left = 676.0
+offset_top = 4.0
+offset_right = 750.0
+offset_bottom = 49.0
+scale = Vector2(2, 2)
+text = "0"
+
+[node name="MoneyControl" type="Control" parent="Control"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MoneyLabel" type="Label" parent="Control/MoneyControl"]
+layout_mode = 0
+offset_left = 732.0
+offset_top = 3.0
+offset_right = 819.0
+offset_bottom = 48.0
+scale = Vector2(2, 2)
+text = "Money:"
+
+[node name="Money" type="Label" parent="Control/MoneyControl"]
+layout_mode = 0
+offset_left = 872.0
+offset_top = 8.0
+offset_right = 965.0
+offset_bottom = 62.0
+scale = Vector2(2, 2)
+text = "0"
