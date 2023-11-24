@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bgtvxbdu2qdf0"]
+[gd_scene load_steps=16 format=3 uid="uid://bgtvxbdu2qdf0"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_t84td"]
 [ext_resource type="Script" path="res://scripts/main_gui.gd" id="2_0041v"]
@@ -9,38 +9,17 @@
 [ext_resource type="PackedScene" uid="uid://b8p6r7fsli1iy" path="res://scripts/enemy_builder.tscn" id="4_712hn"]
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="4_dl0f3"]
 [ext_resource type="Script" path="res://scripts/level_setup.gd" id="5_5hr1g"]
-[ext_resource type="SpriteFrames" uid="uid://c7x7xab80kavb" path="res://anims/maki_walk1.tres" id="5_whvx1"]
 [ext_resource type="PackedScene" uid="uid://cct1u3jmg1o3j" path="res://scripts/enemy_destination.tscn" id="7_8j4pn"]
 [ext_resource type="PackedScene" uid="uid://82eao7qodegu" path="res://scripts/tower_platform.tscn" id="7_ai1w8"]
 [ext_resource type="PackedScene" uid="uid://bjmnpu7wnltbn" path="res://scripts/wave_list.tscn" id="7_aicbi"]
 [ext_resource type="PackedScene" uid="uid://c8tq0ppoe2tb0" path="res://scripts/towerPlatform.tscn" id="7_nk2cg"]
 [ext_resource type="Script" path="res://scripts/wave_list_level1.gd" id="8_5euaa"]
-[ext_resource type="Script" path="res://scripts/wave_list_level2.gd" id="12_yir08"]
-[ext_resource type="Script" path="res://scripts/wave_list_level3.gd" id="14_6khh5"]
 
 [sub_resource type="Curve2D" id="Curve2D_so0ni"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 253, 3, 0, 0, 0, 0, 249, 156, 0, 0, 0, 0, 249, 192, 0, 0, 0, 0, 262, 226, 0, 0, 0, 0, 289, 258, 0, 0, 0, 0, 328, 279, 0, 0, 0, 0, 691, 279, 0, 0, 0, 0, 743, 299, 0, 0, 0, 0, 784, 340, 0, 0, 0, 0, 809, 402, 0, 0, 0, 0, 807, 479, 0, 0, 0, 0, 795, 523, 0, 0, 0, 0, 756, 571, 0, 0, 0, 0, 699, 603, 0, 0, 0, 0, 321, 628, 0, 0, 0, 0, 249, 657, 0, 0, 0, 0, 233, 719, 0, 0, 0, 0, 228, 808, 0, 0, 0, 0, 226, 990)
 }
 point_count = 19
-
-[sub_resource type="Curve2D" id="Curve2D_k80wd"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, -2, 509, 0, 0, 0, 0, 258, 505, 0, 0, 0, 0, 307, 482, 0, 0, 0, 0, 328, 427, 0, 0, 0, 0, 365, 356, 0, 0, 0, 0, 426, 338, 0, 0, 0, 0, 511, 324, 0, 0, 0, 0, 576, 340, 0, 0, 0, 0, 633, 368, 0, 0, 0, 0, 681, 425, 0, 0, 0, 0, 722, 480, 0, 0, 0, 0, 772, 495, 0, 0, 0, 0, 836, 496, 0, 0, 0, 0, 912, 498, 0, 0, 0, 0, 1001, 496)
-}
-point_count = 15
-
-[sub_resource type="Curve2D" id="Curve2D_4etby"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, 586, 0, 0, 0, 0, 121, 591, 0, 0, 0, 0, 248, 600, 0, 0, 0, 0, 358, 659, 0, 0, 0, 0, 433, 725, 0, 0, 0, 0, 531, 815, 0, 0, 0, 0, 661, 988)
-}
-point_count = 7
-
-[sub_resource type="Curve2D" id="Curve2D_qr2fm"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 12, 482, 0, 0, 0, 0, 356, 75, 0, 0, 0, 0, 507, 563, 0, 0, 0, 0, 866, 334)
-}
-point_count = 4
 
 [node name="Main" type="Node"]
 script = ExtResource("1_t84td")
@@ -64,12 +43,6 @@ offset_bottom = 264.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 100
 text = "Sushi Attack!"
-
-[node name="MenuAnim" type="AnimatedSprite2D" parent="Gui/MainMenu"]
-position = Vector2(496, 552)
-scale = Vector2(0.522, 0.49)
-sprite_frames = ExtResource("5_whvx1")
-animation = &"maki_walk1"
 
 [node name="LevelSelectButton" type="Button" parent="Gui/MainMenu"]
 anchors_preset = 8
@@ -296,54 +269,6 @@ position = Vector2(709, 735)
 
 [node name="WaveList" parent="LevelDirector/LevelRunner/LevelSetup/Level 1" instance=ExtResource("7_aicbi")]
 script = ExtResource("8_5euaa")
-
-[node name="Level 2" type="Node2D" parent="LevelDirector/LevelRunner/LevelSetup"]
-visible = false
-
-[node name="Path2D" type="Path2D" parent="LevelDirector/LevelRunner/LevelSetup/Level 2"]
-curve = SubResource("Curve2D_k80wd")
-
-[node name="Path2D2" type="Path2D" parent="LevelDirector/LevelRunner/LevelSetup/Level 2"]
-curve = SubResource("Curve2D_4etby")
-
-[node name="towerPlatform2" parent="LevelDirector/LevelRunner/LevelSetup/Level 2" instance=ExtResource("7_nk2cg")]
-position = Vector2(504, 455)
-
-[node name="towerPlatform3" parent="LevelDirector/LevelRunner/LevelSetup/Level 2" instance=ExtResource("7_nk2cg")]
-position = Vector2(124, 703)
-
-[node name="towerPlatform4" parent="LevelDirector/LevelRunner/LevelSetup/Level 2" instance=ExtResource("7_nk2cg")]
-position = Vector2(335, 811)
-
-[node name="towerPlatform5" parent="LevelDirector/LevelRunner/LevelSetup/Level 2" instance=ExtResource("7_nk2cg")]
-position = Vector2(201, 366)
-
-[node name="towerPlatform6" parent="LevelDirector/LevelRunner/LevelSetup/Level 2" instance=ExtResource("7_nk2cg")]
-position = Vector2(791, 352)
-
-[node name="towerPlatform7" parent="LevelDirector/LevelRunner/LevelSetup/Level 2" instance=ExtResource("7_nk2cg")]
-position = Vector2(816, 619)
-
-[node name="towerPlatform8" parent="LevelDirector/LevelRunner/LevelSetup/Level 2" instance=ExtResource("7_nk2cg")]
-position = Vector2(582, 687)
-
-[node name="WaveList" parent="LevelDirector/LevelRunner/LevelSetup/Level 2" instance=ExtResource("7_aicbi")]
-script = ExtResource("12_yir08")
-
-[node name="Level 3" type="Node2D" parent="LevelDirector/LevelRunner/LevelSetup"]
-visible = false
-
-[node name="Path2D" type="Path2D" parent="LevelDirector/LevelRunner/LevelSetup/Level 3"]
-curve = SubResource("Curve2D_qr2fm")
-
-[node name="towerPlatform2" parent="LevelDirector/LevelRunner/LevelSetup/Level 3" instance=ExtResource("7_nk2cg")]
-position = Vector2(275, 398)
-
-[node name="towerPlatform3" parent="LevelDirector/LevelRunner/LevelSetup/Level 3" instance=ExtResource("7_nk2cg")]
-position = Vector2(621, 271)
-
-[node name="WaveList" parent="LevelDirector/LevelRunner/LevelSetup/Level 3" instance=ExtResource("7_aicbi")]
-script = ExtResource("14_6khh5")
 
 [connection signal="pressed" from="Gui/MainMenu/LevelSelectButton" to="Gui" method="_on_level_select_button_pressed"]
 [connection signal="pressed" from="Gui/LevelSelect/ToMainMenu" to="Gui" method="_on_to_main_menu_pressed"]

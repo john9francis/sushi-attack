@@ -22,36 +22,13 @@ const base = {
 	"reward": null,
 	"colissionRadius": null
 }
-const test1 = {
-	"spriteFrames": preload("res://anims/test1.tres"),
-	"speed": 5,
-	"health": 3,
-	"reward": 15,
-	"colissionRadius": 30
-}
-const test2 = {
-	"spriteFrames": preload("res://anims/test2.tres"),
-	"speed": 1,
-	"health": 20,
-	"reward": 30,
-	"colissionRadius": 50
-}
-const test3 = {
-	"spriteFrames": preload("res://anims/maki_walk1.tres"),
+const maki = {
+	"spriteFrames": preload("res://anims/maki.tres"),
 	"speed": 2,
-	"health": 8,
-	"reward": 20,
+	"health": 5,
+	"reward": 10,
 	"colissionRadius": 40
 }
-
-const bob = {
-	"spriteFrames": preload("res://anims/test_enemy.tres"),
-	"speed": 1,
-	"health": 1,
-	"reward": 5,
-	"colissionRadius": 50
-}
-
 
 
 func _ready():
@@ -66,14 +43,8 @@ func get_premade_enemy(enemyName):
 	var premadeEnemy
 	
 	# first, set which premade enemy
-	if enemyName == "test1":
-		premadeEnemy = test1
-	elif enemyName == "test2":
-		premadeEnemy = test2
-	elif enemyName == "test3":
-		premadeEnemy = test3
-	elif enemyName == "bob":
-		premadeEnemy = bob
+	if enemyName == "maki":
+		premadeEnemy = maki
 	else:
 		premadeEnemy = null
 		print("enemy_builder error, premade enemy does not exist")
