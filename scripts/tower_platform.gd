@@ -17,10 +17,16 @@ const upgradeCost= 50
 var nOfUpgrades
 var towerMaxed = false
 
+
 func _ready():
 	$TowerGUI.hide()
 	
 	nOfUpgrades = 0
+	
+	$TowerGUI.set_value("cs", CSTowerCost)
+	$TowerGUI.set_value("ss", SSTowerCost)
+	$TowerGUI.set_value("g", GTowerCost)
+	$TowerGUI.set_value("w", WTowerCost)
 	
 
 

@@ -45,6 +45,24 @@ func _on_gui_input(event):
 	pass # Replace with function body.
 
 
+func set_value(towerName="cs, ss, g, or w.", value=0):
+	
+	if towerName == "cs":
+		csValue = value
+		
+	elif towerName == "ss":
+		ssValue = value
+		
+	elif towerName == "g":
+		gValue = value
+		
+	elif towerName == "w":
+		wValue = value
+		
+	else:
+		print("Set_value error in towerGUI")
+	
+
 
 
 func _on_cs_button_mouse_entered():
