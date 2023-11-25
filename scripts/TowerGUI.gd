@@ -41,6 +41,21 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if csButton.is_hovered():
+		print("Hovering")
+	else:
+		pass
+		
+	if ssButton.is_hovered():
+		pass
+	if gButton.is_hovered():
+		pass
+	if wButton.is_hovered():
+		pass
+	if sellButton.is_hovered():
+		pass
+	if upgradeButton.is_hovered():
+		pass
 	pass
 
 
