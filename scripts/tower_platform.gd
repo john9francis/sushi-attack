@@ -13,9 +13,12 @@ const GTowerCost = 50
 const SSTowerCost= 30
 const CSTowerCost= 70
 const upgradeCost= 50
+const refundTakeAway = 20
 
 var nOfUpgrades
 var towerMaxed = false
+
+@onready var towerGui = $TowerGUI
 
 
 func _ready():
@@ -27,7 +30,6 @@ func _ready():
 	$TowerGUI.set_value("ss", SSTowerCost)
 	$TowerGUI.set_value("g", GTowerCost)
 	$TowerGUI.set_value("w", WTowerCost)
-	
 
 
 func _process(delta):
@@ -89,6 +91,10 @@ func _on_ss_button_pressed():
 	$TowerGUI.go_to_upgrade_gui()
 	tower = SSTowerScene.instantiate()
 	add_child(tower)
+	
+	# Update the upgrade and sell buttons
+	towerGui.set_value("upgrade", upgradeCost)
+	towerGui.set_value("sell", SSTowerCost - refundTakeAway)
 
 
 func _on_cs_button_pressed():
@@ -96,6 +102,10 @@ func _on_cs_button_pressed():
 	$TowerGUI.go_to_upgrade_gui()
 	tower = CSTowerScene.instantiate()
 	add_child(tower)
+	
+	# Update the upgrade and sell buttons
+	towerGui.set_value("upgrade", upgradeCost)
+	towerGui.set_value("sell", CSTowerCost - refundTakeAway)
 
 
 func _on_g_button_pressed():
@@ -103,6 +113,10 @@ func _on_g_button_pressed():
 	$TowerGUI.go_to_upgrade_gui()
 	tower = GTowerScene.instantiate()
 	add_child(tower)
+	
+	# Update the upgrade and sell buttons
+	towerGui.set_value("upgrade", upgradeCost)
+	towerGui.set_value("sell", GTowerCost - refundTakeAway)
 
 
 func _on_w_button_pressed():
@@ -110,6 +124,11 @@ func _on_w_button_pressed():
 	$TowerGUI.go_to_upgrade_gui()
 	tower = WTowerScene.instantiate()
 	add_child(tower)
+	
+	# Update the upgrade and sell buttons
+	towerGui.set_value("upgrade", upgradeCost)
+	towerGui.set_value("sell", WTowerCost - refundTakeAway)
+	
 	
 
 
@@ -127,10 +146,11 @@ func _on_sell_pressed():
 		if child.is_in_group("GTowers"):
 			originalCost = GTowerCost
 	
-	var refund = originalCost - 20
+	var refund = originalCost - refundTakeAway
 			
 	get_tree().call_group("LevelRunner", "add_money", refund)
 	remove_tower()
+	
 	
 	
 func remove_tower():

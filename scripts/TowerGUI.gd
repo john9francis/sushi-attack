@@ -5,6 +5,9 @@ var ssValue = 2
 var gValue = 3
 var wValue = 4
 
+var upgradeValue = 5
+var sellValue = 6
+
 @onready var csButton = $platformGUI/CSButton
 const csButtonText = "Chop Sticks"
 
@@ -17,11 +20,22 @@ const wButtonText = "Wasabi"
 @onready var gButton = $platformGUI/GButton
 const gButtonText = "Ginger"
 
+@onready var upgradeButton = $upgradeGUI/Upgrade
+const upgradeButtonText = "Upgrade"
+
+@onready var sellButton = $upgradeGUI/Sell
+const sellButtonText = "Sell"
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	hide()
 	$upgradeGUI.hide()
+	
+	csButton.text = csButtonText
+	ssButton.text = ssButtonText
+	gButton.text = gButtonText
+	wButton.text = wButtonText
 	pass # Replace with function body.
 
 
@@ -45,7 +59,7 @@ func _on_gui_input(event):
 	pass # Replace with function body.
 
 
-func set_value(towerName="cs, ss, g, or w.", value=0):
+func set_value(towerName, value):
 	
 	if towerName == "cs":
 		csValue = value
@@ -59,6 +73,12 @@ func set_value(towerName="cs, ss, g, or w.", value=0):
 	elif towerName == "w":
 		wValue = value
 		
+	elif towerName == "upgrade":
+		upgradeValue = value
+		
+	elif towerName == "sell":
+		sellValue = value
+		
 	else:
 		print("Set_value error in towerGUI")
 	
@@ -66,7 +86,7 @@ func set_value(towerName="cs, ss, g, or w.", value=0):
 
 
 func _on_cs_button_mouse_entered():
-	csButton.text = csButtonText + '\n' + str(csValue)
+	csButton.text = csButtonText + '\n' + "$ " + str(csValue)
 	pass # Replace with function body.
 
 func _on_cs_button_mouse_exited():
@@ -76,7 +96,7 @@ func _on_cs_button_mouse_exited():
 	
 	
 func _on_ss_button_mouse_entered():
-	ssButton.text = ssButtonText + '\n' + str(ssValue)
+	ssButton.text = ssButtonText + '\n' + "$ " + str(ssValue)
 	pass # Replace with function body.
 
 func _on_ss_button_mouse_exited():
@@ -86,7 +106,7 @@ func _on_ss_button_mouse_exited():
 	
 	
 func _on_g_button_mouse_entered():
-	gButton.text = gButtonText + '\n' + str(gValue)
+	gButton.text = gButtonText + '\n' + "$ " + str(gValue)
 	pass # Replace with function body.
 
 func _on_g_button_mouse_exited():
@@ -96,10 +116,33 @@ func _on_g_button_mouse_exited():
 	
 	
 func _on_w_button_mouse_entered():
-	wButton.text = wButtonText + '\n' + str(wValue)
+	wButton.text = wButtonText + '\n' + "$ " + str(wValue)
 	pass # Replace with function body.
 
 func _on_w_button_mouse_exited():
 	wButton.text = wButtonText
 	pass # Replace with function body.
 	
+	
+
+
+func _on_upgrade_mouse_entered():
+	upgradeButton.text = upgradeButtonText + '\n' + "$ " + str(upgradeValue)
+	pass # Replace with function body.
+
+
+func _on_upgrade_mouse_exited():
+	upgradeButton.text = upgradeButtonText
+	pass # Replace with function body.
+
+
+
+
+func _on_sell_mouse_entered():
+	sellButton.text = sellButtonText + '\n' + "+ $ " + str(sellValue)
+	pass # Replace with function body.
+
+
+func _on_sell_mouse_exited():
+	sellButton.text = sellButtonText
+	pass # Replace with function body.
