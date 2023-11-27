@@ -23,6 +23,8 @@ var enemySetFlag = false
 
 signal resize_enemy_sprite
 
+var right = true
+
 
 func _ready():
 	enemyAnim.play("right-down")
@@ -37,13 +39,28 @@ func _process(_delta):
 	if health <= 0:
 		kill()
 		
-	# Play the correct anims
+	# Get the direction vector
+	var direction = Vector2(.5, .5)
+	
 	if tracker.get_target_future_pos() != null:
 		
-		var direction = (tracker.get_target_pos() - tracker.get_target_future_pos()).normalized()
-		print(direction)
+		direction = (tracker.get_target_pos() - tracker.get_target_future_pos()).normalized()
 	
-	
+	# Play the anim based on the direction of movement
+	if direction.x < -.8:
+		enemyAnim.play("right")
+		if !right:
+			enemyAnim.scale.x = -enemyAnim.scale.x
+			right = true
+	elif direction.x > .8:
+		enemyAnim.play("right")
+		if right:
+			enemyAnim.scale.x = -enemyAnim.scale.x
+			right = false
+	elif direction.y > .8:
+		enemyAnim.play("up")
+	elif direction.y < -.8:
+		enemyAnim.play("down")
 	
 
 func set_enemy_created_flag(t_or_false):
