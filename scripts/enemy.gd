@@ -47,8 +47,16 @@ func _process(_delta):
 		direction = (tracker.get_target_pos() - tracker.get_target_future_pos()).normalized()
 	
 	# set our anim name
-	var animName = get_anim_name(direction)
+	var animName = get_correct_anim(get_anim_name(direction))
 	
+	
+
+	# finally, play the correct anim
+	enemyAnim.play(animName)
+	
+	
+	
+func get_correct_anim(animName):
 	# handle the cases where we are moving left
 	# note: I do this so I don't have to make anims for the left-moving sprites,
 	# i just take the mirror image of the right-moving sprites.
@@ -74,11 +82,13 @@ func _process(_delta):
 		if !facingRight:
 			facingRight = true
 			enemyAnim.scale.x = -enemyAnim.scale.x
-
-	# finally, play the correct anim
-	enemyAnim.play(animName)
+			
+	return animName
 	
-
+	
+	
+	
+	
 func get_anim_name(direction: Vector2):
 	var anim_name = ""
 
