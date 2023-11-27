@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bgtvxbdu2qdf0"]
+[gd_scene load_steps=17 format=3 uid="uid://bgtvxbdu2qdf0"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_t84td"]
 [ext_resource type="Script" path="res://scripts/main_gui.gd" id="2_0041v"]
@@ -20,6 +20,12 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 253, 3, 0, 0, 0, 0, 249, 156, 0, 0, 0, 0, 249, 192, 0, 0, 0, 0, 262, 226, 0, 0, 0, 0, 289, 258, 0, 0, 0, 0, 328, 279, 0, 0, 0, 0, 691, 279, 0, 0, 0, 0, 743, 299, 0, 0, 0, 0, 784, 340, 0, 0, 0, 0, 809, 402, 0, 0, 0, 0, 807, 479, 0, 0, 0, 0, 795, 523, 0, 0, 0, 0, 756, 571, 0, 0, 0, 0, 699, 603, 0, 0, 0, 0, 321, 628, 0, 0, 0, 0, 249, 657, 0, 0, 0, 0, 233, 719, 0, 0, 0, 0, 228, 808, 0, 0, 0, 0, 226, 990)
 }
 point_count = 19
+
+[sub_resource type="Curve2D" id="Curve2D_oimvl"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 473, 0, 0, 0, 0, 380, 485, 0, 0, 0, 0, 512, 388, 0, 0, 0, 0, 513, 281, 0, 0, 0, 0, 435, 173, 0, 0, 0, 0, 286, 167, 0, 0, 0, 0, 215, 261, 0, 0, 0, 0, 215, 369, 0, 0, 0, 0, 445, 645, 0, 0, 0, 0, 751, 654)
+}
+point_count = 10
 
 [node name="Main" type="Node"]
 script = ExtResource("1_t84td")
@@ -244,7 +250,6 @@ visible = false
 script = ExtResource("5_5hr1g")
 
 [node name="Level 1" type="Node2D" parent="LevelDirector/LevelRunner/LevelSetup"]
-visible = false
 
 [node name="Path2D" type="Path2D" parent="LevelDirector/LevelRunner/LevelSetup/Level 1"]
 curve = SubResource("Curve2D_so0ni")
@@ -269,6 +274,17 @@ position = Vector2(709, 735)
 
 [node name="WaveList" parent="LevelDirector/LevelRunner/LevelSetup/Level 1" instance=ExtResource("7_aicbi")]
 script = ExtResource("8_5euaa")
+
+[node name="Test Level" type="Node2D" parent="LevelDirector/LevelRunner/LevelSetup"]
+
+[node name="Path2D" type="Path2D" parent="LevelDirector/LevelRunner/LevelSetup/Test Level"]
+curve = SubResource("Curve2D_oimvl")
+
+[node name="WaveList" parent="LevelDirector/LevelRunner/LevelSetup/Test Level" instance=ExtResource("7_aicbi")]
+script = ExtResource("8_5euaa")
+
+[node name="towerPlatform7" parent="LevelDirector/LevelRunner/LevelSetup/Test Level" instance=ExtResource("7_nk2cg")]
+position = Vector2(644, 492)
 
 [connection signal="pressed" from="Gui/MainMenu/LevelSelectButton" to="Gui" method="_on_level_select_button_pressed"]
 [connection signal="pressed" from="Gui/LevelSelect/ToMainMenu" to="Gui" method="_on_to_main_menu_pressed"]
