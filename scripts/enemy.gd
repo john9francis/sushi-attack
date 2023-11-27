@@ -5,6 +5,7 @@ var myPathFollow
 
 @onready var enemyAnim = $EnemyAnimation
 @onready var enemyHitbox = $CollisionShape2D
+@onready var tracker = $Tracker
 
 
 var speed = 1
@@ -26,6 +27,10 @@ signal resize_enemy_sprite
 func _ready():
 	enemyAnim.play("right-down")
 	emit_signal("resize_enemy_sprite")
+	
+	# set the tracker to this enemy so we can get it's velocity
+	tracker.set_area(self)
+	
 
 
 func _process(_delta):
@@ -33,6 +38,13 @@ func _process(_delta):
 		kill()
 		
 	# Play the correct anims
+	if tracker.get_target_future_pos() != null:
+		
+		var direction = (tracker.get_target_pos() - tracker.get_target_future_pos()).normalized()
+		print(direction)
+	
+	
+	
 
 func set_enemy_created_flag(t_or_false):
 	enemySetFlag = t_or_false
