@@ -91,24 +91,40 @@ func get_correct_anim(animName):
 	
 func get_anim_name(direction: Vector2):
 	var anim_name = ""
+	
+	var padding = .1 
+	# This is basically how close to the x or y axis you need
+	# to be to play the up down left right axis.
+	# lower number favors the in-between anims.
+	# higher number favors the up-down-left-right anims.
+	
+	var up = PI/2
+	var left = 0
+	var down = -PI/2
+	var positiveRight = PI
+	var negativeRight = -PI
 
 	var angle = direction.angle()
 
-	if angle < PI / 6 and angle > -PI / 6:
+
+	if angle < left + padding and angle > left - padding:
 		anim_name = "left"
-	elif angle > PI / 6 and angle < PI / 3:
-		anim_name = "left-up"
-	elif angle > PI / 3 and angle < 2 * PI / 3:
+	elif angle < up + padding and angle > up - padding:
 		anim_name = "up"
-	elif angle > 2 * PI / 3 and angle < 5 * PI / 6:
-		anim_name = "right-up"
-	elif angle > 5 * PI / 6 or angle < -5 * PI / 6:
+	elif angle < negativeRight + padding or angle > positiveRight - padding:
 		anim_name = "right"
-	elif angle > -5 * PI / 6 and angle < -2 * PI / 3:
-		anim_name = "right-down"
-	elif angle > -2 * PI / 3 and angle < -PI / 3:
+	elif angle < down + padding and angle > down - padding:
 		anim_name = "down"
-	elif angle > -PI / 3 and angle < -PI / 6:
+	
+	# now that we dealt with the cardinal directions, it's easy to figure out
+	# the in-between directions. 
+	elif angle > up:
+		anim_name = "right-up"
+	elif angle < down:
+		anim_name = "right-down"
+	elif angle > 0:
+		anim_name = "left-up"
+	else:
 		anim_name = "left-down"
 
 	return anim_name
