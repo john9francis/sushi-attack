@@ -6,11 +6,13 @@ var myPathFollow
 @onready var enemyAnim = $EnemyAnimation
 @onready var enemyHitbox = $CollisionShape2D
 @onready var tracker = $Tracker
+@onready var healthBar = $HealthBar
 
 
 var speed = 1
 var currentSpeed = speed
 var health = 1
+var currentHealth = health
 var poison_hits = 0
 var reward = 0
 
@@ -36,7 +38,7 @@ func _ready():
 
 
 func _process(_delta):
-	if health <= 0:
+	if currentHealth <= 0:
 		kill()
 		
 	# Get the direction vector
@@ -139,6 +141,9 @@ func kill():
 	myPathFollow.queue_free()
 	queue_free()
 	
+func lose_health(val):
+	currentHealth -= val
+	
 func set_anim(preloadedFrames):
 	$EnemyAnimation.set_sprite_frames(preloadedFrames)
 	animSet = true
@@ -149,6 +154,7 @@ func get_anim_set_flag():
 	
 func set_health(h):
 	health = h
+	currentHealth = health
 	
 
 func set_colission_radius(value):
@@ -210,7 +216,7 @@ func get_enemy_texture():
 func _on_body_entered(body):
 	if body.is_in_group("Bullets"):
 		body.queue_free()
-		health -= 1
+		lose_health(1)
 
 
 
@@ -221,7 +227,7 @@ func _on_area_entered(area):
 
 
 func _on_poison_timer_timeout():
-	health -= 1
+	currentHealth -= 1
 	poison_hits -= 1
 	
 	if poison_hits <= 0:
