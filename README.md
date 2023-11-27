@@ -4,7 +4,7 @@ Sushi themed tower defense game, coded in Godot
 # To do for verticle slice (DECEMBER 9):
 - [ ] Get the sushi rolls animated, at least 3
 - [ ] Get all 4 towers animated
-- [ ] Get the towerGui to display the price
+- [x] Get the towerGui to display the price
 - [ ] Get the towerGui to show range
 - [ ] Get the path to show up
 - [ ] Get a background
