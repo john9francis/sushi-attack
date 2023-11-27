@@ -45,19 +45,37 @@ func _process(delta):
 		csButton.text = csButtonText + '\n'+ '$ ' + str(csValue)
 	else:
 		csButton.text = csButtonText
-		pass
+		
 		
 	if ssButton.is_hovered():
-		pass
+		ssButton.text = ssButtonText + '\n'+ '$ ' + str(ssValue)
+	else:
+		ssButton.text = ssButtonText
+		
+		
 	if gButton.is_hovered():
-		pass
+		gButton.text = gButtonText + '\n'+ '$ ' + str(gValue)
+	else:
+		gButton.text = gButtonText
+		
+		
 	if wButton.is_hovered():
-		pass
-	if sellButton.is_hovered():
-		pass
+		wButton.text = wButtonText + '\n'+ '$ ' + str(wValue)
+	else:
+		wButton.text = wButtonText
+		
+		
 	if upgradeButton.is_hovered():
-		pass
-	pass
+		upgradeButton.text = upgradeButtonText + '\n'+ '$ ' + str(upgradeValue)
+	else:
+		upgradeButton.text = upgradeButtonText
+		
+		
+	if sellButton.is_hovered():
+		sellButton.text = sellButtonText + '\n'+ '$ ' + str(sellValue)
+	else:
+		sellButton.text = sellButtonText
+
 
 
 func go_to_upgrade_gui():
@@ -98,67 +116,3 @@ func set_value(towerName, value):
 	else:
 		print("Set_value error in towerGUI")
 	
-
-
-
-func _on_cs_button_mouse_entered():
-	#csButton.text = csButtonText + '\n' + "$ " + str(csValue)
-	pass # Replace with function body.
-
-func _on_cs_button_mouse_exited():
-	#csButton.text = csButtonText
-	pass # Replace with function body.
-	
-	
-	
-func _on_ss_button_mouse_entered():
-	ssButton.text = ssButtonText + '\n' + "$ " + str(ssValue)
-	pass # Replace with function body.
-
-func _on_ss_button_mouse_exited():
-	ssButton.text = ssButtonText
-	pass # Replace with function body.
-	
-	
-	
-func _on_g_button_mouse_entered():
-	gButton.text = gButtonText + '\n' + "$ " + str(gValue)
-	pass # Replace with function body.
-
-func _on_g_button_mouse_exited():
-	gButton.text = gButtonText
-	pass # Replace with function body.
-	
-	
-	
-func _on_w_button_mouse_entered():
-	wButton.text = wButtonText + '\n' + "$ " + str(wValue)
-	pass # Replace with function body.
-
-func _on_w_button_mouse_exited():
-	wButton.text = wButtonText
-	pass # Replace with function body.
-	
-	
-
-
-func _on_upgrade_mouse_entered():
-	upgradeButton.text = upgradeButtonText + '\n' + "$ " + str(upgradeValue)
-	pass # Replace with function body.
-
-
-func _on_upgrade_mouse_exited():
-	upgradeButton.text = upgradeButtonText
-	pass # Replace with function body.
-
-
-
-
-func _on_sell_mouse_entered():
-	sellButton.text = sellButtonText + '\n' + "+ $ " + str(sellValue)
-	pass # Replace with function body.
-
-
-func _on_sell_mouse_exited():
-	sellButton.text = sellButtonText
-	pass # Replace with function body.
