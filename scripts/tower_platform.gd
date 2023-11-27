@@ -106,6 +106,7 @@ func _on_cs_button_pressed():
 	# Update the upgrade and sell buttons
 	towerGui.set_value("upgrade", upgradeCost)
 	towerGui.set_value("sell", CSTowerCost - refundTakeAway)
+	
 
 
 func _on_g_button_pressed():

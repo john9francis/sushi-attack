@@ -42,8 +42,9 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if csButton.is_hovered():
-		print("Hovering")
+		csButton.text = csButtonText + '\n'+ '$ ' + str(csValue)
 	else:
+		csButton.text = csButtonText
 		pass
 		
 	if ssButton.is_hovered():
@@ -101,11 +102,11 @@ func set_value(towerName, value):
 
 
 func _on_cs_button_mouse_entered():
-	csButton.text = csButtonText + '\n' + "$ " + str(csValue)
+	#csButton.text = csButtonText + '\n' + "$ " + str(csValue)
 	pass # Replace with function body.
 
 func _on_cs_button_mouse_exited():
-	csButton.text = csButtonText
+	#csButton.text = csButtonText
 	pass # Replace with function body.
 	
 	
