@@ -31,6 +31,8 @@ func _ready():
 func _process(_delta):
 	if health <= 0:
 		kill()
+		
+	# Play the correct anims
 
 func set_enemy_created_flag(t_or_false):
 	enemySetFlag = t_or_false
