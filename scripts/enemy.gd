@@ -41,6 +41,9 @@ func _process(_delta):
 	if currentHealth <= 0:
 		kill()
 		
+	# update progress bar
+	healthBar.value = currentHealth
+		
 	# Get the direction vector
 	var direction = Vector2(.5, .5)
 	
@@ -155,6 +158,10 @@ func get_anim_set_flag():
 func set_health(h):
 	health = h
 	currentHealth = health
+	
+	# update progress bar
+	$HealthBar.min_value = 0
+	$HealthBar.max_value = health
 	
 
 func set_colission_radius(value):
