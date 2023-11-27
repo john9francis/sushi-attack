@@ -108,6 +108,4 @@ offset_bottom = 40.0
 [connection signal="pressed" from="TowerGUI/platformGUI/GButton" to="." method="_on_g_button_pressed"]
 [connection signal="pressed" from="TowerGUI/platformGUI/WButton" to="." method="_on_w_button_pressed"]
 [connection signal="pressed" from="TowerGUI/upgradeGUI/Upgrade" to="." method="_on_upgrade_pressed"]
-[connection signal="mouse_entered" from="TowerGUI/upgradeGUI/Sell" to="TowerGUI" method="_on_sell_mouse_entered"]
-[connection signal="mouse_exited" from="TowerGUI/upgradeGUI/Sell" to="TowerGUI" method="_on_sell_mouse_exited"]
 [connection signal="pressed" from="TowerGUI/upgradeGUI/Sell" to="." method="_on_sell_pressed"]
