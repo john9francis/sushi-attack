@@ -23,7 +23,7 @@ var enemySetFlag = false
 
 signal resize_enemy_sprite
 
-var right = true
+var facingRight = true
 
 
 func _ready():
@@ -46,21 +46,63 @@ func _process(_delta):
 		
 		direction = (tracker.get_target_pos() - tracker.get_target_future_pos()).normalized()
 	
-	# Play the anim based on the direction of movement
-	if direction.x < -.8:
-		enemyAnim.play("right")
-		if !right:
+	# set our anim name
+	var animName = get_anim_name(direction)
+	
+	# handle the cases where we are moving left
+	# note: I do this so I don't have to make anims for the left-moving sprites,
+	# i just take the mirror image of the right-moving sprites.
+	if animName == "left":
+		animName = "right"
+		if facingRight:
+			facingRight = false
 			enemyAnim.scale.x = -enemyAnim.scale.x
-			right = true
-	elif direction.x > .8:
-		enemyAnim.play("right")
-		if right:
+		
+	elif animName == "left-up":
+		animName = "right-up"
+		if facingRight:
+			facingRight = false
 			enemyAnim.scale.x = -enemyAnim.scale.x
-			right = false
-	elif direction.y > .8:
-		enemyAnim.play("up")
-	elif direction.y < -.8:
-		enemyAnim.play("down")
+			
+	elif animName == "left-down":
+		animName = "right-down"
+		if facingRight:
+			facingRight = false
+			enemyAnim.scale.x = -enemyAnim.scale.x
+			
+	else:
+		if !facingRight:
+			facingRight = true
+			enemyAnim.scale.x = -enemyAnim.scale.x
+
+	# finally, play the correct anim
+	enemyAnim.play(animName)
+	
+
+func get_anim_name(direction: Vector2):
+	var anim_name = ""
+
+	var angle = direction.angle()
+
+	if angle < PI / 6 and angle > -PI / 6:
+		anim_name = "left"
+	elif angle > PI / 6 and angle < PI / 3:
+		anim_name = "left-up"
+	elif angle > PI / 3 and angle < 2 * PI / 3:
+		anim_name = "up"
+	elif angle > 2 * PI / 3 and angle < 5 * PI / 6:
+		anim_name = "right-up"
+	elif angle > 5 * PI / 6 or angle < -5 * PI / 6:
+		anim_name = "right"
+	elif angle > -5 * PI / 6 and angle < -2 * PI / 3:
+		anim_name = "right-down"
+	elif angle > -2 * PI / 3 and angle < -PI / 3:
+		anim_name = "down"
+	elif angle > -PI / 3 and angle < -PI / 6:
+		anim_name = "left-down"
+
+	return anim_name
+
 	
 
 func set_enemy_created_flag(t_or_false):
