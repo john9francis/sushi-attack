@@ -1,0 +1,46 @@
+[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://dfsms0cn4sakh"]
+
+[ext_resource type="Texture2D" uid="uid://chx7mkvg80jpn" path="res://Assets/rice_ball_down/sprite_0.png" id="1_vbqqq"]
+[ext_resource type="Texture2D" uid="uid://w3ltadxndhjg" path="res://Assets/rice_ball_down/sprite_1.png" id="2_46ar6"]
+[ext_resource type="Texture2D" uid="uid://ch222iqnixeg2" path="res://Assets/rice_ball_down/sprite_2.png" id="3_0kmuh"]
+[ext_resource type="Texture2D" uid="uid://c45cjfjh131yr" path="res://Assets/rice_ball_down/sprite_3.png" id="4_kp023"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_vbqqq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_46ar6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_0kmuh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_kp023")
+}],
+"loop": true,
+"name": &"down",
+"speed": 3.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"right",
+"speed": 3.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"right_down",
+"speed": 3.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"right_up",
+"speed": 3.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"up",
+"speed": 3.0
+}]

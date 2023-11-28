@@ -45,36 +45,37 @@ func _process(delta):
 		csButton.text = csButtonText + '\n'+ '$ ' + str(csValue)
 	else:
 		csButton.text = csButtonText
-		
-		
+
+
 	if ssButton.is_hovered():
 		ssButton.text = ssButtonText + '\n'+ '$ ' + str(ssValue)
 	else:
 		ssButton.text = ssButtonText
-		
-		
+
+
 	if gButton.is_hovered():
 		gButton.text = gButtonText + '\n'+ '$ ' + str(gValue)
 	else:
 		gButton.text = gButtonText
-		
-		
+
+
 	if wButton.is_hovered():
 		wButton.text = wButtonText + '\n'+ '$ ' + str(wValue)
 	else:
 		wButton.text = wButtonText
-		
-		
+
+
 	if upgradeButton.is_hovered():
 		upgradeButton.text = upgradeButtonText + '\n'+ '$ ' + str(upgradeValue)
 	else:
 		upgradeButton.text = upgradeButtonText
-		
-		
+
+
 	if sellButton.is_hovered():
 		sellButton.text = sellButtonText + '\n'+ '$ ' + str(sellValue)
 	else:
 		sellButton.text = sellButtonText
+	pass
 
 
 
