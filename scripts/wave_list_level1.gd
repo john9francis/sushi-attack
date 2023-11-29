@@ -15,10 +15,14 @@ const wave1 = [
 	},
 	{
 		"enemyName": "maki",
+		"amount": 3,
+		"timer": 2
+	},
+	{
+		"enemyName": "maki",
 		"amount": 5,
 		"timer": 2
 	}
-
 ]
 const wave_list = [wave1]
 

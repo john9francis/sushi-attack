@@ -32,8 +32,13 @@ const maki = {
 const rice_ball = {
 	"spriteFrames": preload("res://anims/rice_ball.tres"),
 	"speed": 1,
+<<<<<<< HEAD
 	"health": 15,
 	"reward": 20,
+=======
+	"health": 20,
+	"reward": 30,
+>>>>>>> e85c9f0124f878707e0466e2bc967e9f30f9da9d
 	"colissionRadius": 60
 }
 

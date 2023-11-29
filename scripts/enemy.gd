@@ -55,9 +55,6 @@ func _process(_delta):
 	var animName = get_correct_anim(get_anim_name(direction))
 	
 	
-
-	# finally, play the correct anim
-	enemyAnim.play(animName)
 	
 	
 	
