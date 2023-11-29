@@ -54,7 +54,7 @@ func _process(_delta):
 	# set our anim name
 	var animName = get_correct_anim(get_anim_name(direction))
 	
-	
+	enemyAnim.play(animName)
 	
 	
 	
