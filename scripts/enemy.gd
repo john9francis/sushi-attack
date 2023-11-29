@@ -29,7 +29,7 @@ var facingRight = true
 
 
 func _ready():
-	enemyAnim.play("right-down")
+	#enemyAnim.play("right-down")
 	emit_signal("resize_enemy_sprite")
 	
 	# set the tracker to this enemy so we can get it's velocity
@@ -187,6 +187,8 @@ func set_sprite_size():
 	
 		enemyAnim.set_scale(spriteScale)
 		
+		# put the health bar above the sprite
+		healthBar.position.y = - collisionWidth / 2 - 10
 	
 func set_path_follow(pathFollow):
 	myPathFollow = pathFollow
