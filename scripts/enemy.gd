@@ -152,6 +152,7 @@ func set_anim(preloadedFrames):
 	animSet = true
 	pass
 	
+	
 func get_anim_set_flag():
 	return animSet
 	
