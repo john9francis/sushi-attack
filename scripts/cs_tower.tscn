@@ -51,12 +51,16 @@ texture = SubResource("CanvasTexture_gs2a5")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CS_Hand/HandArea"]
 shape = SubResource("CircleShape2D_xk58y")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-6, -21)
+[node name="csTowerSprite" type="Sprite2D" parent="."]
+position = Vector2(1, -19)
 scale = Vector2(0.255623, 0.251701)
 texture = ExtResource("3_1p3eg")
+
+[node name="ChangeDirectionTimer" type="Timer" parent="."]
+wait_time = 10.0
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_area_exited"]
 [connection signal="timeout" from="KillMobTimer" to="." method="_on_kill_mob_timer_timeout"]
 [connection signal="area_entered" from="CS_Hand/HandArea" to="." method="_on_hand_area_area_entered"]
+[connection signal="timeout" from="ChangeDirectionTimer" to="." method="_on_change_direction_timer_timeout"]

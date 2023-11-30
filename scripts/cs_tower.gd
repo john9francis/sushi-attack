@@ -16,6 +16,11 @@ var handAtRest
 
 var blankTexture
 
+var spriteScale
+
+@onready var changeDirectionTimer = $ChangeDirectionTimer
+@onready var csTowerSprite = $csTowerSprite
+
 
 func _ready():
 	# disable handArea RB collisions, it's only for setting linear velocity
@@ -24,9 +29,7 @@ func _ready():
 	handSpeed = 100
 	killMobTime = 5
 	
-	blankTexture = $CS_Hand/Sprite2D.get_texture()
-	$CS_Hand/Sprite2D.set_texture(blankTexture)
-	
+	# Tracker settings
 	readyToKill = true
 	enemyTracked = false
 	handAtRest = true
@@ -40,6 +43,11 @@ func _ready():
 	$CS_Connector2.set_point_position(1, $CS_Hand.position)
 	
 	# Setup the sprite
+	spriteScale = $csTowerSprite.scale
+	print(spriteScale)
+	
+	changeDirectionTimer.start(randf() * 10)
+
 
 
 func _process(delta):
@@ -134,3 +142,9 @@ func _on_hand_area_area_entered(area):
 	pass # Replace with function body.
 
 
+
+
+func _on_change_direction_timer_timeout():
+	csTowerSprite.scale.x *= -1
+	
+	changeDirectionTimer.start(randf()*10)
