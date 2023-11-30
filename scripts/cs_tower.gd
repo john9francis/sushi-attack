@@ -38,6 +38,8 @@ func _ready():
 	$CS_Connector.set_point_position(1, $CS_Hand.position)
 	$CS_Connector2.set_point_position(0, Vector2())
 	$CS_Connector2.set_point_position(1, $CS_Hand.position)
+	
+	# Setup the sprite
 
 
 func _process(delta):

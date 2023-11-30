@@ -2,11 +2,10 @@
 
 [ext_resource type="Script" path="res://scripts/cs_tower.gd" id="1_jvirs"]
 [ext_resource type="PackedScene" uid="uid://dy24dsqxtdl4w" path="res://scripts/tracker.tscn" id="2_tb1pc"]
+[ext_resource type="Texture2D" uid="uid://d3dtr2j20kt2q" path="res://Assets/towers/cs_tower/sprite_0.png" id="3_1p3eg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ewmki"]
 radius = 180.069
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_sle01"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_t66ib"]
 radius = 49.0408
@@ -23,11 +22,6 @@ TrackerScene = ExtResource("2_tb1pc")
 [node name="cs_range" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_ewmki")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0.203922, 0.258824, 0.752941, 0.407843)
-scale = Vector2(129.844, 128.406)
-texture = SubResource("CanvasTexture_sle01")
-
 [node name="KillMobTimer" type="Timer" parent="."]
 wait_time = 5.0
 one_shot = true
@@ -35,10 +29,12 @@ one_shot = true
 [node name="CS_Connector" type="Line2D" parent="."]
 points = PackedVector2Array(-1, 0, -1, -53)
 width = 5.0
+default_color = Color(0.972549, 0.768627, 0.415686, 1)
 
 [node name="CS_Connector2" type="Line2D" parent="."]
 points = PackedVector2Array(-1, 0, -1, -53)
 width = 5.0
+default_color = Color(0.972549, 0.768627, 0.415686, 1)
 
 [node name="CS_Hand" type="RigidBody2D" parent="."]
 position = Vector2(0, -50)
@@ -54,6 +50,11 @@ texture = SubResource("CanvasTexture_gs2a5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CS_Hand/HandArea"]
 shape = SubResource("CircleShape2D_xk58y")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-6, -21)
+scale = Vector2(0.255623, 0.251701)
+texture = ExtResource("3_1p3eg")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_area_exited"]
