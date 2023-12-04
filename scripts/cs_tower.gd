@@ -26,6 +26,15 @@ enum State {READY, MOVING, HAS_ENEMY, NOT_READY}
 var previousState;
 var currentState;
 
+var anims = [
+	preload("res://anims/cs_tower.tres"),
+	preload("res://anims/cs_tower_up1.tres"),
+	preload("res://anims/cs_tower_up2.tres")
+]
+
+var currentAnimIndx = 0
+
+
 func _ready():
 	# disable handArea RB collisions, it's only for setting linear velocity
 	$CS_Hand/CollisionShape2D.disabled = true
@@ -127,6 +136,10 @@ func upgrade():
 	handSpeed *= 1.5
 	killMobTime *= .75
 	$cs_range.apply_scale(Vector2(1.25,1.25))
+	
+	currentAnimIndx += 1
+	set_tower_anim(anims[currentAnimIndx])
+	
 	pass
 
 
@@ -139,6 +152,12 @@ func set_sprite_size():
 		collisionWidth / spriteTexture.get_height())
 	
 	towerAnim.set_scale(spriteScale)
+	
+
+func set_tower_anim(newAnim):
+	towerAnim.sprite_frames = newAnim
+	pass
+	
 
 
 func _on_kill_mob_timer_timeout():
