@@ -19,12 +19,19 @@ var blankTexture
 var spriteScale
 
 @onready var changeDirectionTimer = $ChangeDirectionTimer
-@onready var csTowerSprite = $csTowerSprite
+@onready var towerSize = $TowerSize
+@onready var towerAnim = $TowerAnim
 
+enum State {READY, MOVING, NOT_READY}
+var previousState;
+var currentState;
 
 func _ready():
 	# disable handArea RB collisions, it's only for setting linear velocity
 	$CS_Hand/CollisionShape2D.disabled = true
+	
+	set_sprite_size()
+	towerAnim.play("ready")
 	
 	handSpeed = 100
 	killMobTime = 5
@@ -42,9 +49,6 @@ func _ready():
 	$CS_Connector2.set_point_position(0, Vector2())
 	$CS_Connector2.set_point_position(1, $CS_Hand.position)
 	
-	# Setup the sprite
-	spriteScale = $csTowerSprite.scale
-	print(spriteScale)
 	
 	changeDirectionTimer.start(randf() * 10)
 
@@ -84,7 +88,17 @@ func upgrade():
 	killMobTime *= .75
 	$cs_range.apply_scale(Vector2(1.25,1.25))
 	pass
+
+
+func set_sprite_size():
+	# Set the sprite size to match the colissionbox size
+	var collisionWidth = towerSize.shape.get_radius() * 2
+	var spriteTexture = towerAnim.sprite_frames.get_frame_texture("ready",0)
+	var spriteScale = 1.1 * Vector2(
+		collisionWidth / spriteTexture.get_width(), 
+		collisionWidth / spriteTexture.get_height())
 	
+	towerAnim.set_scale(spriteScale)
 
 
 func _on_kill_mob_timer_timeout():
@@ -145,6 +159,6 @@ func _on_hand_area_area_entered(area):
 
 
 func _on_change_direction_timer_timeout():
-	csTowerSprite.scale.x *= -1
+	towerAnim.scale.x *= -1
 	
 	changeDirectionTimer.start(randf()*10)
