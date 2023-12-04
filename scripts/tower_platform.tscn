@@ -6,11 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://biyqmibg8ipx5" path="res://scripts/g_tower.tscn" id="4_4divu"]
 [ext_resource type="PackedScene" uid="uid://dn63r1k685s4w" path="res://scripts/w_tower.tscn" id="5_c4yr2"]
 [ext_resource type="Script" path="res://scripts/TowerGUI.gd" id="6_mqmgq"]
+[ext_resource type="Texture2D" uid="uid://bu2680x812dcl" path="res://Assets/towers/plate.png" id="6_vqdkd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4g0tv"]
 radius = 114.018
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_yabk0"]
 
 [node name="towerPlatform" type="Area2D" groups=["TowerPlatforms"]]
 script = ExtResource("1_8yudi")
@@ -24,9 +23,9 @@ position = Vector2(5, 2)
 shape = SubResource("CircleShape2D_4g0tv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(1, 5.5)
-scale = Vector2(100, 93)
-texture = SubResource("CanvasTexture_yabk0")
+position = Vector2(0, 14)
+scale = Vector2(0.523438, 0.530273)
+texture = ExtResource("6_vqdkd")
 
 [node name="TowerGUI" type="Control" parent="."]
 layout_mode = 3
