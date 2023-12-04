@@ -22,7 +22,7 @@ var spriteScale
 @onready var towerSize = $TowerSize
 @onready var towerAnim = $TowerAnim
 
-enum State {READY, MOVING, NOT_READY}
+enum State {READY, MOVING, HAS_ENEMY, NOT_READY}
 var previousState;
 var currentState;
 
@@ -32,6 +32,8 @@ func _ready():
 	
 	set_sprite_size()
 	towerAnim.play("ready")
+	previousState = State.READY
+	currentState = State.READY
 	
 	handSpeed = 100
 	killMobTime = 5
@@ -66,21 +68,56 @@ func _process(delta):
 		
 		
 	if (global_position - $CS_Hand.global_position).length() >= Vector2(handSpeed/50,handSpeed/50).length():
+		# the case where the hand is moving back to spawn
 		move_hand(direction)
+		if currentState != State.MOVING:
+			currentState = State.MOVING
+			
 	else:
+		# the case where the hand is not moving
 		move_hand(Vector2())
+		if !readyToKill:
+			currentState = State.NOT_READY
+		else:
+			currentState = State.READY
 		
+		
+	# the case where it's chasing the enemy
 	if readyToKill and enemyToKillPos != null:
 		direction = (enemyToKillPos - $CS_Hand.global_position).normalized()
 		move_hand(direction)
+		if currentState != State.MOVING:
+			currentState = State.MOVING
+			
 		
 		
-	# Make the chopsticks follow the tracker
+	# Make the visual chopsticks follow the tracker
 	var cs1pos = $CS_Hand.position - 15*Vector2(-direction.x, direction.y)
 	var cs2pos = $CS_Hand.position - 15*Vector2(direction.x, -direction.y)
 	$CS_Connector.set_point_position(1, cs1pos)
 	$CS_Connector2.set_point_position(1, cs2pos)
 	
+	
+	# update the anim based on the enum
+	if currentState != previousState:
+		change_anim(currentState)
+		previousState = currentState
+		pass
+	
+
+func change_anim(newEnum):
+	var animName = ""
+	
+	if newEnum == State.READY:
+		animName = "ready"
+		
+	elif newEnum == State.NOT_READY:
+		animName = "not_ready"
+		
+	elif newEnum == State.MOVING:
+		animName = "moving"
+		
+	towerAnim.play(animName)
 
 	
 func upgrade():
@@ -103,6 +140,9 @@ func set_sprite_size():
 
 func _on_kill_mob_timer_timeout():
 	readyToKill = true
+	
+	# update the enum
+	currentState = State.READY
 	
 	#reactivate handArea colissions
 	$CS_Hand/HandArea/CollisionShape2D.disabled = false
