@@ -78,6 +78,9 @@ func _process(delta):
 		move_hand(Vector2())
 		if !readyToKill:
 			currentState = State.NOT_READY
+			
+			# make sure the chopstick hand doesn't have the sushi sprite
+			$CS_Hand/Sprite2D.set_texture(blankTexture)
 		else:
 			currentState = State.READY
 		
