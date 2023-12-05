@@ -4,6 +4,9 @@ extends Area2D
 @export var ExplosionScene: PackedScene
 @export var TrackerScene: PackedScene
 
+@onready var towerAnim = $wTowerAnim
+@onready var towerSize = $TowerSize
+
 var secondsToImpact
 var bulletList = []
 
@@ -21,7 +24,10 @@ func _ready():
 	$ShootTimer.wait_time = shootTime
 	
 	secondsToImpact = 1
-	pass # Replace with function body.
+	
+	set_anim_scale()
+	towerAnim.play("idle")
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -33,6 +39,17 @@ func _process(delta):
 	else:
 		$ShootTimer.stop()
 	pass
+	
+
+func set_anim_scale():
+	# Set the sprite size to match the colissionbox size
+	var collisionWidth = towerSize.shape.get_radius() * 2
+	var spriteTexture = towerAnim.sprite_frames.get_frame_texture("idle",0)
+	var spriteScale = 1.1 * Vector2(
+		collisionWidth / spriteTexture.get_width(), 
+		collisionWidth / spriteTexture.get_height())
+	
+	towerAnim.set_scale(spriteScale)
 
 
 func upgrade():
