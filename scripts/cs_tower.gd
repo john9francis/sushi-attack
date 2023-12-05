@@ -39,6 +39,8 @@ func _ready():
 	# disable handArea RB collisions, it's only for setting linear velocity
 	$CS_Hand/CollisionShape2D.disabled = true
 	
+	currentAnimIndx = 0
+	
 	set_sprite_size()
 	towerAnim.play("ready")
 	previousState = State.READY

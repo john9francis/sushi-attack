@@ -19,8 +19,19 @@ var enemyList = []
 var shootTime
 var stopAnimFlag = false
 
+var anims = [
+	preload("res://anims/w_tower.tres"),
+	preload("res://anims/w_tower_up1.tres"),
+	preload("res://anims/w_tower_up2.tres")
+]
+
+var currentAnimIndx = 0
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
+	currentAnimIndx = 0
+	
 	tracker = TrackerScene.instantiate()
 	add_child(tracker)
 	
@@ -86,7 +97,13 @@ func upgrade():
 	shootTime *= .85
 	$ShootTimer.wait_time = shootTime
 	$CollisionShape2D.apply_scale(Vector2(1.1,1.1))
-	pass
+	
+	currentAnimIndx += 1
+	set_tower_anim(anims[currentAnimIndx])
+	
+
+func set_tower_anim(newAnim):
+	towerAnim.sprite_frames = newAnim
 
 
 func _on_area_entered(area):
