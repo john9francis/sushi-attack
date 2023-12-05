@@ -1,22 +1,25 @@
-[gd_scene load_steps=4 format=3 uid="uid://djnu4nstia70d"]
+[gd_scene load_steps=5 format=3 uid="uid://djnu4nstia70d"]
 
 [ext_resource type="Script" path="res://scripts/ss_tower.gd" id="1_ket2d"]
+[ext_resource type="Script" path="res://scripts/ss_colission_shape.gd" id="2_uluiu"]
+[ext_resource type="SpriteFrames" uid="uid://b4852oggbymx6" path="res://anims/ss_puddle.tres" id="3_24r0b"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2a3g2"]
 radius = 179.025
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_6dy65"]
-
 [node name="SSTower" type="Area2D" groups=["SSTowers", "Towers"]]
 script = ExtResource("1_ket2d")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="SlownessArea" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_2a3g2")
+script = ExtResource("2_uluiu")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0.00392157, 0.164706, 0.0470588, 0.396078)
-scale = Vector2(350.75, 349.875)
-texture = SubResource("CanvasTexture_6dy65")
+[node name="ssPuddleAnim" type="AnimatedSprite2D" parent="SlownessArea"]
+sprite_frames = ExtResource("3_24r0b")
+animation = &"spread_out"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_area_exited"]
+[connection signal="animation_finished" from="SlownessArea/ssPuddleAnim" to="SlownessArea" method="_on_ss_puddle_anim_animation_finished"]

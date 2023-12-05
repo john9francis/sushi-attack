@@ -28,6 +28,7 @@ scale = Vector2(0.523438, 0.530273)
 texture = ExtResource("6_vqdkd")
 
 [node name="TowerGUI" type="Control" parent="."]
+z_index = 4
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
