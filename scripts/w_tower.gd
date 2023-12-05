@@ -69,8 +69,8 @@ func set_shoot_anim_in_motion():
 	# set the anim speed so it ends right as we shoot
 	set_animation_duration(shootTime - reducedShootTime)
 	animStartTimer.start(reducedShootTime)
-	print(reducedShootTime)
 	pass
+
 
 func set_animation_duration(durationSeconds):
 	var frame_count = 8.0
@@ -100,6 +100,9 @@ func upgrade():
 	
 	currentAnimIndx += 1
 	set_tower_anim(anims[currentAnimIndx])
+	
+	# make it a little bigger
+	towerAnim.set_scale(towerAnim.scale * 1.2)
 	
 
 func set_tower_anim(newAnim):
