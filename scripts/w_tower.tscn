@@ -32,6 +32,9 @@ script = ExtResource("5_ipm0x")
 sprite_frames = ExtResource("6_e4thf")
 animation = &"idle"
 
+[node name="AnimStartTimer" type="Timer" parent="wTowerAnim"]
+one_shot = true
+
 [node name="TowerSize" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_6whwp")
 
@@ -39,3 +42,4 @@ shape = SubResource("CircleShape2D_6whwp")
 [connection signal="area_exited" from="." to="." method="_on_area_exited"]
 [connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]
 [connection signal="explosion_timer_timeout" from="ExplodeTimerManager" to="." method="_on_explode_timer_manager_explosion_timer_timeout"]
+[connection signal="timeout" from="wTowerAnim/AnimStartTimer" to="." method="_on_anim_start_timer_timeout"]

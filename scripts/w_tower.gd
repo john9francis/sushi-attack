@@ -7,6 +7,9 @@ extends Area2D
 @onready var towerAnim = $wTowerAnim
 @onready var towerSize = $TowerSize
 
+# for starting the anim one second before the bullet goes off
+@onready var animStartTimer = $wTowerAnim/AnimStartTimer
+
 var secondsToImpact
 var bulletList = []
 
@@ -14,6 +17,7 @@ var tracker
 var enemyList = []
 
 var shootTime
+var stopAnimFlag = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -36,10 +40,35 @@ func _process(delta):
 		tracker.set_area(enemyList[0])
 		if $ShootTimer.is_stopped():
 			$ShootTimer.start(shootTime)
+			
+			stopAnimFlag = false
+			set_shoot_anim_in_motion()
 	else:
+		stopAnimFlag = true
 		$ShootTimer.stop()
 	pass
 	
+	
+func set_shoot_anim_in_motion():
+	var reducedShootTime = shootTime - .5
+	if reducedShootTime <= 0:
+		reducedShootTime = .1
+		
+	# set the anim speed so it ends right as we shoot
+	set_animation_duration(shootTime - reducedShootTime)
+	animStartTimer.start(reducedShootTime)
+	print(reducedShootTime)
+	pass
+
+func set_animation_duration(durationSeconds):
+	var frame_count = 8.0
+
+	# Calculate frames per second to achieve the desired duration
+	var fps = frame_count / durationSeconds
+
+	# Set the animation speed
+	towerAnim.sprite_frames.set_animation_speed("shooting", fps)
+
 
 func set_anim_scale():
 	# Set the sprite size to match the colissionbox size
@@ -97,6 +126,10 @@ func _on_shoot_timer_timeout():
 	bulletList.append(bullet)
 	add_child(bullet)
 	$ExplodeTimerManager.start_explosion_timer(secondsToImpact)
+	
+	# set the anim in motion if there will be another shot after
+	if !stopAnimFlag:
+		set_shoot_anim_in_motion()
 
 
 
@@ -111,3 +144,8 @@ func _on_explode_timer_manager_explosion_timer_timeout():
 	
 	bulletList[0].queue_free()
 	bulletList.erase(bulletList[0])
+
+
+func _on_anim_start_timer_timeout():
+	towerAnim.play("shooting")
+	pass # Replace with function body.

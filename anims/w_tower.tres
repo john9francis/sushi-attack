@@ -15,7 +15,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("1_rhayp")
 }],
-"loop": true,
+"loop": false,
 "name": &"idle",
 "speed": 5.0
 }, {
@@ -44,7 +44,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("8_kexlm")
 }],
-"loop": true,
+"loop": false,
 "name": &"shooting",
-"speed": 5.0
+"speed": 10.0
 }]
