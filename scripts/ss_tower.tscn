@@ -1,11 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://djnu4nstia70d"]
+[gd_scene load_steps=8 format=3 uid="uid://djnu4nstia70d"]
 
 [ext_resource type="Script" path="res://scripts/ss_tower.gd" id="1_ket2d"]
 [ext_resource type="Script" path="res://scripts/ss_colission_shape.gd" id="2_uluiu"]
 [ext_resource type="SpriteFrames" uid="uid://b4852oggbymx6" path="res://anims/ss_puddle.tres" id="3_24r0b"]
+[ext_resource type="Script" path="res://scripts/ss_tower_size.gd" id="4_gpis0"]
+[ext_resource type="SpriteFrames" uid="uid://dutt5of6pi7uy" path="res://anims/ss_tower.tres" id="5_vfkth"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2a3g2"]
 radius = 179.025
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rvdii"]
+radius = 84.0238
 
 [node name="SSTower" type="Area2D" groups=["SSTowers", "Towers"]]
 script = ExtResource("1_ket2d")
@@ -18,7 +23,14 @@ script = ExtResource("2_uluiu")
 sprite_frames = ExtResource("3_24r0b")
 animation = &"spread_out"
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="towerSize" type="CollisionShape2D" parent="."]
+position = Vector2(0, -25)
+shape = SubResource("CircleShape2D_rvdii")
+script = ExtResource("4_gpis0")
+
+[node name="towerAnim" type="AnimatedSprite2D" parent="towerSize"]
+sprite_frames = ExtResource("5_vfkth")
+animation = &"idle"
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_area_exited"]
