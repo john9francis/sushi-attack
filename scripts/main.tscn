@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bgtvxbdu2qdf0"]
+[gd_scene load_steps=18 format=3 uid="uid://bgtvxbdu2qdf0"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_t84td"]
 [ext_resource type="Script" path="res://scripts/main_gui.gd" id="2_0041v"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://bjmnpu7wnltbn" path="res://scripts/wave_list.tscn" id="7_aicbi"]
 [ext_resource type="PackedScene" uid="uid://c8tq0ppoe2tb0" path="res://scripts/towerPlatform.tscn" id="7_nk2cg"]
 [ext_resource type="Script" path="res://scripts/wave_list_level1.gd" id="8_5euaa"]
+[ext_resource type="Script" path="res://scripts/test_wave_list.gd" id="15_su6re"]
 
 [sub_resource type="Curve2D" id="Curve2D_so0ni"]
 _data = {
@@ -281,7 +282,7 @@ script = ExtResource("8_5euaa")
 curve = SubResource("Curve2D_oimvl")
 
 [node name="WaveList" parent="LevelDirector/LevelRunner/LevelSetup/Test Level" instance=ExtResource("7_aicbi")]
-script = ExtResource("8_5euaa")
+script = ExtResource("15_su6re")
 
 [node name="towerPlatform7" parent="LevelDirector/LevelRunner/LevelSetup/Test Level" instance=ExtResource("7_nk2cg")]
 position = Vector2(644, 492)

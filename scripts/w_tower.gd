@@ -46,6 +46,7 @@ func _process(delta):
 	else:
 		stopAnimFlag = true
 		$ShootTimer.stop()
+		animStartTimer.stop()
 	pass
 	
 	
