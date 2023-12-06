@@ -18,8 +18,8 @@ var enemiesOnScreen = 0
 
 var currentWave;
 
-@onready var moneyLabel = $MoneyLabel
-@onready var livesLabel = $LivesLabel
+@onready var moneyLabel = $hudPanel/MoneyLabel
+@onready var livesLabel = $hudPanel/LivesLabel
 
 var money = 150
 var lives = 5
