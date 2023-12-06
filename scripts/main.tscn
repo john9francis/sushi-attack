@@ -239,6 +239,7 @@ offset_right = 906.0
 offset_bottom = 47.0
 
 [node name="MoneyLabel" type="Label" parent="LevelDirector/LevelRunner/hudPanel"]
+layout_mode = 0
 offset_left = 725.0
 offset_top = 15.0
 offset_right = 787.0
@@ -246,11 +247,28 @@ offset_bottom = 41.0
 text = "Money: "
 
 [node name="LivesLabel" type="Label" parent="LevelDirector/LevelRunner/hudPanel"]
+layout_mode = 0
 offset_left = 624.0
 offset_top = 14.0
 offset_right = 672.0
 offset_bottom = 40.0
 text = "Lives: "
+
+[node name="ProgressBar" type="ProgressBar" parent="LevelDirector/LevelRunner/hudPanel"]
+layout_mode = 0
+offset_left = 332.0
+offset_top = 12.0
+offset_right = 602.0
+offset_bottom = 39.0
+show_percentage = false
+
+[node name="WavesLabel" type="Label" parent="LevelDirector/LevelRunner/hudPanel/ProgressBar"]
+layout_mode = 0
+offset_left = 101.0
+offset_top = 1.0
+offset_right = 177.0
+offset_bottom = 27.0
+text = "Wave: 0/0"
 
 [node name="EnemySpawnTimer" type="Timer" parent="LevelDirector/LevelRunner"]
 one_shot = true
