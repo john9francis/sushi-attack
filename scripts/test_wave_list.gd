@@ -9,12 +9,33 @@ const base_wave_entry = {
 # Setting up our enemy waves
 const wave1 = [
 	{
-		"enemyName": "rice_ball",
-		"amount": 5,
-		"timer": 10
+		"enemyName": "maki",
+		"amount": 2,
+		"timer": 1
 	}
 ]
-const wave_list = [wave1]
+const wave2 = [
+	{
+		"enemyName": "maki",
+		"amount": 3,
+		"timer": 1
+	}
+]
+const wave3 = [
+	{
+		"enemyName": "maki",
+		"amount": 5,
+		"timer": 1
+	}
+]
+const wave4 = [
+	{
+		"enemyName": "maki",
+		"amount": 2,
+		"timer": 1
+	}
+]
+const wave_list = [wave1, wave2, wave3, wave4]
 
 
 # Called when the node enters the scene tree for the first time.

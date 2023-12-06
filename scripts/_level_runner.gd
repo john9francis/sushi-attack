@@ -42,6 +42,7 @@ func _ready():
 	update_labels()
 	progressBar.hide()
 	readyNextWaveButton.hide()
+	enemiesPerWave.clear()
 
 
 func _process(delta):
@@ -192,6 +193,8 @@ func _on_enemy_spawn_timer_timeout():
 		print("Wave ended")
 		
 		currentWave += 1
+		progressBar.hide()
+		
 
 		# if this was the last wave, end here
 		if currentWave == sequentialWaves.size():
@@ -201,7 +204,6 @@ func _on_enemy_spawn_timer_timeout():
 		else:
 			waveTimer.start(10)
 			# hide the progress bar and show the ready button
-			progressBar.hide()
 			if (currentWave != totalWaves):
 				print(currentWave + 1, totalWaves)
 				readyNextWaveButton.show()
@@ -262,6 +264,7 @@ func reset():
 	
 	progressBar.hide()
 	progressBar.value = 0
+	enemiesPerWave.clear()	
 	
 	sequentialWaves = setup_sequential_waves(waveList)
 	
