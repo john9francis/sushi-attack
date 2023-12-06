@@ -18,11 +18,13 @@ var enemiesOnScreen = 0
 
 var currentWave
 var totalWaves
+var enemiesPerWave = []
 
 @onready var moneyLabel = $hudPanel/MoneyLabel
 @onready var livesLabel = $hudPanel/LivesLabel
 @onready var progressBar = $hudPanel/ProgressBar
 @onready var wavesLabel = $hudPanel/ProgressBar/WavesLabel
+@onready var readyNextWaveButton = $hudPanel/ReadyNextWave
 
 var money = 150
 var lives = 5
@@ -39,6 +41,7 @@ signal success_signal
 func _ready():
 	update_labels()
 	progressBar.hide()
+	readyNextWaveButton.hide()
 
 
 func _process(delta):
@@ -136,6 +139,7 @@ func setup_sequential_waves(nonSequentialWaves):
 				s_wave.append(enemyTimer)
 		
 		_sequential_waves.append(s_wave)
+		enemiesPerWave.append(s_wave.size() / 2)
 		
 	return _sequential_waves
 	
@@ -146,11 +150,16 @@ func start_game():
 	currentWave = 0
 	enemySpawnTimer.start(1)
 	
-	progressBar.show()
-	set_progress_bar_to_wave(currentWave + 1)
+	set_progress_bar_to_wave(currentWave)
 
 func set_progress_bar_to_wave(currentWave):
-	wavesLabel.text = "Wave: " + str(currentWave) + "/" + str(totalWaves)
+	progressBar.show()
+	wavesLabel.text = "Wave: " + str(currentWave + 1) + "/" + str(totalWaves)
+	
+	progressBar.value = 0
+	
+	progressBar.min_value = 0
+	progressBar.max_value = enemiesPerWave[currentWave]
 	pass
 
 func _on_enemy_spawn_timer_timeout():
@@ -191,19 +200,28 @@ func _on_enemy_spawn_timer_timeout():
 		# Otherwise, start the next wave:
 		else:
 			waveTimer.start(10)
+			# hide the progress bar and show the ready button
+			progressBar.hide()
+			if (currentWave != totalWaves):
+				print(currentWave + 1, totalWaves)
+				readyNextWaveButton.show()
+			
 			
 	# If there's more enemies, start the enemyTimer again
 	else:
 		enemySpawnTimer.start(randf() + delayTime)
 		
 	
-		
+	# add one to the progress of the progressBar
+	progressBar.value += 1
 		
 
 
 func _on_wave_timer_timeout():
 	print("Next wave started!")
 	enemySpawnTimer.start(1)
+	set_progress_bar_to_wave(currentWave)
+	readyNextWaveButton.hide()
 	pass # Replace with function body.
 	
 	
@@ -241,6 +259,9 @@ func reset():
 	money = 150
 	lives = 5
 	currentWave = 0
+	
+	progressBar.hide()
+	progressBar.value = 0
 	
 	sequentialWaves = setup_sequential_waves(waveList)
 	
@@ -284,3 +305,10 @@ func enemy_joining():
 func enemy_leaving():
 	enemiesOnScreen -= 1
 	pass
+
+
+func _on_ready_next_wave_pressed():
+	waveTimer.stop()
+	waveTimer.start(.1)
+	lives += 1
+	pass # Replace with function body.

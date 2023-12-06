@@ -24,7 +24,19 @@ const wave1 = [
 		"timer": 2
 	}
 ]
-const wave_list = [wave1]
+const wave2 = [
+	{
+		"enemyName": "maki",
+		"amount": 5,
+		"timer": 2
+	},
+	{
+		"enemyName": "rice_ball",
+		"amount": 5,
+		"timer": 2
+	}
+]
+const wave_list = [wave1, wave2]
 
 
 # Called when the node enters the scene tree for the first time.
