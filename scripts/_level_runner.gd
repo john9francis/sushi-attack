@@ -42,7 +42,6 @@ func _ready():
 	update_labels()
 	progressBar.hide()
 	readyNextWaveButton.hide()
-	enemiesPerWave.clear()
 
 
 func _process(delta):
@@ -69,6 +68,8 @@ func add_money(amount):
 	money += amount
 
 func set_premade_level(premadeLevelName):
+	
+	enemiesPerWave.clear()
 	
 	# set the level in our levelSetup
 	levelSetup.set_level(premadeLevelName)
