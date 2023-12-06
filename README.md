@@ -16,3 +16,4 @@ Test commit
 - [ ] Get lives looking like the happiness of grandma
 - [x] Get sushi rolls with health bars
 - [ ] Spruce up main menu, pause, game over, success menus
+- [ ] Redo the chopsticks skins
