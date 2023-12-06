@@ -1,5 +1,7 @@
 extends CollisionShape2D
 
+# WARNING: THIS IS USED FOR THE SS TOWER AND THE G TOWER
+
 @onready var towerAnim = $towerAnim
 
 # Called when the node enters the scene tree for the first time.

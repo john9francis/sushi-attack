@@ -10,6 +10,8 @@ var enemyList = []
 var shootSeconds
 var bulletSpeed
 
+@onready var towerAnim = $TowerSize/towerAnim
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
