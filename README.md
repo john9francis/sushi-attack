@@ -12,7 +12,8 @@ Test commit
 - [ ] Get the path to show up
 - [x] Get a background
 - [x] Get the towerPlatforms to look like plates
-- [ ] Get a wave bar showing up
+- [x] Get a wave bar showing up
 - [ ] Get lives looking like the happiness of grandma
 - [x] Get sushi rolls with health bars
 - [ ] Spruce up main menu, pause, game over, success menus
+- [ ] Redo the chopsticks skins
