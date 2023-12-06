@@ -16,10 +16,13 @@ var enemyDestinations = []
 
 var enemiesOnScreen = 0
 
-var currentWave;
+var currentWave
+var totalWaves
 
 @onready var moneyLabel = $hudPanel/MoneyLabel
 @onready var livesLabel = $hudPanel/LivesLabel
+@onready var progressBar = $hudPanel/ProgressBar
+@onready var wavesLabel = $hudPanel/ProgressBar/WavesLabel
 
 var money = 150
 var lives = 5
@@ -35,7 +38,7 @@ signal success_signal
 
 func _ready():
 	update_labels()
-	pass # Replace with function body.
+	progressBar.hide()
 
 
 func _process(delta):
@@ -105,6 +108,7 @@ func set_premade_level(premadeLevelName):
 	# Set up the sequential enemy list
 	waveList = levelSetup.get_wave_list()
 	sequentialWaves = setup_sequential_waves(waveList)
+	totalWaves = waveList.size()
 	
 	pass
 
@@ -142,7 +146,12 @@ func start_game():
 	currentWave = 0
 	enemySpawnTimer.start(1)
 	
+	progressBar.show()
+	set_progress_bar_to_wave(currentWave + 1)
 
+func set_progress_bar_to_wave(currentWave):
+	wavesLabel.text = "Wave: " + str(currentWave) + "/" + str(totalWaves)
+	pass
 
 func _on_enemy_spawn_timer_timeout():
 	# spawn enemy and set timer based on the sequential waves
