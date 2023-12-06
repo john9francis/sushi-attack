@@ -12,6 +12,14 @@ var bulletSpeed
 
 @onready var towerAnim = $TowerSize/towerAnim
 
+var anims = [
+	preload("res://anims/g_tower.tres"),
+	preload("res://anims/g_tower_up1.tres"),
+	preload("res://anims/g_tower_up2.tres")
+]
+
+var currentAnimIndx = 0
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -39,8 +47,15 @@ func _process(_delta):
 func upgrade():
 	shootSeconds *= .65
 	$ShootTimer.wait_time = shootSeconds
-	pass
+	
+	currentAnimIndx += 1
+	set_tower_anim(anims[currentAnimIndx])
+	
 
+
+func set_tower_anim(newAnim):
+	towerAnim.sprite_frames = newAnim
+	pass
 
 
 func _on_shoot_timer_timeout():
@@ -55,6 +70,8 @@ func _on_shoot_timer_timeout():
 	bullet.linear_velocity = direction * bulletSpeed
 	
 	add_child(bullet)
+	
+	towerAnim.play("shoot")
 	
 
 
@@ -71,3 +88,8 @@ func _on_area_exited(area):
 	if area.is_in_group("Enemies"):
 		if enemyList.has(area):
 			enemyList.erase(area)
+
+
+func _on_tower_anim_animation_finished():
+	towerAnim.play("idle")
+	pass # Replace with function body.
