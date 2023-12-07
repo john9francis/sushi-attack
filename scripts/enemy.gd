@@ -9,6 +9,8 @@ var myPathFollow
 @onready var healthBar = $HealthBar
 @onready var poisonAnim = $poisonAnim
 
+var green = Color.GREEN_YELLOW
+var black = Color.DIM_GRAY
 
 var speed = 1
 var currentSpeed = speed
