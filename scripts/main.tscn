@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bgtvxbdu2qdf0"]
+[gd_scene load_steps=20 format=3 uid="uid://bgtvxbdu2qdf0"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_t84td"]
 [ext_resource type="Script" path="res://scripts/main_gui.gd" id="2_0041v"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://b8p6r7fsli1iy" path="res://scripts/enemy_builder.tscn" id="4_712hn"]
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="4_dl0f3"]
 [ext_resource type="Script" path="res://scripts/level_setup.gd" id="5_5hr1g"]
+[ext_resource type="Script" path="res://scripts/level_camera.gd" id="7_3jyme"]
 [ext_resource type="PackedScene" uid="uid://cct1u3jmg1o3j" path="res://scripts/enemy_destination.tscn" id="7_8j4pn"]
 [ext_resource type="PackedScene" uid="uid://82eao7qodegu" path="res://scripts/tower_platform.tscn" id="7_ai1w8"]
 [ext_resource type="PackedScene" uid="uid://bjmnpu7wnltbn" path="res://scripts/wave_list.tscn" id="7_aicbi"]
@@ -224,6 +225,9 @@ text = "Reset"
 
 [node name="LevelDirector" type="Node2D" parent="." groups=["LevelDirector"]]
 script = ExtResource("2_trou7")
+
+[node name="LevelCamera" type="Camera2D" parent="LevelDirector"]
+script = ExtResource("7_3jyme")
 
 [node name="LevelRunner" type="Node2D" parent="LevelDirector" groups=["LevelRunner"]]
 script = ExtResource("3_w8geg")
