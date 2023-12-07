@@ -274,6 +274,7 @@ func clear_level():
 	waveList = []
 	sequentialWaves = []
 	enemyDestinations = []
+	visiblePaths = []
 	
 	pass
 
