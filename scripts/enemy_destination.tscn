@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://cct1u3jmg1o3j"]
+[gd_scene load_steps=4 format=3 uid="uid://cct1u3jmg1o3j"]
 
 [ext_resource type="Script" path="res://scripts/enemy_destination.gd" id="1_sup12"]
+[ext_resource type="Texture2D" uid="uid://cakjamgoamra0" path="res://Assets/table/angledEnemyDestPlate.png" id="2_l7ftc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_byijw"]
 size = Vector2(58, 45)
@@ -10,5 +11,9 @@ script = ExtResource("1_sup12")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_byijw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_l7ftc")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
