@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dbbij5u3up0gx"]
+[gd_scene load_steps=7 format=3 uid="uid://dbbij5u3up0gx"]
 
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_51noo"]
 [ext_resource type="PackedScene" uid="uid://yii2qodjd8c5" path="res://scripts/enemy_path_follow.tscn" id="2_miidg"]
 [ext_resource type="PackedScene" uid="uid://dy24dsqxtdl4w" path="res://scripts/tracker.tscn" id="3_2t238"]
+[ext_resource type="SpriteFrames" uid="uid://dvas24hm1mjep" path="res://anims/w_fire.tres" id="4_5ubr0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tg4ib"]
 radius = 43.0116
@@ -33,6 +34,12 @@ offset_right = 23.0
 offset_bottom = -44.0
 max_value = 1.0
 show_percentage = false
+
+[node name="poisonAnim" type="AnimatedSprite2D" parent="."]
+position = Vector2(-17, 6)
+scale = Vector2(0.368164, 0.368164)
+sprite_frames = ExtResource("4_5ubr0")
+animation = &"fire"
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,30 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://dvas24hm1mjep"]
+
+[ext_resource type="Texture2D" uid="uid://ds8oclaf2ew7s" path="res://Assets/towers/w_fire2/sprite_0.png" id="1_jg2yh"]
+[ext_resource type="Texture2D" uid="uid://bxpxmg2dynu0a" path="res://Assets/towers/w_fire2/sprite_1.png" id="2_wi61e"]
+[ext_resource type="Texture2D" uid="uid://bts02mwrukv6s" path="res://Assets/towers/w_fire2/sprite_2.png" id="3_b1jhb"]
+[ext_resource type="Texture2D" uid="uid://d0tyt3vreffyi" path="res://Assets/towers/w_fire2/sprite_3.png" id="4_i0ass"]
+[ext_resource type="Texture2D" uid="uid://b3lscjvgtk0mq" path="res://Assets/towers/w_fire2/sprite_4.png" id="5_24idf"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_jg2yh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_wi61e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_b1jhb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_i0ass")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_24idf")
+}],
+"loop": true,
+"name": &"fire",
+"speed": 5.0
+}]

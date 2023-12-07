@@ -7,6 +7,7 @@ var myPathFollow
 @onready var enemyHitbox = $CollisionShape2D
 @onready var tracker = $Tracker
 @onready var healthBar = $HealthBar
+@onready var poisonAnim = $poisonAnim
 
 
 var speed = 1
@@ -34,6 +35,9 @@ func _ready():
 	
 	# set the tracker to this enemy so we can get it's velocity
 	tracker.set_area(self)
+	
+	poisonAnim.hide()
+	poisonAnim.play("fire")
 	
 
 
@@ -231,6 +235,7 @@ func _on_area_entered(area):
 	if area.is_in_group("Explosions"):
 		poison_hits = 4
 		$PoisonTimer.start()
+		poisonAnim.show()
 
 
 func _on_poison_timer_timeout():
@@ -239,6 +244,7 @@ func _on_poison_timer_timeout():
 	
 	if poison_hits <= 0:
 		$PoisonTimer.stop()
+		poisonAnim.hide()
 
 
 
