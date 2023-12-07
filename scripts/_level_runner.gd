@@ -13,6 +13,7 @@ var towerPlatforms = []
 var waveList = []
 var sequentialWaves = []
 var enemyDestinations = []
+var visiblePaths = []
 
 var enemiesOnScreen = 0
 
@@ -80,7 +81,10 @@ func set_premade_level(premadeLevelName):
 	for path in premadeEnemyPaths:
 		var p = Path2D.new()
 		
-		p.set_curve(path.get_curve())
+		var c = path.get_curve()
+		p.set_curve(c)
+		
+		make_path_visible(c)
 		
 		enemyPaths.append(p)
 		add_child(p)
@@ -117,6 +121,21 @@ func set_premade_level(premadeLevelName):
 	
 	pass
 
+
+func make_path_visible(curve : Curve2D):
+	# makes the path visible by creating lines to connect all the points
+	
+	var curvePointPositions = []
+	
+	var visiblePath = Line2D.new()
+	
+	for i in range(curve.get_point_count()):
+		visiblePath.add_point(curve.get_point_position(i))
+
+	add_child(visiblePath)
+	visiblePaths.append(visiblePath)
+		
+	pass
 
 
 func setup_sequential_waves(nonSequentialWaves):
@@ -234,6 +253,8 @@ func clear_level():
 	
 	# Basically delete any added nodes
 	for i in enemyPaths:
+		i.queue_free()
+	for i in visiblePaths:
 		i.queue_free()
 	for i in towerPlatforms:
 		i.queue_free()
