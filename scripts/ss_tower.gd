@@ -28,6 +28,7 @@ func upgrade():
 func _on_area_entered(area):
 	if area.is_in_group("Enemies"):
 		area.multiply_speed(slownessFactor)
+		area.set_color(Color.DARK_SLATE_GRAY)
 		
 		if enemyList.size() == 0:
 			slownessArea.play_anim("spread_out")
@@ -40,6 +41,8 @@ func _on_area_entered(area):
 func _on_area_exited(area):
 	if area.is_in_group("Enemies"):
 		area.restore_speed()
+		area.set_color()
+		
 		if enemyList.has(area):
 			enemyList.erase(area)
 	

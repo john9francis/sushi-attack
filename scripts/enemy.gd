@@ -222,6 +222,9 @@ func restore_speed():
 	currentSpeed = speed
 	myPathFollow.set_speed(currentSpeed)
 	
+func set_color(color=baseColor):
+	enemyAnim.self_modulate = color
+	
 
 func get_enemy_texture():
 	return enemyAnim.sprite_frames.get_frame_texture("right-down",0)
