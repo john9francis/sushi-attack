@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cni2vyt8g032r"]
+[gd_scene load_steps=5 format=3 uid="uid://cni2vyt8g032r"]
 
 [ext_resource type="Script" path="res://scripts/explosion.gd" id="1_up0uv"]
+[ext_resource type="SpriteFrames" uid="uid://bohtthqua3ndr" path="res://anims/explosion.tres" id="2_5wiy7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8rhq5"]
 radius = 94.1488
@@ -14,6 +15,7 @@ script = ExtResource("1_up0uv")
 shape = SubResource("CircleShape2D_8rhq5")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 modulate = Color(0.517647, 1, 0.0588235, 0.454902)
 scale = Vector2(131.75, 133.25)
 texture = SubResource("CanvasTexture_55j28")
@@ -22,4 +24,11 @@ texture = SubResource("CanvasTexture_55j28")
 wait_time = 0.2
 one_shot = true
 
+[node name="explosionAnim" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -1)
+scale = Vector2(0.325195, 0.325195)
+sprite_frames = ExtResource("2_5wiy7")
+animation = &"explosion"
+
 [connection signal="timeout" from="DespawnTimer" to="." method="_on_despawn_timer_timeout"]
+[connection signal="animation_finished" from="explosionAnim" to="." method="_on_explosion_anim_animation_finished"]
