@@ -132,9 +132,13 @@ func make_path_visible(curve : Curve2D):
 	for i in range(curve.get_point_count()):
 		visiblePath.add_point(curve.get_point_position(i))
 
+	# set the visual look
+	visiblePath.set_width(40.0)
+	visiblePath.modulate = Color.TAN
+
 	add_child(visiblePath)
 	visiblePaths.append(visiblePath)
-		
+	
 	pass
 
 
