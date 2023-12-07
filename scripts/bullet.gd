@@ -1,6 +1,7 @@
 extends RigidBody2D
 
 var destination
+@onready var bulletSprite = $Sprite2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -12,6 +13,9 @@ func _process(delta):
 	if position == destination:
 		print("In destination")
 	pass
+
+func set_color(color):
+	bulletSprite.self_modulate = color
 
 
 func set_destination(vector):

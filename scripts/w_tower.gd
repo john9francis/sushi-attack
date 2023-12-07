@@ -146,6 +146,8 @@ func _on_shoot_timer_timeout():
 	
 	bulletList.append(bullet)
 	add_child(bullet)
+	bullet.set_color(Color.GREEN)
+	
 	$ExplodeTimerManager.start_explosion_timer(secondsToImpact)
 	
 	# set the anim in motion if there will be another shot after

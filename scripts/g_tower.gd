@@ -70,6 +70,7 @@ func _on_shoot_timer_timeout():
 	bullet.linear_velocity = direction * bulletSpeed
 	
 	add_child(bullet)
+	bullet.set_color(Color.HOT_PINK)
 	
 	towerAnim.play("shoot")
 	
