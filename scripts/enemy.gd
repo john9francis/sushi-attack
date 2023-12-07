@@ -11,6 +11,7 @@ var myPathFollow
 
 var green = Color.GREEN_YELLOW
 var black = Color.DIM_GRAY
+var baseColor
 
 var speed = 1
 var currentSpeed = speed
@@ -40,6 +41,8 @@ func _ready():
 	
 	poisonAnim.hide()
 	poisonAnim.play("fire")
+	
+	baseColor = $EnemyAnimation.self_modulate
 	
 
 
@@ -238,6 +241,7 @@ func _on_area_entered(area):
 		poison_hits = 4
 		$PoisonTimer.start()
 		poisonAnim.show()
+		enemyAnim.self_modulate = green
 
 
 func _on_poison_timer_timeout():
@@ -247,6 +251,7 @@ func _on_poison_timer_timeout():
 	if poison_hits <= 0:
 		$PoisonTimer.stop()
 		poisonAnim.hide()
+		enemyAnim.self_modulate = baseColor
 
 
 
