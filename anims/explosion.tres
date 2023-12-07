@@ -26,5 +26,5 @@ animations = [{
 }],
 "loop": false,
 "name": &"explosion",
-"speed": 6.0
+"speed": 8.0
 }]

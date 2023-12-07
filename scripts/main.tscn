@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bgtvxbdu2qdf0"]
+[gd_scene load_steps=20 format=3 uid="uid://bgtvxbdu2qdf0"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_t84td"]
 [ext_resource type="Script" path="res://scripts/main_gui.gd" id="2_0041v"]
@@ -14,12 +14,13 @@
 [ext_resource type="PackedScene" uid="uid://bjmnpu7wnltbn" path="res://scripts/wave_list.tscn" id="7_aicbi"]
 [ext_resource type="PackedScene" uid="uid://c8tq0ppoe2tb0" path="res://scripts/towerPlatform.tscn" id="7_nk2cg"]
 [ext_resource type="Script" path="res://scripts/wave_list_level1.gd" id="8_5euaa"]
+[ext_resource type="Texture2D" uid="uid://dppucllc8ur3a" path="res://Assets/table/path1.png" id="11_ehyon"]
 [ext_resource type="Texture2D" uid="uid://c613m2v84hj27" path="res://Assets/table/tablecloth3.png" id="11_xrl6a"]
 [ext_resource type="Script" path="res://scripts/test_wave_list.gd" id="15_su6re"]
 
 [sub_resource type="Curve2D" id="Curve2D_so0ni"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 253, 3, 0, 0, 0, 0, 249, 156, 0, 0, 0, 0, 249, 192, 0, 0, 0, 0, 262, 226, 0, 0, 0, 0, 289, 258, 0, 0, 0, 0, 328, 279, 0, 0, 0, 0, 691, 279, 0, 0, 0, 0, 743, 299, 0, 0, 0, 0, 784, 340, 0, 0, 0, 0, 809, 402, 0, 0, 0, 0, 807, 479, 0, 0, 0, 0, 795, 523, 0, 0, 0, 0, 756, 571, 0, 0, 0, 0, 699, 603, 0, 0, 0, 0, 321, 628, 0, 0, 0, 0, 249, 657, 0, 0, 0, 0, 233, 719, 0, 0, 0, 0, 228, 808, 0, 0, 0, 0, 226, 990)
+"points": PackedVector2Array(0, 0, 0, 0, 253, 3, 0, 0, 0, 0, 249, 156, 0, 0, 0, 0, 249, 192, 0, 0, 0, 0, 261, 244, 0, 0, 0, 0, 292, 280, 0, 0, 0, 0, 341, 304, 0, 0, 0, 0, 682, 334, 0, 0, 0, 0, 733, 353, 0, 0, 0, 0, 758, 391, 0, 0, 0, 0, 763, 437, 0, 0, 0, 0, 766, 488, 0, 0, 0, 0, 765, 536, 0, 0, 0, 0, 754, 614, 0, 0, 0, 0, 693, 652, 0, 0, 0, 0, 304, 680, 0, 0, 0, 0, 254, 707, 0, 0, 0, 0, 228, 775, 0, 0, 0, 0, 225, 887, 0, 0, 0, 0, 226, 990)
 }
 point_count = 19
 
@@ -34,10 +35,12 @@ script = ExtResource("1_t84td")
 
 [node name="Gui" type="CanvasLayer" parent="." groups=["MainGui"]]
 process_mode = 3
+visible = false
 script = ExtResource("2_0041v")
 levelButtonScene = ExtResource("3_0qb3o")
 
 [node name="MainMenu" type="CanvasLayer" parent="Gui"]
+visible = false
 script = ExtResource("4_dl0f3")
 
 [node name="Title" type="Label" parent="Gui/MainMenu"]
@@ -67,6 +70,7 @@ grow_vertical = 2
 text = "Level Select"
 
 [node name="LevelSelect" type="CanvasLayer" parent="Gui"]
+visible = false
 
 [node name="ToMainMenu" type="Button" parent="Gui/LevelSelect"]
 offset_left = 200.0
@@ -91,6 +95,7 @@ columns = 7
 
 [node name="Hud" type="CanvasLayer" parent="."]
 process_mode = 3
+visible = false
 script = ExtResource("3_fwk1s")
 
 [node name="Pause" type="Button" parent="Hud"]
@@ -231,6 +236,10 @@ position = Vector2(502, 502)
 scale = Vector2(1.008, 1.008)
 texture = ExtResource("11_xrl6a")
 
+[node name="TemporaryPathSprite" type="Sprite2D" parent="LevelDirector/LevelRunner"]
+position = Vector2(465, 501)
+texture = ExtResource("11_ehyon")
+
 [node name="hudPanel" type="ColorRect" parent="LevelDirector/LevelRunner"]
 self_modulate = Color(0, 0, 0, 1)
 z_index = 2
@@ -298,27 +307,28 @@ script = ExtResource("5_5hr1g")
 curve = SubResource("Curve2D_so0ni")
 
 [node name="towerPlatform2" parent="LevelDirector/LevelRunner/LevelSetup/Level 1" instance=ExtResource("7_nk2cg")]
-position = Vector2(682, 435)
+position = Vector2(638, 473)
 
 [node name="towerPlatform3" parent="LevelDirector/LevelRunner/LevelSetup/Level 1" instance=ExtResource("7_nk2cg")]
-position = Vector2(428, 150)
+position = Vector2(398, 166)
 
 [node name="towerPlatform4" parent="LevelDirector/LevelRunner/LevelSetup/Level 1" instance=ExtResource("7_nk2cg")]
-position = Vector2(238, 382)
+position = Vector2(187, 385)
 
 [node name="towerPlatform5" parent="LevelDirector/LevelRunner/LevelSetup/Level 1" instance=ExtResource("7_nk2cg")]
-position = Vector2(450, 480)
+position = Vector2(412, 459)
 
 [node name="towerPlatform6" parent="LevelDirector/LevelRunner/LevelSetup/Level 1" instance=ExtResource("7_nk2cg")]
-position = Vector2(374, 755)
+position = Vector2(436, 812)
 
 [node name="towerPlatform7" parent="LevelDirector/LevelRunner/LevelSetup/Level 1" instance=ExtResource("7_nk2cg")]
-position = Vector2(709, 735)
+position = Vector2(658, 795)
 
 [node name="WaveList" parent="LevelDirector/LevelRunner/LevelSetup/Level 1" instance=ExtResource("7_aicbi")]
 script = ExtResource("8_5euaa")
 
 [node name="Test Level" type="Node2D" parent="LevelDirector/LevelRunner/LevelSetup"]
+visible = false
 
 [node name="Path2D" type="Path2D" parent="LevelDirector/LevelRunner/LevelSetup/Test Level"]
 curve = SubResource("Curve2D_oimvl")
