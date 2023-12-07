@@ -9,6 +9,7 @@ extends Area2D
 
 # for starting the anim one second before the bullet goes off
 @onready var animStartTimer = $wTowerAnim/AnimStartTimer
+@onready var changeDirectionTimer = $changeDirectionTimer
 
 var secondsToImpact
 var bulletList = []
@@ -42,6 +43,8 @@ func _ready():
 	
 	set_anim_scale()
 	towerAnim.play("idle")
+	
+	changeDirectionTimer.start(randf() * 10)
 	
 
 
@@ -172,3 +175,9 @@ func _on_explode_timer_manager_explosion_timer_timeout():
 func _on_anim_start_timer_timeout():
 	towerAnim.play("shooting")
 	pass # Replace with function body.
+
+
+func _on_change_direction_timer_timeout():
+	towerAnim.scale.x *= -1
+	
+	changeDirectionTimer.start(randf()*10)

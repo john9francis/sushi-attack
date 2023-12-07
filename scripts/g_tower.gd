@@ -11,6 +11,7 @@ var shootSeconds
 var bulletSpeed
 
 @onready var towerAnim = $TowerSize/towerAnim
+@onready var blinkTimer = $BlinkTimer
 
 var anims = [
 	preload("res://anims/g_tower.tres"),
@@ -32,6 +33,10 @@ func _ready():
 	enemyTracked = false
 	tracker = TrackerScene.instantiate()
 	add_child(tracker)
+	
+	blinkTimer.start(randf() * 5)
+	
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -50,6 +55,8 @@ func upgrade():
 	
 	currentAnimIndx += 1
 	set_tower_anim(anims[currentAnimIndx])
+	
+	towerAnim.play("idle")
 	
 
 
@@ -93,4 +100,13 @@ func _on_area_exited(area):
 
 func _on_tower_anim_animation_finished():
 	towerAnim.play("idle")
+	pass # Replace with function body.
+
+
+func _on_blink_timer_timeout():
+	if randf() > .3:
+		towerAnim.play("blink")
+	else:
+		towerAnim.scale.x *= -1
+	blinkTimer.start(randf() * 5)
 	pass # Replace with function body.

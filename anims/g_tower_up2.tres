@@ -9,8 +9,11 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("1_m6kqp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_0ol1x")
 }],
-"loop": true,
+"loop": false,
 "name": &"blink",
 "speed": 5.0
 }, {
