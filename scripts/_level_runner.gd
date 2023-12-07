@@ -134,7 +134,11 @@ func make_path_visible(curve : Curve2D):
 
 	# set the visual look
 	visiblePath.set_width(40.0)
-	visiblePath.modulate = Color.TAN
+	
+	var pathDarkener = Color(0, 0, 0, .2)
+	var pathLightener = Color(1, 1, 1, .2)
+	
+	visiblePath.modulate = pathLightener
 
 	add_child(visiblePath)
 	visiblePaths.append(visiblePath)
@@ -283,6 +287,7 @@ func reset():
 	get_tree().call_group("TowerPlatforms", "remove_tower")
 	get_tree().call_group("Enemies", "set_reward", 0)
 	get_tree().call_group("Enemies", "kill")
+	get_tree().call_group("EnemyDestinations", "reset")
 	
 	money = 150
 	lives = 5
