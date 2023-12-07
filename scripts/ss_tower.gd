@@ -46,5 +46,5 @@ func _on_area_exited(area):
 		if enemyList.has(area):
 			enemyList.erase(area)
 	
-	if enemyList.size() == 0:
-		slownessArea.play_anim("absorb")
+		if enemyList.size() == 0:
+			slownessArea.play_anim("absorb")
