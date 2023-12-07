@@ -339,5 +339,4 @@ func enemy_leaving():
 func _on_ready_next_wave_pressed():
 	waveTimer.stop()
 	waveTimer.start(.1)
-	lives += 1
 	pass # Replace with function body.
