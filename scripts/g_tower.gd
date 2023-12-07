@@ -23,7 +23,7 @@ var currentAnimIndx = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	shootSeconds = .7
+	shootSeconds = .66
 	bulletSpeed = 500
 	
 	# set the shootTimer wait time
