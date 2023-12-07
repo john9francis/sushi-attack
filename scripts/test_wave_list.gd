@@ -10,14 +10,19 @@ const base_wave_entry = {
 const wave1 = [
 	{
 		"enemyName": "maki",
-		"amount": 2,
+		"amount": 5,
 		"timer": 1
 	}
 ]
 const wave2 = [
 	{
 		"enemyName": "maki",
-		"amount": 3,
+		"amount": 10,
+		"timer": 1
+	},
+	{
+		"enemyName": "rice_ball",
+		"amount": 5,
 		"timer": 1
 	}
 ]
@@ -26,12 +31,22 @@ const wave3 = [
 		"enemyName": "maki",
 		"amount": 5,
 		"timer": 1
+	},
+	{
+		"enemyName": "rice_ball",
+		"amount": 5,
+		"timer": 1
+	},
+	{
+		"enemyName": "maki",
+		"amount": 5,
+		"timer": 1
 	}
 ]
 const wave4 = [
 	{
-		"enemyName": "maki",
-		"amount": 2,
+		"enemyName": "rice_ball",
+		"amount": 12,
 		"timer": 1
 	}
 ]
