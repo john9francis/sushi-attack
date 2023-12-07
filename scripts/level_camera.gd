@@ -6,6 +6,7 @@ var speed = 500
 func _ready():
 	limit_left = -100
 	limit_top = -100
+	
 	pass # Replace with function body.
 
 
@@ -19,6 +20,12 @@ func _process(delta):
 		position.x -= speed * delta
 	if Input.is_action_pressed("MoveCameraRight"):
 		position.x += speed * delta
+	if Input.is_action_pressed("CameraZoomIn"):
+		zoom.x += delta
+		zoom.y += delta
+	if Input.is_action_pressed("CameraZoomOut"):
+		zoom.x -= delta
+		zoom.y -= delta
 	pass
 
 
