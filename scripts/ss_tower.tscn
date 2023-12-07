@@ -20,6 +20,7 @@ shape = SubResource("CircleShape2D_2a3g2")
 script = ExtResource("2_uluiu")
 
 [node name="ssPuddleAnim" type="AnimatedSprite2D" parent="SlownessArea"]
+self_modulate = Color(1, 1, 1, 0.537255)
 sprite_frames = ExtResource("3_24r0b")
 animation = &"spread_out"
 

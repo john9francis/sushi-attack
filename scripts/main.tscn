@@ -233,6 +233,7 @@ texture = ExtResource("11_xrl6a")
 
 [node name="hudPanel" type="ColorRect" parent="LevelDirector/LevelRunner"]
 self_modulate = Color(0, 0, 0, 1)
+z_index = 2
 offset_left = 67.0
 offset_top = -1.0
 offset_right = 906.0
