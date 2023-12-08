@@ -14,29 +14,58 @@ const wave1 = [
 		"timer": 2
 	},
 	{
-		"enemyName": "rice_ball",
-		"amount": 5,
-		"timer": 2
-	},
-	{
 		"enemyName": "maki",
 		"amount": 5,
-		"timer": 2
+		"timer": 1
 	}
 ]
 const wave2 = [
 	{
+		"enemyName": "pink_maki",
+		"amount": 3,
+		"timer": 4
+	},
+	{
 		"enemyName": "maki",
 		"amount": 5,
 		"timer": 2
 	},
 	{
+		"enemyName": "pink_maki",
+		"amount": 7,
+		"timer": 3
+	},
+]
+
+const wave3 = [
+	{
+		"enemyName": "rice_ball",
+		"amount": 5,
+		"timer": 4
+	},
+	{
+		"enemyName": "pink_maki",
+		"amount": 7,
+		"timer": 3
+	},
+	{
+		"enemyName": "maki",
+		"amount": 10,
+		"timer": .5
+	},
+	{
 		"enemyName": "rice_ball",
 		"amount": 5,
 		"timer": 2
+	},
+	{
+		"enemyName": "pink_maki",
+		"amount": 7,
+		"timer": 1
 	}
 ]
-const wave_list = [wave1, wave2]
+
+const wave_list = [wave1, wave2, wave3]
 
 
 # Called when the node enters the scene tree for the first time.

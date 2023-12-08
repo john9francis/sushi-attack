@@ -32,9 +32,16 @@ const maki = {
 const rice_ball = {
 	"spriteFrames": preload("res://anims/rice_ball.tres"),
 	"speed": 1,
-	"health": 15,
-	"reward": 20,
+	"health": 25,
+	"reward": 30,
 	"colissionRadius": 60
+}
+const pink_maki = {
+	"spriteFrames": preload("res://anims/pmaki.tres"),
+	"speed": 5,
+	"health": 5,
+	"reward": 20,
+	"colissionRadius": 30
 }
 
 
@@ -54,6 +61,8 @@ func get_premade_enemy(enemyName):
 		premadeEnemy = maki
 	elif enemyName == "rice_ball":
 		premadeEnemy = rice_ball
+	elif enemyName == "pink_maki":
+		premadeEnemy = pink_maki
 	else:
 		premadeEnemy = null
 		print("enemy_builder error, premade enemy does not exist")

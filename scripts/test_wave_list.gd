@@ -9,7 +9,7 @@ const base_wave_entry = {
 # Setting up our enemy waves
 const wave1 = [
 	{
-		"enemyName": "maki",
+		"enemyName": "pink_maki",
 		"amount": 5,
 		"timer": 1
 	}
@@ -48,6 +48,11 @@ const wave4 = [
 		"enemyName": "rice_ball",
 		"amount": 12,
 		"timer": 1
+	},
+	{
+		"enemyName": "pink_maki",
+		"amount": 10,
+		"timer": 2
 	}
 ]
 const wave_list = [wave1, wave2, wave3, wave4]
