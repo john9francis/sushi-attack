@@ -4,9 +4,19 @@ var slownessFactor
 var enemyList = []
 
 @onready var slownessArea = $SlownessArea
+@onready var towerAnim = $towerSize/towerAnim
+
+var animNames = [
+	"idle",
+	"up1",
+	"up2"
+]
+
+var animI = 0
 
 func _ready():
 	slownessFactor = .65
+	animI = 0
 	pass # Replace with function body.
 
 
@@ -22,8 +32,10 @@ func upgrade():
 	for enemy in enemyList:
 		enemy.restore_speed()
 		enemy.multiply_speed(slownessFactor)
-	pass
 	
+	# switch anim to the upgraded one 
+	animI += 1
+	towerAnim.play(animNames[animI])
 
 func _on_area_entered(area):
 	if area.is_in_group("Enemies"):
