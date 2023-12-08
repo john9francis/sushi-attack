@@ -18,20 +18,20 @@ func _ready():
 func _process(delta):
 	
 	# handle inputs
-	if Input.is_action_pressed("MoveCameraDown"):
-		position.y += speed * delta
-	if Input.is_action_pressed("MoveCameraUp"):
-		position.y -= speed * delta
-	if Input.is_action_pressed("MoveCameraLeft"):
-		position.x -= speed * delta
-	if Input.is_action_pressed("MoveCameraRight"):
-		position.x += speed * delta
-	if Input.is_action_pressed("CameraZoomIn"):
-		zoom.x += delta
-		zoom.y += delta
-	if Input.is_action_pressed("CameraZoomOut"):
-		zoom.x -= delta
-		zoom.y -= delta
+#	if Input.is_action_pressed("MoveCameraDown"):
+#		position.y += speed * delta
+#	if Input.is_action_pressed("MoveCameraUp"):
+#		position.y -= speed * delta
+#	if Input.is_action_pressed("MoveCameraLeft"):
+#		position.x -= speed * delta
+#	if Input.is_action_pressed("MoveCameraRight"):
+#		position.x += speed * delta
+#	if Input.is_action_pressed("CameraZoomIn"):
+#		zoom.x += delta
+#		zoom.y += delta
+#	if Input.is_action_pressed("CameraZoomOut"):
+#		zoom.x -= delta
+#		zoom.y -= delta
 
 	# zoom to fit the viewport
 	fit_camera_to_viewport()
