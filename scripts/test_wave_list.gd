@@ -53,6 +53,11 @@ const wave4 = [
 		"enemyName": "pink_maki",
 		"amount": 10,
 		"timer": 2
+	},
+	{
+		"enemyName": "pink_maki",
+		"amount": 5,
+		"timer": .5
 	}
 ]
 const wave_list = [wave1, wave2, wave3, wave4]
