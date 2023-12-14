@@ -12,7 +12,7 @@ const WTowerCost = 60
 const GTowerCost = 50
 const SSTowerCost= 30
 const CSTowerCost= 70
-const upgradeCost= 50
+var upgradeCost= 50
 const refundTakeAway = 20
 
 var nOfUpgrades
@@ -93,6 +93,8 @@ func _on_ss_button_pressed():
 	add_child(tower)
 	
 	# Update the upgrade and sell buttons
+	upgradeCost += SSTowerCost
+	
 	towerGui.set_value("upgrade", upgradeCost)
 	towerGui.set_value("sell", SSTowerCost - refundTakeAway)
 
@@ -104,6 +106,7 @@ func _on_cs_button_pressed():
 	add_child(tower)
 	
 	# Update the upgrade and sell buttons
+	upgradeCost += CSTowerCost
 	towerGui.set_value("upgrade", upgradeCost)
 	towerGui.set_value("sell", CSTowerCost - refundTakeAway)
 	
@@ -116,6 +119,7 @@ func _on_g_button_pressed():
 	add_child(tower)
 	
 	# Update the upgrade and sell buttons
+	upgradeCost += GTowerCost
 	towerGui.set_value("upgrade", upgradeCost)
 	towerGui.set_value("sell", GTowerCost - refundTakeAway)
 
@@ -127,6 +131,7 @@ func _on_w_button_pressed():
 	add_child(tower)
 	
 	# Update the upgrade and sell buttons
+	upgradeCost += WTowerCost
 	towerGui.set_value("upgrade", upgradeCost)
 	towerGui.set_value("sell", WTowerCost - refundTakeAway)
 	
