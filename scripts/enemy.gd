@@ -181,8 +181,8 @@ func set_reward(r):
 	reward = r
 	
 
-func get_reward():
-	return reward
+func get_current_health():
+	return currentHealth
 
 
 func set_sprite_size():
