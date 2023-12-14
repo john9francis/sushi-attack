@@ -1,8 +1,6 @@
 # sushi-attack
 Sushi themed tower defense game, coded in Godot
 
-Test commit
-
 # To do for verticle slice (DECEMBER 9):
 - [x] Get the sushi rolls animated, at least 3
 - [x] Complete enemy animation in all directions
