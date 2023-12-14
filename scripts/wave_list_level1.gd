@@ -9,6 +9,11 @@ const base_wave_entry = {
 # Setting up our enemy waves
 const wave1 = [
 	{
+		"enemyName": "gyoza",
+		"amount": 4,
+		"timer": 3
+	},
+	{
 		"enemyName": "maki",
 		"amount": 5,
 		"timer": 2
