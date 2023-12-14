@@ -107,10 +107,8 @@ func _on_ss_button_pressed():
 	add_child(tower)
 	
 	# Update the upgrade and sell buttons
-	upgradeCost = ssTowerUp1Cost
-	
-	towerGui.set_value("upgrade", ssTowerUp1Cost)
-	towerGui.set_value("sell", SSTowerCost - refundTakeAway)
+	change_upgrade_value("ss_tower", nOfUpgrades)
+
 
 
 func _on_cs_button_pressed():
@@ -120,10 +118,8 @@ func _on_cs_button_pressed():
 	add_child(tower)
 	
 	# Update the upgrade and sell buttons
-	upgradeCost = csTowerUp1Cost
-	
-	towerGui.set_value("upgrade", csTowerUp1Cost)
-	towerGui.set_value("sell", CSTowerCost - refundTakeAway)
+	change_upgrade_value("cs_tower", nOfUpgrades)
+
 	
 
 
@@ -134,10 +130,7 @@ func _on_g_button_pressed():
 	add_child(tower)
 	
 	# Update the upgrade and sell buttons
-	upgradeCost = gTowerUp1Cost
-	
-	towerGui.set_value("upgrade", gTowerUp1Cost)
-	towerGui.set_value("sell", GTowerCost - refundTakeAway)
+	change_upgrade_value("g_tower", nOfUpgrades)
 
 
 func _on_w_button_pressed():
@@ -147,10 +140,7 @@ func _on_w_button_pressed():
 	add_child(tower)
 	
 	# Update the upgrade and sell buttons
-	upgradeCost = wTowerUp1Cost
-	
-	towerGui.set_value("upgrade", gTowerUp1Cost)
-	towerGui.set_value("sell", WTowerCost - refundTakeAway)
+	change_upgrade_value("w_tower", nOfUpgrades)
 	
 	
 
@@ -222,8 +212,8 @@ func _on_upgrade_pressed():
 			# minus the money
 			get_tree().call_group("LevelRunner", "subtract_money", upgradeCost)
 			
-		# now change the upgrade gui
-		
+			# now change the upgrade gui
+			change_upgrade_value(child.get_name(), nOfUpgrades)
 			
 	# disable upgrades if it's at max level
 	if nOfUpgrades >= 2:
@@ -231,3 +221,62 @@ func _on_upgrade_pressed():
 		$TowerGUI/upgradeGUI/Upgrade.text = "Maxed"
 		towerMaxed = true
 		
+
+func change_upgrade_value(towerName, nUpgrades):
+	
+	if towerName == "ss_tower":
+		if nUpgrades == 0:
+			# Update the upgrade and sell buttons
+			upgradeCost = ssTowerUp1Cost
+	
+			towerGui.set_value("upgrade", ssTowerUp1Cost)
+			towerGui.set_value("sell", ssTowerUp1Cost - refundTakeAway)
+		if nUpgrades == 1:
+			# Update the upgrade and sell buttons
+			upgradeCost = ssTowerUp2Cost
+	
+			towerGui.set_value("upgrade", ssTowerUp2Cost)
+			towerGui.set_value("sell", ssTowerUp2Cost - refundTakeAway)
+			
+	if towerName == "g_tower":
+		if nUpgrades == 0:
+			# Update the upgrade and sell buttons
+			upgradeCost = gTowerUp1Cost
+	
+			towerGui.set_value("upgrade", gTowerUp1Cost)
+			towerGui.set_value("sell", gTowerUp1Cost - refundTakeAway)
+		if nUpgrades == 1:
+			# Update the upgrade and sell buttons
+			upgradeCost = gTowerUp2Cost
+	
+			towerGui.set_value("upgrade", gTowerUp2Cost)
+			towerGui.set_value("sell", gTowerUp2Cost - refundTakeAway)
+			
+	if towerName == "cs_tower":
+		if nUpgrades == 0:
+			# Update the upgrade and sell buttons
+			upgradeCost = csTowerUp1Cost
+	
+			towerGui.set_value("upgrade", csTowerUp1Cost)
+			towerGui.set_value("sell", csTowerUp1Cost - refundTakeAway)
+		if nUpgrades == 1:
+			# Update the upgrade and sell buttons
+			upgradeCost = csTowerUp2Cost
+	
+			towerGui.set_value("upgrade", csTowerUp2Cost)
+			towerGui.set_value("sell", csTowerUp2Cost - refundTakeAway)
+			
+	if towerName == "w_tower":
+		if nUpgrades == 0:
+			# Update the upgrade and sell buttons
+			upgradeCost = wTowerUp1Cost
+	
+			towerGui.set_value("upgrade", wTowerUp1Cost)
+			towerGui.set_value("sell", wTowerUp1Cost - refundTakeAway)
+		if nUpgrades == 1:
+			# Update the upgrade and sell buttons
+			upgradeCost = wTowerUp2Cost
+	
+			towerGui.set_value("upgrade", wTowerUp2Cost)
+			towerGui.set_value("sell", wTowerUp2Cost - refundTakeAway)
+			

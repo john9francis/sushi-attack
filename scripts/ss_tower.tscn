@@ -12,7 +12,7 @@ radius = 179.025
 [sub_resource type="CircleShape2D" id="CircleShape2D_rvdii"]
 radius = 84.0238
 
-[node name="SSTower" type="Area2D" groups=["SSTowers", "Towers"]]
+[node name="ss_tower" type="Area2D" groups=["SSTowers", "Towers"]]
 script = ExtResource("1_ket2d")
 
 [node name="SlownessArea" type="CollisionShape2D" parent="."]
