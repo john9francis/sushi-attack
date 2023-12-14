@@ -179,7 +179,10 @@ func set_colission_radius(value):
 func set_reward(r):
 	#myPathFollow.set_reward(r)
 	reward = r
+	
 
+func get_reward():
+	return reward
 
 
 func set_sprite_size():

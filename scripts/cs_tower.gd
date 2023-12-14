@@ -198,9 +198,14 @@ func move_hand(direction):
 func _on_hand_area_area_entered(area):
 	if area.is_in_group("Enemies") and readyToKill:
 		
+		# make it so the more health enemies have the longer it takes
+		var additionalTime = area.get_reward() / 5
+				
 		area.myPathFollow.queue_free()
 		readyToKill = false
-		$KillMobTimer.start(killMobTime)
+		
+		
+		$KillMobTimer.start(killMobTime + additionalTime)
 		
 		# Set the hand texture to the enemy's texture
 		var collisionShape = $CS_Hand/CollisionShape2D.get_shape()
