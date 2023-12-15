@@ -231,13 +231,12 @@ func change_upgrade_value(towerName, nUpgrades):
 			upgradeCost = ssTowerUp1Cost
 	
 			towerGui.set_value("upgrade", ssTowerUp1Cost)
-			towerGui.set_value("sell", ssTowerUp1Cost - refundTakeAway)
+			towerGui.set_value("sell", SSTowerCost - refundTakeAway)
 		if nUpgrades == 1:
 			# Update the upgrade and sell buttons
 			upgradeCost = ssTowerUp2Cost
 	
 			towerGui.set_value("upgrade", ssTowerUp2Cost)
-			towerGui.set_value("sell", ssTowerUp2Cost - refundTakeAway)
 			
 	if towerName == "g_tower":
 		if nUpgrades == 0:
@@ -245,13 +244,12 @@ func change_upgrade_value(towerName, nUpgrades):
 			upgradeCost = gTowerUp1Cost
 	
 			towerGui.set_value("upgrade", gTowerUp1Cost)
-			towerGui.set_value("sell", gTowerUp1Cost - refundTakeAway)
+			towerGui.set_value("sell", GTowerCost - refundTakeAway)
 		if nUpgrades == 1:
 			# Update the upgrade and sell buttons
 			upgradeCost = gTowerUp2Cost
 	
 			towerGui.set_value("upgrade", gTowerUp2Cost)
-			towerGui.set_value("sell", gTowerUp2Cost - refundTakeAway)
 			
 	if towerName == "cs_tower":
 		if nUpgrades == 0:
@@ -259,13 +257,12 @@ func change_upgrade_value(towerName, nUpgrades):
 			upgradeCost = csTowerUp1Cost
 	
 			towerGui.set_value("upgrade", csTowerUp1Cost)
-			towerGui.set_value("sell", csTowerUp1Cost - refundTakeAway)
+			towerGui.set_value("sell", CSTowerCost - refundTakeAway)
 		if nUpgrades == 1:
 			# Update the upgrade and sell buttons
 			upgradeCost = csTowerUp2Cost
 	
 			towerGui.set_value("upgrade", csTowerUp2Cost)
-			towerGui.set_value("sell", csTowerUp2Cost - refundTakeAway)
 			
 	if towerName == "w_tower":
 		if nUpgrades == 0:
@@ -273,11 +270,10 @@ func change_upgrade_value(towerName, nUpgrades):
 			upgradeCost = wTowerUp1Cost
 	
 			towerGui.set_value("upgrade", wTowerUp1Cost)
-			towerGui.set_value("sell", wTowerUp1Cost - refundTakeAway)
+			towerGui.set_value("sell", WTowerCost - refundTakeAway)
 		if nUpgrades == 1:
 			# Update the upgrade and sell buttons
 			upgradeCost = wTowerUp2Cost
 	
 			towerGui.set_value("upgrade", wTowerUp2Cost)
-			towerGui.set_value("sell", wTowerUp2Cost - refundTakeAway)
 			
