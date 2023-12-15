@@ -31,11 +31,13 @@ wait_time = 5.0
 one_shot = true
 
 [node name="CS_Connector" type="Line2D" parent="."]
+position = Vector2(0, -20)
 points = PackedVector2Array(-1, 0, -1, -53)
 width = 5.0
 default_color = Color(0.972549, 0.768627, 0.415686, 1)
 
 [node name="CS_Connector2" type="Line2D" parent="."]
+position = Vector2(0, -20)
 points = PackedVector2Array(-1, 0, -1, -53)
 width = 5.0
 default_color = Color(0.972549, 0.768627, 0.415686, 1)
