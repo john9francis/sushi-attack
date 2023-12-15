@@ -7,6 +7,8 @@ extends Area2D
 @onready var towerAnim = $wTowerAnim
 @onready var towerSize = $TowerSize
 
+@onready var shootTimer = $ShootTimer
+
 # for starting the anim one second before the bullet goes off
 @onready var animStartTimer = $wTowerAnim/AnimStartTimer
 @onready var changeDirectionTimer = $changeDirectionTimer
@@ -19,6 +21,9 @@ var enemyList = []
 
 var shootTime
 var stopAnimFlag = false
+
+var readyToShoot = false
+var playingShootingAnim = false
 
 var anims = [
 	preload("res://anims/w_tower.tres"),
@@ -36,8 +41,9 @@ func _ready():
 	tracker = TrackerScene.instantiate()
 	add_child(tracker)
 	
-	shootTime = 1.2
-	$ShootTimer.wait_time = shootTime
+	shootTime = 2.5
+	#shootTimer.wait_time = shootTime
+	shootTimer.start(shootTime)
 	
 	secondsToImpact = 1
 	
@@ -52,16 +58,15 @@ func _ready():
 func _process(delta):
 	if enemyList.size() > 0:
 		tracker.set_area(enemyList[0])
-		if $ShootTimer.is_stopped():
-			$ShootTimer.start(shootTime)
+		
+		if readyToShoot:
+			towerAnim.play("shooting")
+			playingShootingAnim = true
+			readyToShoot = false
 			
-			stopAnimFlag = false
-			set_shoot_anim_in_motion()
-	else:
-		stopAnimFlag = true
-		$ShootTimer.stop()
-		animStartTimer.stop()
-	pass
+		if shootTimer.is_stopped():
+			shootTimer.start(shootTime)
+			
 	
 	
 func set_shoot_anim_in_motion():
@@ -124,7 +129,15 @@ func _on_area_exited(area):
 
 
 func _on_shoot_timer_timeout():
+	readyToShoot = true
+	
+
+func shoot():
 	var enemyGlobalPosition = tracker.get_target_future_pos(70)
+	
+	if enemyGlobalPosition == null:
+		return
+	
 	var enemyLocalPosition = to_local(enemyGlobalPosition)
 	
 	# Shoot a bullet in an arc
@@ -152,10 +165,7 @@ func _on_shoot_timer_timeout():
 	bullet.set_color(Color.GREEN)
 	
 	$ExplodeTimerManager.start_explosion_timer(secondsToImpact)
-	
-	# set the anim in motion if there will be another shot after
-	if !stopAnimFlag:
-		set_shoot_anim_in_motion()
+	pass
 
 
 
@@ -181,3 +191,12 @@ func _on_change_direction_timer_timeout():
 	towerAnim.scale.x *= -1
 	
 	changeDirectionTimer.start(randf()*10)
+
+
+
+
+func _on_w_tower_anim_animation_finished():
+	if playingShootingAnim:
+		shoot()
+		playingShootingAnim = false
+	pass # Replace with function body.
