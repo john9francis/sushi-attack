@@ -13,6 +13,8 @@ radius = 179.025
 radius = 84.0238
 
 [node name="ss_tower" type="Area2D" groups=["SSTowers", "Towers"]]
+z_index = 1
+y_sort_enabled = true
 script = ExtResource("1_ket2d")
 
 [node name="SlownessArea" type="CollisionShape2D" parent="."]
@@ -21,6 +23,7 @@ script = ExtResource("2_uluiu")
 
 [node name="ssPuddleAnim" type="AnimatedSprite2D" parent="SlownessArea"]
 self_modulate = Color(1, 1, 1, 0.537255)
+z_index = -1
 sprite_frames = ExtResource("3_24r0b")
 animation = &"spread_out"
 

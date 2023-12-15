@@ -10,6 +10,8 @@
 size = Vector2(58, 45)
 
 [node name="EnemyDestination" type="Area2D" groups=["EnemyDestinations"]]
+z_index = 1
+y_sort_enabled = true
 script = ExtResource("1_sup12")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

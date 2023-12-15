@@ -18,6 +18,8 @@ radius = 32.0156
 radius = 75.0067
 
 [node name="cs_tower" type="Area2D" groups=["CSTowers", "Towers"]]
+z_index = 1
+y_sort_enabled = true
 script = ExtResource("1_jvirs")
 TrackerScene = ExtResource("2_tb1pc")
 

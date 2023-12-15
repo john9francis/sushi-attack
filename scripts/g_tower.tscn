@@ -13,6 +13,8 @@ radius = 271.066
 radius = 64.195
 
 [node name="g_tower" type="Area2D" groups=["GTowers", "Towers"]]
+z_index = 1
+y_sort_enabled = true
 script = ExtResource("1_w6y11")
 BulletScene = ExtResource("2_uk5rj")
 TrackerScene = ExtResource("3_hpt2o")

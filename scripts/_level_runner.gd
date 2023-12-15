@@ -26,6 +26,7 @@ var enemiesPerWave = []
 @onready var progressBar = $hudPanel/ProgressBar
 @onready var wavesLabel = $hudPanel/ProgressBar/WavesLabel
 @onready var readyNextWaveButton = $hudPanel/ReadyNextWave
+@onready var ysorter = $YSorter
 
 var money = 150
 var lives = 5
@@ -85,9 +86,10 @@ func set_premade_level(premadeLevelName):
 		p.set_curve(c)
 		
 		make_path_visible(c)
+		p.y_sort_enabled = true
 		
 		enemyPaths.append(p)
-		add_child(p)
+		ysorter.add_child(p)
 		
 		# add some enemy destinations to the end of the paths
 		var pathCurve = path.get_curve()
@@ -96,7 +98,7 @@ func set_premade_level(premadeLevelName):
 		
 		var enemyDestination = enemyDestinationScene.instantiate()
 		enemyDestination.position = last_point_position
-		add_child(enemyDestination)
+		ysorter.add_child(enemyDestination)
 		enemyDestinations.append(enemyDestination)
 
 	
@@ -110,7 +112,7 @@ func set_premade_level(premadeLevelName):
 		tp.position = platform.position
 		
 		towerPlatforms.append(tp)
-		add_child(tp)
+		ysorter.add_child(tp)
 		
 		
 	
@@ -140,7 +142,7 @@ func make_path_visible(curve : Curve2D):
 	
 	visiblePath.modulate = pathLightener
 
-	add_child(visiblePath)
+	ysorter.add_child(visiblePath)
 	visiblePaths.append(visiblePath)
 	
 	pass

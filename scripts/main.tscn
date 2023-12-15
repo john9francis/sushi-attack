@@ -20,9 +20,9 @@
 
 [sub_resource type="Curve2D" id="Curve2D_so0ni"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 208, 47, 0, 0, 0, 0, 384, 283, 0, 0, 0, 0, 435, 325, 0, 0, 0, 0, 563, 321, 0, 0, 0, 0, 767, 306, 0, 0, 0, 0, 848, 318, 0, 0, 0, 0, 911, 342, 0, 0, 0, 0, 935, 376, 0, 0, 0, 0, 939, 425, 0, 0, 0, 0, 932, 585, 0, 0, 0, 0, 898, 614, 0, 0, 0, 0, 693, 652, 0, 0, 0, 0, 304, 680, 0, 0, 0, 0, 254, 707, 0, 0, 0, 0, 228, 775, 0, 0, 0, 0, 225, 887, 0, 0, 0, 0, 226, 990)
+"points": PackedVector2Array(0, 0, 0, 0, 208, 47, 0, 0, 0, 0, 384, 283, 0, 0, 0, 0, 435, 325, 0, 0, 0, 0, 563, 321, 0, 0, 0, 0, 681.682, 302.783, 0, 0, 0, 0, 767, 306, 0, 0, 0, 0, 848, 318, 0, 0, 0, 0, 911, 342, 0, 0, 0, 0, 935, 376, 0, 0, 0, 0, 939, 425, 0, 0, 0, 0, 932, 585, 0, 0, 0, 0, 898, 614, 0, 0, 0, 0, 693, 652, 0, 0, 0, 0, 304, 680, 0, 0, 0, 0, 254, 707, 0, 0, 0, 0, 228, 775, 0, 0, 0, 0, 225, 887, 0, 0, 0, 0, 226, 990)
 }
-point_count = 17
+point_count = 18
 
 [sub_resource type="Curve2D" id="Curve2D_oimvl"]
 _data = {
@@ -234,6 +234,10 @@ script = ExtResource("3_w8geg")
 towerPlatformScene = ExtResource("7_ai1w8")
 enemyDestinationScene = ExtResource("7_8j4pn")
 
+[node name="YSorter" type="Node2D" parent="LevelDirector/LevelRunner"]
+z_index = 1
+y_sort_enabled = true
+
 [node name="TemporaryBackground" type="Sprite2D" parent="LevelDirector/LevelRunner"]
 position = Vector2(502, 502)
 scale = Vector2(1.008, 1.008)
@@ -310,13 +314,13 @@ curve = SubResource("Curve2D_so0ni")
 position = Vector2(794, 502)
 
 [node name="towerPlatform3" parent="LevelDirector/LevelRunner/LevelSetup/Level 1" instance=ExtResource("7_nk2cg")]
-position = Vector2(722, 189)
+position = Vector2(687, 206)
 
 [node name="towerPlatform4" parent="LevelDirector/LevelRunner/LevelSetup/Level 1" instance=ExtResource("7_nk2cg")]
 position = Vector2(339, 563)
 
 [node name="towerPlatform5" parent="LevelDirector/LevelRunner/LevelSetup/Level 1" instance=ExtResource("7_nk2cg")]
-position = Vector2(575, 559)
+position = Vector2(537, 416)
 
 [node name="towerPlatform6" parent="LevelDirector/LevelRunner/LevelSetup/Level 1" instance=ExtResource("7_nk2cg")]
 position = Vector2(436, 812)
