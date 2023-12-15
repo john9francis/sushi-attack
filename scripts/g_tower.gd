@@ -20,12 +20,14 @@ var anims = [
 ]
 
 var currentAnimIndx = 0
+var shootDespawnTime
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	shootSeconds = .66
 	bulletSpeed = 500
+	shootDespawnTime = .75
 	
 	# set the shootTimer wait time
 	$ShootTimer.wait_time = shootSeconds
@@ -52,6 +54,7 @@ func _process(_delta):
 func upgrade():
 	shootSeconds *= .65
 	$ShootTimer.wait_time = shootSeconds
+	shootDespawnTime *= 1.65
 	
 	currentAnimIndx += 1
 	set_tower_anim(anims[currentAnimIndx])
@@ -77,6 +80,7 @@ func _on_shoot_timer_timeout():
 	bullet.linear_velocity = direction * bulletSpeed
 	
 	add_child(bullet)
+	bullet.activate_despawn_timer(.65)
 	bullet.set_color(Color.HOT_PINK)
 	
 	towerAnim.play("shoot")

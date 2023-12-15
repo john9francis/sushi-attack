@@ -2,6 +2,7 @@ extends RigidBody2D
 
 var destination
 @onready var bulletSprite = $Sprite2D
+@onready var despawnTimer = $DespawnTimer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -25,3 +26,11 @@ func set_destination(vector):
 
 func disable_collision():
 	$CollisionShape2D.disabled = true
+	
+func activate_despawn_timer(time):
+	despawnTimer.start(time)
+
+
+func _on_despawn_timer_timeout():
+	queue_free()
+	pass # Replace with function body.
