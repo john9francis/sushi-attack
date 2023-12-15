@@ -81,7 +81,7 @@ func set_shoot_anim_in_motion():
 
 
 func set_animation_duration(durationSeconds):
-	var frame_count = 8.0
+	var frame_count = 6.0
 
 	# Calculate frames per second to achieve the desired duration
 	var fps = frame_count / durationSeconds
@@ -133,7 +133,7 @@ func _on_shoot_timer_timeout():
 	
 
 func shoot():
-	var enemyGlobalPosition = tracker.get_target_future_pos(70)
+	var enemyGlobalPosition = tracker.get_target_future_pos(50)
 	
 	if enemyGlobalPosition == null:
 		return
@@ -199,4 +199,6 @@ func _on_w_tower_anim_animation_finished():
 	if playingShootingAnim:
 		shoot()
 		playingShootingAnim = false
+		
+		towerAnim.play("idle")
 	pass # Replace with function body.

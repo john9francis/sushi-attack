@@ -282,10 +282,11 @@ func clear_level():
 
 
 func reset():
-	print("Resetting")
 	for c in get_children():
 		if c is Timer:
 			c.stop()
+			
+	readyNextWaveButton.hide()
 	
 	get_tree().call_group("TowerPlatforms", "remove_tower")
 	get_tree().call_group("Enemies", "set_reward", 0)

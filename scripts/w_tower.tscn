@@ -32,7 +32,7 @@ script = ExtResource("5_ipm0x")
 
 [node name="wTowerAnim" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("6_e4thf")
-animation = &"idle"
+animation = &"shooting"
 
 [node name="AnimStartTimer" type="Timer" parent="wTowerAnim"]
 one_shot = true
