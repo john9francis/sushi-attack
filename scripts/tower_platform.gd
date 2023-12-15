@@ -66,7 +66,10 @@ func _on_mouse_exited():
 	
 func update_buttons(money):
 	if towerMaxed:
+		$TowerGUI/upgradeGUI/Upgrade.hide()
 		return
+	
+	$TowerGUI/upgradeGUI/Upgrade.show()
 	
 	if money < SSTowerCost:
 		$TowerGUI/platformGUI/SSButton.disabled = true
@@ -217,8 +220,6 @@ func _on_upgrade_pressed():
 			
 	# disable upgrades if it's at max level
 	if nOfUpgrades >= 2:
-		$TowerGUI/upgradeGUI/Upgrade.disabled = true
-		$TowerGUI/upgradeGUI/Upgrade.text = "Maxed"
 		towerMaxed = true
 		
 

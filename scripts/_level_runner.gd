@@ -28,7 +28,7 @@ var enemiesPerWave = []
 @onready var readyNextWaveButton = $hudPanel/ReadyNextWave
 @onready var ysorter = $YSorter
 
-var money = 150
+var money = 1150
 var lives = 5
 
 var gameOverFlag = false
