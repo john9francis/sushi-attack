@@ -26,7 +26,7 @@ func set_anim_scale():
 	# Set the sprite size to match the colissionbox size
 	var collisionWidth = shape.get_radius() * 2
 	var spriteTexture = ssPuddleAnim.sprite_frames.get_frame_texture("spread_out",0)
-	var spriteScale = 1.1 * Vector2(
+	var spriteScale = 1.25 * Vector2(
 		collisionWidth / spriteTexture.get_width(), 
 		collisionWidth / spriteTexture.get_height())
 	

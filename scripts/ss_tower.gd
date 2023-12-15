@@ -25,7 +25,7 @@ func _process(delta):
 
 
 func upgrade():
-	slownessFactor *= .8
+	slownessFactor *= .75
 	slownessArea.apply_scale(Vector2(1.2,1.2))
 	
 	# Make sure we update all the enemies' speeds
