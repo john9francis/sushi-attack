@@ -102,7 +102,7 @@ func set_anim_scale():
 
 
 func upgrade():
-	shootTime *= .85
+	shootTime *= .75
 	$ShootTimer.wait_time = shootTime
 	$CollisionShape2D.apply_scale(Vector2(1.1,1.1))
 	
