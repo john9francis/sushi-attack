@@ -22,6 +22,9 @@ var spriteScale
 @onready var towerSize = $TowerSize
 @onready var towerAnim = $TowerAnim
 
+@onready var chopstick1 = $CS_Connector
+@onready var chopstick2 = $CS_Connector2
+
 enum State {READY, MOVING, HAS_ENEMY, NOT_READY}
 var previousState;
 var currentState;
@@ -124,15 +127,29 @@ func change_anim(newEnum):
 	
 	if newEnum == State.READY:
 		animName = "ready"
+		hide_chopsticks()
 		
 	elif newEnum == State.NOT_READY:
 		animName = "not_ready"
+		hide_chopsticks()
 		
 	elif newEnum == State.MOVING:
 		animName = "moving"
+		show_chopsticks()
 		
 	towerAnim.play(animName)
 
+	
+func hide_chopsticks():
+	chopstick1.hide()
+	chopstick2.hide()
+	pass
+	
+func show_chopsticks():
+	chopstick1.show()
+	chopstick2.show()
+	pass
+	
 	
 func upgrade():
 	handSpeed *= 1.5
