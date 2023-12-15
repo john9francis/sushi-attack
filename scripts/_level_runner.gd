@@ -57,7 +57,7 @@ func update_labels():
 	moneyLabel.text = "Money: {m}".format({"m": str(money)})
 	livesLabel.text = "Lives: {l}".format({"l": str(lives)})
 	
-	for c in get_children():
+	for c in ysorter.get_children():
 		if c.is_in_group("TowerPlatforms"):
 			c.update_buttons(money)
 	pass
