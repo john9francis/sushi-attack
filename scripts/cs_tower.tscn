@@ -64,7 +64,8 @@ wait_time = 10.0
 shape = SubResource("CircleShape2D_ipr7h")
 
 [node name="TowerAnim" type="AnimatedSprite2D" parent="."]
-position = Vector2(4, -22)
+position = Vector2(0, -28)
+scale = Vector2(0.378906, 0.378906)
 sprite_frames = ExtResource("4_81c7g")
 animation = &"moving"
 

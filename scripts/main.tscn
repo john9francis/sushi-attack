@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bgtvxbdu2qdf0"]
+[gd_scene load_steps=21 format=3 uid="uid://bgtvxbdu2qdf0"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_t84td"]
 [ext_resource type="Script" path="res://scripts/main_gui.gd" id="2_0041v"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://b8p6r7fsli1iy" path="res://scripts/enemy_builder.tscn" id="4_712hn"]
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="4_dl0f3"]
 [ext_resource type="Script" path="res://scripts/level_setup.gd" id="5_5hr1g"]
+[ext_resource type="PackedScene" uid="uid://bul6um5k465t1" path="res://scripts/cs_tower.tscn" id="6_dy5hu"]
 [ext_resource type="Script" path="res://scripts/level_camera.gd" id="7_3jyme"]
 [ext_resource type="PackedScene" uid="uid://cct1u3jmg1o3j" path="res://scripts/enemy_destination.tscn" id="7_8j4pn"]
 [ext_resource type="PackedScene" uid="uid://82eao7qodegu" path="res://scripts/tower_platform.tscn" id="7_ai1w8"]
@@ -244,13 +245,14 @@ offset_right = 400.0
 offset_bottom = 400.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 1)
+color = Color(0.831373, 0.698039, 0.317647, 1)
 
 [node name="Title" type="Label" parent="Hud/TutorialScreen"]
 layout_mode = 0
-offset_left = 300.0
-offset_right = 490.0
-offset_bottom = 72.0
+offset_left = 302.0
+offset_top = 37.0
+offset_right = 492.0
+offset_bottom = 109.0
 theme_override_font_sizes/font_size = 50
 text = "Tutorial
 "
@@ -262,6 +264,9 @@ offset_top = 542.0
 offset_right = 453.0
 offset_bottom = 573.0
 text = "Back to game"
+
+[node name="cs_tower" parent="Hud/TutorialScreen" instance=ExtResource("6_dy5hu")]
+position = Vector2(166, 267)
 
 [node name="LevelDirector" type="Node2D" parent="." groups=["LevelDirector"]]
 script = ExtResource("2_trou7")
@@ -279,6 +284,7 @@ z_index = 1
 y_sort_enabled = true
 
 [node name="TemporaryBackground" type="Sprite2D" parent="LevelDirector/LevelRunner"]
+visible = false
 position = Vector2(502, 502)
 scale = Vector2(1.008, 1.008)
 texture = ExtResource("11_xrl6a")

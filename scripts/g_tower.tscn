@@ -30,6 +30,7 @@ shape = SubResource("CircleShape2D_p6p7f")
 script = ExtResource("4_8bmv3")
 
 [node name="towerAnim" type="AnimatedSprite2D" parent="TowerSize"]
+scale = Vector2(0.356445, 0.356445)
 sprite_frames = ExtResource("4_yfc08")
 animation = &"idle"
 
