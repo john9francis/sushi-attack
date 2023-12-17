@@ -95,7 +95,6 @@ columns = 7
 
 [node name="Hud" type="CanvasLayer" parent="."]
 process_mode = 3
-visible = false
 script = ExtResource("3_fwk1s")
 
 [node name="Pause" type="Button" parent="Hud"]
@@ -149,7 +148,16 @@ offset_right = 517.0
 offset_bottom = 484.5
 text = "Reset"
 
+[node name="Tutorial" type="Button" parent="Hud/PauseMenu"]
+layout_mode = 0
+offset_left = 495.0
+offset_top = 380.5
+offset_right = 564.0
+offset_bottom = 411.5
+text = "Tutorial"
+
 [node name="GameOverMenu" type="Panel" parent="Hud"]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -187,6 +195,7 @@ offset_bottom = 484.5
 text = "Reset"
 
 [node name="SuccessMenu" type="Panel" parent="Hud"]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -222,6 +231,37 @@ offset_top = 453.5
 offset_right = 517.0
 offset_bottom = 484.5
 text = "Reset"
+
+[node name="TutorialScreen" type="ColorRect" parent="Hud"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -400.0
+offset_right = 400.0
+offset_bottom = 400.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Title" type="Label" parent="Hud/TutorialScreen"]
+layout_mode = 0
+offset_left = 300.0
+offset_right = 490.0
+offset_bottom = 72.0
+theme_override_font_sizes/font_size = 50
+text = "Tutorial
+"
+
+[node name="ToGame" type="Button" parent="Hud/TutorialScreen"]
+layout_mode = 0
+offset_left = 340.0
+offset_top = 542.0
+offset_right = 453.0
+offset_bottom = 573.0
+text = "Back to game"
 
 [node name="LevelDirector" type="Node2D" parent="." groups=["LevelDirector"]]
 script = ExtResource("2_trou7")
@@ -362,10 +402,12 @@ script = ExtResource("15_su6re")
 [connection signal="pressed" from="Hud/PauseMenu/ToMainMenu" to="." method="_on_to_main_menu_pressed"]
 [connection signal="pressed" from="Hud/PauseMenu/Resume" to="Hud" method="_on_resume_pressed"]
 [connection signal="pressed" from="Hud/PauseMenu/Reset" to="Hud" method="_on_reset_pressed"]
+[connection signal="pressed" from="Hud/PauseMenu/Tutorial" to="Hud" method="_on_tutorial_pressed"]
 [connection signal="pressed" from="Hud/GameOverMenu/ToMainMenu" to="." method="_on_to_main_menu_pressed"]
 [connection signal="pressed" from="Hud/GameOverMenu/Reset" to="Hud" method="_on_reset_pressed"]
 [connection signal="pressed" from="Hud/SuccessMenu/ToMainMenu" to="." method="_on_to_main_menu_pressed"]
 [connection signal="pressed" from="Hud/SuccessMenu/Reset" to="Hud" method="_on_reset_pressed"]
+[connection signal="pressed" from="Hud/TutorialScreen/ToGame" to="Hud" method="_on_resume_pressed"]
 [connection signal="hide_ready" from="LevelDirector" to="Hud" method="_on_level_director_hide_ready"]
 [connection signal="in_level" from="LevelDirector" to="." method="_on_level_director_in_level"]
 [connection signal="game_over_signal" from="LevelDirector/LevelRunner" to="Hud" method="_on_level_runner_game_over_signal"]

@@ -5,15 +5,15 @@ extends CanvasLayer
 @onready var pauseMenu = $PauseMenu
 @onready var gameOverMenu = $GameOverMenu
 @onready var successMenu = $SuccessMenu
+@onready var tutorialMenu = $TutorialScreen
 
 var menus = []
 
 var showReadyButton = true
 
 func _ready():
-	menus = [pauseMenu, gameOverMenu, successMenu]	
-	for m in menus:
-		m.hide()
+	menus = [pauseMenu, gameOverMenu, successMenu, tutorialMenu]
+	hide_all_menus()
 
 
 func _process(delta):
@@ -48,6 +48,12 @@ func reset():
 	readyButton.show()
 	for menu in menus:
 		menu.hide()
+		
+
+func hide_all_menus():
+	for menu in menus:
+		menu.hide()
+	pass
 	
 
 
@@ -74,3 +80,10 @@ func show_success_menu():
 	readyButton.hide()
 	
 	get_tree().paused = true
+
+
+func _on_tutorial_pressed():
+	hide_all_menus()
+	tutorialMenu.show()
+
+
