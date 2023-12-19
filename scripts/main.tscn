@@ -9,17 +9,17 @@
 [ext_resource type="PackedScene" uid="uid://b8p6r7fsli1iy" path="res://scripts/enemy_builder.tscn" id="4_712hn"]
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="4_dl0f3"]
 [ext_resource type="Script" path="res://scripts/level_setup.gd" id="5_5hr1g"]
-[ext_resource type="PackedScene" uid="uid://bul6um5k465t1" path="res://scripts/cs_tower.tscn" id="6_dy5hu"]
 [ext_resource type="Script" path="res://scripts/level_camera.gd" id="7_3jyme"]
 [ext_resource type="PackedScene" uid="uid://cct1u3jmg1o3j" path="res://scripts/enemy_destination.tscn" id="7_8j4pn"]
+[ext_resource type="Texture2D" uid="uid://c4gwkbt8rr74l" path="res://Assets/towers/cs_tower/sprite_0.png" id="7_36p8o"]
 [ext_resource type="PackedScene" uid="uid://82eao7qodegu" path="res://scripts/tower_platform.tscn" id="7_ai1w8"]
 [ext_resource type="PackedScene" uid="uid://bjmnpu7wnltbn" path="res://scripts/wave_list.tscn" id="7_aicbi"]
-[ext_resource type="PackedScene" uid="uid://dn63r1k685s4w" path="res://scripts/w_tower.tscn" id="7_atqs2"]
 [ext_resource type="PackedScene" uid="uid://c8tq0ppoe2tb0" path="res://scripts/towerPlatform.tscn" id="7_nk2cg"]
 [ext_resource type="Script" path="res://scripts/wave_list_level1.gd" id="8_5euaa"]
-[ext_resource type="PackedScene" uid="uid://biyqmibg8ipx5" path="res://scripts/g_tower.tscn" id="8_a1tvm"]
-[ext_resource type="PackedScene" uid="uid://djnu4nstia70d" path="res://scripts/ss_tower.tscn" id="9_m64g2"]
+[ext_resource type="Texture2D" uid="uid://dpyr2lrp5ahcu" path="res://Assets/towers/w_tower_anim/sprite_0.png" id="8_d1xdi"]
+[ext_resource type="Texture2D" uid="uid://b6jimst6hbe2x" path="res://Assets/towers/g_tower/sprite_1.png" id="9_6rtkj"]
 [ext_resource type="Texture2D" uid="uid://bu2680x812dcl" path="res://Assets/towers/plate.png" id="10_qq6in"]
+[ext_resource type="Texture2D" uid="uid://bysfouiqxjvdh" path="res://Assets/towers/ss_tower/sprite_0.png" id="10_wgjp4"]
 [ext_resource type="Texture2D" uid="uid://c613m2v84hj27" path="res://Assets/table/tablecloth3.png" id="11_xrl6a"]
 [ext_resource type="Script" path="res://scripts/test_wave_list.gd" id="15_su6re"]
 
@@ -40,12 +40,10 @@ script = ExtResource("1_t84td")
 
 [node name="Gui" type="CanvasLayer" parent="." groups=["MainGui"]]
 process_mode = 3
-visible = false
 script = ExtResource("2_0041v")
 levelButtonScene = ExtResource("3_0qb3o")
 
 [node name="MainMenu" type="CanvasLayer" parent="Gui"]
-visible = false
 script = ExtResource("4_dl0f3")
 
 [node name="Title" type="Label" parent="Gui/MainMenu"]
@@ -75,7 +73,6 @@ grow_vertical = 2
 text = "Level Select"
 
 [node name="LevelSelect" type="CanvasLayer" parent="Gui"]
-visible = false
 
 [node name="ToMainMenu" type="Button" parent="Gui/LevelSelect"]
 offset_left = 200.0
@@ -269,22 +266,30 @@ offset_right = 454.0
 offset_bottom = 728.0
 text = "Back to game"
 
-[node name="cs_tower" parent="Hud/TutorialScreen" instance=ExtResource("6_dy5hu")]
-position = Vector2(164, 226)
-
-[node name="w_tower" parent="Hud/TutorialScreen" instance=ExtResource("7_atqs2")]
-position = Vector2(605, 225)
-
-[node name="g_tower" parent="Hud/TutorialScreen" instance=ExtResource("8_a1tvm")]
-position = Vector2(156, 556)
-
-[node name="ss_tower" parent="Hud/TutorialScreen" instance=ExtResource("9_m64g2")]
-position = Vector2(600, 569)
-
 [node name="PlateImage" type="Sprite2D" parent="Hud/TutorialScreen"]
 position = Vector2(398, 396)
 scale = Vector2(0.597656, 0.597656)
 texture = ExtResource("10_qq6in")
+
+[node name="csImage" type="Sprite2D" parent="Hud/TutorialScreen"]
+position = Vector2(159, 201)
+scale = Vector2(0.37793, 0.37793)
+texture = ExtResource("7_36p8o")
+
+[node name="wImage" type="Sprite2D" parent="Hud/TutorialScreen"]
+position = Vector2(591, 221)
+scale = Vector2(0.265625, 0.265625)
+texture = ExtResource("8_d1xdi")
+
+[node name="gImage" type="Sprite2D" parent="Hud/TutorialScreen"]
+position = Vector2(162, 560)
+scale = Vector2(0.297852, 0.297852)
+texture = ExtResource("9_6rtkj")
+
+[node name="ssImage" type="Sprite2D" parent="Hud/TutorialScreen"]
+position = Vector2(599, 541)
+scale = Vector2(0.4975, 0.4975)
+texture = ExtResource("10_wgjp4")
 
 [node name="PlateLabel" type="Label" parent="Hud/TutorialScreen"]
 layout_mode = 0
@@ -303,6 +308,7 @@ offset_bottom = 128.0
 text = "Sushi rolls will advance across the table, and it's your job to stop them. "
 
 [node name="csLabel" type="Label" parent="Hud/TutorialScreen"]
+layout_mode = 0
 offset_left = 35.0
 offset_top = 301.0
 offset_right = 319.0
@@ -311,6 +317,7 @@ text = "Chopsticks will grab any roll that comes within range, but they can take
 autowrap_mode = 3
 
 [node name="wLabel" type="Label" parent="Hud/TutorialScreen"]
+layout_mode = 0
 offset_left = 463.0
 offset_top = 292.0
 offset_right = 765.0
@@ -319,6 +326,7 @@ text = "Wasabi shoots firey bombs at the rolls, giving them a lingering burn."
 autowrap_mode = 3
 
 [node name="gLabel" type="Label" parent="Hud/TutorialScreen"]
+layout_mode = 0
 offset_left = 37.0
 offset_top = 622.0
 offset_right = 302.0
@@ -445,7 +453,6 @@ position = Vector2(658, 795)
 script = ExtResource("8_5euaa")
 
 [node name="Level 2" type="Node2D" parent="LevelDirector/LevelRunner/LevelSetup"]
-visible = false
 
 [node name="Path2D" type="Path2D" parent="LevelDirector/LevelRunner/LevelSetup/Level 2"]
 curve = SubResource("Curve2D_oimvl")
