@@ -21,3 +21,6 @@ func set_button_name(n):
 
 func _on_button_up():
 	get_tree().call_group("LevelDirector", "go_to_level", buttonName)
+	if buttonName == "Level 1":
+		# show the tutorial
+		get_tree().call_group("MainHud", "_on_tutorial_pressed")

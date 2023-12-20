@@ -95,7 +95,7 @@ grow_horizontal = 2
 grow_vertical = 2
 columns = 7
 
-[node name="Hud" type="CanvasLayer" parent="."]
+[node name="Hud" type="CanvasLayer" parent="." groups=["MainHud"]]
 process_mode = 3
 script = ExtResource("3_fwk1s")
 
@@ -341,7 +341,7 @@ offset_left = 464.0
 offset_top = 629.0
 offset_right = 759.0
 offset_bottom = 707.0
-text = "Soy sauce slows down any rolls that get within range, but doesn't dal any damage to them."
+text = "Soy sauce slows down any rolls that get within range, but doesn't deal any damage to them."
 autowrap_mode = 3
 
 [node name="LevelDirector" type="Node2D" parent="." groups=["LevelDirector"]]
@@ -360,7 +360,6 @@ z_index = 1
 y_sort_enabled = true
 
 [node name="TemporaryBackground" type="Sprite2D" parent="LevelDirector/LevelRunner"]
-visible = false
 position = Vector2(502, 502)
 scale = Vector2(1.008, 1.008)
 texture = ExtResource("11_xrl6a")

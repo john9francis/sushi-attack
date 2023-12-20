@@ -83,7 +83,10 @@ func show_success_menu():
 
 
 func _on_tutorial_pressed():
+	get_tree().paused = true
 	hide_all_menus()
+	pauseButton.hide()
+	readyButton.hide()
 	tutorialMenu.show()
 
 

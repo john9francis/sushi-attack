@@ -50,7 +50,7 @@ func _ready():
 	currentState = State.READY
 	
 	handSpeed = 100
-	killMobTime = 1
+	killMobTime = 2
 	
 	# Tracker settings
 	readyToKill = true
