@@ -15,3 +15,22 @@ Sushi themed tower defense game, coded in Godot
 - [x] Get sushi rolls with health bars
 - [ ] Spruce up main menu, pause, game over, success menus
 - [x] Redo the chopsticks skins
+
+
+# Multiple godot apps to streamline the process
+1. Sushi attack level runner
+2. level creator
+- UI to create levels, returns a json file with the level
+- includes a simple level runner to test the level
+- includes an enemy builder to know the possible enemies that have been created.
+3. Enemy builder
+- Ask for an enemy and it returns it.
+- Also ask for all the options and it returns a string with all the options.
+4. SUSHI ATTACK!
+- level runner
+- a bunch of premade levels from the level creator
+- enemy builder
+- other add ons like the progress and some menus
+- infinite mode
+- level creator? for sharing levels with others
+- connection to internet for sharing levels
