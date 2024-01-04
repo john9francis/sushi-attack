@@ -23,28 +23,28 @@ const base = {
 	"colissionRadius": null
 }
 const maki = {
-	"spriteFrames": preload("res://anims/maki.tres"),
+	"spriteFrames": preload("res://enemy-builder/enemyAnims/maki.tres"),
 	"speed": 2,
 	"health": 5,
 	"reward": 10,
 	"colissionRadius": 40
 }
 const rice_ball = {
-	"spriteFrames": preload("res://anims/rice_ball.tres"),
+	"spriteFrames": preload("res://enemy-builder/enemyAnims/rice_ball.tres"),
 	"speed": 1,
 	"health": 25,
 	"reward": 30,
 	"colissionRadius": 60
 }
 const pink_maki = {
-	"spriteFrames": preload("res://anims/pmaki.tres"),
+	"spriteFrames": preload("res://enemy-builder/enemyAnims/pmaki.tres"),
 	"speed": 5,
 	"health": 5,
 	"reward": 20,
 	"colissionRadius": 30
 }
 const gyoza = {
-	"spriteFrames": preload("res://anims/gyoza.tres"),
+	"spriteFrames": preload("res://enemy-builder/enemyAnims/gyoza.tres"),
 	"speed": 5,
 	"health": 2,
 	"reward": 10,
