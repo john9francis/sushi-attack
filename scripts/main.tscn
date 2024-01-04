@@ -159,7 +159,6 @@ offset_bottom = 411.5
 text = "Tutorial"
 
 [node name="GameOverMenu" type="Panel" parent="Hud"]
-visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -197,7 +196,6 @@ offset_bottom = 484.5
 text = "Reset"
 
 [node name="SuccessMenu" type="Panel" parent="Hud"]
-visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -235,7 +233,6 @@ offset_bottom = 484.5
 text = "Reset"
 
 [node name="TutorialScreen" type="ColorRect" parent="Hud"]
-visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -453,6 +450,7 @@ position = Vector2(658, 795)
 script = ExtResource("8_5euaa")
 
 [node name="Level 2" type="Node2D" parent="LevelDirector/LevelRunner/LevelSetup"]
+visible = false
 
 [node name="Path2D" type="Path2D" parent="LevelDirector/LevelRunner/LevelSetup/Level 2"]
 curve = SubResource("Curve2D_oimvl")
@@ -474,6 +472,39 @@ position = Vector2(662, 764)
 
 [node name="WaveList" parent="LevelDirector/LevelRunner/LevelSetup/Level 2" instance=ExtResource("7_aicbi")]
 script = ExtResource("15_su6re")
+
+[node name="Level 10" type="Node2D" parent="LevelDirector/LevelRunner/LevelSetup"]
+visible = false
+
+[node name="Path2D" type="Path2D" parent="LevelDirector/LevelRunner/LevelSetup/Level 10"]
+curve = SubResource("Curve2D_oimvl")
+
+[node name="towerPlatform8" parent="LevelDirector/LevelRunner/LevelSetup/Level 10" instance=ExtResource("7_nk2cg")]
+position = Vector2(508, 523)
+
+[node name="towerPlatform7" parent="LevelDirector/LevelRunner/LevelSetup/Level 10" instance=ExtResource("7_nk2cg")]
+position = Vector2(358, 302)
+
+[node name="towerPlatform9" parent="LevelDirector/LevelRunner/LevelSetup/Level 10" instance=ExtResource("7_nk2cg")]
+position = Vector2(263, 585)
+
+[node name="towerPlatform10" parent="LevelDirector/LevelRunner/LevelSetup/Level 10" instance=ExtResource("7_nk2cg")]
+position = Vector2(426, 743)
+
+[node name="towerPlatform11" parent="LevelDirector/LevelRunner/LevelSetup/Level 10" instance=ExtResource("7_nk2cg")]
+position = Vector2(662, 764)
+
+[node name="WaveList" parent="LevelDirector/LevelRunner/LevelSetup/Level 10" instance=ExtResource("7_aicbi")]
+script = ExtResource("15_su6re")
+
+[node name="Path2D2" type="Path2D" parent="LevelDirector/LevelRunner/LevelSetup/Level 10"]
+curve = SubResource("Curve2D_so0ni")
+
+[node name="towerPlatform2" parent="LevelDirector/LevelRunner/LevelSetup/Level 10" instance=ExtResource("7_nk2cg")]
+position = Vector2(794, 502)
+
+[node name="towerPlatform3" parent="LevelDirector/LevelRunner/LevelSetup/Level 10" instance=ExtResource("7_nk2cg")]
+position = Vector2(687, 206)
 
 [connection signal="pressed" from="Gui/MainMenu/LevelSelectButton" to="Gui" method="_on_level_select_button_pressed"]
 [connection signal="pressed" from="Gui/LevelSelect/ToMainMenu" to="Gui" method="_on_to_main_menu_pressed"]

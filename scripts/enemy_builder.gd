@@ -4,8 +4,8 @@ extends Node2D
 # complicated. We need an "enemyPathFollow" and an "enemy"
 # as well as setting the enemies speed, health, animation textures, etc. 
 
-@export var enemyScene: PackedScene
-@export var pathFollowScene: PackedScene
+var enemyScene : PackedScene = load("res://scripts/enemy.tscn")
+var pathFollowScene : PackedScene = load("res://scripts/enemy_path_follow.tscn")
 
 var enemy
 var pathFollow
