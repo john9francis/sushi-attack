@@ -1,0 +1,3 @@
+[submodule "sushi-attack-enemy-builder"]
+	path = sushi-attack-enemy-builder
+	url = https://github.com/john9francis/sushi-attack-enemy-builder.git
