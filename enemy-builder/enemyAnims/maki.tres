@@ -1,0 +1,110 @@
+[gd_resource type="SpriteFrames" load_steps=21 format=3 uid="uid://bipa3n0a4lttg"]
+
+[ext_resource type="Texture2D" uid="uid://b65xh5jhvhpit" path="res://enemy-builder/enemyAssets/sushi/maki3_down/sprite_0.png" id="1_thmjw"]
+[ext_resource type="Texture2D" uid="uid://d3yddwdqfalei" path="res://enemy-builder/enemyAssets/sushi/maki3_down/sprite_1.png" id="2_e1efa"]
+[ext_resource type="Texture2D" uid="uid://c0aydxhix2d00" path="res://enemy-builder/enemyAssets/sushi/maki3_down/sprite_2.png" id="3_vqkhe"]
+[ext_resource type="Texture2D" uid="uid://bilyoep5cgsw8" path="res://enemy-builder/enemyAssets/sushi/maki3_down/sprite_3.png" id="4_vgatn"]
+[ext_resource type="Texture2D" uid="uid://cxi1ipm0h5psa" path="res://enemy-builder/enemyAssets/sushi/maki3_right/sprite_0.png" id="5_noxpf"]
+[ext_resource type="Texture2D" uid="uid://csbiklsgbrr11" path="res://enemy-builder/enemyAssets/sushi/maki3_right/sprite_1.png" id="6_6xq51"]
+[ext_resource type="Texture2D" uid="uid://db6asje3wa5uj" path="res://enemy-builder/enemyAssets/sushi/maki3_right/sprite_2.png" id="7_l05te"]
+[ext_resource type="Texture2D" uid="uid://cfcxohjj61gba" path="res://enemy-builder/enemyAssets/sushi/maki3_right/sprite_3.png" id="8_ihrr0"]
+[ext_resource type="Texture2D" uid="uid://5h6ug0jadl4w" path="res://enemy-builder/enemyAssets/sushi/maki3_right_down/sprite_0.png" id="9_aa2ja"]
+[ext_resource type="Texture2D" uid="uid://bcrxr8c5pwmkq" path="res://enemy-builder/enemyAssets/sushi/maki3_right_down/sprite_1.png" id="10_qn0u3"]
+[ext_resource type="Texture2D" uid="uid://tdfbnxajshvq" path="res://enemy-builder/enemyAssets/sushi/maki3_right_down/sprite_2.png" id="11_t2f1h"]
+[ext_resource type="Texture2D" uid="uid://dnr0ywqml058f" path="res://enemy-builder/enemyAssets/sushi/maki3_right_down/sprite_3.png" id="12_lx055"]
+[ext_resource type="Texture2D" uid="uid://vy8lyu6eudqj" path="res://enemy-builder/enemyAssets/sushi/maki3_right_up/sprite_0.png" id="13_atl04"]
+[ext_resource type="Texture2D" uid="uid://b8okbbvuu30ss" path="res://enemy-builder/enemyAssets/sushi/maki3_right_up/sprite_1.png" id="14_4p4ts"]
+[ext_resource type="Texture2D" uid="uid://s25idkwku86e" path="res://enemy-builder/enemyAssets/sushi/maki3_right_up/sprite_2.png" id="15_7nhwp"]
+[ext_resource type="Texture2D" uid="uid://babxed852rk57" path="res://enemy-builder/enemyAssets/sushi/maki3_right_up/sprite_3.png" id="16_uxxiy"]
+[ext_resource type="Texture2D" uid="uid://b7jc16b86cdj" path="res://enemy-builder/enemyAssets/sushi/maki3_up/sprite_0.png" id="17_yfujr"]
+[ext_resource type="Texture2D" uid="uid://c4vm14sp3in4f" path="res://enemy-builder/enemyAssets/sushi/maki3_up/sprite_1.png" id="18_o3wu7"]
+[ext_resource type="Texture2D" uid="uid://b1v6bdf5ejdlh" path="res://enemy-builder/enemyAssets/sushi/maki3_up/sprite_2.png" id="19_5uy8x"]
+[ext_resource type="Texture2D" uid="uid://bn2xop0ygctgy" path="res://enemy-builder/enemyAssets/sushi/maki3_up/sprite_3.png" id="20_fvb22"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_thmjw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_e1efa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_vqkhe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_vgatn")
+}],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_noxpf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_6xq51")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_l05te")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ihrr0")
+}],
+"loop": true,
+"name": &"right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_aa2ja")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_qn0u3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_t2f1h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_lx055")
+}],
+"loop": true,
+"name": &"right-down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_atl04")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_4p4ts")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_7nhwp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_uxxiy")
+}],
+"loop": true,
+"name": &"right-up",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("17_yfujr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_o3wu7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_5uy8x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_fvb22")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}]
