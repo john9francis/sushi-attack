@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bgtvxbdu2qdf0"]
+[gd_scene load_steps=24 format=3 uid="uid://bgtvxbdu2qdf0"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_t84td"]
 [ext_resource type="Script" path="res://scripts/main_gui.gd" id="2_0041v"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://efjisgfp6886" path="res://scripts/level_button.tscn" id="3_0qb3o"]
 [ext_resource type="Script" path="res://scripts/hud_director.gd" id="3_fwk1s"]
 [ext_resource type="Script" path="res://scripts/_level_runner.gd" id="3_w8geg"]
-[ext_resource type="PackedScene" uid="uid://b8p6r7fsli1iy" path="res://scripts/enemy_builder.tscn" id="4_712hn"]
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="4_dl0f3"]
 [ext_resource type="Script" path="res://scripts/level_setup.gd" id="5_5hr1g"]
 [ext_resource type="Script" path="res://scripts/level_camera.gd" id="7_3jyme"]
@@ -414,9 +413,6 @@ one_shot = true
 
 [node name="WaveTimer" type="Timer" parent="LevelDirector/LevelRunner"]
 one_shot = true
-
-[node name="EnemyBuilder" parent="LevelDirector/LevelRunner" instance=ExtResource("4_712hn")]
-visible = false
 
 [node name="LevelSetup" type="Node2D" parent="LevelDirector/LevelRunner"]
 visible = false
