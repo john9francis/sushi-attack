@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://efjisgfp6886" path="res://scripts/level_button.tscn" id="3_0qb3o"]
 [ext_resource type="Script" path="res://scripts/hud_director.gd" id="3_fwk1s"]
 [ext_resource type="Script" path="res://scripts/_level_runner.gd" id="3_w8geg"]
-[ext_resource type="PackedScene" uid="uid://b8p6r7fsli1iy" path="res://scripts/enemy_builder.tscn" id="4_712hn"]
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="4_dl0f3"]
 [ext_resource type="Script" path="res://scripts/level_setup.gd" id="5_5hr1g"]
 [ext_resource type="Script" path="res://scripts/level_camera.gd" id="7_3jyme"]
@@ -21,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://bu2680x812dcl" path="res://Assets/towers/plate.png" id="10_qq6in"]
 [ext_resource type="Texture2D" uid="uid://bysfouiqxjvdh" path="res://Assets/towers/ss_tower/sprite_0.png" id="10_wgjp4"]
 [ext_resource type="Texture2D" uid="uid://c613m2v84hj27" path="res://Assets/table/tablecloth3.png" id="11_xrl6a"]
+[ext_resource type="PackedScene" uid="uid://b8p6r7fsli1iy" path="res://enemy-builder/scripts/enemy_builder.tscn" id="13_qgsu1"]
 [ext_resource type="Script" path="res://scripts/test_wave_list.gd" id="15_su6re"]
 
 [sub_resource type="Curve2D" id="Curve2D_so0ni"]
@@ -415,9 +415,6 @@ one_shot = true
 [node name="WaveTimer" type="Timer" parent="LevelDirector/LevelRunner"]
 one_shot = true
 
-[node name="EnemyBuilder" parent="LevelDirector/LevelRunner" instance=ExtResource("4_712hn")]
-visible = false
-
 [node name="LevelSetup" type="Node2D" parent="LevelDirector/LevelRunner"]
 visible = false
 script = ExtResource("5_5hr1g")
@@ -505,6 +502,8 @@ position = Vector2(794, 502)
 
 [node name="towerPlatform3" parent="LevelDirector/LevelRunner/LevelSetup/Level 10" instance=ExtResource("7_nk2cg")]
 position = Vector2(687, 206)
+
+[node name="EnemyBuilder" parent="LevelDirector/LevelRunner" instance=ExtResource("13_qgsu1")]
 
 [connection signal="pressed" from="Gui/MainMenu/LevelSelectButton" to="Gui" method="_on_level_select_button_pressed"]
 [connection signal="pressed" from="Gui/LevelSelect/ToMainMenu" to="Gui" method="_on_to_main_menu_pressed"]
