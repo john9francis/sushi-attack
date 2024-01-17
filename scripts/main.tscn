@@ -505,6 +505,8 @@ position = Vector2(687, 206)
 
 [node name="EnemyBuilder" parent="LevelDirector/LevelRunner" instance=ExtResource("13_qgsu1")]
 
+[node name="LevelLoader" type="Node" parent="LevelDirector/LevelRunner"]
+
 [connection signal="pressed" from="Gui/MainMenu/LevelSelectButton" to="Gui" method="_on_level_select_button_pressed"]
 [connection signal="pressed" from="Gui/LevelSelect/ToMainMenu" to="Gui" method="_on_to_main_menu_pressed"]
 [connection signal="pressed" from="Hud/Pause" to="Hud" method="_on_pause_pressed"]
