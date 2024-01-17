@@ -21,5 +21,41 @@
 		"(407, 573)",
 		"(575, 726)",
 		"(415, 839)"
-	]
+	],
+  "waves": [
+    [
+      {
+        "enemyName": "gyoza",
+        "amount": 4,
+        "timer": 3
+      },
+      {
+        "enemyName": "maki",
+        "amount": 5,
+        "timer": 2
+      },
+      {
+        "enemyName": "maki",
+        "amount": 5,
+        "timer": 1
+      }
+    ],
+    [
+      {
+        "enemyName": "gyoza",
+        "amount": 4,
+        "timer": 3
+      },
+      {
+        "enemyName": "maki",
+        "amount": 5,
+        "timer": 2
+      },
+      {
+        "enemyName": "maki",
+        "amount": 5,
+        "timer": 1
+      }
+    ]
+  ]
 }
