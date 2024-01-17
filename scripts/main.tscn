@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bgtvxbdu2qdf0"]
+[gd_scene load_steps=26 format=3 uid="uid://bgtvxbdu2qdf0"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_t84td"]
 [ext_resource type="Script" path="res://scripts/main_gui.gd" id="2_0041v"]
@@ -22,6 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://c613m2v84hj27" path="res://Assets/table/tablecloth3.png" id="11_xrl6a"]
 [ext_resource type="PackedScene" uid="uid://b8p6r7fsli1iy" path="res://enemy-builder/scripts/enemy_builder.tscn" id="13_qgsu1"]
 [ext_resource type="Script" path="res://scripts/test_wave_list.gd" id="15_su6re"]
+[ext_resource type="Script" path="res://scripts/level_loader.gd" id="23_c6iee"]
 
 [sub_resource type="Curve2D" id="Curve2D_so0ni"]
 _data = {
@@ -506,6 +507,7 @@ position = Vector2(687, 206)
 [node name="EnemyBuilder" parent="LevelDirector/LevelRunner" instance=ExtResource("13_qgsu1")]
 
 [node name="LevelLoader" type="Node" parent="LevelDirector/LevelRunner"]
+script = ExtResource("23_c6iee")
 
 [connection signal="pressed" from="Gui/MainMenu/LevelSelectButton" to="Gui" method="_on_level_select_button_pressed"]
 [connection signal="pressed" from="Gui/LevelSelect/ToMainMenu" to="Gui" method="_on_to_main_menu_pressed"]
