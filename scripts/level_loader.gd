@@ -45,11 +45,34 @@ func load_level():
 	var levelObject = json.parse_string(levelText)
 	
 	paths = levelObject["paths"]
+	createPathDict(levelObject["paths"])
 	plates = levelObject["plates"]
 	waves = levelObject["waves"]
 	
 	print(paths)
 	
+func createPathDict(pathStrings):
+	var pathDict = {}
+	
+	for key in pathStrings:
+		print(key)
+		print(pathStrings[key])
+		stringListToVecList(pathStrings[key])
+		pass
+	pass
+	
+func stringListToVecList(stringList):
+	var vec_list = []
+	
+	for point_str in stringList:
+		# first, strip the parenthesis and the commas.
+		var coords = point_str.substr(1, point_str.length() - 2).split(",")
+		print(coords)
+		pass
+	pass
+	
+func createPlateList(plateStrings):
+	pass	
 	
 	
 	
