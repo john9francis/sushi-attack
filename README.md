@@ -7,6 +7,7 @@ Sushi themed tower defense game, coded in Godot
 - json for the tower platform positions
 - pic for the background
 - txt/json dialogue for the level
+- json for wave list
 
 # To do for verticle slice (DECEMBER 9):
 - [x] Get the sushi rolls animated, at least 3
