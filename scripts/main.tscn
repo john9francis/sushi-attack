@@ -471,6 +471,33 @@ position = Vector2(662, 764)
 [node name="WaveList" parent="LevelDirector/LevelRunner/LevelSetup/Level 2" instance=ExtResource("7_aicbi")]
 script = ExtResource("15_su6re")
 
+[node name="Level 3" type="Node2D" parent="LevelDirector/LevelRunner/LevelSetup"]
+visible = false
+
+[node name="Path2D" type="Path2D" parent="LevelDirector/LevelRunner/LevelSetup/Level 3"]
+curve = SubResource("Curve2D_so0ni")
+
+[node name="towerPlatform2" parent="LevelDirector/LevelRunner/LevelSetup/Level 3" instance=ExtResource("7_nk2cg")]
+position = Vector2(794, 502)
+
+[node name="towerPlatform3" parent="LevelDirector/LevelRunner/LevelSetup/Level 3" instance=ExtResource("7_nk2cg")]
+position = Vector2(687, 206)
+
+[node name="towerPlatform4" parent="LevelDirector/LevelRunner/LevelSetup/Level 3" instance=ExtResource("7_nk2cg")]
+position = Vector2(339, 563)
+
+[node name="towerPlatform5" parent="LevelDirector/LevelRunner/LevelSetup/Level 3" instance=ExtResource("7_nk2cg")]
+position = Vector2(537, 416)
+
+[node name="towerPlatform6" parent="LevelDirector/LevelRunner/LevelSetup/Level 3" instance=ExtResource("7_nk2cg")]
+position = Vector2(436, 812)
+
+[node name="towerPlatform7" parent="LevelDirector/LevelRunner/LevelSetup/Level 3" instance=ExtResource("7_nk2cg")]
+position = Vector2(658, 795)
+
+[node name="WaveList" parent="LevelDirector/LevelRunner/LevelSetup/Level 3" instance=ExtResource("7_aicbi")]
+script = ExtResource("8_5euaa")
+
 [node name="Level 10" type="Node2D" parent="LevelDirector/LevelRunner/LevelSetup"]
 visible = false
 
