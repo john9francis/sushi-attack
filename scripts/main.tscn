@@ -531,7 +531,7 @@ position = Vector2(794, 502)
 [node name="towerPlatform3" parent="LevelDirector/LevelRunner/LevelSetup/Level 10" instance=ExtResource("7_nk2cg")]
 position = Vector2(687, 206)
 
-[node name="EnemyBuilder" parent="LevelDirector/LevelRunner" instance=ExtResource("13_qgsu1")]
+[node name="EnemyBuilder" parent="LevelDirector/LevelRunner" groups=["EnemyBuilder"] instance=ExtResource("13_qgsu1")]
 
 [node name="LevelLoader" type="Node" parent="LevelDirector/LevelRunner"]
 script = ExtResource("23_c6iee")

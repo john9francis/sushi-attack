@@ -81,6 +81,7 @@ func set_premade_level(premadeLevelName):
 	
 	for path in premadeEnemyPaths:
 		var p = Path2D.new()
+		p.name = "Path"
 		
 		var c = path.get_curve()
 		p.set_curve(c)
