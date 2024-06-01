@@ -218,7 +218,7 @@ func _on_hand_area_area_entered(area):
 		# make it so the more health enemies have the longer it takes
 		var additionalTime = killMobTime * area.get_current_health()
 				
-		area.myPathFollow.queue_free()
+		area.kill()
 		readyToKill = false
 		
 		$KillMobTimer.start(additionalTime)
