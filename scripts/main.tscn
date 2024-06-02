@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://bgtvxbdu2qdf0"]
+[gd_scene load_steps=28 format=3 uid="uid://bgtvxbdu2qdf0"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_t84td"]
 [ext_resource type="Script" path="res://scripts/main_gui.gd" id="2_0041v"]
@@ -24,6 +24,7 @@
 [ext_resource type="Script" path="res://scripts/test_wave_list.gd" id="15_su6re"]
 [ext_resource type="Script" path="res://scripts/wave_list_level3.gd" id="22_nt4w6"]
 [ext_resource type="Script" path="res://scripts/level_loader.gd" id="23_c6iee"]
+[ext_resource type="Script" path="res://scripts/file_level_setup.gd" id="25_mv6ti"]
 
 [sub_resource type="Curve2D" id="Curve2D_so0ni"]
 _data = {
@@ -536,6 +537,9 @@ position = Vector2(687, 206)
 
 [node name="LevelLoader" type="Node" parent="LevelDirector/LevelRunner"]
 script = ExtResource("23_c6iee")
+
+[node name="FileLevelSetup" type="Node" parent="LevelDirector/LevelRunner"]
+script = ExtResource("25_mv6ti")
 
 [connection signal="pressed" from="Gui/MainMenu/LevelSelectButton" to="Gui" method="_on_level_select_button_pressed"]
 [connection signal="pressed" from="Gui/LevelSelect/ToMainMenu" to="Gui" method="_on_to_main_menu_pressed"]
