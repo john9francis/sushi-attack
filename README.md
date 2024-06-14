@@ -2,12 +2,27 @@
 Sushi themed tower defense game, coded in Godot
 
 # Todo June 2024
-- Get levels loading from a level folder
+1. Get levels loading from json
 - json for the path
 - json for the tower platform positions
 - pic for the background
 - txt/json dialogue for the level
 - json for wave list
+
+2. Create a dialogue engine
+- plays at the beginning of every level
+
+3. Create an achievements engine
+
+4. Add to the menu a way to se
+
+5. Add music and sound effects
+
+6. Add a bunch more enemies
+
+7. Add an infinite mode
+
+8. Option: add plates and sriracha
 
 # To do for verticle slice (DECEMBER 9):
 - [x] Get the sushi rolls animated, at least 3
