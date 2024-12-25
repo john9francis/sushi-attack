@@ -1,0 +1,110 @@
+[gd_resource type="SpriteFrames" load_steps=21 format=3 uid="uid://bea7gusfckta1"]
+
+[ext_resource type="Texture2D" uid="uid://cfkv30an5dydw" path="res://enemy-builder/enemyAssets/sushi/rice_ball_down/sprite_0.png" id="1_q5lww"]
+[ext_resource type="Texture2D" uid="uid://uwe0xytjrotg" path="res://enemy-builder/enemyAssets/sushi/rice_ball_down/sprite_1.png" id="2_3hhq8"]
+[ext_resource type="Texture2D" uid="uid://b11mfn8ciyio0" path="res://enemy-builder/enemyAssets/sushi/rice_ball_down/sprite_2.png" id="3_bese8"]
+[ext_resource type="Texture2D" uid="uid://bby1tu815shsw" path="res://enemy-builder/enemyAssets/sushi/rice_ball_down/sprite_3.png" id="4_wc5ba"]
+[ext_resource type="Texture2D" uid="uid://b688p21otqlj2" path="res://enemy-builder/enemyAssets/sushi/rice_ball_right2/sprite_0.png" id="5_j3feb"]
+[ext_resource type="Texture2D" uid="uid://i63jr2ngcvg0" path="res://enemy-builder/enemyAssets/sushi/rice_ball_right2/sprite_1.png" id="6_5iyww"]
+[ext_resource type="Texture2D" uid="uid://cwoh4ceng26qw" path="res://enemy-builder/enemyAssets/sushi/rice_ball_right2/sprite_2.png" id="7_k1o0x"]
+[ext_resource type="Texture2D" uid="uid://b5n5jdjfgmgb1" path="res://enemy-builder/enemyAssets/sushi/rice_ball_right2/sprite_3.png" id="8_bqiju"]
+[ext_resource type="Texture2D" uid="uid://ccjncrb82ptcm" path="res://enemy-builder/enemyAssets/sushi/rice_ball_right_down/sprite_0.png" id="9_vb6pu"]
+[ext_resource type="Texture2D" uid="uid://ct1u7xlpjbsdd" path="res://enemy-builder/enemyAssets/sushi/rice_ball_right_down/sprite_1.png" id="10_w5w2h"]
+[ext_resource type="Texture2D" uid="uid://bt70qi8o30cnn" path="res://enemy-builder/enemyAssets/sushi/rice_ball_right_down/sprite_2.png" id="11_5jms8"]
+[ext_resource type="Texture2D" uid="uid://duhsi3dwhx5lg" path="res://enemy-builder/enemyAssets/sushi/rice_ball_right_down/sprite_3.png" id="12_5r2pn"]
+[ext_resource type="Texture2D" uid="uid://bpp3syiullxps" path="res://enemy-builder/enemyAssets/sushi/rice_ball_right_up/sprite_0.png" id="13_m0rf0"]
+[ext_resource type="Texture2D" uid="uid://bctr6h6h27no8" path="res://enemy-builder/enemyAssets/sushi/rice_ball_right_up/sprite_1.png" id="14_sov7k"]
+[ext_resource type="Texture2D" uid="uid://dsbgjvem2f1kt" path="res://enemy-builder/enemyAssets/sushi/rice_ball_right_up/sprite_2.png" id="15_qchaq"]
+[ext_resource type="Texture2D" uid="uid://cx5kw4cqlv162" path="res://enemy-builder/enemyAssets/sushi/rice_ball_right_up/sprite_3.png" id="16_anjpo"]
+[ext_resource type="Texture2D" uid="uid://bkw6ds0eimcvq" path="res://enemy-builder/enemyAssets/sushi/rice_ball_up/sprite_0.png" id="17_tmlnh"]
+[ext_resource type="Texture2D" uid="uid://dojt56s220xt4" path="res://enemy-builder/enemyAssets/sushi/rice_ball_up/sprite_1.png" id="18_g2i87"]
+[ext_resource type="Texture2D" uid="uid://0r2kedqe5ada" path="res://enemy-builder/enemyAssets/sushi/rice_ball_up/sprite_2.png" id="19_2sg5p"]
+[ext_resource type="Texture2D" uid="uid://dnypgu6a4hyto" path="res://enemy-builder/enemyAssets/sushi/rice_ball_up/sprite_3.png" id="20_oien4"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_q5lww")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_3hhq8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_bese8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_wc5ba")
+}],
+"loop": true,
+"name": &"down",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_j3feb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_5iyww")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_k1o0x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_bqiju")
+}],
+"loop": true,
+"name": &"right",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_vb6pu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_w5w2h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_5jms8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_5r2pn")
+}],
+"loop": true,
+"name": &"right-down",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_m0rf0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_sov7k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_qchaq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_anjpo")
+}],
+"loop": true,
+"name": &"right-up",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("17_tmlnh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_g2i87")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_2sg5p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_oien4")
+}],
+"loop": true,
+"name": &"up",
+"speed": 3.0
+}]

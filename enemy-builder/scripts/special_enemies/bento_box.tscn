@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bduxqa7mh04ly"]
+
+[ext_resource type="Script" path="res://enemy-builder/scripts/special_enemies/bento-box.gd" id="1_vhagx"]
+
+[node name="Bento-Box" type="Node"]
+script = ExtResource("1_vhagx")

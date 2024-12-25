@@ -1,0 +1,26 @@
+[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://cknfatqaosxgn"]
+
+[ext_resource type="Texture2D" uid="uid://bnb754oa5hlra" path="res://enemy-builder/enemyAssets/special/debug/sprite_0.png" id="1_ureng"]
+[ext_resource type="Texture2D" uid="uid://psi4wr3xuva3" path="res://enemy-builder/enemyAssets/special/debug/sprite_1.png" id="2_nx6x3"]
+[ext_resource type="Texture2D" uid="uid://d0iar2uv5nomc" path="res://enemy-builder/enemyAssets/special/debug/sprite_2.png" id="3_qeqp7"]
+[ext_resource type="Texture2D" uid="uid://biijeoqa5n7ga" path="res://enemy-builder/enemyAssets/special/debug/sprite_3.png" id="4_ex2r4"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ureng")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_nx6x3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_qeqp7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ex2r4")
+}],
+"loop": true,
+"name": &"right-down",
+"speed": 5.0
+}]
